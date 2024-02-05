@@ -8,7 +8,7 @@ summary: Microsoft SQL Server on ONTAP
 :imagesdir: ../media/
 
 [.lead]
-The following sections explain some of the critical memory configuration settings.
+Configure SQL server memory settings for better performance and memory management 
 
 == Max server memory
 

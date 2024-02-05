@@ -8,7 +8,7 @@ summary: Microsoft SQL Server on ONTAP
 :imagesdir: ../media/
 
 [.lead]
-Multiple SQL Server instances or a single SQL instance can be installed on a server. Based on environment, choose the deployment model that meet business need.
+Multiple SQL Server instances or a single SQL instance can be installed on a server. Based on environment wether it is a production or test server and its critically, choose the deployment model that meet business need.
 
 Instance resources could potentially become divided or locked, which in turn causes performance issues for other apps that have databases hosted on the shared SQL Server instance.
 

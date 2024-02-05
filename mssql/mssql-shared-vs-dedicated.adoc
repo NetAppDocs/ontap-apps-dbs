@@ -8,7 +8,7 @@ summary: Microsoft SQL Server on ONTAP
 :imagesdir: ../media/
 
 [.lead]
-Having dedicated SQL Server instance running on a server can help you to achieve consistent performance.
+Multiple SQL Server instances or a single SQL instance can be installed on a server. Based on environment, choose the deployment model that meet business need.
 
 Instance resources could potentially become divided or locked, which in turn causes performance issues for other apps that have databases hosted on the shared SQL Server instance.
 

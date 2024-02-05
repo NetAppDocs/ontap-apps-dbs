@@ -13,8 +13,6 @@ NetApp ONTAP and Microsoft SQL Server helps to deliver enterprise-class secured 
 [NOTE]
 This documentation replaces the previously published technical report _TR-4590: Best practice guide for Microsoft SQL Server with ONTAP_
 
-Microsoft SQL Server is the foundation of Microsoft's data platform providing breakthrough performance, availability, and manageability for mission-critical applications and ONTAP system is a key factor in the overall performance of a SQL Server database. .
-
 To achieve effective and efficient storage deployment, end-to-end data protection, retention planning on NetApp storage and insight into design considerations for deploying SQL Server databases there are few clear best practices for configuring SQL Server on ONTAP. This enable SQL Server architects and NetApp storage administrators to plan a highly available and easy-to-manage SQL Server environment and to meet stringent SLAs. NetApp assumes that the reader has working knowledge of the following: 
 
 * NetApp ONTAP software

@@ -8,7 +8,7 @@ summary: Microsoft SQL Server on ONTAP
 :imagesdir: ../media/
 
 [.lead]
-If an application has many schemas and stored procedures, it could potentially affect other apps that share a SQL Server instance.
+Having dedicated SQL Server instance running on a server can help you to achieve consistent performance.
 
 Instance resources could potentially become divided or locked, which in turn causes performance issues for other apps that have databases hosted on the shared SQL Server instance.
 

@@ -8,7 +8,7 @@ summary: Microsoft SQL Server on ONTAP
 :imagesdir: ../media/
 
 [.lead]
-Modifying server and database settings can help achieve better and more efficient database performance.change1
+To improve query performance,  configure server  and SQL Server settings to use appropriate number of processor for execution.
 
 == Hyperthreading
 Hyperthreading is Intel's proprietary simultaneous multithreading (SMT) implementation, which improves parallelization of computations (multitasking) performed on x86 microprocessors.

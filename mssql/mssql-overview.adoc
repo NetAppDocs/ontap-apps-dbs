@@ -25,7 +25,7 @@ The scope of this best practices is limited to technical design based on the des
 
 For configuration compatibility across the NetApp products, see the link:https://mysupport.netapp.com/matrix/[NetApp Interoperability Matrix Tool (IMT)^].
 
-== Microsoft SQL Server workload
+== Microsoft SQL Server workloads
 
 Before deploying SQL Server, you must understand the database workload requirements of the applications that your SQL Server instances support. Each application has different requirements for capacity, performance, and availability, and therefore each database should be designed to optimally support those requirements. Many organizations classify databases into multiple management tiers, using application requirements to define SLAs. SQL Server workloads can be described as follows:
 

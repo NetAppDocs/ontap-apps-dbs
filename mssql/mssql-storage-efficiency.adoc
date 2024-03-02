@@ -1,14 +1,14 @@
 ---
 sidebar: sidebar
 permalink: mssql/mssql-storage-efficiency.html
-keywords: MS-SQL,mssql,SQL Server
+keywords: MS-SQL,mssql,SQL Server, efficiency, compression, deduplication
 summary: Microsoft SQL Server on ONTAP
 ---
 = ONTAP Storage efficiency with Microsoft SQL Server
 :imagesdir: ../media/
 
 [.lead]
-Storage efficiency is the ability to store and manage SQL Server data in a way that consumes the least amount of storage space with little or no effect on the overall performance of the system. 
+ONTAP storage efficiency are optimized to store and manage SQL Server data in a way that consumes the least amount of storage space with little or no effect on the overall performance of the system. 
 
 Storage efficiency is a combination of RAID, provisioning (overall layout and utilization), mirroring, and other data protection technologies. NetApp technologies like Snapshot copies, Thin provisioning,  FlexClone helps in creating cost benefits by optimizing existing storage in the infrastructure and deferring or avoiding future storage expenditures. The more you use these technologies together, the larger the savings.
 

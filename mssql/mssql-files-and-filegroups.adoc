@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: mssql/mssql-files-and-filegroups.html
-keywords: MS-SQL,SQL Server, backup, data file placement 
+keywords: MS-SQL,SQL Server, backup, data file management 
 summary: Microsoft SQL Server file placement on ONTAP
 ---
 = Microsoft SQL Server database files and filegroups

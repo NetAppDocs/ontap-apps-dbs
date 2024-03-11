@@ -18,7 +18,7 @@ Use FlexGroup volumes with vSphere for a simple and scalable vSphere datastore w
 ONTAP 9.8 added support for FlexGroup datastores in vSphere, along with the ONTAP tools for VMware vSphere 9.8 release. FlexGroup volumes simplify the creation of large datastores and automatically create the necessary distributed constituent volumes to get maximum performance from an ONTAP system. You can learn more about FlexGroup volumes in https://docs.netapp.com/us-en/ontap-technical-reports/nas-containers.html[FlexCache and FlexGroup volume technical reports].
 
 = Copy offload
-In addition to extensive system testing with vSphere workloads, ONTAP 9.8 also added a new copy offload mechanism for FlexGroup datastores. This uses an improved copy engine to copy files between constituents in the background while allowing access on both source and destination. Multiple copies use instantly available, space-efficient file clones within a constituent when needed based on scale.
+In addition to extensive system testing with vSphere workloads, ONTAP 9.8 added a new copy offload mechanism for FlexGroup datastores. This new system uses an improved copy engine to replicate files between constituents in the background while allowing access to both source and destination. Multiple copies use instantly available, space-efficient file clones within a constituent when needed based on scale.
 
 To enable FlexGroup optimized copy offload, refer to https://kb.netapp.com/onprem/ontap/dm/VAAI/How_to_Configure_ONTAP_FlexGroups_to_allow_VAAI_copy_offload[How to Configure ONTAP FlexGroups to allow VAAI copy offload]
 

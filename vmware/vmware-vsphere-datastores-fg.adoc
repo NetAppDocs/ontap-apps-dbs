@@ -13,9 +13,20 @@ summary: This page describes the best practices for implementing a NetApp ONTAP 
 :imagesdir: ../media/
 
 [.lead]
-ONTAP 9.8 adds support for FlexGroup volume datastores in vSphere, along with support with ONTAP tools for VMware vSphere and SnapCenter plugin for VMware vSphere. FlexGroup simplifies the creation of large datastores and automatically creates a number of constituent volumes to get maximum performance from an ONTAP system. Use FlexGroup with vSphere if you require a single, scalable vSphere datastore with the power of a full ONTAP cluster, or if you have very large cloning workloads that can benefit from the new FlexGroup cloning mechanism.
+Use FlexGroup volumes with vSphere for a simple and scalable vSphere datastore with the power of a full ONTAP cluster behind it.
 
-In addition to extensive system testing with vSphere workloads, ONTAP 9.8 also adds a new copy offload mechanism for FlexGroup datastores. This uses an updated copy engine that uses the first few clones to populate a local cache in each constituent volume. This local cache is then used to rapidly instantiate VM clones on demand.
+ONTAP 9.8, along with the ONTAP tools for VMware vSphere 9.8 and SnapCenter plugin for VMware 4.4 releases added support for the use of FlexGroup volume-backed datastores in vSphere. FlexGroup volumes simplify the creation of large datastores and automatically create the necessary distributed constituent volumes across the ONTAP cluster to get the maximum performance from an ONTAP system.
+
+You can learn more about FlexGroup volumes in https://docs.netapp.com/us-en/ontap-technical-reports/nas-containers.html[FlexCache and FlexGroup volume technical reports].
+
+Use FlexGroup volumes with vSphere if you require a single, scalable vSphere datastore with the power of a full ONTAP cluster, or if you have very large cloning workloads that can benefit from the new FlexGroup cloning mechanism.
+
+= Copy offload
+In addition to extensive system testing with vSphere workloads, ONTAP 9.8 added a new copy offload mechanism for FlexGroup datastores. This new system uses an improved copy engine to replicate files between constituents in the background while allowing access to both source and destination. This local cache is then used to rapidly instantiate VM clones on demand.
+
+To enable FlexGroup optimized copy offload, refer to https://kb.netapp.com/onprem/ontap/dm/VAAI/How_to_Configure_ONTAP_FlexGroups_to_allow_VAAI_copy_offload[How to Configure ONTAP FlexGroups to allow VAAI copy offload]
+
+You may find that if you use VAAI cloning, but do not clone enough to keep the cache warm, your clones may be no faster than a host-based copy. If that is the case you may tune the cache timeout to better suit your needs.
 
 Consider the following scenario:
 
@@ -30,9 +41,17 @@ In environments where you are not able to take full advantage of the FlexGroup c
 
 For more information on using FlexGroups with VAAI, refer to this KB article: https://kb.netapp.com/?title=onprem%2Fontap%2Fdm%2FVAAI%2FVAAI%3A_How_does_caching_work_with_FlexGroups%253F[VAAI: How does caching work with FlexGroup volumes?^]
 
-ONTAP 9.8 also adds new file-based performance metrics (IOPS, throughput, and latency) for FlexGroup volume files, and these metrics can be viewed in the ONTAP tools for VMware vSphere dashboard and VM reports. The ONTAP tools for VMware vSphere plug-in also allows you to set Quality of Service (QoS) rules using a combination of maximum and/or minimum IOPS. These can be set across all VMs in a datastore or individually for specific VMs.
+Note that if the source of a cached VM template is updated, it will flush the cache of that VM to avoid cloning from stale data. This will require you to repopulate the cache for each volume. Meaning, the first x number of clones (where x=the number of constituent volumes) will be a full copy. After that, as long as the cache doesn't timeout, your clones will be extremely fast.
 
-Here are some additional best practices that NetApp has developed:
+= QoS settings
+
+QoS (max/min IOPS) can be set on individual VMs or on all VMs in a datastore at that time in the vCenter UI or via REST APIs by using ONTAP tools. Setting QoS on all VMs replaces any separate per-VM settings. Settings do not extend to new or migrated VMs in the future; either set QoS on the new VMs or re-apply QoS to all VMs in the datastore. Note that VMware vSphere treats all IO for an NFS datastore as a single queue per host, and QoS throttling on one VM can impact performance for other VMs in the same datastore.
+
+= Metrics
+
+ONTAP 9.8 also added new file-based performance metrics (IOPS, throughput, and latency) for FlexGroup files, and these metrics can be viewed in the ONTAP tools for VMware vSphere dashboard and VM reports. The ONTAP tools for VMware vSphere plug-in also allows you to set Quality of Service (QoS) rules using a combination of maximum and/or minimum IOPS. These can be set across all VMs in a datastore or individually for specific VMs.
+
+= Best practices
 
 * Use FlexGroup volume provisioning defaults. While ONTAP tools for VMware vSphere is recommended because it creates and mounts the FlexGroup within vSphere, ONTAP System Manager or the command line might be used for special needs. Even then, use the defaults such as the number of constituent members per node because this is what has been most thoroughly tested with vSphere. That being said, non-default settings such as changing the number or placement of constituents is still full supported.
 * When sizing a FlexGroup based datastore, keep in mind that the FlexGroup consists of multiple smaller FlexVol volumes that create a larger namespace. As such, when using a FlexGroup with eight constituents, be sure and size the datastore to be at least 8x the size of your largest virtual machine. For example, if you have a 6TB VM in your environment, size the FlexGroup datastore no smaller than 48TB.

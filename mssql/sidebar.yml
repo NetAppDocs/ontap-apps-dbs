@@ -3,8 +3,6 @@ title: Microsoft SQL Server
 entries:
   - title: Overview
     url: /mssql/mssql-overview.html
-  - title: Workloads
-    url: /mssql/mssql-workloads.html
   - title: Database configuration
     pdf-filename: Database configuration for Microsoft SQL Server
     entries:

@@ -1,14 +1,14 @@
 ---
 sidebar: sidebar
 permalink: mssql/mssql-storage-considerations.html
-keywords: MS-SQL,mssql,SQL Server
-summary: Microsoft SQL Server on ONTAP
+keywords: MS-SQL,mssql,SQL Server, volumes, LUN, SnapCenter, log directory
+summary: Microsoft SQL Server  storage consideration on ONTAP
 ---
 = Microsoft SQL Server storage considerations
 :imagesdir: ../media/
 
 [.lead]
-The combination of NetApp storage solutions and Microsoft SQL Server enables the creation of enterprise-level database storage designs that can meet today's most demanding application requirements. 
+The combination of NetApp ONTAP storage solutions and Microsoft SQL Server enables the creation of enterprise-level database storage designs that can meet today's most demanding application requirements. 
 
 To optimize both technologies, it is vital to understand the SQL Server I/O pattern and characteristics. A well-designed storage layout for a SQL Server database supports the performance of SQL Server and the management of the SQL Server infrastructure. A good storage layout also allows the initial deployment to be successful and the environment to grow smoothly over time as the business grows.
 

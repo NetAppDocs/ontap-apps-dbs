@@ -12,13 +12,21 @@ ONTAP storage efficiency are optimized to store and manage SQL Server data in a 
 
 Storage efficiency is a combination of RAID, provisioning (overall layout and utilization), mirroring, and other data protection technologies. NetApp technologies like Snapshot copies, Thin provisioning,  FlexClone helps in creating cost benefits by optimizing existing storage in the infrastructure and deferring or avoiding future storage expenditures. The more you use these technologies together, the larger the savings.
 
-== Thin provisioning
-
-include::../_include/thin-provisioning.adoc[]
-
-== Efficiency
-
 include::../_include/efficiency.adoc[]
+
+include::../_include/compression.adoc[]
+
+include::../_include/compaction.adoc[]
+
+include::../_include/tsse.adoc[]
+
+include::../_include/deduplication.adoc[]
+
+include::../_include/efficiency-and-thin-provisioning.adoc[]
+
+include::../_include/efficiency-bp.adoc[]
+
+== Database compression
 
 SQL Server also have feature to compress and efficiently manage data. SQL Server currently supports two types of data compression: row compression and page compression. 
 

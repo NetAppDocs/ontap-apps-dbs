@@ -2,9 +2,9 @@
 sidebar: sidebar
 permalink: mssql/mssql-data-protection.html
 keywords: MS-SQL,mssql,SQL Server, SnapCenter, data protection, app-consistent backup
-summary: Microsoft SQL Server data protection with ONTAP
+summary: Protect Microsoft SQL Server databases using NetApp management software and T-SQL commands.
 ---
-= Microsoft SQL Server data protection with ONTAP
+= Microsoft SQL Server data protection with NetApp management software
 :imagesdir: ../media/
 
 [.lead]

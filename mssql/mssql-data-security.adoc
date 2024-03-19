@@ -1,13 +1,13 @@
 ---
 sidebar: sidebar
 permalink: mssql/mssql-data-security.html
-keywords: MS-SQL,mssql,SQL Server, securing databases, security, snaplock, multiadmin verification
-summary: Microsoft SQL Server data security on ONTAP
+keywords: MSSQL,SQL Server, securing databases, security, snaplock, multiadmin verification, backup, tamperproof snapshots
+summary: Securing Microsoft SQL Server database on ONTAP
 ---
-= Database security
+=  Securing SQL Server database on ONTAP
 :imagesdir: ../media/
 
 [.lead]
-Securing a database environment is a multdimensional effort that goes beyond managing the database itself. NetApp ONTAP offers several unique features designed to secure the storage aspect of your database infrastructure.
+Securing SQL Server database environment is a multdimensional effort that goes beyond managing the database itself. NetApp ONTAP offers several unique features designed to secure the storage aspect of your database infrastructure.
 
 include::../_include/security-features.adoc[]

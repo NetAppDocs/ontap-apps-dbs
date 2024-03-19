@@ -1,14 +1,14 @@
 ---
 sidebar: sidebar
 permalink: mssql/mssql-files-and-filegroups.html
-keywords: MS-SQL,SQL Server, backup, recovery, data file management 
+keywords: MSSQL,SQL Server, backup, recovery, data file management 
 summary: Microsoft SQL Server file placement on ONTAP
 ---
 = Microsoft SQL Server database files and filegroups
 :imagesdir: ../media/
 
 [.lead]
-Designing database file placement on ONTAP is important during initial deployment stage. This helps in performance, space management, backup and restore time based on your business need.
+Designing SQL Server database file placement on ONTAP is important during initial deployment stage. This helps in performance, space management, backup and restore time based on your business need.
 
 In theory, SQL Server (64-bit) supports 32,767 databases per instance and 524,272TB of database size, although the typical installation usually has several databases. However, the number of the databases SQL Server can handle depends on the load and hardware. It is not unusual to see SQL Server instances hosting dozens, hundreds, or even thousands of small databases.
 

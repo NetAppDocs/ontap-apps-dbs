@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
 permalink: mssql/mssql-cpu-configuration.html
-keywords: MSSQL,SQL Server
-summary: Microsoft SQL Server on ONTAP
+keywords: MSSQL,SQL Server, CPU
+summary: Microsoft SQL Server CPU configuration
 ---
 = Microsoft SQL Server CPU configuration
 :imagesdir: ../media/

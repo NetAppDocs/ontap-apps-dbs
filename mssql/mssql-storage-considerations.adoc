@@ -4,7 +4,7 @@ permalink: mssql/mssql-storage-considerations.html
 keywords: MS-SQL,mssql,SQL Server, volumes, LUN, SnapCenter, log directory
 summary: Microsoft SQL Server  storage consideration on ONTAP
 ---
-= Microsoft SQL Server storage considerations
+= Microsoft SQL Server storage considerations on ONTAP
 :imagesdir: ../media/
 
 [.lead]

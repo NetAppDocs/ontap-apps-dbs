@@ -8,12 +8,12 @@ summary: Protect Microsoft SQL Server databases on ONTAP using NetApp management
 :imagesdir: ../media/
 
 [.lead]
-Protecting database is critical to any organization. As data size and count of databases have increased, maintaining recovery time objective (RTO) and recovery point objective (RPO) is very crucial. Using ONTAP value feature such as Snapshot along with manageability tool NetApp SnapCenter helps with instant application consistent backup. 
+Planning database backup is based on business requirement. Combining ONTAP's NetApp Snapshot technology and leveraging Microsoft SQL Server API's, you can quickly take application consistent backup irrespective of size of user databases.NetApp helps in simplifying the process by using manageability software NetApp SnapCenter.
 
 == SnapCenter
-SnapCenter is the NetApp data protection software for enterprise applications.SQL Server databases can be quickly and easily protected using NetApp SnapCenter software with the Plug-in for SQL Server and the Plug-in for Microsoft Windows.
+SnapCenter is the NetApp data protection software for enterprise applications.SQL Server databases can be quickly and easily protected with the SnapCenter Plug-in for SQL Server and the SnapCenter Plug-in for Microsoft Windows.
 
-SQL Server instance can be a standalone setup, failover cluster instance or it can be always on availability group, from single-pane-of-glass, databases can be protected,cloned and restored from primary or secondary copy running across hybrid cloud environment 
+SQL Server instance can be a standalone setup, failover cluster instance or it can be always on availability group, from single-pane-of-glass, databases can be protected,cloned and restored from primary or secondary copy running across hybrid cloud environment.Database copy can be created in few minutes on same or alternate host which can be used for development or for reporting purpose. 
 
 [TIP]
 *NetApp recommends* using SnapCenter to create Snapshot copies. 

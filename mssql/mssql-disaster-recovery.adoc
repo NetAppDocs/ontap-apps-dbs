@@ -8,7 +8,7 @@ summary: Microsoft SQL Server disaster recovery with ONTAP
 :imagesdir: ../media/
 
 [.lead]
-All enterprise databases and application infrastructure are setup with replication feature to protect from natural disaster or unexpected business disruption with minimal downtime. 
+Enterprise databases and application infrastructure are setup with replication feature to protect from natural disaster or unexpected business disruption with minimal downtime. 
 
 Instead of using SQL Server always on availability group or replication feature, you might want to consider ONTAP replication technology NetApp SnapMirror technology to replicate data at storage layer for disaster recovery solution. 
 

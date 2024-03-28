@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
 permalink: vmware/vmware-vsphere-datastores-fg.html
-keywords: vSphere, datastore, VMFS, FC, FCoE, NVMe/FC, iSCSI, NFS, vVols
-summary: This page describes the best practices for implementing a ONTAP storage solution in a VMware vSphere environment.
+keywords: vSphere, datastore, NFS, nconnect, FlexGroup, session trunking
+summary: This page describes the best practices for implementing ONTAP FlexGroup volumes in a VMware vSphere environment.
 ---
 
 = FlexGroup volumes
@@ -13,11 +13,11 @@ summary: This page describes the best practices for implementing a ONTAP storage
 :imagesdir: ../media/
 
 [.lead]
-Use FlexGroup volumes with vSphere for a simple and scalable vSphere datastore with the power of a full ONTAP cluster behind it.
+Use ONTAP and FlexGroup volumes with VMware vSphere for simple and scalable datastores that leverage the full power of an entire ONTAP cluster.
 
-ONTAP 9.8, along with the ONTAP tools for VMware vSphere 9.8 and SnapCenter plugin for VMware 4.4 releases added support for the use of FlexGroup volume-backed datastores in vSphere. FlexGroup volumes simplify the creation of large datastores and automatically create the necessary distributed constituent volumes across the ONTAP cluster to get the maximum performance from an ONTAP system.
+ONTAP 9.8, along with the ONTAP tools for VMware vSphere 9.8 and SnapCenter plugin for VMware 4.4 releases added support for FlexGroup volume-backed datastores in vSphere. FlexGroup volumes simplify the creation of large datastores and automatically create the necessary distributed constituent volumes across the ONTAP cluster to get the maximum performance from an ONTAP system.
 
-You can learn more about FlexGroup volumes in https://docs.netapp.com/us-en/ontap-technical-reports/nas-containers.html[FlexCache and FlexGroup volume technical reports].
+Learn more about FlexGroup volumes in https://docs.netapp.com/us-en/ontap-technical-reports/nas-containers.html[FlexCache and FlexGroup volume technical reports].
 
 Use FlexGroup volumes with vSphere if you require a single, scalable vSphere datastore with the power of a full ONTAP cluster, or if you have very large cloning workloads that can benefit from the new FlexGroup cloning mechanism.
 

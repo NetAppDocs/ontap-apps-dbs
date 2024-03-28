@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: vmware/vmware-vsphere-overview.html
 keywords: introduction, unified storage, virtual volumes, storage efficiency, hybrid cloud
-summary: NetApp ONTAP software has been a leading storage solution for VMware vSphere environments for almost two decades and continues to add innovative capabilities to simplify management while reducing costs. This document introduces the ONTAP solution for vSphere, including the latest product information and best practices, to streamline deployment, reduce risk, and simplify management.
+summary: ONTAP has been a leading storage solution for VMware vSphere environments for almost two decades and continues to add innovative capabilities to simplify management while reducing costs. This document introduces the ONTAP solution for vSphere, including the latest product information and best practices, to streamline deployment, reduce risk, and simplify management.
 ---
 = VMware vSphere with ONTAP
 :hardbreaks:
@@ -12,7 +12,7 @@ summary: NetApp ONTAP software has been a leading storage solution for VMware vS
 :imagesdir: ../media/
 
 [.lead]
-NetApp ONTAP software has been a leading storage solution for VMware vSphere environments for almost two decades and continues to add innovative capabilities to simplify management while reducing costs. This document introduces the ONTAP solution for vSphere, including the latest product information and best practices, to streamline deployment, reduce risk, and simplify management.
+ONTAP has been a leading storage solution for VMware vSphere environments for almost two decades and continues to add innovative capabilities to simplify management while reducing costs. This document introduces the ONTAP solution for vSphere, including the latest product information and best practices, to streamline deployment, reduce risk, and simplify management.
 
 [NOTE]
 This documentation replaces previously published technical reports _TR-4597: VMware vSphere for ONTAP_

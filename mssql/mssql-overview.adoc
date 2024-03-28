@@ -1,27 +1,27 @@
 ---
 sidebar: sidebar
 permalink: mssql/mssql-overview.html
-keywords: MS-SQL,mssql,SQL Server,TR-4590, SnapCenter
+keywords: MSSQL,SQL Server,TR-4590, SnapCenter, ONTAP
 summary: Microsoft SQL Server on ONTAP
 ---
 = Microsoft SQL Server on ONTAP
 :imagesdir: ../media/
 
 [.lead]
-NetApp ONTAP and Microsoft SQL Server helps to deliver enterprise-class secured and performant solution while providing world-class tools to manage your environment. ONTAP's several features and capabilities help in optimizing operations and realize the power of your data on the premises or in the cloud.
+ONTAP delivers an enterprise-class security and performance solution for your Microsoft SQL Server databases while also providing world-class tools to manage your environment. 
 
 [NOTE]
 This documentation replaces the previously published technical report _TR-4590: Best practice guide for Microsoft SQL Server with ONTAP_
 
-To achieve effective and efficient storage deployment, end-to-end data protection, retention planning on NetApp storage and insight into design considerations for deploying SQL Server databases there are few clear best practices for configuring SQL Server on ONTAP. This enable SQL Server architects and NetApp storage administrators to plan a highly available and easy-to-manage SQL Server environment and to meet stringent SLAs. NetApp assumes that the reader has working knowledge of the following: 
+NetApp assumes that the reader has working knowledge of the following: 
 
-* NetApp ONTAP software
+* ONTAP software
 * NetApp SnapCenter as backup software, which includes:
     - SnapCenter Plug-in for Microsoft Windows
     - SnapCenter Plug-in for SQL Server
 * Microsoft SQL Server architecture and administration 
 
-The scope of this best practices is limited to technical design based on the design principles and preferred standards that NetApp recommends for storage infrastructure. The end-to-end implementation is out of the scope. 
+The scope of this best practices section is limited to technical design based on the design principles and preferred standards that NetApp recommends for storage infrastructure. The end-to-end implementation is out of the scope. 
 
 For configuration compatibility across the NetApp products, see the link:https://mysupport.netapp.com/matrix/[NetApp Interoperability Matrix Tool (IMT)^].
 

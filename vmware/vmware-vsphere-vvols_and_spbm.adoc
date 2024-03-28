@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: vmware/vmware-vsphere-vvols_and_spbm.html
 keywords: vSphere, vVols, virtual volumes, SPBM, storage police based management, ONTAP
-summary: This page describes the best practices for implementing a NetApp ONTAP storage solution in a VMware vSphere environment.
+summary: This page describes the best practices for implementing a ONTAP storage solution in a VMware vSphere environment.
 ---
 
 = Virtual Volumes (vVols) and Storage Policy Based Management (SPBM)

@@ -6,7 +6,7 @@ indexpage:
   tiles:
     - title: Microsoft Hyper-V
       links:
-        - title: NetApp Deployment Guidelines and Storage Best Practices
+        - title: Deployment Guidelines and Storage Best Practices
           url: /microsoft/win_overview.html
     - title: Microsoft SQL Server
       links:

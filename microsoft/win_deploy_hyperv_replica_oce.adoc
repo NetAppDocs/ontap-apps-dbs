@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: Hyper-V/win_deploy_hyperv_replica_oce.html
+permalink: microsoft/win_deploy_hyperv_replica_oce.html
 keywords: Windows,Hyper-V,VHDX,VM,Virtual
 summary: Summary goes here
 ---

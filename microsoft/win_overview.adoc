@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: Hyper-V/win_overview.html
+permalink: microsoft/win_overview.html
 keywords: Windows,Hyper-V,VHDX,VM,Virtual
 summary: Summary goes here
 ---

@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: Hyper-V/win_deploy_hyperv_slm.html
+permalink: microsoft/win_deploy_hyperv_slm.html
 keywords: Windows,Hyper-V,VHDX,VM,Virtual
 summary: Summary goes here
 ---

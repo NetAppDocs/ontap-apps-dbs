@@ -1,34 +1,35 @@
 section: Hyper-V
 title: Hyper-V
-url: /microsoft/introduction.html
 entries:
-  - title: Overview
-    url: /microsoft/win_overview.html
-  - title: NetApp Storage and Windows Server Environment
-    url: /microsoft/win_environment.html
-  - title: Provisioning in SAN Environments
-    url: /microsoft/win_san.html
-  - title: Provisioning in SMB Environments
-    url: /microsoft/win_smb.html
-  - title: Hyper-V Storage Infrastructure on NetApp
-    url: /microsoft/win_hyperv_infra.html
-  - title: Storage Efficiency
-    url: /microsoft/win_efficiency.html
-  - title: Security
-    url: /microsoft/win_security.html
-  - title: Deploy Nano Server
-    url: /microsoft/win_deploy_nano.html
-  - title: Deploy Hyper-V Cluster
-    url: /microsoft/win_deploy_hyperv.html
-  - title: Deploy Hyper-V Live Migration in a Clustered Environment
-    url: /microsoft/win_deploy_hyperv_lmce.html
-  - title: Deploy Hyper-V Live Migration Outside a Clustered Environment
-    url: /microsoft/win_deploy_hyperv_lmoce.html
-  - title: Deploy Hyper-V Storage Live Migration
-    url: /microsoft/win_deploy_hyperv_slm.html
-  - title: Deploy Hyper-V Replica Outside a Clustered Environment
-    url: /microsoft/win_deploy_hyperv_replica_oce.html
-  - title: Deploy Hyper-V Replica in a Clustered Environment
-    url: /microsoft/win_deploy_hyperv_replica_ce.html
-  - title: Where to find additional information
-    url: /microsoft/win_additional_information.html
+  - title: Deployment Guidelines and Storage Best Practices
+    entries:
+      - title: Overview
+        url: /microsoft/win_overview.html
+      - title: NetApp Storage and Windows Server Environment
+        url: /microsoft/win_environment.html
+      - title: Provisioning in SAN Environments
+        url: /microsoft/win_san.html
+      - title: Provisioning in SMB Environments
+        url: /microsoft/win_smb.html
+      - title: Hyper-V Storage Infrastructure on NetApp
+        url: /microsoft/win_hyperv_infra.html
+      - title: Storage Efficiency
+        url: /microsoft/win_efficiency.html
+      - title: Security
+        url: /microsoft/win_security.html
+      - title: Deploy Nano Server
+        url: /microsoft/win_deploy_nano.html
+      - title: Deploy Hyper-V Cluster
+        url: /microsoft/win_deploy_hyperv.html
+      - title: Deploy Hyper-V Live Migration in a Clustered Environment
+        url: /microsoft/win_deploy_hyperv_lmce.html
+      - title: Deploy Hyper-V Live Migration Outside a Clustered Environment
+        url: /microsoft/win_deploy_hyperv_lmoce.html
+      - title: Deploy Hyper-V Storage Live Migration
+        url: /microsoft/win_deploy_hyperv_slm.html
+      - title: Deploy Hyper-V Replica Outside a Clustered Environment
+        url: /microsoft/win_deploy_hyperv_replica_oce.html
+      - title: Deploy Hyper-V Replica in a Clustered Environment
+        url: /microsoft/win_deploy_hyperv_replica_ce.html
+      - title: Where to find additional information
+        url: /microsoft/win_additional_information.html

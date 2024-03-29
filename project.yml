@@ -10,6 +10,7 @@ sidebar:
   entries:
     - title: Enterprise applications
       url: /index.html
+    - section: Hyper-V      
     - section: mssql
     - section: mysql
     - section: oracle

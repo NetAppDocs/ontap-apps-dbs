@@ -1,0 +1,94 @@
+---
+sidebar: sidebar
+permalink: Hyper-V/win_deploy_hyperv_replica_oce.html
+keywords: Windows,Hyper-V,VHDX,VM,Virtual
+summary: Summary goes here
+---
+
+= >>> Level One Title
+
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media
+
+[.lead]
+>>> Placeholder for descriptive lead sentence or paragraph
+
+= Deploy Hyper-V Replica Outside a Clustered Environment
+
+This appendix describes deploying Hyper-V Replica outside a clustered environment.
+
+== Prerequisites
+
+* You need standalone Hyper-V servers located in the same or separate geographical locations serving as primary and replica servers.
+* If separate sites are used, then the firewall at each site must be configured to allow communication between the primary and replica servers.
+* The replica server must have enough space to store the replicated workloads.
+
+== Deployment
+
+[arabic]
+. Configure the replica server.
+
+[loweralpha]
+. So that the inbound firewall rules allow incoming replication traffic, run the following PowerShell cmdlet:
+
+Enable-Netfirewallrule -displayname "Hyper-V Replica HTTP Listener (TCP-In)"
+
+[loweralpha, start=40]
+. Open Hyper-V Manager from the Tools section of Server Manager.
+. Click Hyper-V Settings from Actions.
+. Click Replication Configuration and select Enable This Computer as a Replica Server.
+. In the Authentication and Ports section, select the authentication method and port.
+. In the Authorization and Storage section, specify the location to store the replicated VMs and files.
+
+[arabic, start=87]
+. Enable VM replication for VMs on the primary server. VM replication is enabled on a per-VM basis and not for the entire Hyper-V server.
+
+[loweralpha]
+. In Hyper-V Manager, right-click a VM and click Enable Replication to open the Enable Replication wizard.
+
+[loweralpha, start=45]
+. Provide the name of the replica server where the VM must be replicated.
+. Provide the authentication type and the replica server port that was configured to receive replication traffic on the replica server.
+. Select the VHDs to be replicated.
+. Choose the frequency (duration) at which the changes are sent to the replica server.
+. Configure recovery points to specify the number of recovery points to maintain on the replica server.
+. Choose Initial Replication Method to specify the method to transfer the initial copy of the VM data to the replica server.
+. Review the summary and click Finish.
+. This process creates a VM replica on the replica server.
+
+== Replication
+
+[arabic]
+. Run a test failover to make sure that the replica VM functions properly on the replica server. The test creates a temporary VM on the replica server.
+
+[loweralpha]
+. Log in to the replica server.
+. In Hyper-V Manager, right-click a replica VM, click Replication, and click Test Failover.
+. Choose the recovery point to use.
+. This process creates a VM of the same name appended with -Test.
+. Verify the VM to make sure that everything works well.
+. After failover, the replica test VM is deleted if you select Stop Test Failover for it.
+
+[arabic, start=88]
+. Run a planned failover to replicate the latest changes on the primary VM to the replica VM.
+
+[loweralpha]
+. Log in to the primary server.
+
+[loweralpha, start=53]
+. Turn off the VM to be failed over.
+. In Hyper-V Manager, right-click the turned-off VM, click Replication, and click Planned Failover.
+. Click Failover to transfer the latest VM changes to the replica server.
+
+* Run an unplanned failover in the case of primary VM failure.
+
+[loweralpha]
+. Log in to the replica server.
+
+[loweralpha, start=56]
+. In Hyper-V Manager, right-click a replica VM, click Replication, and click Failover.
+. Choose the recovery point to use.
+. Click Failover to fail over the VM.

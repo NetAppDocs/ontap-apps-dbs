@@ -1,0 +1,36 @@
+---
+sidebar: sidebar
+permalink: Hyper-V/win_deploy_hyperv_slm.html
+keywords: Windows,Hyper-V,VHDX,VM,Virtual
+summary: Summary goes here
+---
+
+= >>> Level One Title
+
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media
+
+[.lead]
+>>> Placeholder for descriptive lead sentence or paragraph
+
+= Deploy Hyper-V Storage Live Migration
+
+== Prerequisites
+
+* You must have a standalone Hyper-V server with independent storage (DAS or LUN) or SMB storage (local or shared among other Hyper-V servers).
+* The Hyper-V server must be configured for live migration. Review the section on deployment in "link:\l[Live Migration Outside of a Clustered Environment]."
+
+== Deployment
+
+[arabic, start=11]
+. Open Hyper-V Manager.
+
+[arabic, start=82]
+. Right-click a VM and click Move.
+. Select Move the Virtual Machineâ€™s Storage.
+. Select options for moving the storage based on your preferences.
+. Provide the new location for the VMâ€™s items.
+. Review the summary and click OK to move the VMâ€™s storage.

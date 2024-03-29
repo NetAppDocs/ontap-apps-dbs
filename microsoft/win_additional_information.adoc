@@ -1,0 +1,34 @@
+---
+sidebar: sidebar
+permalink: Hyper-V/win_additional_information.html
+keywords: Windows,Hyper-V,VHDX,VM,Virtual
+summary: Summary goes here
+---
+
+= >>> Level One Title
+
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media
+
+[.lead]
+>>> Placeholder for descriptive lead sentence or paragraph
+
+= Where to find additional information
+
+* ONTAP concepts
++
+https://docs.netapp.com/us-en/ontap/concepts/introducing-data-management-software-concept.html
+* Best practices for modern SAN
++
+https://www.netapp.com/media/10680-tr4080.pdf
+* NetApp All-SAN Array Data Availability and Integrity with the NetApp ASA
++
+https://www.netapp.com/pdf.html?item=/media/85671-tr-4968.pdf
+* SMB protocol best practices
+* https://www.netapp.com/pdf.html?item=/media/10678-tr-4543pdf.pdfGetting Started with Nano Server +
+https://technet.microsoft.com/library/mt126167.aspx
+* Whatâ€™s New in Hyper-V on Windows Server +
+https://technet.microsoft.com/windows-server-docs/compute/hyper-v/what-s-new-in-hyper-v-on-windows

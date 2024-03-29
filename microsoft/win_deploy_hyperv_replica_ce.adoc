@@ -1,0 +1,66 @@
+---
+sidebar: sidebar
+permalink: Hyper-V/win_deploy_hyperv_replica_ce.html
+keywords: Windows,Hyper-V,VHDX,VM,Virtual
+summary: Summary goes here
+---
+
+= >>> Level One Title
+
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media
+
+[.lead]
+>>> Placeholder for descriptive lead sentence or paragraph
+
+= Deploy Hyper-V Replica in a Clustered Environment
+
+== Prerequisites
+
+* You need to have Hyper-V clusters located in the same or in separate geographical locations serving as primary and replica clusters. Review the section "link:\l[Hyper-V Clustering]" for more details.
+* If separate sites are used, then the firewall at each site must be configured to allow communication between the primary and replica clusters.
+* The replica cluster must have enough space to store the replicated workloads.
+
+== Deployment
+
+[arabic, start=12]
+. Enable firewall rules on all the nodes of a cluster. Run the following PowerShell cmdlet with admin privileges on all the nodes in both the primary and replica clusters.
+
+# For Kerberos authentication +
+get-clusternode | ForEach-Object \{Invoke-command -computername $_.name -scriptblock \{Enable-Netfirewallrule -displayname "Hyper-V Replica HTTP Listener (TCP-In)"}} +
+ +
+# For Certificate authentication +
+get-clusternode | ForEach-Object \{Invoke-command -computername $_.name -scriptblock \{Enable-Netfirewallrule -displayname "Hyper-V Replica HTTPS Listener (TCP-In)"}}
+
+[arabic, start=89]
+. Configure the replica cluster.
+
+[loweralpha]
+. Configure the Hyper-V Replica broker with a NetBIOS name and IP address to use as the connection point to the cluster that is used as the replica cluster.
+
+[lowerroman]
+. Open Failover Cluster Manager.
+
+[lowerroman, start=4]
+. Expand the cluster, click Roles, and click the Configure Role from Actions pane.
+. Select Hyper-V Replica Broker in the Select Role page.
+. Provide the NetBIOS name and IP address to be used as the connection point to the cluster (client access point).
+. This process creates a Hyper-V Replica broker role. Verify that it comes online successfully.
+
+[loweralpha, start=59]
+. Configure replication settings.
+
+[lowerroman]
+. Right-click the replica broker created in the previous steps and click Replication Settings.
+
+[lowerroman, start=8]
+. Select Enable This Cluster as a Replica Server.
+. In the Authentication and Ports section, select the authentication method and port.
+. In the authorization and storage section, select the servers allowed to replicate VMs to this cluster. Also, specify the default location where the replicated VMs are stored.
+
+== Replication
+
+Replication is similar to the process described in the section "link:\l[Replica Outside a Clustered Environment]."

@@ -1,0 +1,37 @@
+---
+sidebar: sidebar
+permalink: Hyper-V/win_overview.html
+keywords: Windows,Hyper-V,VHDX,VM,Virtual
+summary: Summary goes here
+---
+
+= >>> Level One Title
+
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media
+
+[.lead]
+>>> Placeholder for descriptive lead sentence or paragraph
+
+= Overview
+
+Microsoft Windows Server is an enterprise-class operating system (OS) that covers networking, security, virtualization, private cloud, hybrid cloud, virtual desktop infrastructure, access protection, information protection, web services, application platform infrastructure, and much more. .
+
+NetApp ONTAP^Â®^ management software runs on NetApp storage controllers. It is a unified architecture supporting both file and block protocols, which enables the storage controllers to act as both NAS and SAN devices. ONTAP provides NetApp storage efficiency features such as NetApp Snapshot^Â®^ technology, cloning, deduplication, thin provisioning, thin replication, compression, virtual storage tiering, and much more with enhanced performance and efficiency.
+
+Together, Windows Server and ONTAP can operate in large environments and bring immense value to data center consolidation and private or hybrid cloud deployments. This combination also provides nondisruptive workloads efficiently and supports seamless scalability.
+
+== Intended Audience
+
+This document is intended for system and storage architects who design NetApp storage solutions for the Windows Server.
+
+We make the following assumptions in this document:
+
+* The reader has general knowledge of NetApp hardware and software solutions. See the https://docs.netapp.com/us-en/ontap/cluster-admin/index.html[System Administration Guide for Cluster Administrators] for details.
+* The reader has general knowledge of block-access protocols, such as iSCSI, FC and the file-access protocol SMB/CIFS. See the https://docs.netapp.com/us-en/ontap/san-management/index.html[Clustered Data ONTAP SAN management] for SAN-related information. See the https://docs.netapp.com/us-en/ontap/nas-management/index.html[NAS management] for CIFS/SMB-related information.
+* The reader has general knowledge of the Windows Server OS and Hyper-V.
+
+For a complete, regularly updated matrix of tested and supported SAN and NAS configurations, see the http://mysupport.netapp.com/matrix/[Interoperability Matrix Tool (IMT)] on the NetApp Support site. With the IMT, you can determine the exact product and feature versions that are supported for your specific environment. The NetApp IMT defines the product components and versions that are compatible with NetApp supported configurations. Specific results depend on each customer's installation in accordance with published specifications.

@@ -1,0 +1,75 @@
+---
+sidebar: sidebar
+permalink: Hyper-V/win_deploy_hyperv_lmoce.html
+keywords: Windows,Hyper-V,VHDX,VM,Virtual
+summary: Summary goes here
+---
+
+= >>> Level One Title
+
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media
+
+[.lead]
+>>> Placeholder for descriptive lead sentence or paragraph
+
+= Deploy Hyper-V Live Migration Outside a Clustered Environment
+
+This section describes the deployment of Hyper-V live migration outside a clustered environment.
+
+== Prerequisites
+
+* Standalone Hyper-V servers with independent storage or shared SMB storage.
+* The Hyper-V role installed on both the source and destination servers.
+* Both Hyper-V servers belong to the same domain or to domains that trust each other.
+
+== Deployment
+
+To perform live migration in a nonclustered environment, configure source and destination Hyper-V servers so that they can send and receive live migration operations. On both Hyper-V servers, complete the following steps:
+
+[arabic, start=4]
+. Open Hyper-V Manager from the Tools section of Server Manager.
+. In Actions, click Hyper-V Settings.
+. Click Live Migrations and select Enable Incoming and Outgoing Live Migrations.
+. Choose whether to allow live migration traffic on any available network or only on specific networks.
+. Optionally, you can configure the authentication protocol and performance options from the Advanced section of Live Migrations.
+. If CredSSP is used as the authentication protocol, then make sure to log in to the source Hyper-V server from the destination Hyper-V server before moving the VM.
+. If Kerberos is used as the authentication protocol, then configure the constrained delegation. Doing so requires Active Directory domain controller access. To configure the delegation, complete the following steps:
+
+[loweralpha]
+. Log in to the Active Directory domain controller as the administrator.
+
+[loweralpha, start=23]
+. Start Server Manager.
+. In the Tools section, click Active Directory Users and Computers.
+. Expand the domain and click Computers.
+. Select the source Hyper-V server from the list, right-click it, and click Properties.
+. In the Delegation tab, select Trust This Computer for Delegation to Specified Services Only.
+. Select Use Kerberos Only.
+. Click Add, which opens the Add Services wizard.
+. In Add Services, click Users and Computers, which opens Select Users or Computers**.**
+. Provide the destination Hyper-V server name and click OK.
+
+* To move VM storage, select CIFS.
+* To move VMs, select the Microsoft Virtual System Migration service.
+
+[loweralpha, start=32]
+. In the Delegation tab, click OK.
+. From the Computers folder, select the destination Hyper-V server from the list and repeat the process. In Select Users or Computers, provide the source Hyper-V server name.
+
+[arabic, start=81]
+. Move the VM.
+
+[loweralpha]
+. Open Hyper-V Manager.
+
+[loweralpha, start=34]
+. Right-click a VM and click Move.
+. Choose Move the Virtual Machine.
+. Specify the destination Hyper-V server for the VM.
+. Choose the move options. For Shared Live Migration, choose Move Only the Virtual Machine. For Shared Nothing Live Migration, choose any of the other two options based on your preferences.
+. Provide the location for the VM on the destination Hyper-V server based on your preferences.
+. Review the summary and click OK to move the VM.

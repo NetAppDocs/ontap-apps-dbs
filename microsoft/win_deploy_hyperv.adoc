@@ -2,10 +2,10 @@
 sidebar: sidebar
 permalink: microsoft/win_deploy_hyperv.html
 keywords: Windows,Hyper-V,VHDX,VM,Virtual
-summary: Summary goes here
+summary: This appendix describes deploying a Hyper-V cluster.
 ---
 
-= >>> Level One Title
+= Deploy Hyper-V Cluster
 
 :hardbreaks:
 :nofooter:
@@ -14,10 +14,6 @@ summary: Summary goes here
 :imagesdir: ../media
 
 [.lead]
->>> Placeholder for descriptive lead sentence or paragraph
-
-= Deploy Hyper-V Cluster
-
 This appendix describes deploying a Hyper-V cluster.
 
 == Prerequisites

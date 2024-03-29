@@ -5,7 +5,7 @@ keywords: Windows,Hyper-V,VHDX,VM,Virtual
 summary: Summary goes here
 ---
 
-= >>> Level One Title
+= Deploy Hyper-V Live Migration Outside a Clustered Environment
 
 :hardbreaks:
 :nofooter:
@@ -14,10 +14,6 @@ summary: Summary goes here
 :imagesdir: ../media
 
 [.lead]
->>> Placeholder for descriptive lead sentence or paragraph
-
-= Deploy Hyper-V Live Migration Outside a Clustered Environment
-
 This section describes the deployment of Hyper-V live migration outside a clustered environment.
 
 == Prerequisites

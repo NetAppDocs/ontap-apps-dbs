@@ -5,7 +5,7 @@ keywords: Windows,Hyper-V,VHDX,VM,Virtual
 summary: Summary goes here
 ---
 
-= >>> Level One Title
+= Provisioning in SAN Environments
 
 :hardbreaks:
 :nofooter:
@@ -14,10 +14,6 @@ summary: Summary goes here
 :imagesdir: ../media
 
 [.lead]
->>> Placeholder for descriptive lead sentence or paragraph
-
-Provisioning in SAN Environments
-
 ONTAP SVMs support the block protocols iSCSI and FC. When an SVM is created with block protocol iSCSI or FC, the SVM gets either an iSCSI Qualified Name (IQN) or an FC worldwide name (WWN), respectively. This identifier presents a SCSI target to hosts that access NetApp block storage.
 
 == Provisioning NetApp LUN on Windows Server 
@@ -66,15 +62,13 @@ The IQN for iSCSI on Windows Server can also be checked in the configuration of 
 
 === Host Integration
 
-Windows Server uses Asymmetrical Logical Unit Access (ALUA) extension MPIO to determine direct and indirect paths to LUNs. Even though every LIF owned by an SVM accepts read/write requests for its LUNs, only one of the cluster nodes actually owns the disks backing that LUN at any given moment. This divides available paths to a LUN into two types, direct or indirect, as shown in Figure 3.
+Windows Server uses Asymmetrical Logical Unit Access (ALUA) extension MPIO to determine direct and indirect paths to LUNs. Even though every LIF owned by an SVM accepts read/write requests for its LUNs, only one of the cluster nodes actually owns the disks backing that LUN at any given moment. This divides available paths to a LUN into two types, direct or indirect, as shown in the following figure.
 
-A direct path for a LUN is a path on which an SVMâ€™s LIFs and the LUN being accessed reside on the same node. To go from a physical target port to disk, it is not necessary to traverse the cluster network.
+A direct path for a LUN is a path on which an SVM's LIFs and the LUN being accessed reside on the same node. To go from a physical target port to disk, it is not necessary to traverse the cluster network.
 
-Indirect paths are data paths on which an SVMâ€™s LIFs and the LUN being accessed reside on different nodes. Data must traverse the cluster network to go from a physical target port to disk.
+Indirect paths are data paths on which an SVM's LIFs and the LUN being accessed reside on different nodes. Data must traverse the cluster network to go from a physical target port to disk.
 
-[#_Ref464654360 .anchor]####Figure 3) Multiple paths in SAN environment.
-
-image:media/win_image3.png[A computer server connected to a device Description automatically generated with medium confidence,width=624,height=232]
+image:win_image3.png[Multiple paths in SAN environment,width=624,height=232]
 
 === MPIO
 
@@ -265,11 +259,9 @@ A physical host (server) or a Hyper-V VM can boot the Windows Server OS directly
 
 === NetApp FlexClone Approach
 
-Using NetApp FlexClone technology, boot LUNs with an OS image can be cloned instantly and attached to the servers and VMs to rapidly provide clean OS images, as show in *Error! Reference source not found.*.
+Using NetApp FlexClone technology, boot LUNs with an OS image can be cloned instantly and attached to the servers and VMs to rapidly provide clean OS images, as show in the following figure.
 
-[#_Toc465674075 .anchor]####Figure 4) Boot LUNs using NetApp FlexClone.
-
-image:media/win_image4.png[A computer screen shot of a computer Description automatically generated,width=561,height=357]
+image:win_image4.png[Boot LUNs using NetApp FlexClone,width=561,height=357]
 
 === Boot from SAN for Physical Host
 
@@ -292,7 +284,7 @@ To configure booting from SAN for a physical host, complete the following steps:
 . When creating an initiator group for iSCSI and/or FC on a NetApp storage controller, add the server HBA initiator to the group. The HBA initiator of the server is the WWPN for the FC HBA or iSCSI node name for iSCSI HBA.
 . Create a LUN on the NetApp storage controller with a LUN ID of 0 and associate it with the initiator group created in the previous step. This LUN serves as a boot LUN.
 . Restrict the HBA to a single path to the boot LUN. Additional paths can be added after Windows Server is installed on the boot LUN to exploit the multipathing feature.
-. Use the HBAâ€™s BootBIOS utility to configure the LUN as a boot device.
+. Use the HBA's BootBIOS utility to configure the LUN as a boot device.
 . Reboot the host and enter the host BIOS utility.
 . Configure the host BIOS to make the boot LUN the first device in the boot order.
 . From the Windows Server ISO, launch the installation setup.

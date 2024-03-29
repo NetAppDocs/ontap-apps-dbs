@@ -5,7 +5,7 @@ keywords: Windows,Hyper-V,VHDX,VM,Virtual
 summary: Summary goes here
 ---
 
-= >>> Level One Title
+= Hyper-V Storage Infrastructure on NetApp
 
 :hardbreaks:
 :nofooter:
@@ -14,15 +14,9 @@ summary: Summary goes here
 :imagesdir: ../media
 
 [.lead]
->>> Placeholder for descriptive lead sentence or paragraph
+A Hyper-V storage infrastructure can be hosted on ONTAP storage systems. Storage for Hyper-V to store the VM files and its disks can be provided using NetApp LUNs or NetApp CIFS shares, as shown in the following figure.
 
-= Hyper-V Storage Infrastructure on NetApp
-
-A Hyper-V storage infrastructure can be hosted on ONTAP storage systems. Storage for Hyper-V to store the VM files and its disks can be provided using NetApp LUNs or NetApp CIFS shares, as shown in Figure 5.
-
-[#_Ref464745203 .anchor]####Figure 5) Hyper-V storage infrastructure on NetApp.
-
-image:media/win_image5.png[A computer screen with a few icons Description automatically generated with medium confidence,width=624,height=338]
+image:win_image5.png[Hyper-V storage infrastructure on NetApp,width=624,height=338]
 
 == Hyper-V Storage on NetApp LUNs
 
@@ -83,7 +77,7 @@ a|
 
 Microsoft ODX, also known as copy offload, enables direct data transfers within a storage device or between compatible storage devices without transferring the data through the host computer. NetApp ONTAP supports the ODX feature for both CIFS and SAN protocols. ODX can potentially improve performance if copies are within same volume, reduce utilization of CPU and memory on the client, and reduce network I/O bandwidth utilization.
 
-With ODX, it is faster and efficient to copy files within the SMB shares, within the LUNs, and between the SMB shares and LUNs if itâ€™s in same volume. This approach is more helpful in a scenario for which multiple copies of the golden image of an OS (VHD/VHDX) are required within same volume. Several copies of the same golden image can be made in significantly less time if copies are within same volume. ODX is also applied in Hyper-V storage live migration for moving VM storage.
+With ODX, it is faster and efficient to copy files within the SMB shares, within the LUNs, and between the SMB shares and LUNs if it's in same volume. This approach is more helpful in a scenario for which multiple copies of the golden image of an OS (VHD/VHDX) are required within same volume. Several copies of the same golden image can be made in significantly less time if copies are within same volume. ODX is also applied in Hyper-V storage live migration for moving VM storage.
 
 If copy is across volumes, there may not be significant performance gains compared to host-based copies.
 
@@ -144,9 +138,7 @@ Hyper-V clustered servers (called nodes) are connected by the physical network a
 
 CSVs enable multiple nodes in a failover cluster to simultaneously have read/write access to the same NetApp LUN that is provisioned as an NTFS or ReFS volume. With CSVs, clustered roles can fail over quickly from one node to another without requiring a change in drive ownership or dismounting and remounting a volume. CSVs also simplify the management of a potentially large number of LUNs in a failover cluster. CSVs provide a general-purpose clustered file system that is layered above NTFS or ReFS.
 
-[#_Ref464810919 .anchor]####Figure 6) Hyper-V failover cluster and NetApp.
-
-image:media/win_image6.png[A screenshot of a video game Description automatically generated,width=624,height=271]
+image:win_image6.png[Hyper-V failover cluster and NetApp,width=624,height=271]
 
 [width="100%",cols="100%",options="header",]
 |===
@@ -178,11 +170,9 @@ It is sometimes necessary during the lifetime of VMs to move them to a different
 
 === Live Migration in a Clustered Environment
 
-VMs can be moved seamlessly between the nodes of a cluster. VM migration is instantaneous because all the nodes in the cluster share the same storage and have access to the VM and its disk. Figure 7 depicts live migration in a clustered environment.
+VMs can be moved seamlessly between the nodes of a cluster. VM migration is instantaneous because all the nodes in the cluster share the same storage and have access to the VM and its disk. The following figure depicts live migration in a clustered environment.
 
-[#_Ref464811562 .anchor]####Figure 7) Live migration in a clustered environment.
-
-image:media/win_image7.png[A computer screen shot of a computer Description automatically generated,width=580,height=295]
+image:win_image7.png[Live migration in a clustered environment,width=580,height=295]
 
 [width="100%",cols="100%",options="header",]
 |===
@@ -203,21 +193,15 @@ a|
 
 You can live migrate a VM between two nonclustered, independent Hyper-V servers. This process can use either shared or shared nothing live migration.
 
-* In shared live migration, the VM is stored on an SMB share. Therefore, when you live migrate a VM, the VMâ€™s storage remains on the central SMB share for instant access by the other node, as shown in Figure 8.
+* In shared live migration, the VM is stored on an SMB share. Therefore, when you live migrate a VM, the VM's storage remains on the central SMB share for instant access by the other node, as shown in the following Figure.
 
-[#_Ref464812742 .anchor]####Figure 8) Shared live migration in a nonclustered environment.
+image:win_image8.png[Shared live migration in a nonclustered environment,width=331,height=271]
 
-image:media/win_image8.png[A computer screen with a diagram of a computer Description automatically generated with medium confidence,width=331,height=271]
+* In shared nothing live migration, each Hyper-V server has its own local storage (it can be an SMB share, a LUN, or DAS), and the VM's storage is local to its Hyper-V server. When a VM is live migrated, the VM's storage is mirrored to the destination server over the client network and then the VM is migrated. The VM stored on DAS, a LUN, or an SMB/CIFS share can be moved to an SMB/CIFS share on the other Hyper-V server, as shown in the following figure. It can also be moved to a LUN, as shown in the second figure.
 
-* In shared nothing live migration, each Hyper-V server has its own local storage (it can be an SMB share, a LUN, or DAS), and the VMâ€™s storage is local to its Hyper-V server. When a VM is live migrated, the VMâ€™s storage is mirrored to the destination server over the client network and then the VM is migrated. The VM stored on DAS, a LUN, or an SMB/CIFS share can be moved to an SMB/CIFS share on the other Hyper-V server, as shown in Figure 9. It can also be moved to a LUN, as shown in Figure 10.
+image:win_image9.png[Shared nothing live migration in a nonclustered environment to SMB shares,width=624,height=384]
 
-[#_Ref464812944 .anchor]####Figure 9) Shared nothing live migration in a nonclustered environment to SMB shares.
-
-image:media/win_image9.png[A diagram of a computer server Description automatically generated,width=624,height=384]
-
-[#_Ref464812974 .anchor]####Figure 10) Shared nothing live migration in a nonclustered environment to LUNs.
-
-image:media/win_image10.png[A diagram of a computer server Description automatically generated,width=624,height=384]
+image:win_image10.png[Shared nothing live migration in a nonclustered environment to LUNs,width=624,height=384]
 
 [width="100%",cols="100%",options="header",]
 |===
@@ -260,9 +244,7 @@ VM storage (VHD/VHDX) can be migrated between the following storage types:
 * Between LUNs
 * Between SMB shares
 
-[#_Toc465674082 .anchor]####Figure 11) Hyper-V storage live migration.
-
-image:media/win_image11.png[A diagram of a computer server Description automatically generated,width=339,height=352]
+image:win_image11.png[Hyper-V storage live migration,width=339,height=352]
 
 [width="100%",cols="100%",options="header",]
 |===
@@ -272,11 +254,9 @@ image:media/win_image11.png[A diagram of a computer server Description automatic
 
 == Hyper-V Replica: Disaster Recovery for Virtual Machines
 
-Hyper-V Replica replicates the Hyper-V VMs from a primary site to replica VMs on a secondary site, asynchronously providing disaster recovery for the VMs. The Hyper-V server at the primary site hosting the VMs is known as the primary server; the Hyper-V server at the secondary site that receives replicated VMs is known as the replica server. A Hyper-V Replica example scenario is shown in Figure 12. You can use Hyper-V Replica for VMs between Hyper-V servers that are part of a failover cluster or between independent Hyper-V servers that are not part of any cluster.
+Hyper-V Replica replicates the Hyper-V VMs from a primary site to replica VMs on a secondary site, asynchronously providing disaster recovery for the VMs. The Hyper-V server at the primary site hosting the VMs is known as the primary server; the Hyper-V server at the secondary site that receives replicated VMs is known as the replica server. A Hyper-V Replica example scenario is shown in the following figure. You can use Hyper-V Replica for VMs between Hyper-V servers that are part of a failover cluster or between independent Hyper-V servers that are not part of any cluster.
 
-[#_Ref464823097 .anchor]####Figure 12) Hyper-V Replica.
-
-image:media/win_image12.png[A blue lines with a black background Description automatically generated,width=624,height=201]
+image:win_image12.png[Hyper-V Replica,width=624,height=201]
 
 === Replication
 

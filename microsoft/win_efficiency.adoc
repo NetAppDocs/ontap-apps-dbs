@@ -2,10 +2,10 @@
 sidebar: sidebar
 permalink: microsoft/win_efficiency.html
 keywords: Windows,Hyper-V,VHDX,VM,Virtual
-summary: Summary goes here
+summary: ONTAP storage efficiency with Microsoft Hyper-V
 ---
 
-= >>> Level One Title
+= Storage Efficiency
 
 :hardbreaks:
 :nofooter:
@@ -14,9 +14,7 @@ summary: Summary goes here
 :imagesdir: ../media
 
 [.lead]
->>> Placeholder for descriptive lead sentence or paragraph
-
-= Storage Efficiency
+ONTAP provides industry leading storage efficiency for virtualized environments including Microsoft Hyper-V. NetApp also offers storage efficiency guarontee programs.
 
 == NetApp Deduplication
 
@@ -39,11 +37,9 @@ In enterprise environments, storage QoS helps to achieve the following:
 
 QoS allows you to limit the amount of I/O sent to an SVM, a flexible volume, a LUN, or a file. I/O can be limited by the number of operations or the raw throughput.
 
-Figure 13 illustrates SVM with its own QoS policy enforcing a maximum throughput limit.
+The following figure illustrates SVM with its own QoS policy enforcing a maximum throughput limit.
 
-[#_Ref464827590 .anchor]####Figure 13) Storage virtual machine with its own QoS policy.
-
-image:media/win_image13.png[A diagram of a computer server Description automatically generated,width=319,height=341]
+image:win_image13.png[Storage virtual machine with its own QoS policy,width=319,height=341]
 
 To configure an SVM with its own QoS policy and monitor policy group, run the following commands on your ONTAP cluster:
 

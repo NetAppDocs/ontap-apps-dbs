@@ -5,7 +5,7 @@ keywords: Windows,Hyper-V,VHDX,VM,Virtual
 summary: Summary goes here
 ---
 
-= >>> Level One Title
+= Overview
 
 :hardbreaks:
 :nofooter:
@@ -14,16 +14,12 @@ summary: Summary goes here
 :imagesdir: ../media
 
 [.lead]
->>> Placeholder for descriptive lead sentence or paragraph
+Microsoft Windows Server is an enterprise-class operating system (OS) that covers networking, security, virtualization, private cloud, hybrid cloud, virtual desktop infrastructure, access protection, information protection, web services, application platform infrastructure, and much more.
 
 [NOTE]
 This documentation replaces previously published technical reports _TR-4568: NetApp Deployment Guidelines and Storage Best Practices for Windows Server_
 
-= Overview
-
-Microsoft Windows Server is an enterprise-class operating system (OS) that covers networking, security, virtualization, private cloud, hybrid cloud, virtual desktop infrastructure, access protection, information protection, web services, application platform infrastructure, and much more. .
-
-NetApp ONTAP^Â®^ management software runs on NetApp storage controllers. It is a unified architecture supporting both file and block protocols, which enables the storage controllers to act as both NAS and SAN devices. ONTAP provides NetApp storage efficiency features such as NetApp Snapshot^Â®^ technology, cloning, deduplication, thin provisioning, thin replication, compression, virtual storage tiering, and much more with enhanced performance and efficiency.
+NetApp ONTAP(R) management software runs on NetApp storage controllers. It is a unified architecture supporting both file and block protocols, which enables the storage controllers to act as both NAS and SAN devices. ONTAP provides NetApp storage efficiency features such as NetApp Snapshot(R) technology, cloning, deduplication, thin provisioning, thin replication, compression, virtual storage tiering, and much more with enhanced performance and efficiency.
 
 Together, Windows Server and ONTAP can operate in large environments and bring immense value to data center consolidation and private or hybrid cloud deployments. This combination also provides nondisruptive workloads efficiently and supports seamless scalability.
 

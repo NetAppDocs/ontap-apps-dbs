@@ -2,10 +2,10 @@
 sidebar: sidebar
 permalink: microsoft/win_additional_information.html
 keywords: Windows,Hyper-V,VHDX,VM,Virtual
-summary: Summary goes here
+summary: Additional resources for Microsoft Windows and Hyper-V
 ---
 
-= >>> Level One Title
+= Where to find additional information
 
 :hardbreaks:
 :nofooter:
@@ -14,9 +14,7 @@ summary: Summary goes here
 :imagesdir: ../media
 
 [.lead]
->>> Placeholder for descriptive lead sentence or paragraph
-
-= Where to find additional information
+Additional resources for Microsoft Windows and Hyper-V
 
 * ONTAP concepts
 +
@@ -30,5 +28,5 @@ https://www.netapp.com/pdf.html?item=/media/85671-tr-4968.pdf
 * SMB protocol best practices
 * https://www.netapp.com/pdf.html?item=/media/10678-tr-4543pdf.pdfGetting Started with Nano Server +
 https://technet.microsoft.com/library/mt126167.aspx
-* Whatâ€™s New in Hyper-V on Windows Server +
+* What's New in Hyper-V on Windows Server +
 https://technet.microsoft.com/windows-server-docs/compute/hyper-v/what-s-new-in-hyper-v-on-windows

@@ -5,7 +5,7 @@ keywords: Windows,Hyper-V,VHDX,VM,Virtual
 summary: Summary goes here
 ---
 
-= >>> Level One Title
+=  NetApp Storage and Windows Server Environment
 
 :hardbreaks:
 :nofooter:
@@ -14,10 +14,6 @@ summary: Summary goes here
 :imagesdir: ../media
 
 [.lead]
->>> Placeholder for descriptive lead sentence or paragraph
-
-=  NetApp Storage and Windows Server Environment
-
 NetApp storage controllers provide a truly unified architecture that supports both file and block protocols, including CIFS, iSCSI, FC and NFS, and they create unified client and host access. The same storage controller can concurrently deliver block storage service in the form of SAN LUNs and file service as NFS and SMB/CIFS. A NetApp storage controller running ONTAP software can support the following workloads in a Windows Server environment:
 
 * VMs hosted on continuously available SMB 3.0 shares
@@ -26,7 +22,7 @@ NetApp storage controllers provide a truly unified architecture that supports bo
 * SQL Server databases on iSCSI or FC
 * Other application workloads
 
-In addition, NetApp storage efficiency features such as deduplication, NetApp FlexClone^Â®^ copies, NetApp Snapshot technology, thin provisioning, compression, and storage tiering provide significant value for workloads running on Windows Server.
+In addition, NetApp storage efficiency features such as deduplication, NetApp FlexClone(R) copies, NetApp Snapshot technology, thin provisioning, compression, and storage tiering provide significant value for workloads running on Windows Server.
 
 == ONTAP data management
 
@@ -34,21 +30,17 @@ ONTAP is management software that runs on a NetApp storage controller. Referred 
 
 Multiple nodes are aggregated into a clustered system. The nodes in the cluster communicate with each other continuously to coordinate cluster activities. The nodes can also move data transparently from node to node by using redundant paths to a dedicated cluster network consisting of two 10Gb Ethernet switches. The nodes in the cluster can take over one another to provide high availability during any failover scenarios. Clusters are administered on a whole-cluster rather than a per-node basis, and data is served from one or more storage virtual machines (SVMs). A cluster must have at least one SVM to serve data.
 
-The basic unit of a cluster is the node, and nodes are added to the cluster as part of a high-availability (HA) pair. HA pairs enable high availability by communicating with each other over an HA interconnect (separate from the dedicated cluster network) and by maintaining redundant connections to the HA pairâ€™s disks. Disks are not shared between HA pairs, although shelves might contain disks that belong to either member of an HA pair. Figure 1 depicts a NetApp storage deployment in a Windows Server environment.
+The basic unit of a cluster is the node, and nodes are added to the cluster as part of a high-availability (HA) pair. HA pairs enable high availability by communicating with each other over an HA interconnect (separate from the dedicated cluster network) and by maintaining redundant connections to the HA pair's disks. Disks are not shared between HA pairs, although shelves might contain disks that belong to either member of an HA pair. The following figure depicts a NetApp storage deployment in a Windows Server environment.
 
-[#_Ref464466571 .anchor]####Figure 1) NetApp storage deployment in Windows Server environment.
-
-image:media/win_image1.png[A computer screen shot of a computer server Description automatically generated,width=624,height=479]
+image:win_image1.png[NetApp storage deployment in Windows Server environment,width=624,height=479]
 
 == Storage Virtual Machines
 
 An ONTAP SVM is a logical storage server that provides data access to LUNs and/or a NAS namespace from one or more logical interfaces (LIFs). Each SVM is configured to own storage volumes provisioned from a physical aggregate and logical interfaces (LIFs) assigned either to a physical Ethernet network or to FC target ports.
 
-Logical disks (LUNs) or CIFS shares are created inside an SVMâ€™s volumes and are mapped to Windows hosts and clusters to provide them with storage space, as shown in Figure 2. SVMs are node independent and cluster based; they can use physical resources such as volumes or network ports anywhere in the cluster.
+Logical disks (LUNs) or CIFS shares are created inside an SVM's volumes and are mapped to Windows hosts and clusters to provide them with storage space, as shown in the following figure. SVMs are node independent and cluster based; they can use physical resources such as volumes or network ports anywhere in the cluster.
 
-[#_Ref464466581 .anchor]####Figure 2) ONTAP storage virtual machine.
-
-image:media/win_image2.png[A computer screen shot of a computer Description automatically generated,width=572,height=443]
+image:win_image2.png[ONTAP storage virtual machine,width=572,height=443]
 
 == Provisioning NetApp Storage for Windows Server 
 
@@ -65,7 +57,7 @@ Storage can be provisioned to Windows Server in both SAN and NAS environments. I
 To connect, configure, and manage NetApp storage from Windows Server 2016, use one of the following methods:
 
 * *Secure Shell (SSH).* Use any SSH client on Windows Server to run NetApp CLI commands.
-* *System Manager.* This is NetAppâ€™s GUI-based manageability product.
+* *System Manager.* This is NetApp's GUI-based manageability product.
 * *NetApp PowerShell Toolkit.* This is the NetApp PowerShell Toolkit for automating and implementing custom scripts and workflows.
 
 == NetApp PowerShell Toolkit

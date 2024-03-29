@@ -2,10 +2,10 @@
 sidebar: sidebar
 permalink: microsoft/win_deploy_nano.html
 keywords: Windows,Hyper-V,VHDX,VM,Virtual
-summary: Summary goes here
+summary: Learn about deploying Microsoft Windows Nano Server
 ---
 
-= >>> Level One Title
+= Deploy Nano Server
 
 :hardbreaks:
 :nofooter:
@@ -14,9 +14,7 @@ summary: Summary goes here
 :imagesdir: ../media
 
 [.lead]
->>> Placeholder for descriptive lead sentence or paragraph
-
-= Deploy Nano Server
+Learn about deploying Microsoft Windows Nano Server.
 
 == Deployment
 
@@ -124,7 +122,7 @@ To connect to the Nano Server remotely using GUI management tools from a remote 
 
 [arabic, start=61]
 . Start Server Manager**.**
-. To manage a Nano Server remotely from Server Manager, right-click All Servers, click Add Servers, provide the Nano Serverâ€™s information, and add it. You can now see the Nano Server listed in the server list. Select the Nano Server, right-click it, and start managing it with the various options provided.
+. To manage a Nano Server remotely from Server Manager, right-click All Servers, click Add Servers, provide the Nano Server's information, and add it. You can now see the Nano Server listed in the server list. Select the Nano Server, right-click it, and start managing it with the various options provided.
 . To manage services on a Nano Server remotely, complete the following steps:
 
 [loweralpha]

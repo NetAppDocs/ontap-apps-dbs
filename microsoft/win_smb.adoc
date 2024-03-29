@@ -2,10 +2,10 @@
 sidebar: sidebar
 permalink: microsoft/win_smb.html
 keywords: Windows,Hyper-V,VHDX,VM,Virtual
-summary: Summary goes here
+summary: ONTAP NAS storage for Hyper-V using SMB3
 ---
 
-= >>> Level One Title
+= Provisioning in SMB Environments
 
 :hardbreaks:
 :nofooter:
@@ -14,9 +14,7 @@ summary: Summary goes here
 :imagesdir: ../media
 
 [.lead]
->>> Placeholder for descriptive lead sentence or paragraph
-
-= Provisioning in SMB Environments
+ONTAP provides resilient and high performance NAS storage for Hyper-V virtual machines using the SMB3 protocol.
 
 When an SVM is created with the CIFS protocol, a CIFS server runs on top of the SVM that is part of the Windows Active Directory Domain. SMB shares can be used for a home directory and to host Hyper-V and SQL Server workloads. The following SMB 3.0 features are supported in ONTAP:
 
@@ -102,7 +100,7 @@ To detect the CIFS share created previously with Windows Server, complete the fo
 |Best Practices
 a|
 * To confirm that there is no downtime when a volume is moved from one node to another or in the case of a node failure, NetApp recommends that you enable the continuous availability option on the file share.
-* When provisioning VMs for a Hyper-V-over-SMB environment, NetApp recommends that you enable copy offload on the storage system. Doing so reduces the VMsâ€™ provisioning time.
+* When provisioning VMs for a Hyper-V-over-SMB environment, NetApp recommends that you enable copy offload on the storage system. Doing so reduces the VMs' provisioning time.
 * If the storage cluster hosts multiple SMB workloads such as SQL Server, Hyper-V, and CIFS servers, NetApp recommends hosting different SMB workloads on separate SVMs on separate aggregates. This configuration is beneficial because each of these workloads warrants unique storage networking and volume layouts.
 * NetApp recommends connecting Hyper-V hosts and the NetApp ONTAP storage with a 10GB network if one is available. In the case of 1GB network connectivity, NetApp recommends creating an interface group consisting of multiple 1GB ports.
 * When migrating VMs from one SMB 3.0 share to another, NetApp recommends enabling the CIFS copy offload functionality on the storage system so that migration is faster.

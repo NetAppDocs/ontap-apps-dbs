@@ -5,7 +5,7 @@ keywords: Windows,Hyper-V,VHDX,VM,Virtual
 summary: Summary goes here
 ---
 
-= >>> Level One Title
+= Security
 
 :hardbreaks:
 :nofooter:
@@ -14,9 +14,7 @@ summary: Summary goes here
 :imagesdir: ../media
 
 [.lead]
->>> Placeholder for descriptive lead sentence or paragraph
-
-= Security
+ONTAP provides a secure storage system for the Windows operating system.
 
 == Windows Defender Antivirus
 
@@ -37,6 +35,3 @@ BitLocker drive encryption is a data protection feature continued from Windows S
 |Best Practice
 |Before enabling BitLocker, the CSV must be put into maintenance mode. Therefore, NetApp recommends that decisions pertaining to BitLocker-based security be made before creating VMs on the CSV to avoid downtime.
 |===
-
-____
-____

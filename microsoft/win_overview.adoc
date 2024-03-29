@@ -16,6 +16,9 @@ summary: Summary goes here
 [.lead]
 >>> Placeholder for descriptive lead sentence or paragraph
 
+[NOTE]
+This documentation replaces previously published technical reports _TR-4568: NetApp Deployment Guidelines and Storage Best Practices for Windows Server_
+
 = Overview
 
 Microsoft Windows Server is an enterprise-class operating system (OS) that covers networking, security, virtualization, private cloud, hybrid cloud, virtual desktop infrastructure, access protection, information protection, web services, application platform infrastructure, and much more. .

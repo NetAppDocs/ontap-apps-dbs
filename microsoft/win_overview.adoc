@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: microsoft/win_overview.html
 keywords: Windows,Hyper-V,VHDX,VM,Virtual
-summary: Summary goes here
+summary: Overview of Microsoft Windows and Hyper-V virtualization with ONTAP
 ---
 
 = Overview
@@ -19,7 +19,18 @@ Microsoft Windows Server is an enterprise-class operating system (OS) that cover
 [NOTE]
 This documentation replaces previously published technical reports _TR-4568: NetApp Deployment Guidelines and Storage Best Practices for Windows Server_
 
-NetApp ONTAP(R) management software runs on NetApp storage controllers. It is a unified architecture supporting both file and block protocols, which enables the storage controllers to act as both NAS and SAN devices. ONTAP provides NetApp storage efficiency features such as NetApp Snapshot(R) technology, cloning, deduplication, thin provisioning, thin replication, compression, virtual storage tiering, and much more with enhanced performance and efficiency.
+.NetApp ONTAP(R) management software runs on NetApp storage controllers. It is available in multiple formats.
+* A unified architecture supporting file, object, and block protocols. This enables the storage controllers to act as both NAS and SAN devices as well as object stores
+* An All SAN Array (ASA) that focuses only on block protocols and optimizes I/O resume times (IORT) by adding symmetric active-active multipathing for connect hosts
+* A software defined unified architecture
+** ONTAP Select running on VMware vSphere or KVM
+** Cloud Volumes ONTAP running as a cloud native instance
+* First party offerings from hyperscale cloud providers
+** Amazon FSx for NetApp ONTAP
+** Azure NetApp Files
+** Google Cloud NetApp Volumes
+
+ONTAP provides NetApp storage efficiency features such as NetApp Snapshot(R) technology, cloning, deduplication, thin provisioning, thin replication, compression, virtual storage tiering, and much more with enhanced performance and efficiency.
 
 Together, Windows Server and ONTAP can operate in large environments and bring immense value to data center consolidation and private or hybrid cloud deployments. This combination also provides nondisruptive workloads efficiently and supports seamless scalability.
 

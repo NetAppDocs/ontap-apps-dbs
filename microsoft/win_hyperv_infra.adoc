@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: microsoft/win_hyperv_infra.html
 keywords: Windows,Hyper-V,VHDX,VM,Virtual
-summary: Summary goes here
+summary: Hyper-V Storage Infrastructure with ONTAP
 ---
 
 = Hyper-V Storage Infrastructure on NetApp
@@ -31,8 +31,6 @@ Before beginning the steps listed in this section, review the section "link:\l[P
 
 [arabic]
 . Open Hyper-V Manager from the Tools section of Server Manager.
-
-[arabic, start=52]
 . Select the Hyper-V server and click Hyper-V Settings.
 . Specify the default folder to store the VM and its disk as the CIFS share. Doing so sets the default path as the CIFS share for the Hyper-V storage. If you want to specify the path explicitly for a VM, then you can do so during VM creation.
 
@@ -43,35 +41,23 @@ Each VM in Hyper-V can in turn be provided with the NetApp LUNs and CIFS shares 
 * Adding a pass-through physical disk to a VM
 * Adding VHD/VHDX to a VM from the host
 
-[width="100%",cols="100%",options="header",]
-|===
-|Best Practices
-a|
+=== Best Practices
+
 * When a VM and its data are stored on NetApp storage, NetApp recommends running NetApp deduplication at the volume level at regular intervals. This practice results in significant space savings when identical VMs are hosted on a CSV or SMB share. Deduplication runs on the storage controller and it does not affect the host system and VM performance.
-* When using iSCSI LUNs for Hyper-V, make sure to enable iSCSI Service (TCP-In) for Inbound and iSCSI Service (TCP-Out) for Outbound in the firewall settings on the Hyper-V host. Doing so allows iSCSI traffic to pass to and from the Hyper-V host and the NetApp controller.
+* When using iSCSI LUNs for Hyper-V, make sure to enable `iSCSI Service (TCP-In) for Inbound` and `iSCSI Service (TCP-Out) for Outbound` in the firewall settings on the Hyper-V host. Doing so allows iSCSI traffic to pass to and from the Hyper-V host and the NetApp controller.
 * NetApp recommends unchecking the option Allow Management Operating System to Share This Network Adapter for the Hyper-V virtual switch. Doing so creates a dedicated network for the VMs.
 
-|===
+===  Things to Remember
 
-[width="100%",cols="100%",options="header",]
-|===
-|Things to Remember
-a|
 * Provisioning a VM by using virtual Fibre Channel requires an N_Port ID Virtualizationâ€“enabled FC HBA. A maximum of four FC ports is supported.
 * If the host system is configured with multiple FC ports and presented to the VM, then MPIO must be installed in the VM to enable multipathing.
 * Pass-through disks cannot be provisioned to the host if MPIO is being used on that host, because pass-through disks do not support MPIO.
 * Disk used for VHD/VHDx files should use 64K formatting for allocation.
 
-|===
+=== Further Reading
 
-[width="100%",cols="100%",options="header",]
-|===
-|Further Reading
-a|
 * For information about FC HBAs, see the http://mysupport.netapp.com/matrix/[NetApp Interoperability Matrix].
 * For more information about virtual Fibre Channel, see the Microsoft https://technet.microsoft.com/en-us/library/hh831413.aspx[Hyper-V Virtual Fibre Channel Overview] page.
-
-|===
 
 == Offloaded Data Transfer
 
@@ -85,48 +71,32 @@ To enable the ODX feature on CIFS, run the following CLI commands on the NetApp 
 
 [arabic]
 . Enable ODX for CIFS.
+ #set the privilege level to diagnostic
+ cluster::> set -privilege diagnostic
 
-#set the privilege level to diagnostic
+ #enable the odx feature
+ cluster::> vserver cifs options modify -vserver <vserver_name> -copy-offload-enabled true
 
-cluster::> set -privilege diagnostic
+ #return to admin privilege level
+ cluster::> set privilege admin
 
-#enable the odx feature
-
-cluster::> vserver cifs options modify -vserver <vserver_name> -copy-offload-enabled true
-
-#return to admin privilege level
-
-cluster::> set privilege admin
-
-[arabic, start=54]
 . To enable the ODX feature on SAN, run the following CLI commands on the NetApp storage controller:
+ #set the privilege level to diagnostic
+ cluster::> set -privilege diagnostic
 
-#set the privilege level to diagnostic
+ #enable the odx feature
+ cluster::> copy-offload modify -vserver <vserver_name> -scsi enabled
 
-cluster::> set -privilege diagnostic
+ #return to admin privilege level
+ cluster::> set privilege admin
 
-#enable the odx feature
+=== Things to Remember
 
-cluster::> copy-offload modify -vserver <vserver_name> -scsi enabled
-
-#return to admin privilege level
-
-cluster::> set privilege admin
-
-[width="100%",cols="100%",options="header",]
-|===
-|Things to Remember
-a|
 * For CIFS, ODX is available only when both the client and the storage server support SMB 3.0 and the ODX feature.
 * For SAN environments, ODX is available only when both the client and the storage server support the ODX feature.
 
-|===
-
-[width="100%",cols="100%",options="header",]
-|===
-|Further Reading
-|For information about ODX, see https://docs.netapp.com/us-en/ontap/smb-admin/improve-microsoft-remote-copy-performance-concept.html[Improving Microsoft Remote Copy Performance] and https://docs.netapp.com/us-en/ontap/san-admin/microsoft-offloaded-data-transfer-odx-concept.html[Microsoft Offloaded Data Transfers] .
-|===
+=== Further Reading
+For information about ODX, see https://docs.netapp.com/us-en/ontap/smb-admin/improve-microsoft-remote-copy-performance-concept.html[Improving Microsoft Remote Copy Performance] and https://docs.netapp.com/us-en/ontap/san-admin/microsoft-offloaded-data-transfer-odx-concept.html[Microsoft Offloaded Data Transfers] .
 
 == Hyper-V Clustering: High Availability and Scalability for Virtual Machines
 
@@ -140,29 +110,16 @@ CSVs enable multiple nodes in a failover cluster to simultaneously have read/wri
 
 image:win_image6.png[Hyper-V failover cluster and NetApp,width=624,height=271]
 
-[width="100%",cols="100%",options="header",]
-|===
-|Best Practices
-a|
+=== Best Practices
 * NetApp recommends turning off cluster communication on the iSCSI network to prevent internal cluster communication and CSV traffic from flowing over the same network.
 * NetApp recommends having redundant network paths (multiple switches) to provide resiliency and QoS.
 
-|===
-
-[width="100%",cols="100%",options="header",]
-|===
-|Things to Remember
-a|
+=== Things to Remember
 * Disks used for CSV must be partitioned with NTFS or ReFS. Disks formatted with FAT or FAT32 cannot be used for a CSV.
 * Disks used for CSVs should use 64K formatting for allocation.
 
-|===
-
-[width="100%",cols="100%",options="header",]
-|===
-|Further Reading
-|For information about deploying a Hyper-V cluster, see Appendix B: link:\l[Deploy Hyper-V Cluster].
-|===
+=== Further Reading
+For information about deploying a Hyper-V cluster, see Appendix B: link:\win_deploy_hyperv.html[Deploy Hyper-V Cluster].
 
 == Hyper-V Live Migration: Migration of VMs
 
@@ -174,20 +131,13 @@ VMs can be moved seamlessly between the nodes of a cluster. VM migration is inst
 
 image:win_image7.png[Live migration in a clustered environment,width=580,height=295]
 
-[width="100%",cols="100%",options="header",]
-|===
-|Best Practice
-a|
+=== Best Practice
 * Have a dedicated port for live migration traffic.
 * Have a dedicated host live migration network to avoid network-related issues during migration.
 
-|===
+=== Further Reading
+For information about deploying live migration in a clustered environment, see link:\win_deploy_hyperv_lmce.html[Appendix C: Deploy Hyper-V Live Migration in a Clustered Environment].
 
-[width="100%",cols="100%",options="header",]
-|===
-|Further Reading
-|For information about deploying live migration in a clustered environment, see link:\l[Appendix C: Deploy Hyper-V Live Migration in a Clustered Environment].
-|===
 
 === Live Migration Outside a Clustered Environment
 
@@ -203,11 +153,8 @@ image:win_image9.png[Shared nothing live migration in a nonclustered environment
 
 image:win_image10.png[Shared nothing live migration in a nonclustered environment to LUNs,width=624,height=384]
 
-[width="100%",cols="100%",options="header",]
-|===
-|Further Reading
-|For information about deploying live migration outside a clustered environment, see link:\l[Appendix D: Deploy Hyper-V Live Migration Outside of a Clustered Environment].
-|===
+=== Further Reading
+For information about deploying live migration outside a clustered environment, see link:\win_deploy_hyperv_lmoce.html[Appendix D: Deploy Hyper-V Live Migration Outside of a Clustered Environment].
 
 === Hyper-V Storage Live Migration
 
@@ -246,11 +193,8 @@ VM storage (VHD/VHDX) can be migrated between the following storage types:
 
 image:win_image11.png[Hyper-V storage live migration,width=339,height=352]
 
-[width="100%",cols="100%",options="header",]
-|===
-|Further Reading
-|For information about deploying storage live migration, see link:\l[Appendix E: Deploy Hyper-V Storage Live Migration].
-|===
+=== Further Reading
+For information about deploying storage live migration, see link:\win_deploy_hyperv_slm.html[Appendix E: Deploy Hyper-V Storage Live Migration].
 
 == Hyper-V Replica: Disaster Recovery for Virtual Machines
 
@@ -278,11 +222,6 @@ Failover is not automatic; the process must be manually triggered. There are thr
 
 When you configure replication for a VM, you can specify the number of recovery points. Recovery points represent points in time from which data can be recovered from a replicated machine.
 
-[width="100%",cols="100%",options="header",]
-|===
-|Further Reading
-a|
+=== Further Reading
 * For information about deploying Hyper-V Replica outside a clustered environment, see the section "link:\l[Deploy Hyper-V Replica Outside of a Clustered Environment]."
 * For information about deploying Hyper-V Replica in a clustered environment, see the section "link:\l[Deploy Hyper-V Replica in a Clustered Environment]."
-
-|===

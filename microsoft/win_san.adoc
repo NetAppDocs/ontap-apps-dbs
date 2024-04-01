@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
 permalink: microsoft/win_san.html
-keywords: Windows,Hyper-V,VHDX,VM,Virtual
-summary: Summary goes here
+keywords: Windows,Hyper-V,VHDX,VM,Virtual,SAN,LUN,NVMe
+summary: Provision ONTAP storage for Windows and Hyper-V in SAN Environments
 ---
 
 = Provisioning in SAN Environments
@@ -130,29 +130,15 @@ To detect iSCSI or FC block storage on Windows Server, complete the following st
 
 [arabic]
 . Click Computer Management in the Tools section of the Server Manager.
-
-[arabic, start=21]
 . In Computer Management, click the Disk Management in Storage section and then click More Actions and Rescan Disks. Doing so displays the raw iSCSI LUNs.
 . Click the discovered LUN and make it online. Then select Initialize Disk using the MBR or GPT partition. Create a new simple volume by providing the volume size and drive letter and format it using FAT, FAT32, NTFS, or the Resilient File System (ReFS).
 
-[width="100%",cols="100%",options="header",]
-|===
-|Best Practices
-a|
+=== Best Practices
+
 * NetApp recommends enabling thin provisioning on the volumes hosting the LUNs.
 * To avoid multipathing problems, NetApp recommends using either all 10Gb sessions or all 1Gb sessions to a given LUN.
 * NetApp recommends that you confirm that ALUA is enabled on the storage system. ALUA is enabled by default on ONTAP.
 * On the Windows Server host to where the NetApp LUN is mapped, enable iSCSI Service (TCP-In) for Inbound and iSCSI Service (TCP-Out) for Outbound in the firewall settings. These settings allow iSCSI traffic to pass to and from the Hyper-V host and NetApp controller.
-
-|===
-
-____
-____
-
-[width="100%",cols="100%",]
-|===
-|
-|===
 
 == Provisioning NetApp LUNs on Nano Server
 
@@ -168,90 +154,76 @@ To provision NetApp LUNs on a Nano Server, complete the following steps:
 . Connect to the Nano Server remotely using instructions in the section "link:\l[Connect to Nano Server]."
 . To configure iSCSI, run the following PowerShell cmdlets on the Nano Server:
 
-# Start iSCSI service, if it is not already running +
-Start-Service msiscsi +
- +
-# Create a new iSCSI target portal +
-New-IscsiTargetPortal â€“TargetPortalAddress <SVM LIF> +
- +
-# View the available iSCSI targets and their node address +
-Get-IscsiTarget +
- +
-# Connect to iSCSI target +
-Connect-IscsiTarget -NodeAddress <NodeAddress>
+ # Start iSCSI service, if it is not already running
+ Start-Service msiscsi
 
-# NodeAddress is retrived in above cmdlet Get-IscsiTarget +
-# OR +
-Get-IscsiTarget | Connect-IscsiTarget
+ # Create a new iSCSI target portal
+ New-IscsiTargetPortal â€“TargetPortalAddress <SVM LIF>
 
-# View the established iSCSI session
+ # View the available iSCSI targets and their node address
+ Get-IscsiTarget
+ 
+ # Connect to iSCSI target
+ Connect-IscsiTarget -NodeAddress <NodeAddress>
 
-Get-IscsiSession
+ # NodeAddress is retrived in above cmdlet Get-IscsiTarget
+ # OR
+ Get-IscsiTarget | Connect-IscsiTarget
 
-# Note the InitiatorNodeAddress retrieved in the above cmdlet Get-IscsiSession. This is the IQN for Nano server and this needs to be added in the Initiator group on NetApp Storage
+ # View the established iSCSI session
+ Get-IscsiSession
 
-# Rescan the disks
+ # Note the InitiatorNodeAddress retrieved in the above cmdlet Get-IscsiSession. This is the IQN for Nano server and this needs to be added in the Initiator group on NetApp Storage
 
-Update-HostStorageCache
+ # Rescan the disks
+ Update-HostStorageCache
 
-[arabic, start=23]
+[arabic, start=3]
+
 . Add an initiator to the initiator group.
 
-Add the InitiatorNodeAddress retrieved from the cmdlet Get-IscsiSession to the Initiator Group on NetApp Controller
+ Add the InitiatorNodeAddress retrieved from the cmdlet Get-IscsiSession to the Initiator Group on NetApp Controller
 
-[arabic, start=24]
+[arabic, start=4]
 . Configure MPIO.
 
-# Enable MPIO Feature
+ # Enable MPIO Feature
+ Enable-WindowsOptionalFeature -Online -FeatureName MultipathIo
 
-Enable-WindowsOptionalFeature -Online -FeatureName MultipathIo
+ # Get the Network adapters and their IPs
+ Get-NetIPAddress â€“AddressFamily IPv4 â€“PrefixOrigin <Dhcp or Manual>
 
-# Get the Network adapters and their IPs
+ # Create one MPIO-enabled iSCSI connection per network adapter
+ Connect-IscsiTarget -NodeAddress <NodeAddress> -IsPersistent $True â€“IsMultipathEnabled $True â€“InitiatorPortalAddress <IP Address of ethernet adapter>
 
-Get-NetIPAddress â€“AddressFamily IPv4 â€“PrefixOrigin <Dhcp or Manual>
+ # NodeAddress is retrieved from the cmdlet Get-IscsiTarget
+ # IPs are retrieved in above cmdlet Get-NetIPAddress
 
-# Create one MPIO-enabled iSCSI connection per network adapter
+ # View the connections
+ Get-IscsiConnection
 
-Connect-IscsiTarget -NodeAddress <NodeAddress> -IsPersistent $True â€“IsMultipathEnabled $True â€“InitiatorPortalAddress <IP Address of ethernet adapter>
-
-# # NodeAddress is retrieved from the cmdlet Get-IscsiTarget
-
-# IPs are retrieved in above cmdlet Get-NetIPAddress
-
-# View the connections
-
-Get-IscsiConnection
-
-[arabic, start=25]
+[arabic, start=5]
 . Detect block storage.
 
-# Rescan disks
+ # Rescan disks
+ Update-HostStorageCache
 
-Update-HostStorageCache
+ # Get details of disks
+ Get-Disk
 
-# Get details of disks
+ # Initialize disk
+ Initialize-Disk -Number <DiskNumber> -PartitionStyle <GPT or MBR>
 
-Get-Disk
+ # DiskNumber is retrived in the above cmdlet Get-Disk
+ # Bring the disk online
+ Set-Disk -Number <DiskNumber> -IsOffline $false
 
-# Initialize disk
+ # Create a volume with maximum size and default drive letter
+ New-Partition -DiskNumber <DiskNumber> -UseMaximumSize -AssignDriveLetter
 
-Initialize-Disk -Number <DiskNumber> -PartitionStyle <GPT or MBR>
-
-# DiskNumber is retrived in the above cmdlet Get-Disk
-
-# Bring the disk online
-
-Set-Disk -Number <DiskNumber> -IsOffline $false
-
-# Create a volume with maximum size and default drive letter
-
-New-Partition -DiskNumber <DiskNumber> -UseMaximumSize -AssignDriveLetter
-
-# To choose the size and drive letter use -Size and -DriveLetter parameters
-
-# Format the volume
-
-Format-Volume -DriveLetter <DriveLetter> -FileSystem <FAT32 or NTFS or REFS>
+ # To choose the size and drive letter use -Size and -DriveLetter parameters
+ # Format the volume
+ Format-Volume -DriveLetter <DriveLetter> -FileSystem <FAT32 or NTFS or REFS>
 
 == Boot from SAN
 
@@ -278,8 +250,6 @@ To configure booting from SAN for a physical host, complete the following steps:
 
 [arabic]
 . Enable BootBIOS on the server HBA.
-
-[arabic, start=26]
 . For iSCSI HBAs, configure the Initiator IP, iSCSI node name, and adapter boot mode in the boot BIOS settings.
 . When creating an initiator group for iSCSI and/or FC on a NetApp storage controller, add the server HBA initiator to the group. The HBA initiator of the server is the WWPN for the FC HBA or iSCSI node name for iSCSI HBA.
 . Create a LUN on the NetApp storage controller with a LUN ID of 0 and associate it with the initiator group created in the previous step. This LUN serves as a boot LUN.
@@ -299,32 +269,20 @@ To configure booting from SAN for a VM, complete the following steps:
 
 [arabic]
 . When creating an initiator group for iSCSI or FC on a NetApp storage controller, add the IQN for iSCSI or the WWN for FC of the Hyper-V server to the controller. Review the section " link:#provisioning-netapp-lun-on-windows-server[Provisioning NetApp LUN on Windows Server] " for more details on provisioning LUNs for Windows Server 2016.
-
-[arabic, start=36]
 . Create LUNs or LUN clones on the NetApp storage controller and associate them with the initiator group created in the previous step. These LUNs serve as boot LUNs for the VMs.
 . Detect the LUNs on the Hyper-V server, bring them online, and initialize them.
 . Bring the LUNs offline.
 . Create VMs with the option Attach a Virtual Hard Disk Later on the Connect Virtual Hard Disk page.
 . Add a LUN as a pass-through disk to a VM.
-
-[loweralpha]
-. Open the VM settings.
-
-[loweralpha, start=6]
-. Click IDE Controller 0, select Hard Drive, and click Add. Selecting IDE Controller 0 makes this disk the first boot device for the VM.
-. Select Physical Hard Disk in the Hard Disk options and select a disk from the list as a pass-through disk. The disks are the LUNs configured in the previous steps.
-
-[arabic, start=41]
+.. Open the VM settings.
+.. Click IDE Controller 0, select Hard Drive, and click Add. Selecting IDE Controller 0 makes this disk the first boot device for the VM.
+.. Select Physical Hard Disk in the Hard Disk options and select a disk from the list as a pass-through disk. The disks are the LUNs configured in the previous steps.
 . Install Windows Server on the pass-through disk.
 
-[width="100%",cols="100%",options="header",]
-|===
-|Best Practices
-a|
+=== Best Practices
+
 * Make sure that the LUNs are offline. Otherwise, the disk cannot be added as a pass-through disk to a VM.
 
 * When multiple LUNs exist, be sure to note the disk number of the LUN in disk management. Doing so is necessary because disks listed for the VM are listed with the disk number. Also, the selection of the disk as a pass-through disk for the VM is based on this disk number.
 * NetApp recommends avoiding NIC teaming for iSCSI NICs.
 * NetApp recommends using ONTAP MPIO configured on the host for storage purposes.
-
-|===

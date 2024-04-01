@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: microsoft/win_deploy_hyperv.html
 keywords: Windows,Hyper-V,VHDX,VM,Virtual
-summary: This appendix describes deploying a Hyper-V cluster.
+summary: This appendix describes deploying a high availability Hyper-V cluster on NetApp storage.
 ---
 
 = Deploy Hyper-V Cluster
@@ -29,8 +29,6 @@ This appendix describes deploying a Hyper-V cluster.
 
 [arabic]
 . Log in to one of the Windows Hyper-V servers as a member of the administrator group.
-
-[arabic, start=66]
 . Start Server Manager**.**
 . In the Tools section, click Failover Cluster Manager.
 . Click the Create Cluster from Actions menu.
@@ -40,37 +38,21 @@ This appendix describes deploying a Hyper-V cluster.
 . Click the newly created cluster in Failover Cluster Manager and manage it.
 . Define shared storage for the cluster to use. It can be either an SMB share or a CSV.
 . Using an SMB share as shared storage requires no special steps.
-
 * Configure a CIFS share on a NetApp storage controller. To do so, see the section "link:#provisioning-smb-share-on-windows-server[Provisioning in SMB Environments]".
-
-[arabic, start=75]
 . To use a CSV as shared storage, complete the following steps:
-
-[loweralpha]
-. Configure LUNs on a NetApp storage controller. To do so, see the section "Provisioning in SAN Environments."
-
-[loweralpha, start=19]
-. Make sure that all the Hyper-V servers in the failover cluster can see the NetApp LUNs. To do this for all the Hyper-V servers that are part of the failover cluster, make sure that their initiators are added to the initiator group on NetApp storage. Also be sure that their LUNs are discovered and make sure that MPIO is enabled.
-. On any one of the Hyper-V servers in the cluster, complete the following steps:
-
-[lowerroman]
-. Take the LUN online, initialize the disk, create a new simple volume, and format it using NTFS or ReFS.
-. In Failover Cluster Manager, expand the cluster, expand Storage, right-click Disks, and then click Add Disks. Doing so opens the Add Disks to a Cluster wizard showing the LUN as a disk. Click OK to add the LUN as a disk.
-. Now the LUN is named Clustered Disk and is shown as Available Storage under Disks.
-
-[loweralpha, start=21]
-. Right-click the LUN (Clustered Disk) and click Add to Cluster Shared Volumes. Now the LUN is shown as a CSV.
-. The CSV is simultaneously visible and accessible from all the Hyper-V servers of the failover cluster at its local location C:\ClusterStorage\.
-
-[arabic, start=76]
+.. Configure LUNs on a NetApp storage controller. To do so, see the section "Provisioning in SAN Environments."
+.. Make sure that all the Hyper-V servers in the failover cluster can see the NetApp LUNs. To do this for all the Hyper-V servers that are part of the failover cluster, make sure that their initiators are added to the initiator group on NetApp storage. Also be sure that their LUNs are discovered and make sure that MPIO is enabled.
+.. On any one of the Hyper-V servers in the cluster, complete the following steps:
+... Take the LUN online, initialize the disk, create a new simple volume, and format it using NTFS or ReFS.
+... In Failover Cluster Manager, expand the cluster, expand Storage, right-click Disks, and then click Add Disks. Doing so opens the Add Disks to a Cluster wizard showing the LUN as a disk. Click OK to add the LUN as a disk.
+... Now the LUN is named Clustered Disk and is shown as Available Storage under Disks.
+.. Right-click the LUN (Clustered Disk) and click Add to Cluster Shared Volumes. Now the LUN is shown as a CSV.
+.. The CSV is simultaneously visible and accessible from all the Hyper-V servers of the failover cluster at its local location C:\ClusterStorage\.
 . Create a highly available VM:
-
-* In Failover Cluster Manager, select and expand the cluster created previously.
-* Click Roles and then click Virtual Machines in Actions. Click New Virtual Machine.
-* Select the node from the cluster where the VM should reside.
-* In the Virtual Machine Creation wizard, provide the shared storage (SMB share or CSV) as the path to store the VM and its disks.
-* Use Hyper-V Manager to set the shared storage (SMB share or CSV) as the default path to store the VM and its disks for a Hyper-V server.
-
-[arabic, start=77]
+.. In Failover Cluster Manager, select and expand the cluster created previously.
+.. Click Roles and then click Virtual Machines in Actions. Click New Virtual Machine.
+.. Select the node from the cluster where the VM should reside.
+.. In the Virtual Machine Creation wizard, provide the shared storage (SMB share or CSV) as the path to store the VM and its disks.
+.. Use Hyper-V Manager to set the shared storage (SMB share or CSV) as the default path to store the VM and its disks for a Hyper-V server.
 . Test planned failover. Move VMs to another node using live migration, quick migration, or storage migration (move). Review the section "link:\l[Live Migration in a Clustered Environment]" for more details.
 . Test unplanned failover. Stop cluster service on the server owning the VM.

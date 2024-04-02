@@ -17,7 +17,7 @@ summary: Overview of Microsoft Windows and Hyper-V virtualization with ONTAP
 Microsoft Windows Server is an enterprise-class operating system (OS) that covers networking, security, virtualization, private cloud, hybrid cloud, virtual desktop infrastructure, access protection, information protection, web services, application platform infrastructure, and much more.
 
 [NOTE]
-This documentation replaces previously published technical reports _TR-4568: NetApp Deployment Guidelines and Storage Best Practices for Windows Server_
+*This documentation replaces previously published technical reports _TR-4568: NetApp Deployment Guidelines and Storage Best Practices for Windows Server_*
 
 .NetApp ONTAP(R) management software runs on NetApp storage controllers. It is available in multiple formats.
 * A unified architecture supporting file, object, and block protocols. This enables the storage controllers to act as both NAS and SAN devices as well as object stores

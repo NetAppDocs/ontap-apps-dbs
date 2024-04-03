@@ -144,14 +144,14 @@ To detect iSCSI or FC block storage on Windows Server, complete the following st
 
 === Prerequisites
 
-In addition to the prerequisites mentioned in the previous section, the storage role must be enabled from the Nano Server side. For example, Nano Server must be deployed using the -Storage option. To deploy Nano Server, see the section "link:\l[Deploy Nano Server.]"
+In addition to the prerequisites mentioned in the previous section, the storage role must be enabled from the Nano Server side. For example, Nano Server must be deployed using the -Storage option. To deploy Nano Server, see the section "link:win_deploy_nano.html[Deploy Nano Server.]"
 
 === Deployment
 
 To provision NetApp LUNs on a Nano Server, complete the following steps:
 
 [arabic]
-. Connect to the Nano Server remotely using instructions in the section "link:\l[Connect to Nano Server]."
+. Connect to the Nano Server remotely using instructions in the section "link:win_deploy_nano.html[Connect to Nano Server]."
 . To configure iSCSI, run the following PowerShell cmdlets on the Nano Server:
 
  # Start iSCSI service, if it is not already running
@@ -242,7 +242,7 @@ image:win_image4.png[Boot LUNs using NetApp FlexClone,width=561,height=357]
 * The physical host (server) has a proper iSCSI or FC HBA.
 * You have downloaded a suitable HBA device driver for the server supporting Windows Server.
 * The server has a suitable CD/DVD drive or virtual media to insert the Windows Server ISO image and the HBA device driver has been downloaded.
-* A NetApp iSCSI or FC LUN is provisioned on the NetApp storage controller. See the section link:#provisioning-in-san-environments[Provisioning in SAN Environments] for more information.
+* A NetApp iSCSI or FC LUN is provisioned on the NetApp storage controller.
 
 ==== Deployment
 
@@ -268,7 +268,7 @@ To configure booting from SAN for a VM, complete the following steps:
 ==== Deployment
 
 [arabic]
-. When creating an initiator group for iSCSI or FC on a NetApp storage controller, add the IQN for iSCSI or the WWN for FC of the Hyper-V server to the controller. Review the section " link:#provisioning-netapp-lun-on-windows-server[Provisioning NetApp LUN on Windows Server] " for more details on provisioning LUNs for Windows Server 2016.
+. When creating an initiator group for iSCSI or FC on a NetApp storage controller, add the IQN for iSCSI or the WWN for FC of the Hyper-V server to the controller.
 . Create LUNs or LUN clones on the NetApp storage controller and associate them with the initiator group created in the previous step. These LUNs serve as boot LUNs for the VMs.
 . Detect the LUNs on the Hyper-V server, bring them online, and initialize them.
 . Bring the LUNs offline.

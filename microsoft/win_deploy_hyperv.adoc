@@ -38,7 +38,7 @@ This appendix describes deploying a Hyper-V cluster.
 . Click the newly created cluster in Failover Cluster Manager and manage it.
 . Define shared storage for the cluster to use. It can be either an SMB share or a CSV.
 . Using an SMB share as shared storage requires no special steps.
-* Configure a CIFS share on a NetApp storage controller. To do so, see the section "link:#provisioning-smb-share-on-windows-server[Provisioning in SMB Environments]".
+* Configure a CIFS share on a NetApp storage controller. To do so, see the section "link:win_smb.html[Provisioning in SMB Environments]".
 . To use a CSV as shared storage, complete the following steps:
 .. Configure LUNs on a NetApp storage controller. To do so, see the section "Provisioning in SAN Environments."
 .. Make sure that all the Hyper-V servers in the failover cluster can see the NetApp LUNs. To do this for all the Hyper-V servers that are part of the failover cluster, make sure that their initiators are added to the initiator group on NetApp storage. Also be sure that their LUNs are discovered and make sure that MPIO is enabled.
@@ -54,5 +54,5 @@ This appendix describes deploying a Hyper-V cluster.
 .. Select the node from the cluster where the VM should reside.
 .. In the Virtual Machine Creation wizard, provide the shared storage (SMB share or CSV) as the path to store the VM and its disks.
 .. Use Hyper-V Manager to set the shared storage (SMB share or CSV) as the default path to store the VM and its disks for a Hyper-V server.
-. Test planned failover. Move VMs to another node using live migration, quick migration, or storage migration (move). Review the section "link:\l[Live Migration in a Clustered Environment]" for more details.
+. Test planned failover. Move VMs to another node using live migration, quick migration, or storage migration (move). Review the section "link:\win_deploy_hyperv_lmce.html[Live Migration in a Clustered Environment]" for more details.
 . Test unplanned failover. Stop cluster service on the server owning the VM.

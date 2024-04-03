@@ -19,7 +19,7 @@ Learn how to configure Hyper-V storage live migration
 == Prerequisites
 
 * You must have a standalone Hyper-V server with independent storage (DAS or LUN) or SMB storage (local or shared among other Hyper-V servers).
-* The Hyper-V server must be configured for live migration. Review the section on deployment in link:\l[Live Migration Outside of a Clustered Environment].
+* The Hyper-V server must be configured for live migration. Review the section on deployment in link:win_deploy_hyperv_replica_oce.html[Live Migration Outside of a Clustered Environment].
 
 == Deployment
 

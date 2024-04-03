@@ -20,14 +20,14 @@ image:win_image5.png[Hyper-V storage infrastructure on NetApp,width=624,height=3
 
 == Hyper-V Storage on NetApp LUNs
 
-* Provision a NetApp LUN on the Hyper-V server machine. For more information, see the section "link:\l[Provisioning in SAN Environments]."
+* Provision a NetApp LUN on the Hyper-V server machine. For more information, see the section "link:win_san.html[Provisioning in SAN Environments]."
 * Open Hyper-V Manager from the Tools section of Server Manager.
 * Select the Hyper-V server and click Hyper-V Settings.
 * Specify the default folder to store the VM and its disk as the LUN. Doing so sets the default path as the LUN for the Hyper-V storage. If you want to specify the path explicitly for a VM, then you can do so during VM creation.
 
 == Hyper-V Storage on NetApp CIFS Share 
 
-Before beginning the steps listed in this section, review the section "link:\l[Provisioning in SMB Environments]." To configure Hyper-V storage on the NetApp CIFS share, complete the following steps:
+Before beginning the steps listed in this section, review the section "link:win_smb.html[Provisioning in SMB Environments]." To configure Hyper-V storage on the NetApp CIFS share, complete the following steps:
 
 [arabic]
 . Open Hyper-V Manager from the Tools section of Server Manager.
@@ -119,7 +119,7 @@ image:win_image6.png[Hyper-V failover cluster and NetApp,width=624,height=271]
 * Disks used for CSVs should use 64K formatting for allocation.
 
 === Further Reading
-For information about deploying a Hyper-V cluster, see Appendix B: link:\win_deploy_hyperv.html[Deploy Hyper-V Cluster].
+For information about deploying a Hyper-V cluster, see Appendix B: link:win_deploy_hyperv.html[Deploy Hyper-V Cluster].
 
 == Hyper-V Live Migration: Migration of VMs
 
@@ -136,7 +136,7 @@ image:win_image7.png[Live migration in a clustered environment,width=580,height=
 * Have a dedicated host live migration network to avoid network-related issues during migration.
 
 === Further Reading
-For information about deploying live migration in a clustered environment, see link:\win_deploy_hyperv_lmce.html[Appendix C: Deploy Hyper-V Live Migration in a Clustered Environment].
+For information about deploying live migration in a clustered environment, see link:win_deploy_hyperv_lmce.html[Appendix C: Deploy Hyper-V Live Migration in a Clustered Environment].
 
 
 === Live Migration Outside a Clustered Environment
@@ -154,7 +154,7 @@ image:win_image9.png[Shared nothing live migration in a nonclustered environment
 image:win_image10.png[Shared nothing live migration in a nonclustered environment to LUNs,width=624,height=384]
 
 === Further Reading
-For information about deploying live migration outside a clustered environment, see link:\win_deploy_hyperv_lmoce.html[Appendix D: Deploy Hyper-V Live Migration Outside of a Clustered Environment].
+For information about deploying live migration outside a clustered environment, see link:win_deploy_hyperv_lmoce.html[Appendix D: Deploy Hyper-V Live Migration Outside of a Clustered Environment].
 
 === Hyper-V Storage Live Migration
 
@@ -194,7 +194,7 @@ VM storage (VHD/VHDX) can be migrated between the following storage types:
 image:win_image11.png[Hyper-V storage live migration,width=339,height=352]
 
 === Further Reading
-For information about deploying storage live migration, see link:\win_deploy_hyperv_slm.html[Appendix E: Deploy Hyper-V Storage Live Migration].
+For information about deploying storage live migration, see link:win_deploy_hyperv_slm.html[Appendix E: Deploy Hyper-V Storage Live Migration].
 
 == Hyper-V Replica: Disaster Recovery for Virtual Machines
 
@@ -223,5 +223,5 @@ Failover is not automatic; the process must be manually triggered. There are thr
 When you configure replication for a VM, you can specify the number of recovery points. Recovery points represent points in time from which data can be recovered from a replicated machine.
 
 === Further Reading
-* For information about deploying Hyper-V Replica outside a clustered environment, see the section "link:\l[Deploy Hyper-V Replica Outside of a Clustered Environment]."
-* For information about deploying Hyper-V Replica in a clustered environment, see the section "link:\l[Deploy Hyper-V Replica in a Clustered Environment]."
+* For information about deploying Hyper-V Replica outside a clustered environment, see the section "link:win_deploy_hyperv_replica_oce.html[Deploy Hyper-V Replica Outside of a Clustered Environment]."
+* For information about deploying Hyper-V Replica in a clustered environment, see the section "link:win_deploy_hyperv_replica_ce.html[Deploy Hyper-V Replica in a Clustered Environment]."

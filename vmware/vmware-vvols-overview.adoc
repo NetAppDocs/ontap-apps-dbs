@@ -84,7 +84,7 @@ At the time of publication, hyperscaler environments are limited to traditional 
 
 _For more information about ONTAP, see https://docs.netapp.com/us-en/ontap-family/[ONTAP product documentation^]_
 
-_For more information about ONTAP and VMware vSphere best practices, see https://docs.netapp.com/us-en/netapp-solutions/virtualization/vsphere_ontap_ontap_for_vsphere.html[TR-4597^]_
+_For more information about ONTAP and VMware vSphere best practices, see link:vmware-vsphere-overview.html[TR-4597^]_
 
 == Benefits of using vVols with ONTAP
 When VMware introduced vVols support with VASA 2.0 in 2015 they described it as “an integration and management framework delivering a new operational model for external storage (SAN/NAS).” This operational model offers several benefits together with ONTAP storage.

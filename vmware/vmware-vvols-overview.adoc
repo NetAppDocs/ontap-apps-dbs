@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: vmware/vmware-vvols-overview.html
 keywords: tr-4400, vvols, ontap, virtual volumes
-summary: 
+summary: This is an overview of VMware vSphere Virtual Volumes (vVols) with ONTAP
 ---
 = Overview
 

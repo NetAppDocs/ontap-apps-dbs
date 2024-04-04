@@ -142,7 +142,7 @@ It's worth noting that NFSv3 and NFSv4.1 use different locking mechanisms. NFSv3
 * Although ONTAP offers a flexible volume namespace structure to arrange volumes in a tree using junctions, this approach has no value for vSphere. It creates a directory for each VM at the root of the datastore, regardless of the namespace hierarchy of the storage. Thus, the best practice is to simply mount the junction path for volumes for vSphere at the root volume of the SVM, which is how ONTAP tools for VMware vSphere provisions datastores. Not having nested junction paths also means that no volume is dependent on any volume other than the root volume and that taking a volume offline or destroying it, even intentionally, does not affect the path to other volumes.
 * A block size of 4K is fine for NTFS partitions on NFS datastores. The following figure depicts connectivity from a vSphere host to an ONTAP NFS datastore.
 
-image:vsphere_ontap_image3.png[Error: Missing Graphic Image]
+image:vsphere_ontap_image3.png[Connectivity from a vSphere host to an ONTAP NFS datastore]
 
 The following table lists NFS versions and supported features.
 

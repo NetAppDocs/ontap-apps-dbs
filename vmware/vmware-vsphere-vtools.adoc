@@ -27,7 +27,7 @@ ONTAP tools for VMware vSphere is a set of tools for using ONTAP storage togethe
 
 The following figure depicts ONTAP tools for vSphere.
 
-image:vsphere_ontap_image1.png[Error: Missing Graphic Image]
+image:vsphere_ontap_image1.png[ONTAP tools for vSphere]
 
 == NFS Plug-In for VMware VAAI
 The NetApp NFS Plug-In for VMware VAAI is a plug-in for ESXi hosts that allows them to use VAAI features with NFS datastores on ONTAP. It supports copy offload for clone operations, space reservation for thick virtual disk files, and snapshot offload. Offloading copy operations to storage is not necessarily faster to complete, but it does reduce network bandwidth requirements and offloads host resources such as CPU cycles, buffers, and queues. You can use ONTAP tools for VMware vSphere to install the plug-in on ESXi hosts or, where supported, vSphere Lifecycle Manager (vLCM).

@@ -24,7 +24,7 @@ The first two steps may not be needed for an existing vSphere environment that u
 
 . Configure ONTAP tools for your environment.
 * Add the ONTAP cluster to ONTAP tools under _Storage Systems_
-** While ONTAP tools and SRA support both cluster-level and SVM-level credentials, the VASA Provider supports only cluster-level credentials for storage systems. This is becuase many of the APIs used for vVols are only avaialble at the cluster level. Therefore, if you plan to use vVols, you must add your ONTAP clusters using cluster-scoped credentials.
+** While ONTAP tools and SRA support both cluster-level and SVM-level credentials, the VASA Provider supports only cluster-level credentials for storage systems. This is because many of the APIs used for vVols are only available at the cluster level. Therefore, if you plan to use vVols, you must add your ONTAP clusters using cluster-scoped credentials.
 * If your ONTAP data LIFs are on different subnets from your VMkernel adapters, then you must add the VMkernel adapter subnets to the selected subnets list in the settings menu of ONTAP tools. By default, ONTAP tools will secure your storage traffic by only allowing local subnet access.
 * The ONTAP tools comes with several pre-defined policies that may be used or see <<Managing VMs with policies>> for guidance on creating SCPs.
 

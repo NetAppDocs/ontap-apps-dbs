@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: vmware/vmware-srm-operational_best_practices.html
 keywords: vmware, site, recovery manager, vsrm, datastores, protocols, spbm, vvols, protection, replication, volumes, array, groups, failover test, reportect, failback
-summary: If possible, always use ONTAP tools to provision datastores and volumes. This makes sure that volumes, junction paths, LUNs, igroups, export policies, and other settings are configured in a compatible manner.
+summary: Operational best practices for VMware SRM and ONTAP storage
 ---
 = Operational best practices
 :hardbreaks:
@@ -44,22 +44,22 @@ Starting with SRM 8.3, the protection of VMs using vVols datastores is supported
 
 The following example shows the enablement of vVols replication.
 
-image:vsrm-ontap9_image2.png[Error: Missing Graphic Image]
+image:vsrm-ontap9_image2.png[vVols replication]
 
 The following screenshot provides an example of SnapMirror schedules displayed in the Create VM Storage Policy wizard.
 
-image:vsrm-ontap9_image3.png[Error: Missing Graphic Image]
+image:vsrm-ontap9_image3.png[SnapMirror schedules]
 
 The ONTAP VASA Provider supports failover to dissimilar storage. For example, the system can fail over from ONTAP Select at an edge location to an AFF system in the core datacenter. Regardless of storage similarity, you must always configure storage policy mappings and reverse mappings for replication-enabled VM storage policies to make sure that services provided at the recovery site meet expectations and requirements. The following screenshot highlights a sample policy mapping.
 
-image:vsrm-ontap9_image4.png[Error: Missing Graphic Image]
+image:vsrm-ontap9_image4.png[policy mapping]
 
 == Create replicated volumes for vVols datastores
 Unlike previous vVols datastores, replicated vVols datastores must be created from the start with replication enabled, and they must use volumes that were pre-created on the ONTAP systems with SnapMirror relationships. This requires pre-configuring things like cluster peering and SVM peering. These activities should be performed by your ONTAP administrator because this facilitates a strict separation of responsibilities between those who manage the ONTAP systems across multiple sites and those who are primarily responsible for vSphere operations.
 
 This does come with a new requirement on behalf of the vSphere administrator. Because volumes are being created outside the scope of ONTAP tools, it is unaware of the changes your ONTAP administrator has made until the regularly scheduled rediscovery period. For that reason, it is a best practice to always run rediscovery whenever you create a volume or SnapMirror relationship to be used with vVols. Simply right-click on the host or cluster and select NetApp ONTAP tools > Update Host and Storage Data, as shown in the following screenshot.
 
-image:vsrm-ontap9_image5.png[Error: Missing Graphic Image]
+image:vsrm-ontap9_image5.png[Update Host and Storage Data]
 
 One caution should be taken when it comes to vVols and SRM. Never mix protected and unprotected VMs in the same vVols datastore. The reason for this is that when you use SRM to failover to your DR site, only those VMs that are part of the protection group are brought online in DR. Therefore, when you reprotect (reverse the SnapMirror from DR back to production again), you may overwrite the VMs that were not failed over and could contain valuable data.
 
@@ -68,7 +68,7 @@ An array manager is created for each array pair. With SRM and ONTAP tools, each 
 
 When configuring array pairs in SRM, you should always add them in SRM the same way as you added them to ONTAP Tools, meaning, they must use the same username, password, and management LIF. This requirement ensures that SRA communicates properly with the array. The following screenshot illustrates how a cluster might appear in ONTAP Tools and how it might be added to an array manager.
 
-image:vsrm-ontap9_image6.jpg[Error: Missing Graphic Image]
+image:vsrm-ontap9_image6.jpg[cluster]
 
 == About replication groups
 Replication groups contain logical collections of virtual machines that are recovered together. The ONTAP tools VASA Provider automatically creates replication groups for you. Because ONTAP SnapMirror replication occurs at the volume level, all VMs in a volume are in the same replication group.

@@ -1,16 +1,16 @@
 ---
 sidebar: sidebar
 permalink: mssql/mssql-shared-vs-dedicated.html
-keywords: MS-SQL,mssql,SQL Server
-summary: Microsoft SQL Server on ONTAP
+keywords: MSSQL,SQL Server, multiple instances, dedicated instance, ONTAP
+summary: Microsoft SQL Server instance deployment
 ---
 = Microsoft SQL Server shared instance versus dedicated instance
 :imagesdir: ../media/
 
 [.lead]
-Multiple SQL Server instances or a single SQL instance can be installed on a server. Based on environment wether it is a production or test server and its critically, choose the deployment model that meet business need.
+Multiple SQL Server can be configured as a single instance per server or as multiple instances. The right decision usually depends on factors such as whether the server is to be used for production or development,  whether the instance is considered critical to business operations and performance goals.
 
-Instance resources could potentially become divided or locked, which in turn causes performance issues for other apps that have databases hosted on the shared SQL Server instance.
+Shared instance configurations may be initially easier to configure, but it can lead to problems where resources become divided or locked, which in turn causes performance issues for other apps that have databases hosted on the shared SQL Server instance.
 
 Troubleshooting performance issues can be complicated because you must figure out which instance is the root cause. This question is weighed against the costs of operating system licenses and SQL Server licenses. If application performance is paramount, then a dedicated instance is highly recommended.
 

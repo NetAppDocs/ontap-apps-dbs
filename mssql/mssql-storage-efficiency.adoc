@@ -1,16 +1,16 @@
 ---
 sidebar: sidebar
 permalink: mssql/mssql-storage-efficiency.html
-keywords: MS-SQL,mssql,SQL Server, efficiency, compression, deduplication
+keywords: MSSQL,SQL Server, efficiency, compression, deduplication
 summary: Microsoft SQL Server and ONTAP storage efficiency
 ---
-= ONTAP Storage efficiency features with Microsoft SQL Server
+= Microsoft SQL Server and storage efficiency
 :imagesdir: ../media/
 
 [.lead]
-ONTAP storage efficiency are optimized to store and manage SQL Server data in a way that consumes the least amount of storage space with little or no effect on the overall performance of the system. 
+ONTAP storage efficiency is optimized to store and manage SQL Server data in a way that consumes the least amount of storage space with little or no effect on the overall performance of the system. 
 
-Storage efficiency is a combination of RAID, provisioning (overall layout and utilization), mirroring, and other data protection technologies. NetApp technologies like Snapshot copies, Thin provisioning,  FlexClone helps in creating cost benefits by optimizing existing storage in the infrastructure and deferring or avoiding future storage expenditures. The more you use these technologies together, the larger the savings.
+Storage efficiency is a combination of RAID, provisioning (overall layout and utilization), mirroring, and other data protection technologies. NetApp technologies including snapshots, thin provisioning, and cloning optimizes existing storage in the infrastructure and deferring or avoiding future storage expenditures. The more you use these technologies together, the larger the savings.
 
 == Thin provisioning
 
@@ -20,7 +20,7 @@ include::../_include/thin-provisioning.adoc[]
 
 include::../_include/efficiency.adoc[]
 
-SQL Server also have feature to compress and efficiently manage data. SQL Server currently supports two types of data compression: row compression and page compression. 
+SQL Server itself also has features to compress and efficiently manage data. SQL Server currently supports two types of data compression: row compression and page compression. 
 
 Row compression changes the data storage format. For example, it changes integers and decimals to the variable-length format instead of their native fixed-length format. It also changes fixed-length character strings to the variable-length format by eliminating blank spaces. Page compression implements row compression and two other compression strategies (prefix compression and dictionary compression). You can find more details about page compression in link:https://learn.microsoft.com/en-us/sql/relational-databases/data-compression/page-compression-implementation?view=sql-server-ver16&redirectedfrom=MSDN[Page Compression Implementation^]. 
 

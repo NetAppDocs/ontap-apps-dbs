@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: vmware/vmware-srm-replication_topologies.html
 keywords: vmware, site, recovery manager, vsrm, replication, technologies, snapmirror layouts, array manager, snapvault, qtress, fc, iscsi, supported
-summary: In ONTAP 9, the physical components of a cluster are visible to cluster administrators, but they are not directly visible to the applications and hosts that use the cluster.
+summary: Replication topologies using ONTAP with SnapMirror and VMware SRM.
 ---
 
 = Replication topologies
@@ -32,37 +32,37 @@ A single VM cannot own data—Virtual Machine Disk (VMDK) or RDM—on more than 
 
 The following figures show the SnapMirror relationship layout scenarios that SRM and SRA support. Each VM in the replicated volumes owns data on only one SRM array (SVM) at each site.
 
-image:vsrm-ontap9_image7.png[Error: Missing Graphic Image]
+image:vsrm-ontap9_image7.png[SnapMirror relationship layout]
 
-image:vsrm-ontap9_image8.png[Error: Missing Graphic Image]
+image:vsrm-ontap9_image8.png[SnapMirror relationship layout]
 
-image:vsrm-ontap9_image9.png[Error: Missing Graphic Image]
+image:vsrm-ontap9_image9.png[SnapMirror relationship layout]
 
-image:vsrm-ontap9_image10.png[Error: Missing Graphic Image]
+image:vsrm-ontap9_image10.png[SnapMirror relationship layout]
 
 == Supported Array Manager layouts
 
 When you use array-based replication (ABR) in SRM, protection groups are isolated to a single array pair, as shown in the following screenshot. In this scenario, `SVM1` and `SVM2` are peered with `SVM3` and `SVM4` at the recovery site. However, you can select only one of the two array pairs when you create a protection group.
 
-image:vsrm-ontap9_image11.png[Error: Missing Graphic Image]
+image:vsrm-ontap9_image11.png[array pairs]
 
 == Unsupported layouts
 
 Unsupported configurations have data (VMDK or RDM) on multiple SVMs that is owned by an individual VM. In the examples shown in the following figures, `VM1` cannot be configured for protection with SRM because `VM1` has data on two SVMs.
 
-image:vsrm-ontap9_image12.png[Error: Missing Graphic Image]
+image:vsrm-ontap9_image12.png[Unsupported configurations]
 
-image:vsrm-ontap9_image13.png[Error: Missing Graphic Image]
+image:vsrm-ontap9_image13.png[Unsupported configurations]
 
 Any replication relationship in which an individual NetApp volume is replicated from one source SVM to multiple destinations in the same SVM or in different SVMs is referred to as SnapMirror fan-out. Fan-out is not supported with SRM. In the example shown in the following figure, `VM1` cannot be configured for protection in SRM because it is replicated with SnapMirror to two different locations.
 
-image:vsrm-ontap9_image14.png[Error: Missing Graphic Image]
+image:vsrm-ontap9_image14.png[Unsupported configurations]
 
 == SnapMirror cascade
 
 SRM does not support cascading of SnapMirror relationships, in which a source volume is replicated to a destination volume and that destination volume is also replicated with SnapMirror to another destination volume. In the scenario shown in the following figure, SRM cannot be used for failover between any sites.
 
-image:vsrm-ontap9_image15.png[Error: Missing Graphic Image]
+image:vsrm-ontap9_image15.png[cascading of SnapMirror relationships]
 
 == SnapMirror and SnapVault
 
@@ -91,11 +91,11 @@ In a VMware environment, each datastore has a universal unique identifier (UUID)
 
 The following figure depicts a SnapMirror to SnapVault cascade configuration. If the SnapVault destination is at the DR site or at a tertiary site that is not affected by an outage at the primary site, the environment can be reconfigured to allow backups to continue after failover.
 
-image:vsrm-ontap9_image16.png[Error: Missing Graphic Image]
+image:vsrm-ontap9_image16.png[SnapMirror to SnapVault cascade]
 
 The following figure depicts the configuration after SRM has been used to reverse SnapMirror replication back to the primary site. The environment has also been reconfigured such that SnapVault backups are occurring from what is now the SnapMirror source. This setup is a SnapMirror SnapVault fan-out configuration.
 
-image:vsrm-ontap9_image17.png[Error: Missing Graphic Image]
+image:vsrm-ontap9_image17.png[SnapMirror to SnapVault cascade reverse]
 
 After SRM performs failback and a second reversal of the SnapMirror relationships, the production data is back at the primary site. This data is now protected in the same way that it was before the failover to the DR site—through SnapMirror and SnapVault backups.
 

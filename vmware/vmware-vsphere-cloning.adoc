@@ -21,7 +21,7 @@ Linked clones are great for saving space, but they increase the amount of I/O th
 
 The following figure depicts ONTAP cloning.
 
-image:vsphere_ontap_image5.png[Error: Missing Graphic Image]
+image:vsphere_ontap_image5.png[ONTAP cloning]
 
 Cloning can be offloaded to systems running ONTAP software through several mechanisms, typically at the VM, vVol, or datastore level. These include the following:
 

@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: vmware/vmware-vsphere-datastores-nfs.html
-keywords: vSphere, datastore, VMFS, FC, FCoE, NVMe/FC, iSCSI, NFS, vVols
+keywords: vSphere, datastore, VMFS, FC, FCoE, NVMe/FC, iSCSI, NFS, vVols, NFSv3, NFSv4.1
 summary: This page describes the best practices for implementing VMware vSphere with ONTAP and NFS-connected datastores.
 ---
 

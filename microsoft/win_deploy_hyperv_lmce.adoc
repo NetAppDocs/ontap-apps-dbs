@@ -1,0 +1,34 @@
+---
+sidebar: sidebar
+permalink: microsoft/win_deploy_hyperv_lmce.html
+keywords: Windows,Hyper-V,VHDX,VM,Virtual
+summary: This appendix describes deploying live migration in a clustered environment.
+---
+
+= Deploy Hyper-V Live Migration in a Clustered Environment
+
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media
+
+[.lead]
+This appendix describes deploying live migration in a clustered environment.
+
+== Prerequisites
+
+To deploy live migration, you need to have Hyper-V servers configured in a failover cluster with shared storage. Review the section link:win_deploy_hyperv.html[Hyper-V Clustering] for more details.
+
+== Deployment
+
+To use live migration in a clustered environment, complete the following steps:
+
+[arabic]
+. In Failover Cluster Manager, select and expand the cluster. If the cluster is not visible, then click Failover Cluster Manager, click Connect to Cluster, and provide the cluster name.
+. Click Roles, which lists all the VMs available in a cluster.
+. Right-click on the VM and click Move. Doing so provides you with three options:
+
+* *Live migration.* You can select a node manually or allow the cluster to select the best node. In live migration, the cluster copies the memory used by the VM from the current node to another node. Therefore, when the VM is migrated to another node, the memory and state information needed by the VM are already in place for the VM. This migration method is nearly instantaneous, but only one VM can be live migrated at a time.
+* *Quick migration.* You can select a node manually or allow the cluster to select the best node. In quick migration, the cluster copies the memory used by a VM to a disk in storage. Therefore, when the VM is migrated to another node, the memory and state information needed by the VM can be quickly read from the disk by the other node. With quick migration, multiple VMs can be migrated simultaneously.
+* *Virtual machine storage migration.* This method uses the Move Virtual Machine Storage wizard. With this wizard, you can select the VM disk along with other files to be moved to another location, which can be a CSV or an SMB share.

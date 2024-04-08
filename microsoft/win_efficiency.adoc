@@ -1,0 +1,56 @@
+---
+sidebar: sidebar
+permalink: microsoft/win_efficiency.html
+keywords: Windows,Hyper-V,VHDX,VM,Virtual
+summary: ONTAP storage efficiency with Microsoft Hyper-V
+---
+
+= Storage Efficiency
+
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media
+
+[.lead]
+ONTAP provides industry leading storage efficiency for virtualized environments including Microsoft Hyper-V. NetApp also offers storage efficiency guarantee programs.
+
+== NetApp Deduplication
+
+NetApp deduplication works by removing duplicate blocks at the storage volume level, storing only one physical copy, regardless of how many logical copies are present. Therefore, deduplication creates the illusion that there are numerous copies of that block. Deduplication automatically removes duplicate data blocks on a 4KB block level across an entire volume. This process reclaims storage to achieve space and potential performance savings by reducing the number of physical writes to the disk. Deduplication can provide more than 70% space savings in Hyper-V environments.
+
+== Thin Provisioning
+
+Thin provisioning is an efficient way to provision storage because the storage is not preallocated up front. In other words, when a volume or LUN is created using thin provisioning, the space on the storage system is unused. The space remains unused until the data is written to the LUN or volume and only the necessary space to store the data is used. NetApp recommends enabling thin provisioning on the volume and disabling LUN reservation.
+
+== Quality of Service
+
+Storage QoS in clustered ONTAP enables you to group storage objects and set throughput limits on the group. Storage QoS can be used to limit the throughput to workloads and to monitor workload performance. With this ability, a storage administrator can separate workloads by organization, application, business unit, or production or development environments.
+
+In enterprise environments, storage QoS helps to achieve the following:
+
+* Prevents user workloads from affecting each other.
+* Protects critical applications that have specific response times that must be met in IT-as-a-service (ITaaS) environments.
+* Prevents tenants from affecting each other.
+* Avoids performance degradation with the addition of each new tenant.
+
+QoS allows you to limit the amount of I/O sent to an SVM, a flexible volume, a LUN, or a file. I/O can be limited by the number of operations or the raw throughput.
+
+The following figure illustrates SVM with its own QoS policy enforcing a maximum throughput limit.
+
+image:win_image13.png[Storage virtual machine with its own QoS policy,width=319,height=341]
+
+To configure an SVM with its own QoS policy and monitor policy group, run the following commands on your ONTAP cluster:
+
+ # create a new policy group pg1 with a maximum throughput of 5,000 IOPS
+ cluster::> qos policy-group create pg1 -vserver vs1 -max-throughput 5000iops
+
+ # create a new policy group pg2 without a maximum throughput
+ cluster::> qos policy-group create pg2 -vserver vs2
+
+ # monitor policy group performance
+ cluster::> qos statistics performance show
+
+ # monitor workload performance
+ cluster::> qos statistics workload performance show

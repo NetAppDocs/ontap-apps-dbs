@@ -14,7 +14,7 @@ summary: NFS configuration for Oracle databases
 [.lead]
 NetApp has been providing enterprise-grade NFS storage for over 30 years, and its use is growing with the push toward cloud-based infrastructures because of it's simplicity.
 
-The NFS protocol includes multiple versions with varying requirements. For a complete description of NFS configuration with ONTAP, please see link:https://www.netapp.com/pdf.html?item=/media/10720-tr-4067.pdf[TR-4067 NFS on NetApp ONTAP Best Practices^]. The following sections cover some of the more critical requirements and common user errors. 
+The NFS protocol includes multiple versions with varying requirements. For a complete description of NFS configuration with ONTAP, please see link:https://www.netapp.com/pdf.html?item=/media/10720-tr-4067.pdf[TR-4067 NFS on ONTAP Best Practices^]. The following sections cover some of the more critical requirements and common user errors. 
 
 == NFS versions
 The operating system NFS client must be supported by NetApp.
@@ -87,7 +87,7 @@ For most applications, there is very little difference between NFSv3 and NFSv4. 
 [TIP]
 *NetApp recommends* using NFSv4.1 if NFSv4 capabilities are required. There are some functional enhancements to the NFSv4 protocol in NFSv4.1 that improve resiliency in certain edge cases.
 
-Switching to NFSv4 is more complicated than simply changing the mount options from vers=3 to vers=4.1. A more complete explanation of NFSv4 configuration with ONTAP, including guidance on configuring the OS, see https://www.netapp.com/pdf.html?item=/media/10720-tr-4067.pdf[TR-4067 NFS on NetApp ONTAP best practices^]. The following sections of this TR explain some of the basic requirements for using NFSv4.
+Switching to NFSv4 is more complicated than simply changing the mount options from vers=3 to vers=4.1. A more complete explanation of NFSv4 configuration with ONTAP, including guidance on configuring the OS, see https://www.netapp.com/pdf.html?item=/media/10720-tr-4067.pdf[TR-4067 NFS on ONTAP best practices^]. The following sections of this TR explain some of the basic requirements for using NFSv4.
 
 === NFSv4 domain
 A complete explanation of NFSv4/4.1 configuration is beyond the scope of this document, but one commonly encountered problem is a mismatch in domain mapping. From a sysadmin point of view, the NFS file systems appear to behave normally, but applications report errors about permissions and/or setuid on the certain files. In some cases, administrators have incorrectly concluded that the permissions of the application binaries have been damaged and have run chown or chmod commands when the actual problem was the domain name.

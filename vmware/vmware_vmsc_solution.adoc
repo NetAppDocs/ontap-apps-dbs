@@ -99,7 +99,7 @@ Using VM host affinity rules in VMware DRS, one can have a logical separation be
 
 The following is an example of VM host groups and affinity rules.
 
-image::../media/vmsc_2_2.png[A diagram of a computer server Description automatically generated,width=528,height=369]
+image::../media/vmsc_2_2.png[VM host groups and affinity rules,width=528,height=369]
 
 === _Best Practice_
 NetApp recommends implementing “should” rules instead of “must” rules because they are violated by vSphere HA in the case of a failure. Using “must” rules could potentially lead to service outages.

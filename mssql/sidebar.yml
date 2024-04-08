@@ -3,26 +3,26 @@ title: Microsoft SQL Server
 entries:
   - title: Overview
     url: /mssql/mssql-overview.html
-  - title: Workloads
-    url: /mssql/mssql-workloads.html
   - title: Database configuration
     pdf-filename: Database configuration for Microsoft SQL Server
     entries:
-    - title: Shared instance versus dedicated instance
-      url: /mssql/mssql-shared-vs-dedicated.html
     - title: CPU configuration
       url: /mssql/mssql-cpu-configuration.html
     - title: Memory configuration
       url: /mssql/mssql-memory-configuration.html
+    - title: Shared instance versus dedicated instance
+      url: /mssql/mssql-shared-vs-dedicated.html
   - title: Storage configuration
     pdf-filename: Storage configuration for Microsoft SQL Server
     entries:
+    - title: Overview
+      url: /mssql/mssql-storage-considerations.html
     - title:  Database files and filegroups
       url: /mssql/mssql-files-and-filegroups.html
+    - title: Log directory
+      url: /mssql/mssql-log-directory.html
     - title: Tempdb files
       url: /mssql/mssql-tempdb.html
-    - title: Storage considerations
-      url: /mssql/mssql-storage-considerations.html
     - title: Storage efficiency
       url: /mssql/mssql-storage-efficiency.html
   - title: Data protection

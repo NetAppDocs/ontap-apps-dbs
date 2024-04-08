@@ -1,19 +1,19 @@
 section: Hyper-V
 title: Hyper-V
 entries:
-  - title: Deployment Guidelines and Storage Best Practices
+  - title: Deployment guidelines and storage best practices
     entries:
       - title: Overview
         url: /microsoft/win_overview.html
-      - title: NetApp Storage and Windows Server Environment
+      - title: NetApp storage and Windows Server environment
         url: /microsoft/win_environment.html
-      - title: Provisioning in SAN Environments
+      - title: Provisioning in SAN environments
         url: /microsoft/win_san.html
-      - title: Provisioning in SMB Environments
+      - title: Provisioning in SMB environments
         url: /microsoft/win_smb.html
-      - title: Hyper-V Storage Infrastructure on NetApp
+      - title: Hyper-V storage infrastructure on NetApp
         url: /microsoft/win_hyperv_infra.html
-      - title: Storage Efficiency
+      - title: Storage efficiency
         url: /microsoft/win_efficiency.html
       - title: Security
         url: /microsoft/win_security.html
@@ -21,15 +21,15 @@ entries:
         url: /microsoft/win_deploy_nano.html
       - title: Deploy Hyper-V Cluster
         url: /microsoft/win_deploy_hyperv.html
-      - title: Deploy Hyper-V Live Migration in a Clustered Environment
+      - title: Deploy Hyper-V Live Migration in a clustered environment
         url: /microsoft/win_deploy_hyperv_lmce.html
-      - title: Deploy Hyper-V Live Migration Outside a Clustered Environment
+      - title: Deploy Hyper-V Live Migration outside a clustered Environment
         url: /microsoft/win_deploy_hyperv_lmoce.html
       - title: Deploy Hyper-V Storage Live Migration
         url: /microsoft/win_deploy_hyperv_slm.html
-      - title: Deploy Hyper-V Replica Outside a Clustered Environment
+      - title: Deploy Hyper-V replica outside a clustered Environment
         url: /microsoft/win_deploy_hyperv_replica_oce.html
-      - title: Deploy Hyper-V Replica in a Clustered Environment
+      - title: Deploy Hyper-V replica in a clustered Environment
         url: /microsoft/win_deploy_hyperv_replica_ce.html
       - title: Where to find additional information
         url: /microsoft/win_additional_information.html

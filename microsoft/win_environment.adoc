@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: microsoft/win_environment.html
 keywords: Windows,Hyper-V,VHDX,VM,Virtual
-summary: Learn about the NetApp Storage and Windows Server Environment
+summary: Learn about the NetApp storage and Windows Server Environment
 ---
 
 =  NetApp Storage and Windows Server Environment

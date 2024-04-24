@@ -18,7 +18,7 @@ This appendix describes deploying live migration in a clustered environment.
 
 == Prerequisites
 
-To deploy live migration, you need to have Hyper-V servers configured in a failover cluster with shared storage. Review link:/microsoft/win_deploy_hyperv.html[Hyper-V Clustering] for more details.
+To deploy live migration, you need to have Hyper-V servers configured in a failover cluster with shared storage. Review link:win_deploy_hyperv.html[Deploy Hyper-V Cluster] for more details.
 
 == Deployment
 

@@ -20,7 +20,7 @@ Learn how to deploy and configure Hyper-V replica with Windows Server Failover C
 
 == Prerequisites
 
-* You need to have Hyper-V clusters located in the same or in separate geographical locations serving as primary and replica clusters. Review the section "link:\l[Hyper-V Clustering]" for more details.
+* You need to have Hyper-V clusters located in the same or in separate geographical locations serving as primary and replica clusters. Review link:win_deploy_hyperv.html[Deploy Hyper-V Cluster] for more details.
 * If separate sites are used, then the firewall at each site must be configured to allow communication between the primary and replica clusters.
 * The replica cluster must have enough space to store the replicated workloads.
 

@@ -54,5 +54,5 @@ This appendix describes deploying a Hyper-V cluster.
 .. Select the node from the cluster where the VM should reside.
 .. In the Virtual Machine Creation wizard, provide the shared storage (SMB share or CSV) as the path to store the VM and its disks.
 .. Use Hyper-V Manager to set the shared storage (SMB share or CSV) as the default path to store the VM and its disks for a Hyper-V server.
-. Test planned failover. Move VMs to another node using live migration, quick migration, or storage migration (move). Review the section "link:\win_deploy_hyperv_lmce.html[Live Migration in a Clustered Environment]" for more details.
+. Test planned failover. Move VMs to another node using live migration, quick migration, or storage migration (move). Review link:win_deploy_hyperv_lmce.html[Live Migration in a Clustered Environment] for more details.
 . Test unplanned failover. Stop cluster service on the server owning the VM.

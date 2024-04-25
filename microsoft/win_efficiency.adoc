@@ -14,10 +14,10 @@ summary: ONTAP storage efficiency with Microsoft Hyper-V
 [.lead]
 ONTAP provides industry leading storage efficiency for virtualized environments including Microsoft Hyper-V. NetApp also offers storage efficiency guarantee programs.
 
-== NetApp Deduplication
+== NetApp deduplication
 NetApp deduplication works by removing duplicate blocks at the storage volume level, storing only one physical copy, regardless of how many logical copies are present. Therefore, deduplication creates the illusion that there are numerous copies of that block. Deduplication automatically removes duplicate data blocks on a 4KB block level across an entire volume. This process reclaims storage to achieve space and potential performance savings by reducing the number of physical writes to the disk. Deduplication can provide more than 70% space savings in Hyper-V environments.
 
-== Thin Provisioning
+== Thin provisioning
 Thin provisioning is an efficient way to provision storage because the storage is not preallocated up front. In other words, when a volume or LUN is created using thin provisioning, the space on the storage system is unused. The space remains unused until the data is written to the LUN or volume and only the necessary space to store the data is used. NetApp recommends enabling thin provisioning on the volume and disabling LUN reservation.
 
 == Quality of Service

@@ -4,7 +4,7 @@ permalink: microsoft/win_deploy_hyperv.html
 keywords: Windows,Hyper-V,VHDX,VM,Virtual
 summary: This appendix describes deploying a high availability Hyper-V cluster on NetApp storage.
 ---
-= Deploy Hyper-V Cluster
+= Deploy Hyper-V cluster
 :hardbreaks:
 :nofooter:
 :icons: font

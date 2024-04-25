@@ -4,7 +4,7 @@ permalink: microsoft/win_hyperv_infra.html
 keywords: Windows,Hyper-V,VHDX,VM,Virtual
 summary: Hyper-V Storage Infrastructure with ONTAP
 ---
-= Hyper-V Storage Infrastructure on NetApp
+= Hyper-V storage infrastructure on NetApp
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -22,7 +22,7 @@ image:win_image5.png[Hyper-V storage infrastructure on NetApp,width=624,height=3
 * Select the Hyper-V server and click Hyper-V Settings.
 * Specify the default folder to store the VM and its disk as the LUN. Doing so sets the default path as the LUN for the Hyper-V storage. If you want to specify the path explicitly for a VM, then you can do so during VM creation.
 
-== Hyper-V Storage on NetApp CIFS Share 
+== Hyper-V Storage on NetApp CIFS 
 Before beginning the steps listed in this section, review the section "link:win_smb.html[Provisioning in SMB Environments]." To configure Hyper-V storage on the NetApp CIFS share, complete the following steps:
 
 [arabic]
@@ -125,7 +125,7 @@ image:win_image7.png[Live migration in a clustered environment,width=580,height=
 === Further reading
 For information about deploying live migration in a clustered environment, see link:win_deploy_hyperv_lmce.html[Appendix C: Deploy Hyper-V Live Migration in a Clustered Environment].
 
-=== Live Migration Outside a clustered environment
+=== Live Migration outside a clustered environment
 You can live migrate a VM between two nonclustered, independent Hyper-V servers. This process can use either shared or shared nothing live migration.
 
 * In shared live migration, the VM is stored on an SMB share. Therefore, when you live migrate a VM, the VM's storage remains on the central SMB share for instant access by the other node, as shown in the following Figure.

@@ -4,7 +4,7 @@ permalink: microsoft/win_environment.html
 keywords: Windows,Hyper-V,VHDX,VM,Virtual
 summary: Learn about the NetApp storage and Windows Server Environment
 ---
-=  NetApp Storage and Windows Server Environment
+=  NetApp storage and Windows Server environment
 :hardbreaks:
 :nofooter:
 :icons: font

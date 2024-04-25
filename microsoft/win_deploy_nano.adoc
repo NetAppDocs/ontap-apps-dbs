@@ -4,7 +4,7 @@ permalink: microsoft/win_deploy_nano.html
 keywords: Windows,Hyper-V,VHDX,VM,Virtual
 summary: Learn about deploying Microsoft Windows Nano Server
 ---
-= Deploy Nano Server
+= Deploy Nano server
 :hardbreaks:
 :nofooter:
 :icons: font

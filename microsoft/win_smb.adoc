@@ -23,7 +23,7 @@ When an SVM is created with the CIFS protocol, a CIFS server runs on top of the 
 * ODX
 * Remote VSS
 
-== Provisioning SMB Share on Windows Server 
+== Provisioning SMB shares on Windows Server 
 === Prerequisites
 Using NetApp storage in NAS environments in Windows Server has the following requirements:
 
@@ -89,7 +89,7 @@ To detect the CIFS share created previously with Windows Server, complete the fo
 * RDMA is not supported.
 * ReFS is not supported.
 
-== Provisioning SMB Share on Nano Server
+== Provisioning SMB shares on Nano Server
 Nano Server does not require additional client software to access data on the CIFS share on a NetApp storage controller.
 
 To copy files from Nano Server to a CIFS share, run the following cmdlets on the remote server:

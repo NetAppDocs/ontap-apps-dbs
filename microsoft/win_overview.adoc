@@ -4,9 +4,7 @@ permalink: microsoft/win_overview.html
 keywords: Windows,Hyper-V,VHDX,VM,Virtual
 summary: Overview of Microsoft Windows and Hyper-V virtualization with ONTAP
 ---
-
 = Overview
-
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -34,8 +32,7 @@ ONTAP provides NetApp storage efficiency features such as NetApp Snapshot(R) tec
 
 Together, Windows Server and ONTAP can operate in large environments and bring immense value to data center consolidation and private or hybrid cloud deployments. This combination also provides nondisruptive workloads efficiently and supports seamless scalability.
 
-== Intended Audience
-
+== Intended audience
 This document is intended for system and storage architects who design NetApp storage solutions for the Windows Server.
 
 We make the following assumptions in this document:

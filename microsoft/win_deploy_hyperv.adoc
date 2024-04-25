@@ -4,9 +4,7 @@ permalink: microsoft/win_deploy_hyperv.html
 keywords: Windows,Hyper-V,VHDX,VM,Virtual
 summary: This appendix describes deploying a high availability Hyper-V cluster on NetApp storage.
 ---
-
-= Deploy Hyper-V Cluster
-
+= Deploy Hyper-V cluster
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -17,7 +15,6 @@ summary: This appendix describes deploying a high availability Hyper-V cluster o
 This appendix describes deploying a Hyper-V cluster.
 
 == Prerequisites
-
 * At least two Hyper-V servers exist connected to each other.
 * At least one virtual switch is configured on each Hyper-V server.
 * The failover cluster feature is enabled on each Hyper-V server.
@@ -26,7 +23,6 @@ This appendix describes deploying a Hyper-V cluster.
 * If the SMB share is used as shared storage, then permissions on the SMB share must be configured to grant access to the computer accounts of all the Hyper-V servers in the cluster.
 
 == Deployment
-
 [arabic]
 . Log in to one of the Windows Hyper-V servers as a member of the administrator group.
 . Start Server Manager**.**

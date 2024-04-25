@@ -4,9 +4,7 @@ permalink: microsoft/win_additional_information.html
 keywords: Windows,Hyper-V,VHDX,VM,Virtual
 summary: Additional resources for Microsoft Windows and Hyper-V
 ---
-
 = Where to find additional information
-
 :hardbreaks:
 :nofooter:
 :icons: font

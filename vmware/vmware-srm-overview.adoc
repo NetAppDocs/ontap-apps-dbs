@@ -4,7 +4,6 @@ permalink: vmware/vmware-srm-overview.html
 keywords: ontap, vsphere, srm, srm, hybrid, cloud, migration, vmware, site, recovery manager, vsrm
 summary: The ONTAP solution for VMware Site Recovery Manager (SRM)
 ---
-
 = VMware Site Recovery Manager with ONTAP
 :hardbreaks:
 :nofooter:

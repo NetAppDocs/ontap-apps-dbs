@@ -4,7 +4,6 @@ permalink: vmware/vmware_vmsc_overview.html
 keywords: VMware, Data protection, MetroCluster, SMBC, SnapMirror active sync, vMSC
 summary: vSphere Metro Storage Cluster with ONTAP
 ---
-
 = vSphere Metro Storage Cluster with ONTAP
 :hardbreaks:
 :nofooter:

@@ -4,7 +4,6 @@ permalink: vmware/vmware-vvols-protect.html
 keywords: tr-4400, vvols, ontap, virtual volumes, protect
 summary: 
 ---
-
 = Protecting vVols
 :nofooter:
 :icons: font

@@ -4,7 +4,6 @@ permalink: vmware/vmware-vsphere-datastores-fg.html
 keywords: vSphere, datastore, NFS, nconnect, FlexGroup, session trunking
 summary: This page describes the best practices for implementing ONTAP FlexGroup volumes in a VMware vSphere environment.
 ---
-
 = FlexGroup volumes
 :hardbreaks:
 :nofooter:

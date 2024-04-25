@@ -4,9 +4,7 @@ permalink: microsoft/win_deploy_hyperv_lmce.html
 keywords: Windows,Hyper-V,VHDX,VM,Virtual
 summary: This appendix describes deploying live migration in a clustered environment.
 ---
-
 = Deploy Hyper-V Live Migration in a Clustered Environment
-
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -17,11 +15,9 @@ summary: This appendix describes deploying live migration in a clustered environ
 This appendix describes deploying live migration in a clustered environment.
 
 == Prerequisites
-
 To deploy live migration, you need to have Hyper-V servers configured in a failover cluster with shared storage. Review link:win_deploy_hyperv.html[Deploy Hyper-V Cluster] for more details.
 
 == Deployment
-
 To use live migration in a clustered environment, complete the following steps:
 
 [arabic]

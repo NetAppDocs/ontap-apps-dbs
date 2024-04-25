@@ -4,9 +4,7 @@ permalink: microsoft/win_deploy_hyperv_replica_ce.html
 keywords: Windows,Hyper-V,VHDX,VM,Virtual
 summary: Learn how to deploy and configure Hyper-V replica with Windows Server Failover Cluster.
 ---
-
 = Deploy Hyper-V Replica in a Clustered Environment
-
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -16,8 +14,6 @@ summary: Learn how to deploy and configure Hyper-V replica with Windows Server F
 [.lead]
 Learn how to deploy and configure Hyper-V replica with Windows Server Failover Cluster.
 
-
-
 == Prerequisites
 
 * You need to have Hyper-V clusters located in the same or in separate geographical locations serving as primary and replica clusters. Review link:win_deploy_hyperv.html[Deploy Hyper-V Cluster] for more details.
@@ -25,14 +21,13 @@ Learn how to deploy and configure Hyper-V replica with Windows Server Failover C
 * The replica cluster must have enough space to store the replicated workloads.
 
 == Deployment
-
 . Enable firewall rules on all the nodes of a cluster. Run the following PowerShell cmdlet with admin privileges on all the nodes in both the primary and replica clusters.
 
  # For Kerberos authentication
- get-clusternode | ForEach-Object \{Invoke-command -computername $_.name -scriptblock \{Enable-Netfirewallrule -displayname "Hyper-V Replica HTTP Listener (TCP-In)"}}
+  get-clusternode | ForEach-Object \{Invoke-command -computername $_.name -scriptblock \{Enable-Netfirewallrule -displayname "Hyper-V Replica HTTP Listener (TCP-In)"}}
  
  # For Certificate authentication
-get-clusternode | ForEach-Object \{Invoke-command -computername $_.name -scriptblock \{Enable-Netfirewallrule -displayname "Hyper-V Replica HTTPS Listener (TCP-In)"}}
+ get-clusternode | ForEach-Object \{Invoke-command -computername $_.name -scriptblock \{Enable-Netfirewallrule -displayname "Hyper-V Replica HTTPS Listener (TCP-In)"}}
 
 . Configure the replica cluster.
 .. Configure the Hyper-V Replica broker with a NetBIOS name and IP address to use as the connection point to the cluster that is used as the replica cluster.
@@ -48,5 +43,4 @@ get-clusternode | ForEach-Object \{Invoke-command -computername $_.name -scriptb
 ... In the authorization and storage section, select the servers allowed to replicate VMs to this cluster. Also, specify the default location where the replicated VMs are stored.
 
 == Replication
-
 Replication is similar to the process described in the section link:win_deploy_hyperv_replica_oce[Replica Outside a Clustered Environment].

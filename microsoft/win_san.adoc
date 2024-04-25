@@ -4,9 +4,7 @@ permalink: microsoft/win_san.html
 keywords: Windows,Hyper-V,VHDX,VM,Virtual,SAN,LUN,NVMe
 summary: Provision ONTAP storage for Windows and Hyper-V in SAN Environments
 ---
-
-= Provisioning in SAN Environments
-
+= Provisioning in SAN environments
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -17,9 +15,7 @@ summary: Provision ONTAP storage for Windows and Hyper-V in SAN Environments
 ONTAP SVMs support the block protocols iSCSI and FC. When an SVM is created with block protocol iSCSI or FC, the SVM gets either an iSCSI Qualified Name (IQN) or an FC worldwide name (WWN), respectively. This identifier presents a SCSI target to hosts that access NetApp block storage.
 
 == Provisioning NetApp LUN on Windows Server 
-
 === Prerequisites
-
 Using NetApp storage in SAN environments in Windows Server has the following requirements:
 
 * A NetApp cluster is configured with one or more NetApp storage controllers.
@@ -30,7 +26,6 @@ Using NetApp storage in SAN environments in Windows Server has the following req
 * An SVM should have one LIF per Ethernet network or Fibre Channel fabric on every storage controller that is going to serve data using iSCSI or Fibre Channel.
 
 === Deployment
-
 [arabic]
 . Create a new SVM with block protocol iSCSI and/or FC enabled. A new SVM can be created with any of the following methods:
 
@@ -48,20 +43,19 @@ Using NetApp storage in SAN environments in Windows Server has the following req
 . Create an iSCSI and/or FC initiator group for Windows using the port set created.
 . Add an initiator to the initiator group. The initiator is the IQN for iSCSI and WWPN for FC. They can be queried from Windows Server by running the PowerShell cmdlet Get-InitiatorPort.
 
-# Get the IQN for iSCSI +
-Get-InitiatorPort | Where \{$_.ConnectionType -eq 'iSCSI'} | Select-Object -Property NodeAddress
-
-# Get the WWPN for FC +
-Get-InitiatorPort | Where \{$_.ConnectionType -eq 'Fibre Channel'} | Select-Object -Property PortAddress +
- +
-# While adding initiator to the initiator group in case of FC, make sure to provide the initiator(PortAddress) in the standard WWPN format
+ # Get the IQN for iSCSI
+ Get-InitiatorPort | Where \{$_.ConnectionType -eq 'iSCSI'} | Select-Object -Property NodeAddress
+ 
+ # Get the WWPN for FC
+ Get-InitiatorPort | Where \{$_.ConnectionType -eq 'Fibre Channel'} | Select-Object -Property PortAddress
+ 
+ # While adding initiator to the initiator group in case of FC, make sure to provide the initiator(PortAddress) in the standard WWPN format
 
 The IQN for iSCSI on Windows Server can also be checked in the configuration of the iSCSI initiator properties.
 
 * Create a LUN using Create LUN wizard and associate it with the initiator group created.
 
-=== Host Integration
-
+=== Host integration
 Windows Server uses Asymmetrical Logical Unit Access (ALUA) extension MPIO to determine direct and indirect paths to LUNs. Even though every LIF owned by an SVM accepts read/write requests for its LUNs, only one of the cluster nodes actually owns the disks backing that LUN at any given moment. This divides available paths to a LUN into two types, direct or indirect, as shown in the following figure.
 
 A direct path for a LUN is a path on which an SVM's LIFs and the LUN being accessed reside on the same node. To go from a physical target port to disk, it is not necessary to traverse the cluster network.
@@ -71,11 +65,9 @@ Indirect paths are data paths on which an SVM's LIFs and the LUN being accessed 
 image:win_image3.png[Multiple paths in SAN environment,width=624,height=232]
 
 === MPIO
-
 NetApp ONTAP provide highly available storage in which multiple paths from the storage controller to the Windows Server can exist. Multipathing is the ability to have multiple data paths from a server to a storage array. Multipathing protects against hardware failures (cable cuts, switch and host bus adapter [HBA] failure, and so on), and it can provide higher performance limits by using the aggregate performance of multiple connections. When one path or connection becomes unavailable, the multipathing software automatically shifts the load to one of the other available paths. The MPIO feature combines the multiple physical paths to the storage as a single logical path that is used for data access to provide storage resiliency and load balancing. To use this feature, the MPIO feature must be enabled on Windows Server.
 
 === Enable MPIO
-
 To enable MPIO on Windows Server, complete the following steps:
 
 [arabic]
@@ -87,7 +79,6 @@ To enable MPIO on Windows Server, complete the following steps:
 . In the Select Features page, select Multipath I/O.
 
 === Configure MPIO
-
 When using the iSCSI protocol, you must tell Windows Server to apply multipath support to iSCSI devices in the MPIO properties.
 
 To configure MPIO on Windows Server, complete the following steps:
@@ -102,7 +93,6 @@ To configure MPIO on Windows Server, complete the following steps:
 . Reboot Windows Server to see the MPIO device listed in the MPIO Devices section of MPIO Properties.
 
 === Configure iSCSI
-
 To detect iSCSI block storage on Windows Server, complete the following steps:
 
 [arabic]
@@ -124,8 +114,7 @@ To detect iSCSI block storage on Windows Server, complete the following steps:
 . Select the iSCSI target in Discovered Targets on the iSCSI Properties main window and click Properties.
 . The Properties window shows that multiple sessions have been detected. Select the session, click Devices, and then click the MPIO to configure the load balancing policy. All the paths configured for the device are displayed and all load balancing policies are supported. NetApp generally recommends round robin with subset, and this setting is the default for arrays with ALUA enabled. Round robin is the default for active-active arrays that do not support ALUA.
 
-=== Detect Block Storage
-
+=== Detect block storage
 To detect iSCSI or FC block storage on Windows Server, complete the following steps:
 
 [arabic]
@@ -133,21 +122,17 @@ To detect iSCSI or FC block storage on Windows Server, complete the following st
 . In Computer Management, click the Disk Management in Storage section and then click More Actions and Rescan Disks. Doing so displays the raw iSCSI LUNs.
 . Click the discovered LUN and make it online. Then select Initialize Disk using the MBR or GPT partition. Create a new simple volume by providing the volume size and drive letter and format it using FAT, FAT32, NTFS, or the Resilient File System (ReFS).
 
-=== Best Practices
-
+=== Best practices
 * NetApp recommends enabling thin provisioning on the volumes hosting the LUNs.
 * To avoid multipathing problems, NetApp recommends using either all 10Gb sessions or all 1Gb sessions to a given LUN.
 * NetApp recommends that you confirm that ALUA is enabled on the storage system. ALUA is enabled by default on ONTAP.
 * On the Windows Server host to where the NetApp LUN is mapped, enable iSCSI Service (TCP-In) for Inbound and iSCSI Service (TCP-Out) for Outbound in the firewall settings. These settings allow iSCSI traffic to pass to and from the Hyper-V host and NetApp controller.
 
 == Provisioning NetApp LUNs on Nano Server
-
 === Prerequisites
-
 In addition to the prerequisites mentioned in the previous section, the storage role must be enabled from the Nano Server side. For example, Nano Server must be deployed using the -Storage option. To deploy Nano Server, see the section "link:win_deploy_nano.html[Deploy Nano Server.]"
 
 === Deployment
-
 To provision NetApp LUNs on a Nano Server, complete the following steps:
 
 [arabic]
@@ -226,26 +211,21 @@ To provision NetApp LUNs on a Nano Server, complete the following steps:
  Format-Volume -DriveLetter <DriveLetter> -FileSystem <FAT32 or NTFS or REFS>
 
 == Boot from SAN
-
 A physical host (server) or a Hyper-V VM can boot the Windows Server OS directly from a NetApp LUN instead of its internal hard disk. In the boot-from-SAN approach, the OS image to boot from resides on a NetApp LUN that is attached to a physical host or VM. For a physical host, the HBA of the physical host is configured to use the NetApp LUN for booting. For a VM, the NetApp LUN is attached as a pass-through disk for booting.
 
-=== NetApp FlexClone Approach
-
+=== NetApp FlexClone approach
 Using NetApp FlexClone technology, boot LUNs with an OS image can be cloned instantly and attached to the servers and VMs to rapidly provide clean OS images, as show in the following figure.
 
 image:win_image4.png[Boot LUNs using NetApp FlexClone,width=561,height=357]
 
-=== Boot from SAN for Physical Host
-
+=== Boot from SAN for physical host
 ==== Prerequisites
-
 * The physical host (server) has a proper iSCSI or FC HBA.
 * You have downloaded a suitable HBA device driver for the server supporting Windows Server.
 * The server has a suitable CD/DVD drive or virtual media to insert the Windows Server ISO image and the HBA device driver has been downloaded.
 * A NetApp iSCSI or FC LUN is provisioned on the NetApp storage controller.
 
 ==== Deployment
-
 To configure booting from SAN for a physical host, complete the following steps:
 
 [arabic]
@@ -261,12 +241,10 @@ To configure booting from SAN for a physical host, complete the following steps:
 . When the installation asks, "Where Do You Want to Install Windows?," click Load Driver at the bottom of the installation screen to launch the Select Driver to Install page. Provide the path of the HBA device driver downloaded earlier and finish the installation of the driver.
 . Now the boot LUN created previously must be visible on the Windows installation page. Select the boot LUN for installation of Windows Server on the boot LUN and finish the installation.
 
-=== Boot from SAN for Virtual Machine
-
+=== Boot from SAN for virtual machine
 To configure booting from SAN for a VM, complete the following steps:
 
 ==== Deployment
-
 [arabic]
 . When creating an initiator group for iSCSI or FC on a NetApp storage controller, add the IQN for iSCSI or the WWN for FC of the Hyper-V server to the controller.
 . Create LUNs or LUN clones on the NetApp storage controller and associate them with the initiator group created in the previous step. These LUNs serve as boot LUNs for the VMs.
@@ -279,8 +257,7 @@ To configure booting from SAN for a VM, complete the following steps:
 .. Select Physical Hard Disk in the Hard Disk options and select a disk from the list as a pass-through disk. The disks are the LUNs configured in the previous steps.
 . Install Windows Server on the pass-through disk.
 
-=== Best Practices
-
+=== Best practices
 * Make sure that the LUNs are offline. Otherwise, the disk cannot be added as a pass-through disk to a VM.
 
 * When multiple LUNs exist, be sure to note the disk number of the LUN in disk management. Doing so is necessary because disks listed for the VM are listed with the disk number. Also, the selection of the disk as a pass-through disk for the VM is based on this disk number.

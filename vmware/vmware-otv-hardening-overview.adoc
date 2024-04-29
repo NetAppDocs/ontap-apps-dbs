@@ -1,0 +1,12 @@
+---
+sidebar: sidebar
+permalink: vmware/vmware-otv-hardening-overview.html
+keywords: VMware, Data protection, security, OTV, Hardening, ONTAP Tools
+summary: Security Hardening Guide for ONTAP tools for VMware vSphere.
+---
+= Security Hardening Guide for ONTAP tools for VMware vSphere 
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/

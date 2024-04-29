@@ -5,7 +5,6 @@ keywords: tr-4400, vvols, ontap, virtual volumes
 summary: This is an overview of VMware vSphere Virtual Volumes (vVols) with ONTAP
 ---
 = Overview
-
 :nofooter:
 :icons: font
 :linkattrs:

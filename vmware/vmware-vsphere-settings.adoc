@@ -4,7 +4,6 @@ permalink: vmware/vmware-vsphere-settings.html
 keywords: VMware,vSphere,ESXi,settings,NFS,iSCSI,FC,FCP
 summary: This document categorizes and enumerates recommended storage and network settings. 
 ---
-
 = Recommended ESXi host and other ONTAP settings
 :hardbreaks:
 :nofooter:

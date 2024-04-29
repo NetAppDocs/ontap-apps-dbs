@@ -4,7 +4,6 @@ permalink: vmware/vmware-srm-additional-information.html
 keywords: vmware, site, recovery manager, vsrm, hybrid, cloud, additional, information
 summary: To learn more about the information that is described in this document, review the following documents and/or websites.
 ---
-
 = Additional Information
 :hardbreaks:
 :nofooter:

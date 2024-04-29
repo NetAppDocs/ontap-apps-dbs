@@ -105,7 +105,7 @@ Other best practices to consider:
 * Use RDMs with care because they can be more difficult to manage,  and they also use paths, which are limited as described earlier. ONTAP LUNs support both https://kb.vmware.com/s/article/2009226[physical and virtual compatibility mode^] RDMs.
 * For more on using NVMe/FC with vSphere 7.0, see this https://docs.netapp.com/us-en/ontap-sanhost/nvme_esxi_7.html[ONTAP NVMe/FC Host Configuration guide^] and http://www.netapp.com/us/media/tr-4684.pdf[TR-4684^]. The following figure depicts multipath connectivity from a vSphere host to an ONTAP LUN.
 
-image:vsphere_ontap_image2.png[Error: Missing Graphic Image]
+image:vsphere_ontap_image2.png[Multipathing connectivity]
 
 == NFS
 vSphere allows customers to use enterprise-class NFS arrays to provide concurrent access to datastores to all the nodes in an ESXi cluster. As mentioned in the datastore section, there are some ease of use and storage efficiency visibility benefits when using NFS with vSphere.

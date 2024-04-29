@@ -35,7 +35,7 @@ Customers will have to upload the provided root and Intermediate certificate on 
 
 Refer to link:https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.authentication.doc/GUID-B635BDD9-4F8A-4FD8-A4FE-7526272FC87D.html[Add a Trusted Root Certificate to the Certificate Store] for more information. While deploying a vApp (by using the OVA file), the digital signature for the vApp package can be verified on the 'Review details' page. If the downloaded vApp package is genuine, the 'Publisher' column displays 'Trusted Certificate' (As in following screenshot).
 
-image::../media/vmware-otv-hardening-trusted-publisher.png
+image:vmware-otv-hardening-trusted-publisher.png
 
 
 

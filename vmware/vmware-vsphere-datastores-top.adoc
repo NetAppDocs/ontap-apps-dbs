@@ -4,7 +4,6 @@ permalink: vmware/vmware-vsphere-datastores-top.html
 keywords: vSphere, datastore, VMFS, FC, FCoE, NVMe/FC, iSCSI, NFS, vVols
 summary: This page describes the best practices for implementing an ONTAP storage solution in a VMware vSphere environment.
 ---
-
 = vSphere datastore and protocol features overview
 :hardbreaks:
 :nofooter:

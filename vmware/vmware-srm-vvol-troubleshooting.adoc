@@ -4,7 +4,6 @@ permalink: vmware/vmware-srm-vvol-troubleshooting.html
 keywords: vmware, site, recovery manager, vsrm, hybrid, cloud, srm, vvols, replication
 summary: vVols replication with VASA offers unique functionality compared to SRA and traditional datastores.
 ---
-
 = Troubleshooting SRM when using vVols replication
 :hardbreaks:
 :nofooter:

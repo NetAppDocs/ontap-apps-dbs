@@ -4,7 +4,6 @@ permalink: vmware/vmware_vmsc_scen_mcc.html
 keywords: VMware, Data protection, MetroCluster, SMBC, SnapMirror active sync, vMSC
 summary: Failure Scenarios for vMSC with MCC
 ---
-
 = Failure Scenarios for vMSC with MCC
 :hardbreaks:
 :nofooter:

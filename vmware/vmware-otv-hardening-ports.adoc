@@ -4,9 +4,50 @@ permalink: vmware/vmware-otv-hardening-ports.html
 keywords: VMware, Data protection, security, OTV, Hardening, ONTAP Tools
 summary: Security Hardening Guide for ONTAP tools for VMware vSphere.
 ---
-= Security Hardening Guide for ONTAP tools for VMware vSphere 
+= Ports and Protocols 
 :hardbreaks:
 :nofooter:
 :icons: font
 :linkattrs:
 :imagesdir: ../media/
+
+[.lead]
+The required ports and protocols enable communication between ONTAP tools for VMware vSphere server and other entities like managed storage systems, servers, and other components.
+
+== Inbound and outbound ports required for OTV
+Below tables lists inbound and outbound ports required for functioning of OTV. *Only the ports which are mentioned in the below tables should be open for connections from remote machines. Rest all ports should be blocked for connections from remote machines.*
+
+Following inbound ports are required for functioning of OTV, only the necessary ports are open on the firewall.
+
+The following table describes the open port details.
+
+[width="100%",cols="18%,21%,61%",options="header",]
+|===
+|*TCP v4/v6 port #* |*Direction* |*Function*
+|8143 |inbound |HTTPS connections for REST API
+|8043 |inbound |HTTPS connections
+|9060 |inbound |HTTPS connections +
+Used for SOAP over https connections +
+This port must be opened to allow a client to connect to the ONTAP tools API server.
+|22 |inbound |SSH (Disabled by default)
+|9080 |inbound |HTTPS connections - VP and SRA - Internal connections from loopback only
+|9083 |inbound |HTTPS connections - VP and SRA +
+Used for SOAP over https connections
+|1162 |inbound |VP SNMP trap packets
+|8443 |inbound |Remote Plugin
+|1527 |internal only |Derby database port, only between this computer and itself, external connections not accepted — Internal connections only
+|8150 |internal only |Log integrity service runs on port
+|443 |bi-directional |Used for connections to ONTAP clusters
+|===
+
+== Controlling remote access to Derby
+
+User can access the derby database with following commands. It can be accessed through OTV local VM as well as remote server as well with following steps:
+
+java -classpath "/opt/netapp/vpserver/lib/*" org.apache.derby.tools.ij;
+
+connect 'jdbc:derby://<OTV-IP>:1527//opt/netapp/vpserver/vvoldb;user=<user>;password=<password>';
+
+*[.underline]#Example:#*
+
+image::../media/vmware-otv-hardening-ports.png[media/media/image1,width=468,height=136]

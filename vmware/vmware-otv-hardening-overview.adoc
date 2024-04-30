@@ -12,6 +12,4 @@ summary: Security Hardening Guide for ONTAP tools for VMware vSphere.
 :imagesdir: ../media/
 
 [.lead]
-Overview
-
-The goal for this security hardening guide is to list the most secure configurations and provide steps to configure those settings for ONTAP tools for VMware vSphere(OTV).
+The goal for this security hardening guide is to list the most secure configuration settings and provide steps to configure those settings for ONTAP tools for VMware vSphere.

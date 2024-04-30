@@ -12,10 +12,10 @@ summary: Security Hardening Guide for ONTAP tools for VMware vSphere.
 :imagesdir: ../media/
 
 [.lead]
-The required ports and protocols enable communication between ONTAP tools for VMware vSphere server and other entities like managed storage systems, servers, and other components.
+Listed here are the required ports and protocols that enable communication between ONTAP tools for VMware vSphere server and other entities like managed storage systems, servers, and other components.
 
 == Inbound and outbound ports required for OTV
-Below tables lists inbound and outbound ports required for functioning of OTV. *Only the ports which are mentioned in the below tables should be open for connections from remote machines. Rest all ports should be blocked for connections from remote machines.*
+The below table lists required inbound and outbound ports. *Only the ports which are mentioned in the below tables should be open for connections from remote machines. Rest all ports should be blocked for connections from remote machines.*
 
 Following inbound ports are required for functioning of OTV, only the necessary ports are open on the firewall.
 
@@ -44,9 +44,8 @@ Used for SOAP over https connections
 
 Administrators can access the derby database with following commands. It can be accessed through the ONTAP tools local VM as well as a remote server with following steps:
 
-java -classpath "/opt/netapp/vpserver/lib/*" org.apache.derby.tools.ij;
-
-connect 'jdbc:derby://<OTV-IP>:1527//opt/netapp/vpserver/vvoldb;user=<user>;password=<password>';
+ java -classpath "/opt/netapp/vpserver/lib/*" org.apache.derby.tools.ij;
+ connect 'jdbc:derby://<OTV-IP>:1527//opt/netapp/vpserver/vvoldb;user=<user>;password=<password>';
 
 *[.underline]#Example:#*
 

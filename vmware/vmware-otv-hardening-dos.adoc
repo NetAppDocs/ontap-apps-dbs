@@ -24,7 +24,7 @@ We can configure the filter by following parameters :
 * *_ipWhitelist_*: A comma-separated list of IP addresses that will not be rate-limited. (This can be Vcenter, ESXi and SRA IPs)
 * *_maxRequestsPerSec_*: The maximum number of requests from a connection per second.
 
-*Default values in the _dosfilterParams file_: *
+*Default values in the _dosfilterParams file_:*
 
  {"delayMs":"-1",
  "throttleMs":"1800000",

@@ -12,31 +12,31 @@ summary: Security Hardening Guide for ONTAP tools for VMware vSphere.
 :imagesdir: ../media/
 
 [.lead]
-The ONTAP Tools for VMware vSphere installation creates and uses below four types of users:
+The ONTAP Tools for VMware vSphere installation creates and uses four types of users:
 
 [arabic]
-. System User (root user)
-. Application user (administrator user, maint user, db user)
-. Support user(diag user)
+. System User: The root user account
+. Application user: The administrator user, maint user, and db user accounts
+. Support user: The diag user account
 
 == 1. System User
 
-System(root) user gets created by ONTAP tools installation on underlying operating system(debian).
+System(root) user gets created by ONTAP tools installation on the underlying operating system(Debian).
 
-* A default system user "root" is created on Debian by ONTAP tools installation. Its default disabled and can be enabled on ad hoc basis through the 'maint' console.
+* A default system user "root" is created on Debian by ONTAP tools installation. Its default is disabled and can be enabled on an ad-hoc basis through the 'maint' console.
 
 == 2. Application User
 
-Application user is named as local user in ONTAP tools. These are users created in ONTAP tools application. Below table lists the types of Application users:
+The application user is named as a local user in ONTAP tools. These are users created in ONTAP tools application. The below table lists the types of Application users:
 
 [width="100%",cols="22%,78%",options="header",]
 |===
 |*User* |*Description*
 |Administrator User |It is created during ONTAP tools installation and user provides the credentials while deploying the ONTAP tools. Users has the option to change the 'password' in 'maint' console. Password will expire in 90 days and users are expected to change the same.
-|Maintenance User |It is created during ONTAP tools installation and user provides the credentials while deploying the ONTAP tools. Users has the option to change the 'password' in 'maint' console. This is maintenance user and is created to execute the maintenance console operations.
+|Maintenance User |It is created during ONTAP tools installation and user provides the credentials while deploying the ONTAP tools. Users has the option to change the 'password' in 'maint' console. This is a maintenance user and is created to execute the maintenance console operations.
 |Database User |It is created during ONTAP tools installation and user provides the credentials while deploying the ONTAP tools. Users has the option to change the 'password' in 'maint' console. Password will expire in 90 days and users are expected to change the same.
 |===
 
 == 3. Support user(diag user)
 
-Support user as well created during ONTAP tools installation and is used to access the machine and collect logs in case of any issue/outage in the server. Default its disabled and can be enabled on ad hoc basis through 'maint' console. It will auto disable after a certain time period.
+During the ONTAP tools installation, a support user is created. This user can be used to access ONTAP tools in case of any issue or outage in the server and to collect logs. By default, this user is disabled, but it can be enabled on an adhoc basis through the 'maint' console. It is important to note that this user will be automatically disabled after a certain time period.

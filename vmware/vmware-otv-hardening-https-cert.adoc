@@ -4,9 +4,19 @@ permalink: vmware/vmware-otv-hardening-https-cert.html
 keywords: VMware, Data protection, security, OTV, Hardening, ONTAP Tools
 summary: Security Hardening Guide for ONTAP tools for VMware vSphere.
 ---
-= Security Hardening Guide for ONTAP tools for VMware vSphere 
+= ONTAP tools HTTPS Certificate 
 :hardbreaks:
 :nofooter:
 :icons: font
 :linkattrs:
 :imagesdir: ../media/
+
+[.lead]
+By default OTV uses a self-signed certificate automatically created during installation for securing HTTPs access to the Web UI. OTV provides following features to:
+
+[arabic]
+.  Regenerate HTTPs certificate
+
+During OTV installation https CA certificate gets installed, certificate gets stored in keystore. User has the option to regenerate the https certificate through maint console.
+
+The above options can be accessed in _maint_ console by navigating to _'Application Configuration' → 'Re-generate certificates'._ 

@@ -49,4 +49,4 @@ Administrators can access the derby database with following commands. It can be 
 
 *[.underline]#Example:#*
 
-image:vmware-otv-hardening-ports.png[media/media/image1,width=468,height=136]
+image:vmware-otv-hardening-ports.png[Derby,width=468,height=136]

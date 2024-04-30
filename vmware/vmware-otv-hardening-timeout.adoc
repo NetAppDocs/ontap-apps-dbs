@@ -4,9 +4,15 @@ permalink: vmware/vmware-otv-hardening-timeout.html
 keywords: VMware, Data protection, security, OTV, Hardening, ONTAP Tools
 summary: Security Hardening Guide for ONTAP tools for VMware vSphere.
 ---
-= Security Hardening Guide for ONTAP tools for VMware vSphere 
+= Inactivity Timeout 
 :hardbreaks:
 :nofooter:
 :icons: font
 :linkattrs:
 :imagesdir: ../media/
+
+[.lead]
+An inactivity timeout prevents unauthorized users from using resources with an existing user authorization.
+
+* By default, the vSphere Client sessions close after 120 minutes of idle time, requiring the user to log in again to resume using the client. You can change the timeout value by editing the webclient.properties file.You can configure the timeout of the vSphere Client https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vcenterhost.doc/GUID-975412DE-CDCB-49A1-8E2A-0965325D33A5.html[Configure the vSphere Client Timeout Value]
+* ONTAP tools has a web-cli session logout time of 30 minutes.

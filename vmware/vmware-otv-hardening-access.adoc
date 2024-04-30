@@ -12,7 +12,7 @@ summary: Security Hardening Guide for ONTAP tools for VMware vSphere.
 :imagesdir: ../media/
 
 [.lead]
-The ONTAP Tools for VMware vSphere installation creates and uses below four types of users :
+The ONTAP Tools for VMware vSphere installation creates and uses below four types of users:
 
 [arabic]
 . System User (root user)

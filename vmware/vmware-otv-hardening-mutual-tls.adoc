@@ -25,9 +25,13 @@ image:vmware-otv-hardening-mutual-tls-image2.png[image2,width=468,height=158]
 
 During cluster add workflow, if the cluster being added supports MTLS, MTLS will be configured by default. User need not to do any configuration for this. Below screen shot shows the screen presented to user during cluster add.
 
-image:vmware-otv-hardening-mutual-tls-image3.png[Add Storage System,width=450,height=400]              =>                                              image:vmware-otv-hardening-mutual-tls-image4.png[image4,width=468,height=416]       =>
+image:vmware-otv-hardening-mutual-tls-image3.png[Add Storage System,width=450,height=400]
 
-image:vmware-otv-hardening-mutual-tls-image5.png[image5,width=450,height=400]          =>                                                   image:vmware-otv-hardening-mutual-tls-image6.png[image6,width=468,height=516]
+image:vmware-otv-hardening-mutual-tls-image4.png[Add Storage System,width=468,height=416]
+
+image:vmware-otv-hardening-mutual-tls-image5.png[Add Storage System,width=450,height=400]
+
+image:vmware-otv-hardening-mutual-tls-image6.png[Add Storage System,width=468,height=516]
 
 === Cluster Edit
 
@@ -37,4 +41,6 @@ During cluster edit operation, there are two scenarios:
 * If the OTV certificate expires then user can regenerate it by checking the checkbox.
 ** _Generate a new client certificate for ONTAP._
 
-image:vmware-otv-hardening-mutual-tls-image7.png[image7,width=468,height=461]                     =>                              image:vmware-otv-hardening-mutual-tls-image8.png[image8,width=468,height=461]
+image:vmware-otv-hardening-mutual-tls-image7.png[Modify Storage System,width=468,height=461]
+
+image:vmware-otv-hardening-mutual-tls-image8.png[Modify Storage System,width=468,height=461]

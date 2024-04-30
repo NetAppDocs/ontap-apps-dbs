@@ -4,7 +4,7 @@ permalink: vmware/vmware-otv-hardening-integrity.html
 keywords: VMware, Data protection, security, OTV, Hardening, ONTAP Tools
 summary: Security Hardening Guide for ONTAP tools for VMware vSphere.
 ---
-= Verifying integrity of ONTAP tools for VMware vSphere install packages
+= Verifying the integrity of the ONTAP tools for VMware vSphere installation packages
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -12,17 +12,17 @@ summary: Security Hardening Guide for ONTAP tools for VMware vSphere.
 :imagesdir: ../media/
 
 [.lead]
-Customers can verify the integrity of ONTAP tools install packages using 2 verification methods.
+There are two methods available for customers to verify the integrity of their ONTAP tools installation packages.
 
 . Verifying the checksums
 . Verifying the signature
 
-Checksums are provided on the download pages of OTV install packages. Users must verify the checksums of downloaded packages against the checksum provided on download page.
+Checksums are provided on the download pages of OTV install packages. Users must verify the checksums of downloaded packages against the checksum provided on the download page.
 
 == Verifying the signature of the ONTAP tools OVA
-The vApp install package is delivered in form of tar ball. This tar ball contains intermediate and root certificate for virtual appliance along with a README file and ova package. README file guides user on how to verify the integrity of vApp ova package.
+The vApp install package is delivered in the form of a tarball. This tarball contains intermediate and root certificates for the virtual appliance along with a README file and an OVA package. The README file guides users on how to verify the integrity of vApp OVA package.
 
-Customers will have to upload the provided root and Intermediate certificate on vCenter version 7.0U3E and higher.  For vCenter versions between 7.0.1 and 7.0.U3E the functionality of verifying certificate is not supported from VMware. Customers need not upload any certificate for vCenter versions 6.x.
+Customers must also upload the provided root and Intermediate certificate on vCenter version 7.0U3E and higher.  For vCenter versions between 7.0.1 and 7.0.U3E the functionality of verifying certificate is not supported from VMware. Customers need not upload any certificate for vCenter versions 6.x.
 
 === Uploading the trusted root certificate to vCenter
 . Log in with the VMware vSphere Client to the vCenter Server.
@@ -33,14 +33,14 @@ Customers will have to upload the provided root and Intermediate certificate on 
 . Click browse and select the location of the certificate .pem file (OTV_OVA_INTER_ROOT_CERT_CHAIN.pem).
 . Click Add. The certificate is added to the store.
 
-Refer to link:https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.authentication.doc/GUID-B635BDD9-4F8A-4FD8-A4FE-7526272FC87D.html[Add a Trusted Root Certificate to the Certificate Store] for more information. While deploying a vApp (by using the OVA file), the digital signature for the vApp package can be verified on the 'Review details' page. If the downloaded vApp package is genuine, the 'Publisher' column displays 'Trusted Certificate' (As in following screenshot).
+Refer to link:https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.authentication.doc/GUID-B635BDD9-4F8A-4FD8-A4FE-7526272FC87D.html[Add a Trusted Root Certificate to the Certificate Store] for more information. While deploying a vApp (by using the OVA file), the digital signature for the vApp package can be verified on the 'Review details' page. If the downloaded vApp package is genuine, the 'Publisher' column displays 'Trusted Certificate' (As in the following screenshot).
 
 image:vmware-otv-hardening-trusted-publisher.png[Trusted Certificate]
 
 
 
 == Verifying the signature of the ONTAP tools ISO and SRA tar.gz
-Along with the product zip for OTV-ISO and SRA.tgz, NetApp will share it's code signing certificate with the customers on the product download page.
+NetApp shares its code signing certificate with customers on the product download page, along with the product zip files for OTV-ISO and SRA.tgz.
 
 From the code signing certificate users can extract the public key as below:
 
@@ -54,7 +54,6 @@ Example:
  
  #> openssl x509 -in OTV_ISO_CERT.pem -pubkey -noout > OTV_ISO.pub
  #> openssl dgst -sha256 -verify OTV_ISO.pub -signature netapp-ontap-tools-for-vmware-vsphere-9.12-upgrade-iso.sig netapp-ontap-tools-for-vmware-vsphere-9.12-upgrade.iso
- 
  Verified OK  => response 
 
 

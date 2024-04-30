@@ -50,4 +50,4 @@ connect 'jdbc:derby://<OTV-IP>:1527//opt/netapp/vpserver/vvoldb;user=<user>;pass
 
 *[.underline]#Example:#*
 
-image::../media/vmware-otv-hardening-ports.png[media/media/image1,width=468,height=136]
+image:vmware-otv-hardening-ports.png[media/media/image1,width=468,height=136]

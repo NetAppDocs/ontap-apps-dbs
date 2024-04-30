@@ -12,7 +12,7 @@ summary: Security Hardening Guide for ONTAP tools for VMware vSphere.
 :imagesdir: ../media/
 
 [.lead]
-An inactivity timeout prevents unauthorized users from using resources with an existing user authorization.
+To prevent unauthorized access, an inactivity timeout is set up, which automatically logs out users who are inactive for a certain period while using authorized resources. This ensures that only authorized users can access the resources and helps to maintain security.
 
 * By default, the vSphere Client sessions close after 120 minutes of idle time, requiring the user to log in again to resume using the client. You can change the timeout value by editing the webclient.properties file.You can configure the timeout of the vSphere Client https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vcenterhost.doc/GUID-975412DE-CDCB-49A1-8E2A-0965325D33A5.html[Configure the vSphere Client Timeout Value]
 * ONTAP tools has a web-cli session logout time of 30 minutes.

@@ -40,9 +40,9 @@ Used for SOAP over https connections
 |443 |bi-directional |Used for connections to ONTAP clusters
 |===
 
-== Controlling remote access to Derby
+== Controlling remote access to the Derby database
 
-User can access the derby database with following commands. It can be accessed through OTV local VM as well as remote server as well with following steps:
+Administrators can access the derby database with following commands. It can be accessed through the ONTAP tools local VM as well as a remote server with following steps:
 
 java -classpath "/opt/netapp/vpserver/lib/*" org.apache.derby.tools.ij;
 

@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: vmware/vmware-otv-hardening-dos.html
 keywords: VMware, Data protection, security, OTV, Hardening, ONTAP Tools
-summary: Security Hardening Guide for ONTAP tools for VMware vSphere.
+summary: Security Hardening Guide for ONTAP tools for VMware vSphere, network security protection against DOS attacks.
 ---
 = Maximum concurrent requests per user (Network security protection :: DOS attack)
 :hardbreaks:
@@ -12,7 +12,7 @@ summary: Security Hardening Guide for ONTAP tools for VMware vSphere.
 :imagesdir: ../media/
 
 [.lead]
-By default, the number of maximum concurrent requests per user is 48. The root user in ONTAP tools can change this value depending on the requirements of their environment. *This value should not be set to a very high value as this provides a mechanism against DOS attacks.*
+By default, the number of maximum concurrent requests per user is 48. The root user in ONTAP tools can change this value depending on the requirements of their environment. *This value should not be set to a very high value as this provides a mechanism against denial of service (DOS) attacks.*
 
 Users can change the number of maximum concurrent sessions and other supported parameters in the  *_/opt/netapp/vscserver/etc/dosfilterParams.json_* file.
 

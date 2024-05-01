@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: vmware/vmware-otv-hardening-access.html
 keywords: VMware, Data protection, security, ONTAP tools, Hardening, ONTAP Tools
-summary: Security Hardening Guide for ONTAP tools for VMware vSphere.
+summary: Security Hardening Guide for ONTAP tools for VMware vSphere, user access points.
 ---
 = ONTAP tools for VMware vSphere access points (Users) 
 :hardbreaks:
@@ -12,7 +12,7 @@ summary: Security Hardening Guide for ONTAP tools for VMware vSphere.
 :imagesdir: ../media/
 
 [.lead]
-The ONTAP Tools for VMware vSphere installation creates and uses four types of users:
+The ONTAP Tools for VMware vSphere installation creates and uses three types of users:
 
 [arabic]
 . System User: The root user account

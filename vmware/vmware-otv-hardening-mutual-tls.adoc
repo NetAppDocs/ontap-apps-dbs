@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: vmware/vmware-otv-hardening-mutual-tls.html
 keywords: VMware, Data protection, security, OTV, Hardening, ONTAP Tools
-summary: Security Hardening Guide for ONTAP tools for VMware vSphere.
+summary: Security Hardening Guide for ONTAP tools for VMware vSphere, mutual TLS encryption for storage management connections.
 ---
 = Mutual TLS (Certificate-Based Authentication)
 :hardbreaks:
@@ -12,7 +12,7 @@ summary: Security Hardening Guide for ONTAP tools for VMware vSphere.
 :imagesdir: ../media/
 
 [.lead]
-ONTAP version 9.7 and later support mutual TLS communication. Starting from ONTAP Tools for VMware and vSphere 9.12, mutual TLS is used for communication with newly added clusters (depending on ONTAP version).
+ONTAP versions 9.7 and later support mutual TLS communication. Beginning with ONTAP Tools for VMware and vSphere 9.12, mutual TLS is used for communication with newly added clusters (depending on ONTAP version).
 
 == ONTAP
 For all previously added storage systems: During an upgrade, all added storage storage systems will get auto-trusted, and certificate-based authentication mechanisms will get configured. 

@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: vmware/vmware-otv-hardening-login-banner.html
 keywords: VMware, Data protection, security, OTV, Hardening, ONTAP Tools
-summary: Security Hardening Guide for ONTAP tools for VMware vSphere.
+summary: Security Hardening Guide for ONTAP tools for VMware vSphere, login banner.
 ---
 = Login Banner 
 :hardbreaks:
@@ -12,7 +12,7 @@ summary: Security Hardening Guide for ONTAP tools for VMware vSphere.
 :imagesdir: ../media/
 
 [.lead]
-SSH is disabled by default and only allows one-time logins if enabled from the VM console. The following login banner is shown after the user enters a username in the login prompt:
+The following login banner is shown after the user enters a username in the login prompt. Please note that SSH is disabled by default and only allows one-time logins when enabled from the VM console. 
 
  WARNING: Unauthorized access to this system is forbidden and will be
  prosecuted by law. By accessing this system, you agree that your actions

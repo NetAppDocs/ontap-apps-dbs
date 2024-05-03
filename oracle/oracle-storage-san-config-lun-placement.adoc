@@ -1,0 +1,17 @@
+---
+sidebar: sidebar
+permalink: oracle/oracle-storage-san-config-lun-placement.html
+keywords: SAN, ASM, LVM
+summary: Oracle and ONTAP volume and LUN placement
+---
+= Oracle database LUN placement
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+Correct placement of database LUNs within ONTAP volumes depends on how various ONTAP features will be used.
+
+include::../_include/lun-placement.adoc[]

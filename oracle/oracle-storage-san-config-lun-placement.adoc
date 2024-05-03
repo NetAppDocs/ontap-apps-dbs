@@ -12,6 +12,6 @@ summary: Oracle and ONTAP volume and LUN placement
 :imagesdir: ../media/
 
 [.lead]
-Correct placement of database LUNs within ONTAP volumes depends on how various ONTAP features will be used.
+Optimal placement of database LUNs within ONTAP volumes primarily depends on how various ONTAP features will be used.
 
 include::../_include/lun-placement.adoc[]

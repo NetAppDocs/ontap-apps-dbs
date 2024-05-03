@@ -6,15 +6,13 @@ A volume is not a LUN. Many legacy arrays use the terms synonymously. ONTAP volu
 
 == ONTAP volumes and LUNs
 
-Once a volume is created, one or more LUNs is provisioned within that volume.
+Related LUNs are normally co-located in a single volume. For example, a database that requires 10 LUNs would typically have all 10 LUNs placed on the same volume. 
 
 [CAUTION]
-===
+====
 * Using a 1:1 ratio of LUNs to volumes, meaning one LUN per volume, is *not* a best practice. Instead, the volumes should be viewed as containers for workloads. There may be a single LUN per volume, or there could be many. The right answer depends on manageability requirements
 * Scattering LUNs across an unnecessary number of volumes can lead to additional overhead and scheduling problems for operations such as SnapMirror updates, excessive numbers of objects displayed in the UI, and result in reaching platform volume limits before the LUN limit is reached.
-=== 
-
-Related LUNs are normally co-located in a single volume. For example, a database that requires 10 LUNs would typically have all 10 LUNs placed on the same volume. 
+==== 
 
 == ONTAP volumes, LUNs, and snapshots
 
@@ -22,15 +20,17 @@ Snapshot policies and schedules are placed on the volume, not the LUN. A workloa
 
 Additionally, placing all related LUNs for a workload delivers atomic snapshot operations. For example, a database that resides on 10 LUNs, or a VMware environment consistent of 10 different OSs could be protected as a single, consistent object if the underlying LUNs are placed on a single volume. If they are placed on different volumes, the snapshots may or may not be 100% in sync, even if scheduled at the same time
 
+In some cases, a related set of LUNs might need to be split into two different volumes because of recovery requirements. For example, a database might have four LUNs for datafiles and two LUNs for logs. In this case, a datafile volume with 4 LUNs and a log volume with 2 LUNs might be the best option. The reason is independent recoverability. For example, the datafile volume could be selectively restored to an earlier state, meaning all four LUNs would be reverted to the state of the snapshot, while the log volume with its critical data would be unaffected.
+
 == ONTAP volumes, LUNs, and SnapMirror
 
 SnapMirror policies and operations are, like snapshot opreations, performed on the volume, not the LUN. 
 
-Co-locating related LUNs in a single volume allows you to create a single SnapMirror relationship and update all contained data with a single update operation. As with snapshots, the update will also be an atomic operation. The SnapMirror destination would be guaranteed to have a single point in time replica of the source data. If the data is spread across multiple volumes, the replicas may or may not be consistent with one another.
+Co-locating related LUNs in a single volume allows you to create a single SnapMirror relationship and update all contained data with a single update. As with snapshots, the update will also be an atomic operation. The SnapMirror destination would be guaranteed to have a single point in time replica of the source LUNs. If the LUNs were spread across multiple volumes, the replicas may or may not be consistent with one another.
 
 == ONTAP volumes, LUNs, and Qos
 
-While QoS can be selectively applied to individual LUNs, it is usually easier to set it at the volume level. For example, all of the LUNs used by the guests in a given ESX server could be placed on a single volume, and then an Adaptive QoS policy could be applied. The result is a self-scaling IOPS-per-TB limit that applies to all LUNs.
+While QoS can be selectively applied to individual LUNs, it is usually easier to set it at the volume level. For example, all of the LUNs used by the guests in a given ESX server could be placed on a single volume, and then an ONTAP adaptive QoS policy could be applied. The result is a self-scaling IOPS-per-TB limit that applies to all LUNs. 
 
 Likewise, if a database required 100K IOPS and occupied 10 LUNs, it would be easier to set a single 100K IOPS limit on a single volume than to set 10 different 10K IOPS limits on each individual LUN if they were scattered across multiple volumes.
 
@@ -38,9 +38,9 @@ Likewise, if a database required 100K IOPS and occupied 10 LUNs, it would be eas
 
 There are some cases where distributing a workload across multiple volumes may be beneficial. The primary reason is controller striping. For example, an HA storage system might be hosting a single database where the full processing and caching potential of each controller is required. In this case, a typical design would be to place half of the LUNs in a single volume on controller 1, and the other half of the LUNs in a single volume on controller 2. 
 
-Similarly, controller striping might be used for load balancing. A controller that hosted 100 datbases of 10 LUNs each might be designed with a 5-LUN volume on each of the two controllers. The result is guaranteed even loading of each controller as additional databases are provisioned. 
+Similarly, controller striping might be used for load balancing. A controller that hosted 100 datbases of 10 LUNs each might be designed where each database receives a 5-LUN volume on each of the two controllers. The result is guaranteed symmetric loading of each controller as additional databases are provisioned. 
 
 None of these examples involve a 1:1 volume to LUN ratio, though. The goal remains to optimize manageability by co-locating related LUNs in volumes.
 
-One example were a 1:1 LUN to volume ratio makes sense is containerization, which each LUN might really represent a single workload and need to be each managed on an individual basis.
+One example were a 1:1 LUN to volume ratio makes sense is containerization, which each LUN might really represent a single workload and need to be each managed on an individual basis. In such cases, a 1:1 ratio may be optimal.
 

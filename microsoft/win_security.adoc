@@ -1,0 +1,28 @@
+---
+sidebar: sidebar
+permalink: microsoft/win_security.html
+keywords: Windows,Hyper-V,VHDX,VM,Virtual
+summary: ONTAP storage security with Hyper-V
+---
+= Security
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media
+
+[.lead]
+ONTAP provides a secure storage system for the Windows operating system.
+
+== Windows Defender Antivirus
+Windows Defender is antimalware software installed and enabled on Windows Server by default. This software actively protects Windows Server against known malware and can regularly update antimalware definitions through Windows Update. NetApp LUNs and SMB shares can be scanned using Windows Defender.
+
+=== Further reading
+For further information, see the https://technet.microsoft.com/windows-server-docs/security/windows-defender/windows-defender-overview-windows-server?f=255&MSPPError=-2147217396[Windows Defender Overview].
+
+== BitLocker
+BitLocker drive encryption is a data protection feature continued from Windows Server 2012. This encryption protects physical disks, LUNs, and CSVs.
+
+=== Best practice
+Before enabling BitLocker, the CSV must be put into maintenance mode. Therefore, NetApp recommends that decisions pertaining to BitLocker-based security be made before creating VMs on the CSV to avoid downtime.
+

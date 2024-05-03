@@ -4,7 +4,6 @@ permalink: vmware/vmware-vsphere-dp.html
 keywords: Data protection, Space reclamation, VM and datastore cloning, Storage efficiency, thin provisioning, QoS, SIOC, Storage Distributed Resource Scheduler, DRS, Active IQ Unified Manager, Encryption
 summary: SnapCenter allows you to create backup policies that can be applied to multiple jobs. These policies can define schedule, retention, replication, and other capabilities. They continue to allow optional selection of VM-consistent snapshots, which leverages the hypervisor's ability to quiesce I/O before taking a VMware snapshot.
 ---
-
 = Data protection
 :hardbreaks:
 :nofooter:
@@ -23,7 +22,7 @@ These plug-ins offer extended capabilities to protect the databases in both phys
 
 The following figure depicts an example of SnapCenter deployment.
 
-image:vsphere_ontap_image4.png[Error: Missing Graphic Image]
+image:vsphere_ontap_image4.png[SnapCenter deployment]
 
 For enhanced disaster recovery capabilities, consider using the NetApp SRA for ONTAP with VMware Site Recovery Manager. In addition to support for the replication of datastores to a DR site, it also enables nondisruptive testing in the DR environment by cloning the replicated datastores. Recovery from a disaster and reprotecting production after the outage has been resolved are also made easy by automation built into SRA.
 

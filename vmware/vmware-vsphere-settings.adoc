@@ -1,10 +1,9 @@
 ---
 sidebar: sidebar
 permalink: vmware/vmware-vsphere-settings.html
-keywords:
-summary:
+keywords: VMware,vSphere,ESXi,settings,NFS,iSCSI,FC,FCP
+summary: This document categorizes and enumerates recommended storage and network settings. 
 ---
-
 = Recommended ESXi host and other ONTAP settings
 :hardbreaks:
 :nofooter:
@@ -13,7 +12,11 @@ summary:
 :imagesdir: ../media/
 
 [.lead]
-NetApp has developed a set of ESXi host multipathing and HBA timeout settings for proper behavior with ONTAP based on NetApp testing. These are easily set using ONTAP tools for VMware vSphere. From the Summary dashboard, click Edit Settings in the Host Systems portlet or right-click the host in vCenter, then navigate to ONTAP tools > Set Recommended Values. Here are the currently recommended host settings with the 9.8 release.
+NetApp has developed a set of optimal ESXi host settings for both NFS and block protocols. Specific guidance is also provided for multipathing and HBA timeout settings for proper behavior with ONTAP based on NetApp and VMware internal testing.
+
+These values are easily set using ONTAP tools for VMware vSphere: From the Summary dashboard, click Edit Settings in the Host Systems portlet or right-click the host in vCenter, then navigate to ONTAP tools > Set Recommended Values.
+
+Here are the currently recommended host settings with the 9.8-9.13 releases.
 
 [%autowidth.stretch]
 |===
@@ -23,7 +26,7 @@ NetApp has developed a set of ESXi host multipathing and HBA timeout settings fo
 |Keep default (1)
 |No
 |VMFS3.EnableBlockDelete
-|Keep default (0), but can be changeded if needed.
+|Keep default (0), but can be changed if needed.
 For more information, see link:https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2007427[VMware KB 2007427]
 |No
 |VMFS3.EnableVMFS6Unmap
@@ -42,7 +45,7 @@ Set to 1024MB for 6.5U3, 6.7U3, and 7.0 or later.
 |Yes
 |NFS.MaxVolumes
 |vSphere 6.0 or later, set to 256
-All other NFS configurations, set to 64.
+All other NFS configurations set to 64.
 |No
 |NFS41.MaxVolumes
 |vSphere 6.0 or later, set to 256.
@@ -133,7 +136,7 @@ ONTAP tools also specify certain default settings when creating ONTAP FlexVol vo
 While not currently configured by available ONTAP tools, NetApp suggests these configuration options:
 
 * In high-performance environments or when testing performance with a single LUN datastore, consider changing the load balance setting of the round-robin (VMW_PSP_RR) path selection policy (PSP) from the default IOPS setting of 1000 to a value of 1. See VMware KB https://kb.vmware.com/s/article/2069356[2069356^] for more info.
-* In vSphere 6.7 Update 1, VMware introduced a new latency load balance mechanism for the Round Robin PSP. The new option considers I/O bandwidth and path latency when selecting the optimal path for I/O. You might benefit from using it in environments with non-equivalent path connectivity, such as cases where there are more network hops on one path than another, or when using a NetApp All SAN Array system. See https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.storage.doc/GUID-B7AD0CA0-CBE2-4DB4-A22C-AD323226A257.html?hWord=N4IghgNiBcIA4Gc4AIJgC4FMB2BjAniAL5A[Path Selection Plug-Ins and Policies^] for more information.
+* In vSphere 6.7 Update 1, VMware introduced a new latency load balance mechanism for the Round Robin PSP. The new option considers I/O bandwidth and path latency when selecting the optimal path for I/O. You might benefit from using it in environments with non-equivalent path connectivity, such as cases with more network hops on one path than another, or when using a NetApp All SAN Array system. See https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.storage.doc/GUID-B7AD0CA0-CBE2-4DB4-A22C-AD323226A257.html?hWord=N4IghgNiBcIA4Gc4AIJgC4FMB2BjAniAL5A[Path Selection Plug-Ins and Policies^] for more information.
 
 == Additional documentation
 

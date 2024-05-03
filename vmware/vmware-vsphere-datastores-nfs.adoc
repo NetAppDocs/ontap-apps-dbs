@@ -1,10 +1,9 @@
 ---
 sidebar: sidebar
 permalink: vmware/vmware-vsphere-datastores-nfs.html
-keywords: vSphere, datastore, VMFS, FC, FCoE, NVMe/FC, iSCSI, NFS, vVols
-summary: This page describes the best practices for implementing a NetApp ONTAP storage solution in a VMware vSphere environment.
+keywords: vSphere, datastore, VMFS, FC, FCoE, NVMe/FC, iSCSI, NFS, vVols, NFSv3, NFSv4.1
+summary: This page describes the best practices for implementing VMware vSphere with ONTAP and NFS-connected datastores.
 ---
-
 = NFS
 :hardbreaks:
 :nofooter:
@@ -13,7 +12,7 @@ summary: This page describes the best practices for implementing a NetApp ONTAP 
 :imagesdir: ../media/
 
 [.lead]
-vSphere allows customers to use enterprise-class NFS arrays to provide concurrent access to datastores to all the nodes in an ESXi cluster. As mentioned in the datastore section, there are some ease of use and storage efficiency visibility benefits when using NFS with vSphere.
+NetApp ONTAP is, among many other things, an enterprise-class scale-out NAS array. ONTAP empowers VMware vSphere with concurrent access to NFS-connected datastores from many ESXi hosts, far exceeding the limits imposed on VMFS file systems. Using NFS with vSphere provides some ease of use and storage efficiency visibility benefits, as mentioned in the link:vmware-vsphere-datastores-top.html[datastores] section.
 
 The following best practices are recommended when using ONTAP NFS with vSphere:
 

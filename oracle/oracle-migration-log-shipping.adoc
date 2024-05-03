@@ -28,7 +28,7 @@ The first step is to create a database backup. Specifically, this procedure requ
 
 === Environment
 
-In this example, the source database is on an ONTAP system. The simplest method to create a backup of a database is by using a Snapshot copy. The database is placed in hot backup mode for a few seconds while a `snapshot create` operation is executed on the volume hosting the data files.
+In this example, the source database is on an ONTAP system. The simplest method to create a backup of a database is by using a snapshot. The database is placed in hot backup mode for a few seconds while a `snapshot create` operation is executed on the volume hosting the data files.
 
 ....
 SQL> alter database begin backup;
@@ -45,13 +45,13 @@ SQL> alter database end backup;
 Database altered.
 ....
 
-The result is a Snapshot copy on disk called `hotbackup` that contains an image of the data files while in hot backup mode. When combined with the appropriate archive logs to make the data files consistent, the data in this Snapshot copy can be used as the basis of a restore or a clone. In this case, it is replicated to the new server.
+The result is a snapshot on disk called `hotbackup` that contains an image of the data files while in hot backup mode. When combined with the appropriate archive logs to make the data files consistent, the data in this snapshot can be used as the basis of a restore or a clone. In this case, it is replicated to the new server.
 
 === Restore to new environment
 
 The backup must now be restored in the new environment. This can be done in a number of ways, including Oracle RMAN, restoration from a backup application like NetBackup, or a simple copy operation of data files that were placed in hot backup mode.
 
-In this example, SnapMirror is used to replicate the Snapshot copy called hotbackup to a new location.
+In this example, SnapMirror is used to replicate the snapshot hotbackup to a new location.
 
 . Create a new volume to receive the snapshot data. Initialize the mirroring from `jfsc1_oradata` to `vol_oradata`.
 +

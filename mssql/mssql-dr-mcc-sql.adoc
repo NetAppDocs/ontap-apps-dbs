@@ -1,0 +1,21 @@
+---
+sidebar: sidebar
+permalink: mssql/mssql-dr-mcc-sql.html
+keywords: MSSQL,SQL Server, MetroCluster
+summary: Microsoft SQL Server with NetApp MetroCluster
+---
+= Microsoft SQL Server with MetroCluster
+
+[.lead]
+There could be SQL Server standalone instance or failover cluster instance on ONTAP controller with MetroCluster. MetroCluster system does not necessarily add to or change any best practices for operating a database. Follow the recommendations in the SQL Server on ONTAP documentation.
+
+Database could be hosted on virtualized environment or physical server connected to guest connected iSCSI storage or FC-based. There is no special configuration while running SQL Server on MetroCluster. SyncMirror delivers a synchronous copy of the data at the disaster recovery site, but there will be additional steps to bring the database online. 
+
+In event of disaster, switchover MetroCluster from primary site to secondary site and start the SQL Services from secondary location. With scripted solution, failover process can be automated. 
+
+* Forcing a MetroCluster switchover
+* Performing discovery of FC LUNs (SAN only)
+* Mounting file systems and/or mounting ASM disk groups
+* Starting the database
+
+The primary requirement of this approach is a running OS in place on the remote site. It must be preconfigured with Oracle binaries, which also means that tasks such as Oracle patching must be performed on the primary and standby site. Alternatively, the Oracle binaries can be mirrored to the remote site and mounted if a disaster is declared.

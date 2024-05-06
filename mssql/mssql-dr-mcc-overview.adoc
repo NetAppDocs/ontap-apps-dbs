@@ -11,6 +11,7 @@ summary: Microsoft SQL Server and MetroCluster
 Understanding how Microsoft SQL Server operate in a MetroCluster environment requires some explanation of physical design of a MetroCluster system.
 
 MetroCluster synchronously mirrors data and configuration between two ONTAP clusters in separate locations or failure domains. MetroCluster provides continuously available storage for applications by automatically managing two objectives:
+
 • Zero recovery point objective (RPO) by synchronously mirroring data written to the cluster.
 • Near zero recovery time objective (RTO) by mirroring configuration and automating access to data at the second site.
 
@@ -20,8 +21,9 @@ protocol timeout periods. Applications can continue accessing data without incur
 MetroCluster is available in several variations defined by the back-end storage fabric. 
 
 MetroCluster is available in 3 different configurations
-HA pairs with IP connectivity
-HA pairs with FC connectivity
-Single controller with FC connectivity
+
+* HA pairs with IP connectivity
+* HA pairs with FC connectivity
+* Single controller with FC connectivity
 
 include::../_include/metrocluster-physical-summary.adoc[]

@@ -22,4 +22,4 @@ The primary requirement of this approach is a running OS in place on the remote 
 
 If the SQL Server is virtualized, operating system volume should be replicated along with database volume. Process to bring the virtual machine online at the disaster recovery site is similar to above flow and can be automated. After the MetroCluster switchover, instead of discovering database lun, discover the volumes hosting datastore and mount it on hypervisor. Start the virtual machines and bring the SQL Services up if the service are set to manual. 
 
-If the volumes, file systems and datastore  hosting vistualized databases are not in use at the disaster recovery site prior to the switchover, there is no requirement to set `dr-force- nvfail` on associated volumes.
+If the volumes, file systems and datastore  hosting virtualized databases are not in use at the disaster recovery site prior to the switchover, there is no requirement to set `dr-force- nvfail` on associated volumes.

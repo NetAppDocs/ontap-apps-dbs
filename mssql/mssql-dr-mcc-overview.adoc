@@ -27,5 +27,4 @@ MetroCluster is available in 3 variations defined by the back-end storage fabric
 include::../_include/metrocluster-physical-summary.adoc[]
 
 Protection for SQL Server with MetroCluster is based on SyncMirror, which gives a maximum-performance, scale-out synchronous mirroring technology.
-
 include::../_include/syncmirror-summary.adoc[]

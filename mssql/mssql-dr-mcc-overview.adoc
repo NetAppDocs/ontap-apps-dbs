@@ -19,7 +19,7 @@ MetroCluster provides simplicity with automatic mirroring of data and configurat
 
 include::../_include/metrocluster-physical-summary.adoc[]
 
-==SyncMirror
+== SyncMirror
 
 Protection for SQL Server with MetroCluster is based on SyncMirror, which gives a maximum-performance, scale-out synchronous mirroring technology.
 

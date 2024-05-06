@@ -28,6 +28,18 @@ entries:
   - title: Data protection
     url: /mssql/mssql-data-protection.html
   - title: Disaster recovery
-    url: /mssql/mssql-disaster-recovery.html
+    entries:
+    - title: Overview
+      url: /mssql/mssql-disaster-recovery.html
+    - title: MetroCluster
+      entries:
+      - title: MetroCluster architecture
+        url: /mssql/mssql-dr-mcc-overview.html
+      - title: SQL Server with MetroCluster
+    - title: SnapMirror active sync
+      entries:
+      - title: SnapMirror active sync architecture
+        url: /mssql/mssql-dr-smas-overview.html 
+      - title: SQL Server with SnapMirror active sync 
   - title: Data security
     url: /mssql/mssql-data-security.html

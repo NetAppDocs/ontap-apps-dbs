@@ -13,7 +13,7 @@ SnapMirror active sync can be configure with asymmetric active/active replicatio
 
 == Architecture
 
-image:mssql-smas-architecture.png[Error: Missing Graphic Image]
+image:mssql-smas-architecture.png
 
 
 **Synchronous replication**

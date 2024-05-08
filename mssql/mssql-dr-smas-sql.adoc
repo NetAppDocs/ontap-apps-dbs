@@ -7,3 +7,7 @@ summary: Microsoft SQL Server and SnapMirror active sync
 = Microsoft SQL Server with SnapMirror active sync
 
 [.lead]
+
+
+-- SQL Server standalone case
+ -- Server failover cluster instance

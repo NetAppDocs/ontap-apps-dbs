@@ -1,0 +1,9 @@
+---
+sidebar: sidebar
+permalink: mssql/mssql-dr-smas-sql.html
+keywords: MSSQL,SQL Server, SnapMirror active sync, SMBC, SMas, SnapMirror Business Continuity
+summary: Microsoft SQL Server and SnapMirror active sync
+---
+= Microsoft SQL Server with SnapMirror active sync
+
+[.lead]

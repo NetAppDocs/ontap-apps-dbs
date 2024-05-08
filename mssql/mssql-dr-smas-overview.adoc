@@ -1,1 +1,26 @@
+---
+sidebar: sidebar
+permalink: mssql/mssql-dr-smas-overview.html
+keywords: MSSQL,SQL Server, SnapMirror active sync, SMBC, overview
+summary: Microsoft SQL Server and SnapMirror active sync
+---
+= SnapMirror active sync overview
 
+[.lead]
+SnapMirror active sync enables individual SQL Server database and applications to continue service in case of any distruptions, with transparent fail over of storage to secondary copy without any manual intervention.
+
+SnapMirror active sync can be configure with asymmetric active/active replication or symmetric active/active replication. Symmetric active/active replication enables bidirectional replication and is synchronuosly replicated. SnapMirror active sync and SnapMirror Sync share a replication engine, however, SnapMirror active sync includes additional features such as transparent application failover and failback for enterprise applications.In practice, it works similar to a granular version of MetroCluster by enabling selective and granular RPO=0 synchronous replication for individual workloads. The low-level path behavior is very different from MetroCluster, but the end result from a host point of view is similar.
+
+== Architecture
+
+
+
+
+Synchronous replication
+In normal operation, the remote copy is an RPO=0 synchronous replica at all times, with one exception. If data cannot be replicated, with SnapMirror active sync will release the requirement to replicate data and resume serving IO. This option is preferred by customers who consider loss of the replication link a near-disaster, or who do not want business operations to halt when data cannot be replicated.
+
+Storage hardware
+Unlike other storage disaster recovery solutions, SnapMirror active sync offers asymmetric platform flexibility. The hardware at each site does not need to be identical. This capability allows you to right-size the hardware used to support SnapMirror active sync. The remote storage system can be identical to the primary site if it needs to support a full production workload, but if a disaster results in reduced I/O, than a smaller system at the remote site might be more cost-effective.
+
+ONTAP mediator
+The ONTAP Mediator is a software application that is downloaded from NetApp support. The Mediator automates failover operations for both the primary and remote site storage cluster. It can be deployed on a small virtual machine (VM) hosted either on-premises or in the cloud. After it is configured, it acts as a third site to monitor failover scenarios for both the sites.

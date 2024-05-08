@@ -41,6 +41,13 @@ entries:
       entries:
       - title: SnapMirror active sync architecture
         url: /mssql/mssql-dr-smas-overview.html 
-      - title: SQL Server with SnapMirror active sync 
+      - title: Host and storage connectivity
+        url: /mssql/mssql-dr-smas-hostconnectivity.html
+      - title: Host proximity
+        url: /mssql/mssql-dr-smas-hostproximity.html
+      - title: SQL Server with SnapMirror active sync
+        url: /mssql/mssql-dr-smas-sql.html
+      - title: Failure scenarios
+        url: /mssql/mssql-dr-smas-failurescenarios.html
   - title: Data security
     url: /mssql/mssql-data-security.html

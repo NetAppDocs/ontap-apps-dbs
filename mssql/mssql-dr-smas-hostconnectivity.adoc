@@ -5,6 +5,7 @@ keywords: MSSQL,SQL Server, Uniform and non-uniform path
 summary: Microsoft SQL Server and SnapMirror active sync
 ---
 = Microsoft SQL Server host and ONTAP access
+:imagesdir: ../media/
 
 [.lead]
 With SnapMirror active sync capability to read/write between independent storage cluster in each failure domain, there are different ways SQL Server database host can be configured to connect to ONTAP storage.
@@ -21,6 +22,8 @@ The image above represents the logical paths that exist between the hosts and ar
 == Non-uniform host access
 
 In non-uniform host access setup, each host will be connected to one of the storage where both are in same site. Replication between the storage will happen through ethernet connectivity. This promotes local host access, optimizing performance within individual sites, so, this is suitable for environments requiring local data management and boosted site-specific performance. 
+
+image:mssql-smas-nonuniform.png[Error: Missing Graphic Image]
 
 To setup non-uniform host access, simply register only the local storage detail and not the remote storage details in host configuration. 
 

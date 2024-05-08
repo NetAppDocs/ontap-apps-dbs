@@ -5,6 +5,7 @@ keywords: MSSQL,SQL Server, SnapMirror active sync, SMBC, overview
 summary: Microsoft SQL Server and SnapMirror active sync
 ---
 = SnapMirror active sync overview
+:imagesdir: ../media/
 
 [.lead]
 SnapMirror active sync enables individual SQL Server database and applications to continue service in case of any distruptions, with transparent fail over of storage to secondary copy without any manual intervention.

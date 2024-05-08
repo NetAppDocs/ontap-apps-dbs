@@ -1,0 +1,9 @@
+---
+sidebar: sidebar
+permalink: mssql/mssql-dr-smas-failurescenarios.html
+keywords: MSSQL,SQL Server, failure
+summary: Microsoft SQL Server and SnapMirror active sync
+---
+= SnapMirror active sync failure scenarios with Microsoft SQL Server
+
+[.lead]

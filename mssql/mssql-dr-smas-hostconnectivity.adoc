@@ -27,5 +27,5 @@ image:mssql-smas-nonuniform.png[Error: Missing Graphic Image]
 
 To setup non-uniform host access, simply register only the local storage detail and not the remote storage details in host configuration. 
 
-[Note]
+[NOTE]
 In either case of setup, there is no limitation due to distance but SnapMirror active sync requires less than 10ms of round trip time (RTT) latency between the ONTAP storages. 

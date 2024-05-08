@@ -10,7 +10,7 @@ summary: Microsoft SQL Server and SnapMirror active sync
 [.lead]
 SnapMirror active sync enables individual SQL Server database and applications to continue service in case of any distruptions, with transparent fail over of storage to secondary copy without any manual intervention.
 
-SnapMirror active sync can be configure with asymmetric active/active replication or symmetric active/active replication. Symmetric active/active replication enables bidirectional replication and is synchronuosly replicated. SnapMirror active sync and SnapMirror Sync share a replication engine, however, SnapMirror active sync includes additional features such as transparent application failover and failback for enterprise applications.In practice, it works similar to a granular version of MetroCluster by enabling selective and granular RPO=0 synchronous replication for individual workloads. The low-level path behavior is very different from MetroCluster, but the end result from a host point of view is similar.
+SnapMirror active sync can be configure as asymmetric active/active replication or symmetric active/active replication. Symmetric active/active replication enables bidirectional replication and is synchronuosly replicated. SnapMirror active sync and SnapMirror Sync share a replication engine, however, SnapMirror active sync includes additional features such as transparent application failover and failback for enterprise applications.In practice, it works similar to a granular version of MetroCluster by enabling selective and granular RPO=0 synchronous replication for individual workloads. The low-level path behavior is very different from MetroCluster, but the end result from a host point of view is similar.
 
 == Architecture
 

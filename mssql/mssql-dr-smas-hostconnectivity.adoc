@@ -16,6 +16,9 @@ While setting up path between host and storage, the host can use uniform access 
 
 Uniform host access have connectivity of each host to ONTAP storage paticiapting in SnapMirror active sync. SQL Server database host will have access to LUN at local storage and remote storage. In case of storage failure, host will access path that connects to remote storage and continue to serve IO's for application transaction. With this model,  it ensures consistent and seemless data ccess for enhaced operational continuity. This is suitable for environmens priortizing high connectivity and ubiquitous data availability.
 
+image:mssql-smas-uniform.png[Error: Missing Graphic Image]
+
+
 The image above represents the logical paths that exist between the hosts and arrays, and the replication connection between the two arrays in a uniform access model. Because a uniform storage access model allows all hosts, regardless of site location, to access both arrays, there will be paths with different latency characteristics. Paths from hosts to the local array will have lower latency; paths from each local host to the remote array will have higher latency. For the best performance in an active/active synchronous replication environment, hosts should be prevented from using paths that access the remote array unless it is ecessary. For example, in the image below, if the host SQL Server were to perform a write to volume A over the host side connection to array A, that write would incur 2X the latency of the inter-site link (1X for each traverse of the network). The write would experience 11ms of latency for the trip from host B to array A and experience another 11ms of latency while array A synchronously sends the write back to array B
 
 

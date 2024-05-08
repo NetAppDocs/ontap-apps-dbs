@@ -39,7 +39,7 @@ entries:
         url: /mssql/mssql-dr-mcc-sql.html
     - title: SnapMirror active sync
       entries:
-      - title: SnapMirror active sync architecture
+      - title: SnapMirror active sync overview
         url: /mssql/mssql-dr-smas-overview.html 
       - title: Host and storage connectivity
         url: /mssql/mssql-dr-smas-hostconnectivity.html

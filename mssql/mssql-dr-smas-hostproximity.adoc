@@ -7,3 +7,27 @@ summary: Microsoft SQL Server and SnapMirror active sync
 = Microsoft SQL Server and ONTAP path selection
 
 [.lead]
+SnapMirror active sync can enable SQL Server to use preferred path for optimize operation in this active/active solution.
+
+When SnapMirror active sync is setup with uniform host access configuration, default behavior is that host all access all active/optimized path for read/write operations.  this is generally 
+not ideal. In situations where the sites are far apart, two performance-impacting things occur:
+• Half of the writes (assuming both FlashArrays offer an equal number of paths for each device) sent from 
+a host in site A will be sent to the FlashArray in site B. Since writes must be acknowledged in both sites, 
+this means the data traverses the WAN twice. First the host issues a write across the WAN to the remote 
+FlashArray, and then the remote FlashArray forwards it back across the WAN to the local FlashArray. This 
+adds unnecessary latency. The optimal path is for the host to send writes to the local FlashArray, which then 
+forwards it to the remote FlashArray. In the optimal situation, the write must only traverse the WAN once.
+• Half of the reads (assuming both FlashArrays offer an equal number of paths for each device) sent from a 
+host in site A will be sent to the FlashArray in site B. Reads can be serviced by either side, and for reads 
+there is no need for one FlashArray to talk to the other. So a read need not ever traverse the WAN in normal 
+circumstances. Servicing all reads from the local array to a given host is the best option for performance.
+29
+FlashArray offers an option to intelligently tell SQL Server Primary Active Node which FlashArray should 
+optimally service I/O in the event a SQL Server Primary Active Node can see paths to both FlashArrays for a given 
+device. This is a FlashArray host object setting called Preferred Arrays.
+In a situation where the FlashArrays are in geographically different data centers, it is important to set the preferred 
+array for a host on BOTH FlashArrays. 
+For each host, login to the FlashArray web interface for the array that is local to that host. Click on the Storage section, 
+then the Hosts tab, then choose the host to be configured. Then, in the Details panel, click on the Add Preferred 
+Arrays option
+

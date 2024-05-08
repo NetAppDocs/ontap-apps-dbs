@@ -1,0 +1,9 @@
+---
+sidebar: sidebar
+permalink: mssql/mssql-dr-smas-hostconnectivty.html
+keywords: MSSQL,SQL Server, Uniform and non-uniform path
+summary: Microsoft SQL Server and SnapMirror active sync
+---
+= Microsoft SQL Server and ONTAP connectivity
+
+[.lead]

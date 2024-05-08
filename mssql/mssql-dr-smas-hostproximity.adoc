@@ -11,16 +11,7 @@ SnapMirror active sync can enable SQL Server to use preferred path for optimize 
 
 When SnapMirror active sync is setup with uniform host access configuration, default behavior is that host access all active/optimized path for read/write operations. If secondary storage is located at different site then it is not optimal design. With multipathing feature enabled on Windows, IO are distributed across the storage. Read/write IO on primary are optimal, operation on secondary need to pass through WAN which add overall overhead to fetch the results causing unnecessary latency.
 
-SnapMirror active sync provides an option to configure SQL Server host to select required path to access local storage.
+[TIP]
+SnapMirror active sync provides an option in System Manager to configure SQL Server host to select required path to access local storage using host proximity. NetApp recommends settings to modify host proximity during initial configuration or after SnapMirror active sync is configured.
 
-
-
-FlashArray offers an option to intelligently tell SQL Server Primary Active Node which FlashArray should 
-optimally service I/O in the event a SQL Server Primary Active Node can see paths to both FlashArrays for a given 
-device. This is a FlashArray host object setting called Preferred Arrays.
-In a situation where the FlashArrays are in geographically different data centers, it is important to set the preferred 
-array for a host on BOTH FlashArrays. 
-For each host, login to the FlashArray web interface for the array that is local to that host. Click on the Storage section, 
-then the Hosts tab, then choose the host to be configured. Then, in the Details panel, click on the Add Preferred 
-Arrays option
 

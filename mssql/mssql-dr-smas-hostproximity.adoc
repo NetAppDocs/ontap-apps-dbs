@@ -1,0 +1,9 @@
+---
+sidebar: sidebar
+permalink: mssql/mssql-dr-smas-hostproximity.html
+keywords: MSSQL,SQL Server, preferred path, host proximity
+summary: Microsoft SQL Server and SnapMirror active sync
+---
+= Microsoft SQL Server and ONTAP path selection
+
+[.lead]

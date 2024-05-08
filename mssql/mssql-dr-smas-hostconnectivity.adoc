@@ -18,9 +18,10 @@ Uniform host access have connectivity of each host to ONTAP storage paticiapting
 
 image:mssql-smas-uniform.png[Error: Missing Graphic Image]
 
+In uniform host access, SQL Server can access storage from both site, local and remote, irrespective of its location. Host access to remote storage may have higher latency compared to local storage. For example, when write operation is triggered from SQL Server, the operation occurs on local storage and remote storage. As IO processes from remote storage, the round trip could incude latency to post data and get acknowledgement depending on network speed. 
 
-The image above represents the logical paths that exist between the hosts and arrays, and the replication connection between the two arrays in a uniform access model. Because a uniform storage access model allows all hosts, regardless of site location, to access both arrays, there will be paths with different latency characteristics. Paths from hosts to the local array will have lower latency; paths from each local host to the remote array will have higher latency. For the best performance in an active/active synchronous replication environment, hosts should be prevented from using paths that access the remote array unless it is ecessary. For example, in the image below, if the host SQL Server were to perform a write to volume A over the host side connection to array A, that write would incur 2X the latency of the inter-site link (1X for each traverse of the network). The write would experience 11ms of latency for the trip from host B to array A and experience another 11ms of latency while array A synchronously sends the write back to array B
-
+[TIP]
+NetApp recommends database server should be configured to use storage path that is near to SQL Server host.
 
 == Non-uniform host access
 

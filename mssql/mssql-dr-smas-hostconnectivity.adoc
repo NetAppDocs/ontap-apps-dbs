@@ -21,7 +21,7 @@ image:mssql-smas-uniform.png[Error: Missing Graphic Image]
 In uniform host access, SQL Server can access storage from both site, local and remote, irrespective of its location. Host access to remote storage may have higher latency compared to local storage. For example, when write operation is triggered from SQL Server, the operation occurs on local storage and remote storage. As IO processes from remote storage, the round trip could incude latency to post data and get acknowledgement depending on network speed. 
 
 [TIP]
-NetApp recommends database server should be configured to use storage path that is near to SQL Server host.
+NetApp recommends database server should be configured to use storage path that is near to SQL Server host. This can be configured using host proximity option in SnapMirror active sync.
 
 == Non-uniform host access
 

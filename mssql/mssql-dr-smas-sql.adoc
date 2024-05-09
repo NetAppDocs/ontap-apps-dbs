@@ -1,13 +1,20 @@
 ---
 sidebar: sidebar
 permalink: mssql/mssql-dr-smas-sql.html
-keywords: MSSQL,SQL Server, SnapMirror active sync, SMBC, SMas, SnapMirror Business Continuity
+keywords: MSSQL,SQL Server, SnapMirror active sync, ONTAP, SMBC, SMas, SnapMirror Business Continuity
 summary: Microsoft SQL Server and SnapMirror active sync
 ---
 = Microsoft SQL Server with SnapMirror active sync
 
 [.lead]
+Based on SQL Server deployment model and business requirement, SnapMirror active syn on ONTAP can be setup to achieve simplified disaster recovery solution.
 
+== Standalone instance of SQL Server
 
--- SQL Server standalone case
- -- Server failover cluster instance
+SQL Server database could be hosted in virtualized environment, physical server connected via guest connected iSCSI storage or iSCSI/FC-based protocol. Best practice for file layout and server configuration is same as recommended in SQL Server ONTAP documentation. With standalone setup setup, SQL Server would be running only at primary site. There could be multiple scenarios when disaster happens:
+
+* In a single host architect, SQL Server is running only on primary site only. This model addresses seamless storage failover in the event of storage side disasters providing no loss of data without any application downtime. This model would not, however, provide high availability of the database environment during a site failure. This type of architecture is useful for customers looking for a zero data loss solution with high availability of the storage services but accept that a total loss of the database cluster would require manual work.
+* If only database data and log files synchronously replicate to secondary storage then in event of disaster, SnapMirror active sync will transparently failover from primary storage to secondary storage. Turn on the standalone instance of SQL Server at the secondary site and discover/mount the LUN.  Bring the disk online and attach it to SQL Server. Complete process can be automated with windows powershell cmdlet as no operations are required from storage side. The primary requirement of this approach is a running OS in place at the remote site must be preconfigured with SQL Server setup and should be updated with equivalent build version. 
+* If SQL Server data files resides on virtual disk and synchronously replicated to secondary storage along with virtual machines then in event of disaster, SnapMirror active sync will transparently failover from primary storage to secondary storage. Discover and mount the datastore on hypervisor (ESX server or Hyper-V) and turn on the virtual machine and start the SQL Services.
+
+== SQL Server failover cluster instance

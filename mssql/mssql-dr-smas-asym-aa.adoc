@@ -8,5 +8,19 @@ summary: Microsoft SQL Server and SnapMirror active sync
 :imagesdir: ../media/
 
 [.lead]
+SnapMirror active sync asymmetric active/active for SQL Server is enabled by using protection policy AutomatedFailoverOver while creating business continuity relationship.
 
-SnapMirror active sync asymmetric active/active is enabled by using policy AutomatedFailoverOver while creating business continuity relationship
+SnapMirror active sync 
+
+== Path access
+
+In this configuration of SnapMirror active sync, storage devices are visible to host operating systems from both the primary and remote storage arrays. Paths are managed through asymmetric logical unit access (ALUA), which is an industry standard protocol for identifying optimized paths between a storage system and a host. The device path that is the shortest to access I/O is considered Active/Optimized paths and the rest of the paths are considered Active/Nonoptimized paths.
+
+The SnapMirror active sync relationship is between a pair of SVMs located on different clusters. Both SVMs are capable of serving data, but ALUA will preferentially use the SVM that currently has ownership of the drives on which the LUNs reside. IO to the remote SVM will be proxied across the with SnapMirror active sync interconnect.
+
+
+
+
+SnapMirror active sync supports two types of storage failover operations: planned and unplanned, which work in slightly different ways. A planned failover is initiated manually by the administrator for quick switchover to a remote site whereas unplanned failover is initiated automatically by the mediator on the third site. The primary purpose of a planned failover is to perform incremental patching and upgrades, perform disaster recovery testing, or adopt a formal policy of switching operations between sites throughout the year to prove full active sync capability.
+
+The diagrams show what happens during normal, failover, and failback operations. For ease of illustration, they depict a replicated LUN. In an actual SnapMirror active sync configuration, the replication is based on volumes, where each volume contains one or more LUNs, but to make the picture simpler, the volume layer has been removed.

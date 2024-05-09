@@ -1,1 +1,12 @@
+---
+sidebar: sidebar
+permalink: mssql/mssql-dr-smas-asym-aa.html
+keywords: MSSQL,SQL Server, asymmteric active/active
+summary: Microsoft SQL Server and SnapMirror active sync
+---
+= Microsoft SQL Server with SnapMirror active sync asymmeteric active/active
+:imagesdir: ../media/
 
+[.lead]
+
+SnapMirror active sync asymmetric active/active is enabled by using policy AutomatedFailoverOver while creating business continuity relationship

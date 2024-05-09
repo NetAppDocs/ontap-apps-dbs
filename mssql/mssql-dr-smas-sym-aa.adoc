@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: mssql/mssql-dr-smas-hostconnectivity.html
+permalink: mssql/mssql-dr-smas-sym-aa.html
 keywords: MSSQL,SQL Server, Uniform and non-uniform path
 summary: Microsoft SQL Server and SnapMirror active sync
 ---

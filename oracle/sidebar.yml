@@ -65,6 +65,8 @@ entries:
         url: /oracle/oracle-storage-san-config-lun-alignment.html
       - title: LUN count and LUN size
         url: /oracle/oracle-storage-san-config-lun-sizing.html
+      - title: LUN placement
+        url: /oracle/oracle-storage-san-config-lun-placement.html
       - title: LUN resizing
         url: /oracle/oracle-storage-san-config-lun-resizing.html
       - title: LVM striping

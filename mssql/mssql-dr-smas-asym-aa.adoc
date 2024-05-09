@@ -18,7 +18,6 @@ In this configuration of SnapMirror active sync, storage devices are visible to 
 
 The SnapMirror active sync relationship is between a pair of SVMs located on different clusters. Both SVMs are capable of serving data, but ALUA will preferentially use the SVM that currently has ownership of the drives on which the LUNs reside. IO to the remote SVM will be proxied across the with SnapMirror active sync interconnect.
 
-
-
+image:smas-failover-1.png[Error: Missing Graphic Image]
 
 ../_include/smas-failover.adoc

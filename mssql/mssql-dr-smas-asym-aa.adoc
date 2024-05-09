@@ -22,5 +22,5 @@ The SnapMirror active sync relationship is between a pair of SVMs located on dif
 
 image:smas-failover-1.png[Error: Missing Graphic Image]
 
-include::../_include/smas-failover.adoc[]
+include::../_include/smas-failover.adoc
 

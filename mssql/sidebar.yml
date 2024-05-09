@@ -41,8 +41,10 @@ entries:
       entries:
       - title: SnapMirror active sync overview
         url: /mssql/mssql-dr-smas-overview.html 
-      - title: Host and storage connectivity
-        url: /mssql/mssql-dr-smas-hostconnectivity.html
+      - title: SnapMirror active sync asymmteric active/active
+        url: /mssql/mssql-dr-smas-asym-aa.html
+      - title: SnapMirror active sync symmteric active/active
+        url: /mssql/mssql-dr-smas-sym-aa.html
       - title: Host proximity
         url: /mssql/mssql-dr-smas-hostproximity.html
       - title: SQL Server with SnapMirror active sync

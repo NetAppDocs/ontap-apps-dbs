@@ -4,13 +4,15 @@ permalink: mssql/mssql-dr-smas-asym-aa.html
 keywords: MSSQL,SQL Server, asymmteric active/active
 summary: Microsoft SQL Server and SnapMirror active sync
 ---
-= Microsoft SQL Server with SnapMirror active sync asymmeteric active/active
+= Microsoft SQL Server with SnapMirror active sync and asymmeteric active/active
 :imagesdir: ../media/
 
 [.lead]
-SnapMirror active sync asymmetric active/active (formerly SnapMirror Business Continuity SM-BC) for SQL Server is enabled by using protection policy AutomatedFailoverOver while creating business continuity relationship.
+SQL Server on SnapMirror active sync provides transparent failover during the planned and unplanned storage events. In this configuration, primary storage managed read/write operations and secondary is read-only.
 
-In this configuration, primary storage managed read/write operations, secondary is read-only and provies unintended writes back to primary. This policy can be ideal for regulatory complaince or centralized backup and business continuity for remote offices.Secondary storage can be used as testing environment creating clone copy of volume. 
+SnapMirror active sync asymmetric active/active (formerly SnapMirror Business Continuity SM-BC) is enabled by using protection policy AutomatedFailoverOver while creating business continuity relationship.In this setup only one storage does the read/write operation, write operations coming to mirror storage are proxied to primary storage resulting in multiple network round trips.
+
+This policy can be ideal for regulatory complaince or centralized backup and business continuity for remote offices.Secondary storage can be used as testing environment creating clone copy of volume. 
 
 == Path access
 
@@ -20,4 +22,5 @@ The SnapMirror active sync relationship is between a pair of SVMs located on dif
 
 image:smas-failover-1.png[Error: Missing Graphic Image]
 
-../_include/smas-failover.adoc
+include::../_include/smas-failover.adoc[]
+

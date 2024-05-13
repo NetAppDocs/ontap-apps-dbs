@@ -12,7 +12,7 @@ SnapMirror active sync enables individual SQL Server database and applications t
 
 SnapMirror active sync can be configure as asymmetric active/active replication or symmetric active/active replication. Symmetric active/active replication enables bidirectional replication and is synchronuosly replicated. SnapMirror active sync and SnapMirror Sync share a replication engine, however, SnapMirror active sync includes additional features such as transparent application failover and failback for enterprise applications.In practice, it works similar to a granular version of MetroCluster by enabling selective and granular RPO=0 synchronous replication for individual workloads. The low-level path behavior is very different from MetroCluster, but the end result from a host point of view is similar. 
 
-SQL Server host access storage using either Fiber Channel(FC) or iSCSI protocol and the connectvity between two storage will be ethernet. This feature is a storage level replication and at any point, database hosted on standalone of failover cluster SQL Server instance will be available for read/write operations from that primary instance only.
+SQL Server host access storage using either Fiber Channel(FC) or iSCSI protocol and the connectvity between two storage will be ethernet. This feature is a storage level replication, database hosted on standalone or failover cluster SQL Server instance will be available for read/write operations from that primary instance only.
 
 == Architecture of SnapMirror active with symmetric active/active
 

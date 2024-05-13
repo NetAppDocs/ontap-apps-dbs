@@ -16,7 +16,7 @@ While setting up path between host and storage, the host can use uniform access 
 
 == Uniform host access
 
-Uniform host access have connectivity of each host to ONTAP storage paticiapting in SnapMirror active sync. SQL Server database host will have access to LUN at local storage and remote storage. In case of storage failure, host will access path that connects to remote storage and continue to serve IO's for application transaction. With this model,  it ensures consistent and seemless data ccess for enhaced operational continuity. This is suitable for environmens priortizing high connectivity and ubiquitous data availability.
+Uniform host access have connectivity of each host to ONTAP storage participating in SnapMirror active sync. SQL Server database host will have access to LUN at local storage and remote storage. In case of storage failure, host will access path that connects to remote storage and continue to serve IO's for database transaction. With this model,  it ensures consistent and seemless data access for enhaced operational continuity. This is suitable for environmens priortizing high connectivity and data availability.
 
 image:mssql-smas-uniform.png[Error: Missing Graphic Image]
 
@@ -27,11 +27,11 @@ NetApp recommends database server should be configured to use storage path that 
 
 == Non-uniform host access
 
-In non-uniform host access setup, each host will be connected to one of the storage where both are in same site. Replication between the storage will happen through ethernet connectivity. This promotes local host access, optimizing performance within individual sites, so, this is suitable for environments requiring local data management and boosted site-specific performance. 
+In non-uniform host access setup, each host will be connected to local storage respectively. Replication between the storage will happen through ethernet connectivity. This promotes local host access, optimizing performance within individual sites, so, this is suitable for environments requiring local data management and boosted site-specific performance. 
 
 image:mssql-smas-nonuniform.png[Error: Missing Graphic Image]
 
 To setup non-uniform host access, simply register only the local storage detail and not the remote storage details in host configuration. 
 
 [NOTE]
-In either case of setup, there is no limitation due to distance but SnapMirror active sync requires less than 10ms of round trip time (RTT) latency between the ONTAP storages. 
+In either case of setup, there is no limitation due to distance but SnapMirror active sync requires less than 7ms of round trip time (RTT) latency between the ONTAP storages. 

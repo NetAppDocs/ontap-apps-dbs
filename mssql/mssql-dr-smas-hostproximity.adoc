@@ -10,7 +10,7 @@ summary: Microsoft SQL Server and SnapMirror active sync
 [.lead]
 SnapMirror active sync can enable SQL Server to use preferred path for optimize operation in this active/active solution.
 
-When SnapMirror active sync is setup with AutomatedFailOverDuplex protection policy and uniform host access configuration, default behavior is that host access all active/optimized path for read/write operations. If secondary storage is located at different site then it is not optimal design. With multipathing feature enabled on Windows, IO are distributed across the storage. Read/write IO on primary are optimal, operation on secondary need to pass through WAN which add overall overhead to fetch the results causing unnecessary latency.
+When SnapMirror active sync is setup with AutomatedFailOverDuplex protection policy and uniform host access configuration, default behavior is that host access all active/optimized path for read/write operations. If secondary storage is located at remote site then it is not optimal design. With multipathing feature enabled on Windows, IO are distributed across the storage. Read/write IO on primary are optimal, operation on secondary need to pass through WAN which add overall overhead to fetch the results causing unnecessary latency.
 
 [TIP]
 SnapMirror active sync provides an option in System Manager to configure SQL Server host to select required path to access local storage using host proximity. NetApp recommends settings to modify host proximity during initial configuration or after SnapMirror active sync is configured.

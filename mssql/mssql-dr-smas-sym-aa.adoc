@@ -8,9 +8,11 @@ summary: Microsoft SQL Server and SnapMirror active sync
 :imagesdir: ../media/
 
 [.lead]
-With SnapMirror active sync capability to read/write between independent storage cluster in each failure domain, there are different ways SQL Server database host can be configured to connect to ONTAP storage.
+With SnapMirror active sync capability to read/write between independent storage cluster in each failure domain, SQL Server database host can be configured in different ways to connect to ONTAP storage.
 
 SnapMirror active sync symmetric active/active is enabled by using protection policy AutomatedFailOverDuplex while creating business continuity relationship. Both primary and secondary storage provide read/write access with synchronous bidirectional replication ensuring writes to either storage are consistently mirrored and managed. This setup is ideal for mission critical applications and databases that provides seamless failover without any perceived downtime.
+
+SQL Server host access storage using either Fiber Channel(FC) or iSCSI protocol and the connectvity between two storage will be ethernet. This feature is a storage level replication, database hosted on standalone or failover cluster SQL Server instance will be available for read/write operations from that primary instance only.
 
 While setting up path between host and storage, the host can use uniform access or non-uniform access.Paths are managed through asymmetric logical unit access (ALUA), which is an industry standard protocol for identifying optimized paths. Generally, the device path that is the shortest to access I/O is considered Active/Optimized paths and the rest of the paths are considered Active/Nonoptimized paths.
 

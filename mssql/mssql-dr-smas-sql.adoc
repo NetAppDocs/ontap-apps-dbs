@@ -7,7 +7,7 @@ summary: Microsoft SQL Server and SnapMirror active sync
 = Microsoft SQL Server with SnapMirror active sync
 
 [.lead]
-Based on SQL Server deployment model and business requirement, SnapMirror active syn on ONTAP can be setup to achieve simplified disaster recovery solution.
+Based on SQL Server deployment model and business requirement, SnapMirror active sync on ONTAP can be setup to achieve simplified disaster recovery solution.
 
 == Standalone instance of SQL Server
 

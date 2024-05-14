@@ -41,7 +41,7 @@ entries:
       entries:
       - title: SnapMirror active sync overview
         url: /mssql/mssql-dr-smas-overview.html 
-      - title: SnapMirror active sync asymmteric active/active
+      - title: SnapMirror active sync asymmetric active/active
         url: /mssql/mssql-dr-smas-asym-aa.html
       - title: SnapMirror active sync symmteric active/active
         url: /mssql/mssql-dr-smas-sym-aa.html

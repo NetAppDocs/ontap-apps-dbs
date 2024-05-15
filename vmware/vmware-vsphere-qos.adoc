@@ -19,6 +19,21 @@ Systems running ONTAP software can use the storage QoS feature to limit throughp
 
 Minimum levels of service based on IOPS are also supported to provide consistent performance for SAN objects in ONTAP 9.2 and for NAS objects in ONTAP 9.3.
 
+The QoS maximum throughput limit on an object can be set in MBps and/or IOPS. If both are used, the first limit reached is enforced by ONTAP. A workload can contain multiple objects, and a QoS policy can be applied to one or more workloads. When a policy is applied to multiple workloads, the workloads share the total limit of the policy. Nested objects are not supported (for example, files within a volume cannot each have their own policy). QoS minimums can only be set in IOPS.
+
+The following tools are currently available for managing ONTAP QoS policies and applying them to objects:
+
+* ONTAP CLI
+* ONTAP System Manager
+* OnCommand Workflow Automation
+* Active IQ Unified Manager
+* NetApp PowerShell Toolkit for ONTAP
+* ONTAP tools for VMware vSphere VASA Provider
+
+
+
+To assign a QoS policy to a LUN, including VMFS and RDM, the ONTAP SVM (displayed as Vserver), LUN path, and serial number can be obtained from the Storage Systems menu on the ONTAP tools for VMware vSphere home page. Select the storage system (SVM),  and then Related Objects > SAN.  Use this approach when specifying QoS using one of the ONTAP tools.
+
 Refer to link:https://docs.netapp.com/us-en/ontap/performance-admin/index.html[Performance monitoring and management overview] for more information.
 
 == Non-vVols NFS datastores
@@ -38,34 +53,23 @@ Refer to the following links for more information on managing performance with S
 link:https://blogs.vmware.com/virtualblocks/2019/07/02/spbm-host-based-rules/[SPBM Host-Based Rules: SIOC v2]
 link:https://docs.vmware.com/en/VMware-vSphere/8.0/vsphere-resource-management/GUID-7686FEC3-1FAC-4DA7-B698-B808C44E5E96.html[Manage Storage I/O Resources with vSphere]
 
-== VMFS datastores
-Using ONTAP LUNs, the QoS policies can be applied to the FlexVol volume that contains the LUNs or individual LUNs, but not individual VMDK files because ONTAP has no awareness of the VMFS file system.
-
-== vVols datastores
-Minimum and/or maximum QoS can be set on individual VMs or VMDKs using the storage capability profile and VM storage policy.
-
-The QoS maximum throughput limit on an object can be set in MBps and/or IOPS. If both are used, the first limit reached is enforced by ONTAP. A workload can contain multiple objects, and a QoS policy can be applied to one or more workloads. When a policy is applied to multiple workloads, the workloads share the total limit of the policy. Nested objects are not supported (for example, files within a volume cannot each have their own policy). QoS minimums can only be set in IOPS.
-
-The following tools are currently available for managing ONTAP QoS policies and applying them to objects:
-
-* ONTAP CLI
-* ONTAP System Manager
-* OnCommand Workflow Automation
-* Active IQ Unified Manager
-* NetApp PowerShell Toolkit for ONTAP
-* ONTAP tools for VMware vSphere VASA Provider
-
 To assign a QoS policy to a VMDK on NFS, note the following guidelines:
 
 * The policy must be applied to the `vmname-flat.vmdk` that contains the actual virtual disk image, not the `vmname.vmdk` (virtual disk descriptor file) or `vmname.vmx` (VM descriptor file).
 * Do not apply policies to other VM files such as virtual swap files (`vmname.vswp`).
 * When using the vSphere web client to find file paths (Datastore > Files), be aware that it combines the information of the `- flat.vmdk` and `. vmdk` and simply shows one file with the name of the `. vmdk` but the size of the `- flat.vmdk`. Add `-flat` into the file name to get the correct path.
 
-To assign a QoS policy to a LUN, including VMFS and RDM, the ONTAP SVM (displayed as Vserver), LUN path, and serial number can be obtained from the Storage Systems menu on the ONTAP tools for VMware vSphere home page. Select the storage system (SVM),  and then Related Objects > SAN.  Use this approach when specifying QoS using one of the ONTAP tools.
+FlexGroup datastores offer enhanced QoS capabilities when using ONTAP tools for VMware vSphere 9.8 and later. You can easily set QoS on all VMs in a datastore or on specific VMs. See the FlexGroup section of this report for more information. Be aware that the previously mentioned limitations of QoS with traditional NFS datastores still apply.
 
-Maximum and minimum QoS can be easily assigned to a vVol-based VM with ONTAP tools for VMware vSphere or Virtual Storage Console 7.1 and later. When creating the storage capability profile for the vVol container, specify a max and/or min IOPS value under the performance capability and then reference this SCP with the VM's storage policy. Use this policy when creating the VM or apply the policy to an existing VM.
+== VMFS datastores
+Using ONTAP LUNs, the QoS policies can be applied to the FlexVol volume that contains the LUNs or individual LUNs, but not individual VMDK files because ONTAP has no awareness of the VMFS file system.
 
-FlexGroup datastores offer enhanced QoS capabilities when using ONTAP tools for VMware vSphere 9.8 and later. You can easily set QoS on all VMs in a datastore or on specific VMs. See the FlexGroup section of this report for more information.
+== vVols datastores
+Minimum and/or maximum QoS can be easily set on individual VMs or VMDKs without impacting any other VM or VMDK using the Storage Policy-Based Management and vVols.
+
+When creating the storage capability profile for the vVol container, specify a max and/or min IOPS value under the performance capability and then reference this SCP with the VM's storage policy. Use this policy when creating the VM or apply the policy to an existing VM.
+
+*Note:* vVols requires the use ONTAP tools for VMware vSphere which functions as the VASA Provider for ONTAP. Refer to link:/vmware/vmware-vvols-overview.html[VMware vSphere Virtual Volumes (vVols) with ONTAP] for vVols best practices.
 
 == ONTAP QoS and VMware SIOC
 
@@ -91,10 +95,10 @@ ONTAP QoS and VMware vSphere Storage I/O Control (SIOC) are complementary techno
 |No
 |Set QoS on LUN (VMFS)?
 |Yes
-|No
+|Yes (the datastore can be throttled)
 |Set QoS on volume (NFS datastore)?
 |Yes
-|No
+|Yes (the datastore can be throttled)
 |Set QoS on SVM (tenant)?
 |Yes
 |No

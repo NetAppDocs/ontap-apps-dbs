@@ -12,11 +12,34 @@ summary: SnapCenter allows you to create backup policies that can be applied to 
 :imagesdir: ../media/
 
 [.lead]
+Throughput limits are useful in controlling service levels, managing unknown workloads, or to test applications before deployment to make sure they don't affect other workloads in production. They can also be used to constrain a bully workload after it is identified. 
+
 Systems running ONTAP software can use the ONTAP storage QoS feature to limit throughput in MBps and/or I/Os per second (IOPS) for different storage objects such as files, LUNs, volumes, or entire SVMs.
 
-Throughput limits are useful in controlling unknown or test workloads before deployment to make sure they don't affect other workloads. They can also be used to constrain a bully workload after it is identified. Minimum levels of service based on IOPS are also supported to provide consistent performance for SAN objects in ONTAP 9.2 and for NAS objects in ONTAP 9.3.
+Minimum levels of service based on IOPS are also supported to provide consistent performance for SAN objects in ONTAP 9.2 and for NAS objects in ONTAP 9.3.
 
-With an NFS datastore, a QoS policy can be applied to the entire FlexVol volume or individual VMDK files within it. With VMFS datastores using ONTAP LUNs, the QoS policies can be applied to the FlexVol volume that contains the LUNs or individual LUNs, but not individual VMDK files because ONTAP has no awareness of the VMFS file system. When using vVols, minimum and/or maximum QoS can be set on individual VMs using the storage capability profile and VM storage policy.
+== Non-vVols NFS datastores
+An ONTAP QoS policy can be applied to the entire datastore or individual VMDK files within it. However, it is important to understand that all VMs on a traditional (non-vVols) NFS datastore share a common I/O queue from a given host. If any VM is throttled by an ONTAP QoS policy then this will in practice result in all I/O for that datastore appearing to be throttled for that host.
+
+*Example:*
+* You configure a QoS limit on vm1.vmdk for a volume that is mounted as a traditional NFS datastore by host esxi-01.
+* The same host (esxi-01) is using vm2.vmdk and it is on the same volume.
+* If vm1.vmdk gets throttled, then vm2.vmdk will also appear to be throttled since it shares the same IO queue with vm1.vmdk.
+
+*Note:* This does not apply to vVols.
+
+Beginning in vSphere 6.5 you can manage file-granular limits on non-vVols datastores by leveraging Storage Policy-Based Management (SPBM) with Storage I/O Control (SIOC) v2.
+
+Refer to the following links for more information on managing performance with SIOC and SPBM policies.
+
+link:https://blogs.vmware.com/virtualblocks/2019/07/02/spbm-host-based-rules/[SPBM Host-Based Rules: SIOC v2]
+link:https://docs.vmware.com/en/VMware-vSphere/8.0/vsphere-resource-management/GUID-7686FEC3-1FAC-4DA7-B698-B808C44E5E96.html[Manage Storage I/O Resources with vSphere]
+
+== VMFS datastores
+Using ONTAP LUNs, the QoS policies can be applied to the FlexVol volume that contains the LUNs or individual LUNs, but not individual VMDK files because ONTAP has no awareness of the VMFS file system.
+
+== vVols datastores
+Minimum and/or maximum QoS can be set on individual VMs or VMDKs using the storage capability profile and VM storage policy.
 
 The QoS maximum throughput limit on an object can be set in MBps and/or IOPS. If both are used, the first limit reached is enforced by ONTAP. A workload can contain multiple objects, and a QoS policy can be applied to one or more workloads. When a policy is applied to multiple workloads, the workloads share the total limit of the policy. Nested objects are not supported (for example, files within a volume cannot each have their own policy). QoS minimums can only be set in IOPS.
 
@@ -31,7 +54,7 @@ The following tools are currently available for managing ONTAP QoS policies and 
 
 To assign a QoS policy to a VMDK on NFS, note the following guidelines:
 
-* The policy must be applied to the `vmname- flat.vmdk` that contains the actual virtual disk image, not the `vmname.vmdk` (virtual disk descriptor file) or `vmname.vmx` (VM descriptor file).
+* The policy must be applied to the `vmname-flat.vmdk` that contains the actual virtual disk image, not the `vmname.vmdk` (virtual disk descriptor file) or `vmname.vmx` (VM descriptor file).
 * Do not apply policies to other VM files such as virtual swap files (`vmname.vswp`).
 * When using the vSphere web client to find file paths (Datastore > Files), be aware that it combines the information of the `- flat.vmdk` and `. vmdk` and simply shows one file with the name of the `. vmdk` but the size of the `- flat.vmdk`. Add `-flat` into the file name to get the correct path.
 

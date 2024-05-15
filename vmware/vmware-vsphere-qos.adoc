@@ -15,7 +15,7 @@ summary: SnapCenter allows you to create backup policies that can be applied to 
 Throughput limits are useful in controlling service levels, managing unknown workloads, or to test applications before deployment to make sure they don't affect other workloads in production. They can also be used to constrain a bully workload after it is identified. 
 
 == ONTAP QoS policy support
-Systems running ONTAP software can use the ONTAP storage QoS feature to limit throughput in MBps and/or I/Os per second (IOPS) for different storage objects such as files, LUNs, volumes, or entire SVMs.
+Systems running ONTAP software can use the storage QoS feature to limit throughput in MBps and/or I/Os per second (IOPS) for different storage objects such as files, LUNs, volumes, or entire SVMs.
 
 Minimum levels of service based on IOPS are also supported to provide consistent performance for SAN objects in ONTAP 9.2 and for NAS objects in ONTAP 9.3.
 

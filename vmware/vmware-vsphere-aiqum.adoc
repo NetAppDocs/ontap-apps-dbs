@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: vmware/vmware-aiqum.html
+permalink: vmware/vmware-vsphere-aiqum.html
 keywords: Data protection, Space reclamation, VM and datastore cloning, Storage efficiency, thin provisioning, QoS, SIOC, Storage Distributed Resource Scheduler, DRS, Active IQ Unified Manager, Encryption
 summary: Active IQ Unified Manager empowers monitoring and troubleshooting of NetApp storage and performance issues in your VMware vSphere environment.
 ---

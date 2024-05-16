@@ -1,0 +1,27 @@
+---
+sidebar: sidebar
+permalink: vmware/vmware-aiqum.html
+keywords: Data protection, Space reclamation, VM and datastore cloning, Storage efficiency, thin provisioning, QoS, SIOC, Storage Distributed Resource Scheduler, DRS, Active IQ Unified Manager, Encryption
+summary: Active IQ Unified Manager empowers monitoring and troubleshooting of NetApp storage and performance issues in your VMware vSphere environment.
+---
+= Active IQ Unified Manager
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+Active IQ Unified Manager provides visibility into the VMs in your virtual infrastructure and enables monitoring and troubleshooting storage and performance issues in your virtual environment.
+
+A typical virtual infrastructure deployment on ONTAP has various components that are spread across compute, network, and storage layers. Any performance lag in a VM application might occur due to a combination of latencies faced by the various components at the respective layers.
+
+The following screenshot shows the Active IQ Unified Manager Virtual Machines view.
+
+image:vsphere_ontap_image9.png[Active IQ Unified Manager Virtual Machines view]
+
+Unified Manager presents the underlying sub-system of a virtual environment in a topological view for determining whether a latency issue has occurred in the compute node, network, or storage. The view also highlights the specific object that causes the performance lag for taking remedial steps and addressing the underlying issue.
+
+The following screenshot shows the AIQUM expanded topology.
+
+image:vsphere_ontap_image10.png[AIQUM expanded topology]

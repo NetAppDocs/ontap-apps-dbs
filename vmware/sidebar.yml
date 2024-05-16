@@ -32,7 +32,7 @@ entries:
       - title: Cloud migration and backup
         url: /vmware/vmware-cloud_migration_backup.html
       - title: Encryption for vSphere data
-        url: /vmware/vmware-encryption.html
+        url: /vmware/vmware-vsphere-encryption.html
       - title: Active IQ Unified Manager                  
         url: /vmware/vmware-aiqum.html
       - title: Storage policy based management

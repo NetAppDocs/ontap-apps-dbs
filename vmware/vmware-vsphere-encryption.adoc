@@ -24,3 +24,9 @@ There are several approaches for protecting the data of virtualized applications
 * *Easy datastore granular encryption.* With NetApp Volume Encryption, each volume gets its own AES 256-bit key. If you need to change it, you can do so with a single command. This approach is great if you have multiple tenants or need to prove independent encryption for different departments or apps. This encryption is managed at the datastore level, which is a lot easier than managing individual VMs.
 
 It's simple to get started with software encryption. After the license is installed, simply configure the onboard key manager by specifying a passphrase and then either create a new volume or do a storage-side volume move to enable encryption. NetApp is working to add more integrated support for encryption capabilities in future releases of its VMware tools.
+
+For a deep dive into more security topics, refer to the following resources.
+
+* link:https://docs.netapp.com/us-en/ontap-technical-reports/security.html[Security technical reports]
+* link:https://docs.netapp.com/us-en/ontap-technical-reports/security-hardening-guides.html[Security hardening guides]
+* link:https://docs.netapp.com/us-en/ontap/security-encryption/index.html[ONTAP security and data encryption product documentation]

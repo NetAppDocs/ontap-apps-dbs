@@ -14,10 +14,24 @@ summary: ONTAP software has broad support for the hybrid cloud.
 [.lead]
 Another ONTAP strength is broad support for the hybrid cloud, merging systems in your on-premises private cloud with public cloud capabilities. Here are some NetApp cloud solutions that can be used in conjunction with vSphere:
 
-* *Cloud Volumes.* NetApp Cloud Volumes Service for Amazon Web Services or Google Cloud Platform and Azure NetApp Files for ANF provide high-performance, multi-protocol managed storage services in the leading public cloud environments. They can be used directly by VMware Cloud VM guests.
+* *First party offerings.* Amazon FSx for NetApp ONTAP, Google Cloud NetApp Volumes and Azure NetApp Files for ANF provide high-performance, multi-protocol managed storage services in the leading public cloud environments. They can be used directly by VMware Cloud on AWS(VMC on AWS), Azure VMware Solution(AVS), and Google Cloud VMware Engine(GCVE) as datastores or storage for guest operating systems (GOS) and compute instances.
 * *Cloud Volumes ONTAP.* NetApp Cloud Volumes ONTAP data management software delivers control, protection, flexibility, and efficiency to your data on your choice of cloud. Cloud Volumes ONTAP is cloud-native data management software built on ONTAP storage. Use together with Cloud Manager to deploy and manage Cloud Volumes ONTAP instances together with your on-premises ONTAP systems. Take advantage of advanced NAS and iSCSI SAN capabilities together with unified data management, including snapshots and SnapMirror replication.
-* *Cloud Services.* Use Cloud Backup Service or SnapMirror Cloud to protect data from on-premises systems using public cloud storage. Cloud Sync helps migrate and keep your data in sync across NAS, object stores, and Cloud Volumes Service storage.
+* *Cloud Services.* Use BlueXP backup and recovery or SnapMirror Cloud to protect data from on-premises systems using public cloud storage. Cloud Sync helps migrate and keep your data in sync across NAS, object stores, and Cloud Volumes Service storage. BlueXP disaster recovery provides a cost effective and efficient solution for leveraging NetApp technologies as the foundation for a robust and capable disaster recovery solution for DR to cloud, DR to on-prem, and on-prem to on-prem.
 * *FabricPool.* FabricPool offers quick and easy tiering for ONTAP data. Cold blocks can be migrated to an object store in either public clouds or a private StorageGRID object store and are automatically recalled when the ONTAP data is accessed again. Or use the object tier as a third level of protection for data that is already managed by SnapVault. This approach can allow you to https://www.linkedin.com/pulse/rethink-vmware-backup-again-keith-aasen/[store more snapshots of your VMs^] on primary and/or secondary ONTAP storage systems.
 * *ONTAP Select.* Use NetApp software-defined storage to extend your private cloud across the Internet to remote facilities and offices, where you can use ONTAP Select to support block and file services as well as the same vSphere data management capabilities you have in your enterprise data center.
 
 When designing your VM-based applications, consider future cloud mobility. For example, rather than placing application and data files together use a separate LUN or NFS export for the data. This allows you to migrate the VM and data separately to cloud services.
+
+For a deep dive into more security topics, refer to the following resources.
+
+* link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/index.html[Cloud Volumes ONTAP documentation]
+* link:https://docs.netapp.com/us-en/ontap-select/[ONTAP Select documentation]
+* link:https://docs.netapp.com/us-en/bluexp-backup-recovery/index.html[BlueXP backup and recovery documentation]
+* link:https://docs.netapp.com/us-en/bluexp-disaster-recovery/index.html[BlueXP disaster recovery documentation]
+* link:https://aws.amazon.com/fsx/netapp-ontap/[Amazon FSx for NetApp ONTAP]
+* link:https://www.vmware.com/products/vmc-on-aws.html[VMware Cloud on AWS]
+* link:https://learn.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-introduction[What is Azure NetApp Files?
+]
+* link:https://azure.microsoft.com/en-us/products/azure-vmware/[Azure VMware Solution]
+* link:https://cloud.google.com/vmware-engine[Google Cloud VMware Engine]
+* link:https://cloud.google.com/netapp/volumes/docs/discover/overview[What is Google Cloud NetApp Volumes?]

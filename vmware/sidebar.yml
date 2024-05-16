@@ -28,7 +28,7 @@ entries:
       - title: Data protection
         url: /vmware/vmware-vsphere-dp.html
       - title: QoS
-        url: /vmware/vmware-vsphere-dp.html
+        url: /vmware/vmware-vsphere-qos.html
       - title: Cloud migration and backup
         url: /vmware/vmware-cloud_migration_backup.html
       - title: Encryption for vSphere data

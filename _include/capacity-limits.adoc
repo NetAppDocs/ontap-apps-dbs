@@ -11,4 +11,4 @@ The recommendation of 10% free space is very conservative. SSD aggregates can su
 
 == HDD aggregates, including Flash Pool aggregates
 [TIP]
-*NetApp recommends* a minimum of 15% free space when spinning drives are used. This includes all unused space, including free space within the aggregate or a volume and any free space that is allocated due to the use of full provisioning but is not used by actual data. Performance will be impacted at free speech approaches 10%.
+*NetApp recommends* a minimum of 15% free space when spinning drives are used. This includes all unused space, including free space within the aggregate or a volume and any free space that is allocated due to the use of full provisioning but is not used by actual data. Performance will be impacted as free space approaches 10%.

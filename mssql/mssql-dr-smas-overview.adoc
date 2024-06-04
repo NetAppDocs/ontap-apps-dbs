@@ -8,9 +8,9 @@ summary: Microsoft SQL Server and SnapMirror active sync
 :imagesdir: ../media/
 
 [.lead]
-SnapMirror active sync enables individual SQL Server database and applications to continue service in case of any distruptions, with transparent fail over of storage to secondary copy without any manual intervention.
+SnapMirror active sync(formerly SnapMirror Business Continuity) enables individual SQL Server databases and applications to continue service in case of any disruptions, with transparent failover of storage to secondary copy without any manual intervention.
 
-SnapMirror active sync can be configure as asymmetric active/active replication or symmetric active/active replication. Symmetric active/active replication enables bidirectional replication and is synchronuosly replicated. SnapMirror active sync and SnapMirror Sync share a replication engine, however, SnapMirror active sync includes additional features such as transparent application failover and failback for enterprise applications.In practice, it works similar to a granular version of MetroCluster by enabling selective and granular RPO=0 synchronous replication for individual workloads. The low-level path behavior is very different from MetroCluster, but the end result from a host point of view is similar. 
+Starting ONTAPv 9.15.1, SnapMirror active sync supports symmetric active/active architecture in addition to the existing asymmetric configuration. Symmetric active/active capability provides synchronous bi-directional replication for business continuity and disaster recovery. It helps you protect your data access for critical SAN workloads with simultaneous read and write access to data across multiple failure domains, ensuring uninterrupted operations and minimizing downtime during disasters or system failures.. 
 
 SQL Server host access storage using either Fiber Channel(FC) or iSCSI protocol and the connectvity between two storage will be ethernet. This feature is a storage level replication, database hosted on standalone or failover cluster SQL Server instance will be available for read/write operations from primary instance only.
 

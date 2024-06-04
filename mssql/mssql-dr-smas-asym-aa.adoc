@@ -8,11 +8,9 @@ summary: Microsoft SQL Server and SnapMirror active sync
 :imagesdir: ../media/
 
 [.lead]
-SQL Server on SnapMirror active sync provides transparent failover during the planned and unplanned storage events. In this configuration, primary storage managed read/write operations and secondary is read-only.
+SQL Server on SnapMirror active sync provides transparent failover during the planned and unplanned storage events. This configuration offers customer access to both copies, but I/Os are served by the primary copy only i.e. primary storage is read/write however secondary site is read-only
 
-SnapMirror active sync asymmetric active/active (formerly SnapMirror Business Continuity SM-BC) is enabled by using protection policy AutomatedFailoverOver while creating business continuity relationship.In this setup only one storage does the read/write operation, write operations coming to mirror storage are proxied to primary storage resulting in multiple network round trips.
-
-This policy can be ideal for regulatory complaince or centralized backup and business continuity for remote offices.Secondary storage can be used as testing environment creating clone copy of volume. 
+In this architecture, write operations landing on the secondary site will be proxied to the primary site resulting in additional network latency. Asymmetric configuration can be enabled by selecting the protection policy as AutomatedFailoverOver while creating a protection relationship. This policy can be ideal for regulatory complaince or centralized backup and business continuity for remote offices.Secondary storage can be used as testing environment creating clone copy of volume. 
 
 == Path access
 

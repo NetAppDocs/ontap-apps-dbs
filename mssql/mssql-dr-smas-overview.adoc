@@ -12,7 +12,7 @@ SnapMirror active sync(formerly SnapMirror Business Continuity) enables individu
 
 Starting ONTAPv 9.15.1, SnapMirror active sync supports symmetric active/active architecture in addition to the existing asymmetric configuration. Symmetric active/active capability provides synchronous bi-directional replication for business continuity and disaster recovery. It helps you protect your data access for critical SAN workloads with simultaneous read and write access to data across multiple failure domains, ensuring uninterrupted operations and minimizing downtime during disasters or system failures.. 
 
-SQL Server host access storage using either Fiber Channel(FC) or iSCSI protocol and the connectvity between two storage will be ethernet. This feature is a storage level replication, database hosted on standalone or failover cluster SQL Server instance will be available for read/write operations from primary instance only.
+SQL Server host access storage using either Fiber Channel(FC) or iSCSI protocol and the connectvity between two storage will be ethernet. This feature is a storage level replication, SQL Server instance running on standalone host or failover cluster instance can perform read/write operations from one of the storage, either primary or secondary storage.
 
 == Architecture of SnapMirror active with symmetric active/active
 

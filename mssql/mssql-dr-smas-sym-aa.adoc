@@ -12,7 +12,7 @@ With SnapMirror active sync capability to read/write between independent storage
 
 SnapMirror active sync symmetric active/active is enabled by using the protection policy AutomatedFailOverDuplex while creating a business continuity relationship. Both primary and secondary storage provide read/write access with synchronous bidirectional replication ensuring that writes to either storage are consistently mirrored and managed. This setup is ideal for mission-critical applications and databases that provide seamless failover without any perceived downtime.
 
-SQL Server host access storage using either Fiber Channel(FC) or iSCSI protocol and the connectivity between two storage will be ethernet. This feature is a storage-level replication, databases hosted on a standalone or failover cluster SQL Server instance will be available for read/write operations from that primary instance only.
+This feature is a storage-level replication but SQL Server instance running on standalone host or failover cluster instance can perform read/write operations from one of the storages, either primary or secondary storage.
 
 While setting up the path between the host and storage, the host can use uniform access or non-uniform access. Paths are managed through asymmetric logical unit access (ALUA), which is an industry-standard protocol for identifying optimized paths. Generally, the device path that is the shortest to access I/O is considered Active/Optimized paths and the rest of the paths are considered Active/Non-optimized paths.
 

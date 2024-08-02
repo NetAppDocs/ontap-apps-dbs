@@ -48,7 +48,7 @@ Depending on the latency considerations, NetApp MetroCluster can be deployed in 
 
 The following illustrates a high-level topology diagram of stretch MetroCluster.
 
-image::../media/vmsc_mcc_overview.png[vMSC diagram with MCC,width=624,height=485]
+image::../media/vmsc_mcc_overview.png[vMSC diagram with MCC,width=624]
 
 Refer to https://www.netapp.com/support-and-training/documentation/metrocluster/[MetroCluster documentation] for specific design and deployment information for MetroCluster.
 

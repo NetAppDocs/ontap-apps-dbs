@@ -23,4 +23,4 @@ The following are recommendations for SnapMirror for SQL Server:
 • For consistency purposes, do not schedule SnapMirror updates from the controllers. Instead, enable SnapMirror updates from SnapCenter to update SnapMirror after either full or log backup is completed.
 • Distribute volumes that contain SQL Server data across different nodes in the cluster to allow all cluster nodes to share SnapMirror replication activity. This distribution optimizes the use of node resources.
 
-For more information about SnapMirror, see link:https://www.netapp.com/us/media/tr-4015.pdf[TR-4015: SnapMirror Configuration and Best Practices Guide for ONTAP 9^].
+For more information about SnapMirror, see link:https://www.netapp.com/pdf.html?item=/media/17229-tr4015pdf.pdf[TR-4015: SnapMirror Configuration and Best Practices Guide for ONTAP 9^].

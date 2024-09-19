@@ -2,12 +2,24 @@ section: epic
 title: Epic
 entries:
   - title: Overview
+    url: /epic/epic-overview.html   
+  - title: Epic Architecture
     entries:
-    - title: Introduction
-      url: /epic/epic.introduction.html
-    - title: Purpose
-      url: /epic/epic-scope.html
-  - title: Epic on ONTAP
+    - title: Epic Architecture and Design
+      url: /epic/epic-architecture.html
+    - title: Epic storage requirements
+      url: /epic/epic-storage-requirements.html
+    - title: Snapshot and clone technology
+      url: /epic/epic-data-protection.html
+    - title: Sizing
+      url: /epic/epic-sizing-overview.html
+    - title: Four-node architecture
+      url: /epic/epic-sizing-4node.html
+    - title: Six-node architecture
+      url: /epic/epic-sizing-6node.html
+    - title: Eight-node architecture
+      url: /epic/epic-sizing-6node.html
+  - title: Epic with ONTAP
     entries:
     - title: Epic on ONTAP
       url: /epic/epic-ontap-overview.html
@@ -29,23 +41,7 @@ entries:
       url: /epic/epic-ontap-security.html
     - title: Futureproof
       url: /epic/epic-ontap-futureproof.html
-  - title: Epic Architecture
-    entries:
-    - title: Epic overview
-      url: /epic/epic-architecture.html
-    - title: Epic storage requirements
-      url: /epic/epic-storage-requirements.html
-    - title: Snapshot and clone technology
-      url: /epic/epic-data-protection.html
-    - title: Sizing
-      url: /epic/epic-sizing-overview.html
-    - title: Four-node architecture
-      url: /epic/epic-sizing-4node.html
-    - title: Six-node architecture
-      url: /epic/epic-sizing-6node.html
-    - title: Eight-node architecture
-      url: /epic/epic-sizing-6node.html
-  - title: Configuration
+  - title: Configuration and Best Practices
     entries:
     - title: NetApp AFF overview 
       url: /epic/epic-ontap-config-overview.html

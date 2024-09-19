@@ -36,8 +36,6 @@ Figure 4 is a sample efficiency calculation of a typical Epic deployment includi
 
 Note: Based on the number of disks, raw-to-usable capacity varies slightly.
 
-Figure 4) NetApp efficiency guarantee.
-
-
+image:epic-config-efficiency.adoc[]
 
 Note: NetApp does not use NetApp Snapshot™ technology or thin provisioning to calculate efficiencies. Doing so would show unrealistic efficiencies of 30–100:1, which do not mean anything when sizing storage capacity.

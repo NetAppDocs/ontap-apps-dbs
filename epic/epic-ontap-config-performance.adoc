@@ -26,9 +26,7 @@ Since year 2020, all Epic ODB workloads are required to be on all-flash storage.
 
 As can be seen in Figure 14, our GenIO testing achieved a much greater number of IOPS using NVMe/FC protocol versus the FC protocol. The NVMe/FC connected solution achieved over 700k IOPS before surpassing the 45-second write cycle threshold. By replacing SCSI with NVMe commands over fiber channel, you also significantly reduce the utilization on the host.
 
-Figure 14) GenIO IOPs versus write cycles.
-
-
+image:epic-genio.png[]
 
 * The most limiting factor for all-flash arrays is not the disk but, rather, it is the utilization on the controllers. ONTAP uses an active-active architecture. For performance, both nodes in the HA pair write to disk. This procedure has proven to be the fastest architecture maximizing CPU utilization, which is the single most important factor to NetApp publishing the best Epic performance in the industry. 
 

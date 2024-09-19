@@ -20,5 +20,5 @@ summary: Epic on ONTAP is awesome
 
 The NetApp WAFL® file system created in 1992 is more relevant today than ever before. ONTAP is a true software-defined storage platform with a modular architecture. Emerging hardware technology can be introduced quickly and nondisruptively. New faster Ethernet ports, FC ports, larger drives, and new protocols are always tested and available on NetApp storage first. NetApp has a long history of innovation that redefines how storage is managed. With each software upgrade, customers get enhanced performance, lower efficiency, with new features and functionality. For details, see Figure 5.
 
-Figure 5) Flexible data management framework.
+image:epic-ontap-futureproof.adoc[]
 

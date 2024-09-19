@@ -28,4 +28,4 @@ It is important to note that this is only a starting point only. You should work
 
 * Large Epic architecture with an Epic database from greater than 50TB
 
-Figure 6) Small-medium-large architecture.
+image:epic-sizing-overview[]

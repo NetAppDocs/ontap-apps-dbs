@@ -30,7 +30,7 @@ Configuring Consistency Groups for Epic
 
 Once the volumes and LUNs are provisioned as detailed in the previous sections of this document, they can then be configured into a set of CGs. The recommended best practice is to set them up as depicted in the picture below:
 
-
+image:epic-ontap-config-cgs.adoc[]
 
 Consistency Group Snapshot copies
 
@@ -46,3 +46,4 @@ WebBLOB and VMWare datasets should be configured as just volumes, not associated
 
 When complete, the configuration would look as follows:
 
+image:epic-cg-snapshots.png[]

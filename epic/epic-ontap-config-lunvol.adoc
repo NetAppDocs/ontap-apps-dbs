@@ -30,21 +30,21 @@ If more storage is required by the server, the easiest option is to grow the LUN
 
 Figure 17, Figure 18, Figure 19, and Figure 20 illustrate the best practice storage layouts for volumes and LUNs.
 
-Figure 17) Volume and 8-LUN layout.
+== Volume and 8-LUN layout.
 
+image:epic-8lun.png[]
 
+== Volume and 16-LUN layout.
 
-Figure 18) Volume and 16-LUN layout.
+image:epic-16lun.png[]
 
+== Volume and 24-LUN layout.
 
+image:epic-24lun.png[]
 
-Figure 19) Volume and 24-LUN layout.
+==Volume and 32-LUN layout.
 
-
-
-Figure 20) Volume and 32-LUN layout.
-
-
+image:epic-32lun.png[]
 
 Best practices
 

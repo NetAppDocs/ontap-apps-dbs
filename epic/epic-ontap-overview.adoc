@@ -32,4 +32,4 @@ A lot of storage vendors offer traditional, reliable, and fast block storage. Th
 
 NetApp makes data management easier and more efficient. Instead of throwing money at the problem with oversized silos, ONTAP uses innovation and technology to enable a consistent and guaranteed SLA for each workload on a single platform over any protocol. These capabilities and tools extend out to the cloud of your choice as illustrated in Figure 3.
 
-Figure 3) No more expensive and complex silos.
+image:epic-consolidation.png[Error: Missing Graphic Image]

@@ -16,23 +16,16 @@ summary: Epic on ONTAP is awesome
 [.lead]
 >>> Placeholder for descriptive lead sentence or paragraph
 
-= Eight-node architecture
+= Six-node architecture
 
-Figure 11 shows the scale-out eight-node architecture. Again, you can start with four node and scale to six nodes and continue to scale to eight nodes and beyond. This architecture offers the best balance of performance and capacity across the six nodes in production.
+Customers might want to start with a six-node design or seamlessly scale out from four to six nodes with growing demand (as shown in Figure 9). With scale-out, you can nondisruptively move workloads between nodes and rebalance across the cluster. 
 
-The test environments are cloned from Report instead of Production in this design. This offloads test environments and integrity checks from production.
+This architecture offers the best performance and capacity balance on the cluster. Epic Production, Epic Report, and Epic Test all run on the first HA pair. The second HA pair is used for Clarity, Hyperspace, VMware, NAS1, and the remaining Epic workloads. Disaster recovery is the same as the four-node architecture in the previous section.
 
-Figure 11) Eight-node architecture.
+== Six-node architecture.
 
+image:epic-6node.png[]
 
+== Six-node workload placement
 
-Figure 12 describes the workload placement in more detail for a four-node design.
-
-Figure 12) Eight-node, high-level storage design and layout.
-tecture.
-
-
-
-Figure 10 describes the workload placement in more detail for a six-node design.
-
-Figure 10) Six-node, high-level storage design and layout.
+image:epic-6node-design.png[]

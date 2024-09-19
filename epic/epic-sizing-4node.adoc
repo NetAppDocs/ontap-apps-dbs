@@ -24,10 +24,10 @@ NetApp guarantees a minimum floor level performance by accepting the SLM recomme
 
 Test full copy environments (such as SUP, REL, and PJX) are cloned from either Epic Production, Epic Report, or Epic Disaster Recovery. For information about Epic backup and refresh, see the section titled, “Data management.”
 
-Figure 7) Four-node architecture.
+== Four-node architecture.
 
+image:epic-4node.png[]
 
+== Four-node workload placement
 
-Figure 8 describes the workload placement in more detail for a four-node design.
-
-Figure 8) Four-node, high-level storage design and layout.
+image:epic-4node-design.png[]

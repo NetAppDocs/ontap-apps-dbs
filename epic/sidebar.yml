@@ -45,18 +45,18 @@ entries:
       url: /epic/epic-sizing-6node.html
     - title: Eight-node architecture
       url: /epic/epic-sizing-6node.html
-  - title: NetApp AFF overview 
-    url: /epic/epic-ontap-config-overview.html
-  - title: Consolidation of workloads
-    url: /epic/epic-ontap-config-consolidation.html
-  - title: Performance
-    url: /epic/epic-ontap-config-performance.html
-  - title: Storage efficiencies
-    url: /epic/epic-ontap-config-efficiency.html
-  - title: NAS Considerations
-    url: /epic/epic-ontap-config-files.html
   - title: Configuration
     entries:
+    - title: NetApp AFF overview 
+      url: /epic/epic-ontap-config-overview.html
+    - title: Consolidation of workloads
+      url: /epic/epic-ontap-config-consolidation.html
+    - title: Performance
+      url: /epic/epic-ontap-config-performance.html
+    - title: Storage efficiencies
+      url: /epic/epic-ontap-config-efficiency.html
+    - title: NAS Considerations
+      url: /epic/epic-ontap-config-files.html
     - title: Storage sizing
       url: /epic/epic-ontap-config-sizing.html
     - title: Storage node configuration

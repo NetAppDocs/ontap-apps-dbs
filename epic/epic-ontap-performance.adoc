@@ -1,0 +1,39 @@
+---
+sidebar: sidebar
+permalink: epic/epic-ontap-performance.html
+keywords: epic,cache,iris
+summary: Epic on ONTAP is awesome
+---
+
+= >>> Level One Title
+
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media
+
+[.lead]
+>>> Placeholder for descriptive lead sentence or paragraph
+
+= Performance
+
+NetApp is a clear leader in the storage industry as seen in the published performance results in the NVA Epic on Modern SAN. NetApp also is the leader in independent testing by SPC.
+
+Epic workloads are between 1K to 2K IOPS/TB; however, these are not extreme workloads. So why is performance an important consideration?
+
+* Consolidation for medium and small customers
+
+* Given the performance scale ONTAP can achieve, you can consolidate a lot more workloads onto less hardware:
+
+* ONTAP guarantees a consistent floor performance level for each workload
+
+* Software upgrades:
+
+* Every upgrade of ONTAP has a proven history of not only adding features but also increased storage efficiency, increased performance headroom and lower latency; millage will vary but we have seen increases from 20–40% per upgrade
+
+* Nondisruptive upgrades can extend the life of your storage investment from 3 years to 5 or 6 years
+
+* Cost:
+
+* All the above adds up to lower cost and higher efficiency

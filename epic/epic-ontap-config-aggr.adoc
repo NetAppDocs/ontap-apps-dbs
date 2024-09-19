@@ -1,0 +1,53 @@
+---
+sidebar: sidebar
+permalink: epic/epic-ontap-config-aggr.html
+keywords: epic,cache,iris
+summary: Epic on ONTAP is awesome
+---
+
+= >>> Level One Title
+
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media
+
+[.lead]
+>>> Placeholder for descriptive lead sentence or paragraph
+
+= Aggregate configuration
+
+ADP
+
+ADP enables capacity sharing of physical drives between aggregates and controllers in an HA pair. ADP can be implemented using two methods, as shown in Figure 16.
+
+* A root aggregate and a data aggregate; supported with HDDs and SSDs
+
+* A root aggregate and two data aggregates; supported with SSDs only
+
+
+
+Best practices
+
+
+
+* To maximize disk raw-to-usable efficiency, NetApp recommends using a root partition and two data partition (RD2) when possible.
+
+* NetApp recommends using the default one aggregate per node.
+
+* NetApp recommends setting aggregate Snapshot copy reserve to 0.
+
+
+
+Figure 16) Advanced Disk Partitioning.
+
+
+
+RAID DP
+
+RAID DP is a double-parity RAID implementation designed with NVRAM and NetApp WAFL technologies in mind. By caching write requests in memory and writing to disk in stripes, RAID DP offers double-parity data protection without the significant decreases in performance that are synonymous with traditional double-parity schemes. RAID DP should be used for all aggregates in a NetApp storage system. 
+
+Aggregate Snapshot copies
+
+Set the aggregate-level Snapshot copy reserve to zero and disable the aggregate Snapshot schedule. For greater flexibility and fine-grained control, manage Snapshot copies at the volume level when you implement a backup and restore solution. 

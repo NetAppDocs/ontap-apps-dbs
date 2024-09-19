@@ -1,0 +1,25 @@
+---
+sidebar: sidebar
+permalink: epic/epic-ontap-monitoring.html
+keywords: epic,cache,iris
+summary: Epic on ONTAP is awesome
+---
+
+= >>> Level One Title
+
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media
+
+[.lead]
+>>> Placeholder for descriptive lead sentence or paragraph
+
+= Monitoring and reporting
+
+Epic recommends the use of effective monitoring tools to identify or predict any storage system bottlenecks. Each ONTAP cluster comes with System Manager built in to manage the single cluster. NetApp also provides Active IQ Unified Manager to manage capacity, performance, security, and provisioning across all clusters in your organization in a single pane of glass. 
+
+All NetApp devices from each customer callback (when enabled) to a central repository called Active IQ. Active IQ contains machine-learning capabilities with dashboards that are accessible by web or mobile device. Its capabilities go beyond just implementing best practices to improve performance and efficiency. It analyzes trends and anomalies and has proven to reduce support cases – automatically fixing 97% of issues before they have an effect. 
+
+NetApp OnCommand® Insight is being replaced with NetApp Cloud Insights, which is a free tool for monitoring ONTAP systems. As an option, you can purchase a Cloud Insights license to monitor your entire infrastructure across storage, networking, and computing for all vendors in your environment. An Insights dashboard was specifically developed for Epic, and it provides complete visibility into storage, networking, and computing beyond what the Epic Pulse monitoring tool provides. This monitoring tool is also host-side only and although Pulse can detect an issue, Insights can proactively identify the issue before it has an effect. Conversely, OnCommand Insight reduces the time to determine root cause when issues are detected.

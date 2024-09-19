@@ -1,0 +1,23 @@
+---
+sidebar: sidebar
+permalink: epic/epic-ontap-config-protocols.html
+keywords: epic,cache,iris
+summary: Epic on ONTAP is awesome
+---
+
+= >>> Level One Title
+
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media
+
+[.lead]
+>>> Placeholder for descriptive lead sentence or paragraph
+
+= Presentation
+
+FCP is the preferred protocol for presenting LUNs. NetApp recommends single initiator zoning: one initiator per zone with all the required target ports on storage using worldwide port names (WWPNs).
+
+After the LUN is created, map the LUN to the initiator group (igroup) containing the WWPNs of the host to enable access.

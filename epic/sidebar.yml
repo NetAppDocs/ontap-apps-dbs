@@ -1,0 +1,83 @@
+section: epic
+title: Epic
+entries:
+  - title: Introduction
+    url: /epic/epic.introduction.html
+  - title: Purpose
+    url: /epic/epic-scope.html
+  - title: Epic overview
+    url: /epic/epic-architecture.html
+  - title: Epic on ONTAP
+    url: /epic/epic-ontap-overview.html
+  - title: Consolidation or workload isolation?
+    url: /epic/epic-ontap-consolidation.html
+  - title: Consolidation and Efficiency
+    url: /epic/epic-ontap-efficiency.html
+  - title: Scale
+    url: /epic/epic-ontap-scalability.html
+  - title: SAN leadership
+    url: /epic/epic-ontap-san.html
+  - title: Performance
+    url: /epic/epic-ontap-performance.html
+  - title: Reliability
+    url: /epic/epic-ontap-reliability.html
+  - title: Monitoring and reporting
+    url: /epic/epic-ontap-monitoring.html
+  - title: Security
+    url: /epic/epic-ontap-security.html
+  - title: Futureproof
+    url: /epic/epic-ontap-futureproof.html
+  - title: Epic storage requirements
+    url: /epic/epic-storage-requirements.html
+  - title: Snapshot and clone technology
+    url: /epic/epic-data-protection.html
+  - title: Size
+    url: /epic/epic-sizing-overview.html
+  - title: Four-node architecture
+    url: /epic/epic-sizing-4node.html
+  - title: Six-node architecture
+    url: /epic/epic-sizing-6node.html
+  - title: Eight-node architecture
+    url: /epic/epic-sizing-6node.html
+  - title: NetApp AFF overview 
+    url: /epic/epic-ontap-config-overview.html
+  - title: Consolidation of workloads
+    url: /epic/epic-ontap-config-consolidation.html
+  - title: Performance
+    url: /epic/epic-ontap-config-performance.html
+  - title: Storage efficiencies
+    url: /epic/epic-ontap-config-efficiency.html
+  - title: NAS Considerations
+    url: /epic/epic-ontap-config-files.html
+  - title: Storage sizing
+    url: /epic/epic-ontap-config-sizing.html
+  - title: Storage node configuration
+    url: /epic/epic-ontap-config-ha.html
+  - title: Aggregate configuration
+    url: /epic/epic-ontap-config-aggr.html
+  - title: LUN and volume configuration
+    url: /epic/epic-ontap-config-lunvol.html
+  - title: Consistency Groups (CGs)
+    url: /epic/epic-ontap-config-cgs.html
+  - title: Presentation
+    url: /epic/epic-ontap-config-protocols.html
+  - title: Sample Epic deployment
+    url: /epic/epic-example-overview.html
+  - title: Provision aggregates
+    url: /epic/epic-example-provision.html
+  - title: Set up the SVM
+    url: /epic/epic-example-svm.html
+  - title: Create FCP data LIFs
+    url: /epic/epic-example-protocol.html
+  - title: Create volumes 
+    url: /epic/epic-example-volumes.html
+  - title: Create LUN
+    url: /epic/epic-example-luns.html
+  - title: Presentation
+    url: /epic/epic-example-platforms.html
+  - title: Integration tuning
+    url: /epic/epic-config-huk.html
+  - title: Mount options
+    url: /epic/epic-config-filesystems.html
+  - title: Where to find additional information
+    url: /epic/epic-additional-info.html

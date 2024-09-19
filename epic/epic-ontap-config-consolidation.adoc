@@ -1,0 +1,27 @@
+---
+sidebar: sidebar
+permalink: epic/epic-ontap-config-consolidation.html
+keywords: epic,cache,iris
+summary: Epic on ONTAP is awesome
+---
+
+= >>> Level One Title
+
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media
+
+[.lead]
+>>> Placeholder for descriptive lead sentence or paragraph
+
+= Consolidation of workloads
+
+Consolidate your data management onto a single platform that extends to the cloud. You can consolidate the following:
+
+* Protocols: All NAS, SAN, and Object workloads.
+
+* Storage Pools: All storage pools in the Hardware Configuration Guide.
+
+Note: ONTAP is the best data management platform offering a single solution for all Epic workloads.

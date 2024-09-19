@@ -1,0 +1,43 @@
+---
+sidebar: sidebar
+permalink: epic/epic-ontap-efficiency.html
+keywords: epic,cache,iris
+summary: Epic on ONTAP is awesome
+---
+
+= >>> Level One Title
+
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media
+
+[.lead]
+>>> Placeholder for descriptive lead sentence or paragraph
+
+= Consolidation and Efficiency
+
+One of the major challenges in healthcare is the inefficiency of siloed environments. Multiple point solutions are created by various groups that impedes progress. Having a unified strategy to data management brings efficiency to accelerate transformation. Disruptive technology like digitizing patient records, Ransomware, and generative AI all the drive the need for consolidation.
+
+With ONTAP you can consolidate file/block/object and each of your tier 0/1/2/3 workloads on premises and in the cloud today.
+
+== Efficiency
+
+Epic runs on all-flash arrays where most of the cost is the disk. Therefore, storage efficiency is critical for cost savings. NetApp offers a written efficiency guarantee with the all-flash arrays. When calculating storage efficiency, it is important to measure raw to usable to effective capacity. Figure 4 illustrates how NetApp inline storage efficiency achieves industry-leading savings on storage with no effects to performance:
+
+* Raw capacity. Before any RAID is applied, size of disk by number of disks.
+
+* Usable capacity. After RAID is applied, how much usable storage is available.
+
+* Effective capacity. How much storage is provisioned and presented to the host or client.
+
+Figure 4 is a sample efficiency calculation of a typical Epic deployment including all workloads requiring 852TB of effective storage and with 5.2:1 efficiency delivering 1.32PB of total effective data. 
+
+Note: Based on the number of disks, raw-to-usable capacity varies slightly.
+
+Figure 4) NetApp efficiency guarantee.
+
+
+
+Note: NetApp does not use NetApp Snapshot™ technology or thin provisioning to calculate efficiencies. Doing so would show unrealistic efficiencies of 30–100:1, which do not mean anything when sizing storage capacity.

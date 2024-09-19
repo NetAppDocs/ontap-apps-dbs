@@ -1,0 +1,31 @@
+---
+sidebar: sidebar
+permalink: epic/epic-sizing-overview.html
+keywords: epic,cache,iris
+summary: Epic on ONTAP is awesome
+---
+
+= >>> Level One Title
+
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media
+
+[.lead]
+>>> Placeholder for descriptive lead sentence or paragraph
+
+= Size
+
+One of the key architecture considerations is the ODB database size. You can use the diagram in Figure 6 to select a small-medium-large Epic storage architecture. These designs include running all workloads listed in the Hardware Configuration Guide. The sizing tree is based on data from over 100 hardware configuration guides and should be mostly accurate estimate.
+
+It is important to note that this is only a starting point only. You should work with our Epic Alliance team to confirm any Epic designs. The team can be reached at epic@netapp.com. Every deployment needs to accommodate customer requests while adhering to Epic and NetApp recommended best practices.
+
+* Small Epic architecture with an Epic database less than 10TB
+
+* Medium Epic architecture with an Epic database from 10TB to 50TB
+
+* Large Epic architecture with an Epic database from greater than 50TB
+
+Figure 6) Small-medium-large architecture.

@@ -22,7 +22,7 @@ image:mssql-filegroups.png[Error: Missing Graphic Image]
 
 The ability to put multiple data files inside the filegroup allows you to spread the load across different storage devices, which helps to improve the I/O performance of the system. The transaction log in contrast does not benefit from the multiple files because SQL Server writes to the transaction log in a sequential manner.
 
-The separation between logical object placement in the filegroups and physical database files allows you to fine-tune the database file layout, getting the most from the storage subsystem. For example, independent software vendors (ISVs) who are deploying their products to different customers can adjust the number of database files based on the underlying I/O configuration and the expected amount of data during the deployment stage. Those changes are transparent to the application developers, who are placing the database objects in the filegroups rather than database files.
+The separation between logical object placement in the filegroups and physical database files allows you to fine-tune the database file layout, getting the most from the storage subsystem. The number of datafiles supporting a giving workload can be varied as required to support I/O requirements and expected capacity without affecting the application. Those variations in database layout are transparent to the application developers, who are placing the database objects in the filegroups rather than database files.
 
 [TIP]
 *NetApp recommends* avoiding the use of the primary filegroup for anything but system objects. Creating a separate filegroup or set of filegroups for the user objects simplifies database administration and disaster recovery, especially in the case of large databases.

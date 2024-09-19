@@ -10,7 +10,7 @@ summary: Microsoft SQL Server disaster recovery with ONTAP
 [.lead]
 Enterprise databases and application infrastructures often require replication to protect from natural disaster or unexpected business disruption with minimal downtime. 
 
-The SQL Server Always-On availability group replication feature can be an excellent option, and NetApp offers options to integrate data protection with Always-On. In some cases, however, you might want to consider ONTAP replication technology like SnapMirror to replicate data from primary site to replica site asynchronously or synchronously. 
+The SQL Server Always-On availability group replication feature can be an excellent option, and NetApp offers options to integrate data protection with Always-On. In some cases, however, you might want to consider ONTAP replication technology such as SnapMirror to replicate data from primary site to replica site asynchronously or synchronously. 
 
 == SnapMirror 
 

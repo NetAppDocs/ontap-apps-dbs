@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: epic/epic-ontap-overview.html
+permalink: epic/epic-ontap-scaling.html
 keywords: epic,cache,iris
 summary: Epic on ONTAP is awesome
 ---
@@ -56,6 +56,39 @@ Epic workloads are between 1K to 2K IOPS/TB; however, these are not extreme work
 
 * All the above adds up to lower cost and higher efficiency
 
+= Reliability
+
+At the core of ONTAP are nondisruptive operations that enable you to avoid costly disruption to business operations. NetApp delivers over 99.999999% availability based on production data, which is called home through NetApp Active IQ. Each HA pair in the cluster has no single point of failure. ONTAP dates back to 1992 and is the most widely deployed data management software in the world with an exceptional history of delivering reliable storage. Now, with Active IQ proactively monitoring and automatically resolving 97% of issues, availability is higher with significantly less support cases.
+
+Epic recommends the use of HA storage systems to mitigate hardware component failure. This recommendation extends from basic hardware (such as redundant power supplies) to networking (such as multipath networking).
+
+NetApp has a 100% written availability guarantee. Rest assured when you need to upgrade storage, scale up, scale out, or rebalance workloads across the cluster, there is no effect to patient care. You might move data, but you never again need to disrupt patient care with data migrations or forklift upgrades. Move to next-generation technology, futureproof, and avoid hardware lock-in.
+
+= Scale
+
+The Hardware Configuration Guide accounts for ~20% growth per year and it is sized to accommodate 3 years of growth. However, environments grow frequently and unexpectedly. NetApp can seamlessly scale performance and capacity up to 12 nodes for NAS, SAN, and Object clusters. As a result, you can nondisruptively scale up and out as your business grows.
+
+Epic Iris brings added scale capabilities. It enables larger customers that have multiple Epic instances to consolidate to a single instance. The recent NetApp Verified Architecture Epic on Modern SAN demonstrates that Epic can seamlessly scale consolidated workloads to 720K IOPS on an single HA and scale out to over 4M IOPS in a cluster.
+
+You can scale up nondisruptively by upgrading controllers or adding disks. You can scale out nondisruptively by adding HA pairs to the cluster. NAS, SAN, and Object data also has the ability to be moved nondisruptively between nodes in the cluster. Each HA pair in the cluster can be any combination of ONTAP FAS and AFF system types and sizes. You can balance your workloads across a single cluster to maximize your storage investment.
+
+Epic runs better with the NetApp product portfolio, leveraging the data fabric with ONTAP, StorageGrid®, and the cloud of your choice. These products provide options for disaster recovery, archiving, analytics, tiering, and more.
+
+ONTAP provides the option to use object storage on StorageGrid or the cloud as a backup target and/or automatic cold storage tiering target. This capability enables you to free up expensive, all-flash disks, tier snapshots, and cold data automatically to Object.
+
+= Security
+
+Security is the number one concern for organizations and healthcare executives today. It has never been more difficult to manage, and organizations are challenged with compliance, data governance, antivirus protection, and ransomware.
+
+Security is beyond the scope of this document; however, TR-4569: Security Hardening Guide for NetApp ONTAP 9 details all the extensive and advanced security features available with ONTAP software. 
+
+Note: NetApp Active IQ Unified Manager (formerly OnCommand Unified Manager) monitors for security violations based on the information included in TR-4569 and reports them in the dashboard to simplify managing security. These tools can help your organization meet your security goals to protect, detect, and remediate against attacks.
+
+NetApp has partnered with security vendors to provide integration through NetApp FPolicy software to enhance your security offering.
+
+NetApp ONTAP native Snapshot and immutable SnapLock® backup technologies offer a unique air gap capability to protect your patient records against ransomware. See a NetApp documentation on TR-4572: The NetApp Solution for Ransomware. For a more strategic approach to security, see TR-4829: NetApp and Zero Trust.
+
+= Consolidation and Efficiency
 
 One of the major challenges in healthcare is the inefficiency of siloed environments. Multiple point solutions are created by various groups that impedes progress. Having a unified strategy to data management brings efficiency to accelerate transformation. Disruptive technology like digitizing patient records, Ransomware, and generative AI all the drive the need for consolidation.
 
@@ -75,6 +108,6 @@ Figure 4 is a sample efficiency calculation of a typical Epic deployment includi
 
 Note: Based on the number of disks, raw-to-usable capacity varies slightly.
 
-image:epic-config-efficiency.png[]
+image:epic-config-efficiency.adoc[]
 
 Note: NetApp does not use NetApp Snapshot™ technology or thin provisioning to calculate efficiencies. Doing so would show unrealistic efficiencies of 30–100:1, which do not mean anything when sizing storage capacity.

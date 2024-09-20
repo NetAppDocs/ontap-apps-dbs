@@ -4,7 +4,19 @@ entries:
   - title: Overview
     url: /epic/epic-overview.html   
   - title: Epic on ONTAP
-    url: /epic/epic-ontap-overview.html
+    entries:
+      - title: Overview
+        url: /epic/epic-ontap-overview.html
+      - title: Availability
+        url: /epic/epic-ontap-availability.html
+      - title: Efficiency
+        url: /epic/epic-ontap-efficiency.html
+      - title: Performance
+        url: /epic/epic-ontap-performance.html
+      - title: Scaling
+        url: /epic/epic-ontap-scaling.html
+      - title: Security
+        url: /epic/epic-ontap-scaling.html
   - title: Epic Architecture
     entries:
     - title: Epic Architecture and Design

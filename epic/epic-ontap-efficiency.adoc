@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: epic/epic-ontap-overview.html
+permalink: epic/epic-ontap-efficiency.html
 keywords: epic,cache,iris
 summary: Epic on ONTAP is awesome
 ---

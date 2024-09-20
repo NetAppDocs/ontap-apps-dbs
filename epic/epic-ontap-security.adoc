@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: epic/epic-ontap-overview.html
+permalink: epic/epic-ontap-security.html
 keywords: epic,cache,iris
 summary: Epic on ONTAP is awesome
 ---
@@ -56,6 +56,19 @@ Epic workloads are between 1K to 2K IOPS/TB; however, these are not extreme work
 
 * All the above adds up to lower cost and higher efficiency
 
+= Security
+
+Security is the number one concern for organizations and healthcare executives today. It has never been more difficult to manage, and organizations are challenged with compliance, data governance, antivirus protection, and ransomware.
+
+Security is beyond the scope of this document; however, TR-4569: Security Hardening Guide for NetApp ONTAP 9 details all the extensive and advanced security features available with ONTAP software. 
+
+Note: NetApp Active IQ Unified Manager (formerly OnCommand Unified Manager) monitors for security violations based on the information included in TR-4569 and reports them in the dashboard to simplify managing security. These tools can help your organization meet your security goals to protect, detect, and remediate against attacks.
+
+NetApp has partnered with security vendors to provide integration through NetApp FPolicy software to enhance your security offering.
+
+NetApp ONTAP native Snapshot and immutable SnapLock® backup technologies offer a unique air gap capability to protect your patient records against ransomware. See a NetApp documentation on TR-4572: The NetApp Solution for Ransomware. For a more strategic approach to security, see TR-4829: NetApp and Zero Trust.
+
+= Consolidation and Efficiency
 
 One of the major challenges in healthcare is the inefficiency of siloed environments. Multiple point solutions are created by various groups that impedes progress. Having a unified strategy to data management brings efficiency to accelerate transformation. Disruptive technology like digitizing patient records, Ransomware, and generative AI all the drive the need for consolidation.
 

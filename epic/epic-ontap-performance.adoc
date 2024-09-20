@@ -2,10 +2,10 @@
 sidebar: sidebar
 permalink: epic/epic-ontap-performance.html
 keywords: epic,cache,iris
-summary: Epic on ONTAP is awesome
+summary: Epic on ONTAP performance
 ---
 
-= >>> Level One Title
+= Epic on ONTAP performance
 
 :hardbreaks:
 :nofooter:
@@ -14,9 +14,7 @@ summary: Epic on ONTAP is awesome
 :imagesdir: ../media
 
 [.lead]
->>> Placeholder for descriptive lead sentence or paragraph
-
-= Performance
+ONTAP introduced flash technologies in 2009 and has supported SSDs since 2010. This long experience with flash storage allows NetApp to tune ONTAP features to optimize SSD performance and enhance flash media endurance while keeping the feature-rich capabilities of ONTAP.
 
 ONTAP introduced flash technologies in 2009 and has supported SSDs since 2010. This long experience with flash storage allows NetApp to tune ONTAP features to optimize SSD performance and enhance flash media endurance while keeping the feature-rich capabilities of ONTAP.
 

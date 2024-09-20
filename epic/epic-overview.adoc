@@ -2,10 +2,10 @@
 sidebar: sidebar
 permalink: epic/epic-overview.html
 keywords: epic,cache,iris
-summary: Epic on ONTAP is awesome
+summary: Epic on ONTAP overview
 ---
 
-= Epic on ONTAP overview
+= Epic on ONTAP
 
 :hardbreaks:
 :nofooter:

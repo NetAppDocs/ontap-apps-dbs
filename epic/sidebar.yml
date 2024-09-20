@@ -35,10 +35,6 @@ entries:
       url: /epic/epic-ontap-config-files.html
     - title: Storage sizing
       url: /epic/epic-ontap-config-sizing.html
-    - title: Storage node configuration
-      url: /epic/epic-ontap-config-ha.html
-    - title: Aggregate configuration
-      url: /epic/epic-ontap-config-aggr.html
     - title: LUN and volume configuration
       url: /epic/epic-ontap-config-lunvol.html
     - title: Consistency Groups (CGs)

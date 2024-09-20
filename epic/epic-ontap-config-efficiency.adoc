@@ -54,13 +54,3 @@ Best practice
 
 
 NetApp recommends using clones to refresh each of the full copy test environments.
-Advanced Disk Partitioning
-
-Advanced Disk Partitioning (ADP) distributes the root file system across multiple disks in an HA pair. By removing the need for dedicated root and spare disks, this partitioning enables higher overall capacity utilization. This feature became available in ONTAP 8.3. New AFF systems ordered with ONTAP 8.3 and later come with root-data partitioning configured. The cost per gigabyte is much lower, with a higher raw-to-usable storage percentage.
-
-The root-data-data partitioning feature that is available in ONTAP 9.0 provides even higher raw-to-usable capacity by using three partitions per disk: one small partition for ONTAP and two data partitions for each node. This layout also reduces the number of parity disks.
-
-Figure 15 shows how a disk is partitioned for an active-active HA pair with a shelf of 24 disks. The NetApp cluster comes configured with ADP—no configuration is required.
-
-Figure 15) ADP disk layout.
-

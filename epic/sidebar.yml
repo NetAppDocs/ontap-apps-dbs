@@ -17,24 +17,24 @@ entries:
         url: /epic/epic-ontap-scalability.html
       - title: Security
         url: /epic/epic-ontap-security.html
-  - title: Epic Architecture
+  - title: Epic Architecture and Design
     entries:
-    - title: Epic Architecture and Design
-      url: /epic/epic-architecture.html
-    - title: Epic storage requirements
-      url: /epic/epic-storage-requirements.html
-    - title: Snapshot and clone technology
-      url: /epic/epic-data-protection.html
+    - title: Overview
+      url: /epic/epic-arch-overview.html
+    - title: Storage requirements
+      url: /epic/epic-arch-storage.html
     - title: Sizing
-      url: /epic/epic-sizing-overview.html
+      url: /epic/epic-arch-overview.html
     - title: Four-node architecture
-      url: /epic/epic-sizing-4node.html
+      url: /epic/epic-arch-4node.html
     - title: Six-node architecture
-      url: /epic/epic-sizing-6node.html
+      url: /epic/epic-arch-6node.html
     - title: Eight-node architecture
-      url: /epic/epic-sizing-6node.html
+      url: /epic/epic-arch-6node.html
   - title: Configuration and Best Practices
     entries:
+    - title: Snapshot and clone technology
+      url: /epic/epic-ontap-dp.html
     - title: Performance
       url: /epic/epic-ontap-config-performance.html
     - title: Storage efficiencies

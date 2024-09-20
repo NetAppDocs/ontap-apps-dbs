@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: epic/epic-sizing-overview.html
+permalink: epic/epic-arch-sizing.html
 keywords: epic,cache,iris
 summary: Epic on ONTAP is awesome
 ---

@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
-permalink: epic/epic-architecture.html
+permalink: epic/epic-arch-overview.html
 keywords: epic,cache,iris
-summary: Epic on ONTAP is awesome
+summary: Epic architecture
 ---
 
-= >>> Level One Title
+= Epic architecture
 
 :hardbreaks:
 :nofooter:
@@ -14,11 +14,9 @@ summary: Epic on ONTAP is awesome
 :imagesdir: ../media
 
 [.lead]
->>> Placeholder for descriptive lead sentence or paragraph
+This section describes the Epic software environment and the key components that require storage. 
 
-Epic overview
-
-This section describes the Epic software environment and the key components that require storage. It provides key considerations to help guide storage design.
+It provides key considerations to help guide storage design.
 Epic is a software company headquartered in Verona, Wisconsin. Epic makes software for midsize and large medical groups, hospitals, and integrated healthcare organizations. Customers also include community hospitals, academic facilities, children's organizations, safety net providers, and multi-hospital systems. Epic-integrated software spans clinical, access, and revenue functions and extends into the home.
 
 It is beyond the scope of this document to cover the wide span of functions supported by Epic software. From the storage system point of view, however, all Epic software shares a single patient-centric database for each deployment. Epic is transitioning from InterSystems Caché database to the new InterSystems Iris database. Because the storage requirements are the same for Caché and Iris, we will refer to the database as Iris throughout the rest of this document. Iris is available for operating systems AIX and Linux.

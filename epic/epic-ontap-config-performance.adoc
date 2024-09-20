@@ -1,0 +1,57 @@
+---
+sidebar: sidebar
+permalink: epic/epic-ontap-config-performance.html
+keywords: epic,cache,iris
+summary: Epic on ONTAP is awesome
+---
+
+= >>> Level One Title
+
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media
+
+[.lead]
+>>> Placeholder for descriptive lead sentence or paragraph
+
+= Performance
+
+ONTAP introduced flash technologies in 2009 and has supported SSDs since 2010. This long experience with flash storage allows NetApp to tune ONTAP features to optimize SSD performance and enhance flash media endurance while keeping the feature-rich capabilities of ONTAP.
+
+As mentioned in the section, “SAN leadership”, NetApp is an industry leader in SAN storage. 
+
+Since year 2020, all Epic ODB workloads are required to be on all-flash storage. Epic workloads typically operate at approximately 1,000–2,000 IOPs per terabyte of storage (8k block, 75%/25% read and write ratio, and 100% random). Epic is latency-sensitive, and high latency has an effect on the end-user experience as well as operational tasks such as running reports, backup, integrity checks, and environment refresh times.
+
+As can be seen in Figure 14, our GenIO testing achieved a much greater number of IOPS using NVMe/FC protocol versus the FC protocol. The NVMe/FC connected solution achieved over 700k IOPS before surpassing the 45-second write cycle threshold. By replacing SCSI with NVMe commands over fiber channel, you also significantly reduce the utilization on the host.
+
+image:epic-genio.png[]
+
+* The most limiting factor for all-flash arrays is not the disk but, rather, it is the utilization on the controllers. ONTAP uses an active-active architecture. For performance, both nodes in the HA pair write to disk. This procedure has proven to be the fastest architecture maximizing CPU utilization, which is the single most important factor to NetApp publishing the best Epic performance in the industry. 
+
+* NetApp RAID DP®, Advanced Disk Partitioning (ADP), and WAFL technologies deliver on all Epic requirements. All workloads share the performance across all the disks.
+
+* ONTAP data management software is write-optimized; writes are acknowledged in NVRAM before they are written to disk at inline memory speed.
+
+* WAFL, NVRAM, and the modular architecture enable NetApp to use software to innovate with inline efficiencies, encryption, performance. They also enable NetApp to introduce new features and functionality without impacting performance. 
+
+* Historically, with each new version of ONTAP there is an increase in performance and efficiency in the range of 30–50%. Performance is optimal when you stay current with ONTAP.
+
+Service Level Manager and Adaptive QoS
+
+Most all-flash arrays can deliver the performance required for Epic workloads. The NetApp differentiator is its ability to set floor level performance policies using Service Level Manager (SLM) and guarantee a consistent performance for each application. Now you can add workloads to your cluster, knowing there is available headroom and without concern for affecting other workloads and select performance level through policy.
+
+NetApp recommends using Adaptive QoS (AQoS) managed by NSLM. The benefit of AQoS and NSLM is the ability to consolidate all Epic workloads. All protocols and pools of storage can reside on less hardware. You do not need to separate pools of storage.
+
+Best practices
+
+
+
+* NetApp recommends accepting SLM recommended performance policy for at least Production ODB, Report, and Clarity when consolidating Epic workloads and stay compliant with Epic recommendations.
+
+* NetApp recommends having all workloads in the cluster assigned to a policy by SLM to better manage headroom on the cluster.
+
+* NetApp recommends balancing all workloads evenly across the HA pair.
+
+* Do not use QOS policies when performing any I/O testing. Only assign policies after SLM has analyzed real production data; otherwise, GenIO testing will fail. Allow SLM to analyze the production workloads for 2–4 weeks before assigning any recommended policies.

@@ -1,0 +1,89 @@
+---
+sidebar: sidebar
+permalink: epic/epic-additional-info.html
+keywords: epic,cache,iris
+summary: Epic on ONTAP is awesome
+---
+
+= >>> Level One Title
+
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media
+
+[.lead]
+>>> Placeholder for descriptive lead sentence or paragraph
+
+Where to find additional information
+
+To learn more about the information described in this document, refer to the following documents and/or websites:
+
+* NetApp Product Documentation
+
+https://www.netapp.com/us/documentation/index.aspx 
+
+* ONTAP 9 Documentation Center
+
+https://docs.netapp.com/ontap-9/index.jsp 
+
+* Consistency Groups
+
+https://docs.netapp.com/us-en/ontap/consistency-groups/#learn-about-consistency-groups 
+
+* ONTAP and ONTAP System Manager Documentation Resources 
+
+https://www.netapp.com/us/documentation/ontap-and-oncommand-system-manager.aspx 
+
+* TR-3930i: NetApp Sizing Guidelines for Epic (NetApp login required) 
+
+https://fieldportal.netapp.com/content/192412?assetComponentId=192510 
+
+* TR-4684: Implementing and Configuring Modern SANs with NVMe/FC 
+
+https://fieldportal.netapp.com/content/752801?assetComponentId=754285 
+
+* TR-4080: Best Practices for Modern SAN and ONTAP 9 (NetApp login required)
+
+https://fieldportal.netapp.com/content/196096?assetComponentId=196194 
+
+* TR-4379: Name Services Best Practice Guide (NetApp login required)
+
+https://fieldportal.netapp.com/content/204182?assetComponentId=204280 
+
+* TR-4707: FlexPod for Epic Directional Sizing Guide (NetApp login require)
+
+https://fieldportal.netapp.com/content/766548?assetComponentId=768086 
+
+* TR-4784: FlexPod for Epic Performance Testing
+
+https://fieldportal.netapp.com/content/898523?assetComponentId=900376 
+
+* Collection: ONTAP 9 Technical Collateral
+
+https://fieldportal.netapp.com/collections/616108?assetComponentId=617277 
+
+* Collection: AFF Technical Collateral (NetApp login required) 
+
+https://fieldportal.netapp.com/collections/500339?assetComponentId=501077 
+
+Epic Customer Guidance documents
+
+Epic provides customers the following documents to its customers for guidance on server, storage, and network. These documents are referenced in this technical report.
+
+* Storage Area Network Considerations
+
+* Business Continuity Technical Solutions Guide
+
+* All-Flash Reference Architecture Strategy Handbook
+
+* Storage Products and Technology Status 
+
+* Epic Cloud Considerations 
+
+* Hardware Configuration Guide (customer-specific)
+
+* Database Storage Layout Recommendations (customer-specific)
+
+NetApp Support tools and services

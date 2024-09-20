@@ -1,0 +1,73 @@
+section: epic
+title: Epic
+entries:
+  - title: Overview
+    url: /epic/epic-overview.html   
+  - title: Epic on ONTAP
+    entries:
+      - title: Overview
+        url: /epic/epic-ontap-overview.html
+      - title: Availability
+        url: /epic/epic-ontap-availability.html
+      - title: Efficiency
+        url: /epic/epic-ontap-efficiency.html
+      - title: Performance
+        url: /epic/epic-ontap-performance.html
+      - title: Scaling
+        url: /epic/epic-ontap-scaling.html
+      - title: Security
+        url: /epic/epic-ontap-scaling.html
+  - title: Epic Architecture
+    entries:
+    - title: Epic Architecture and Design
+      url: /epic/epic-architecture.html
+    - title: Epic storage requirements
+      url: /epic/epic-storage-requirements.html
+    - title: Snapshot and clone technology
+      url: /epic/epic-data-protection.html
+    - title: Sizing
+      url: /epic/epic-sizing-overview.html
+    - title: Four-node architecture
+      url: /epic/epic-sizing-4node.html
+    - title: Six-node architecture
+      url: /epic/epic-sizing-6node.html
+    - title: Eight-node architecture
+      url: /epic/epic-sizing-6node.html
+  - title: Configuration and Best Practices
+    entries:
+    - title: Performance
+      url: /epic/epic-ontap-config-performance.html
+    - title: Storage efficiencies
+      url: /epic/epic-ontap-config-efficiency.html
+    - title: NAS Considerations
+      url: /epic/epic-ontap-config-files.html
+    - title: Storage sizing
+      url: /epic/epic-ontap-config-sizing.html
+    - title: LUN and volume configuration
+      url: /epic/epic-ontap-config-lunvol.html
+    - title: Consistency Groups (CGs)
+      url: /epic/epic-ontap-config-cgs.html
+    - title: Presentation
+      url: /epic/epic-ontap-config-protocols.html
+    - title: Mount options
+      url: /epic/epic-config-filesystems.html
+  - title: Deployment example
+    entries: 
+    - title: Sample Epic deployment
+      url: /epic/epic-example-overview.html
+    - title: Provision aggregates
+      url: /epic/epic-example-provision.html
+    - title: Set up the SVM
+      url: /epic/epic-example-svm.html
+    - title: Create FCP data LIFs
+      url: /epic/epic-example-protocol.html
+    - title: Create volumes 
+      url: /epic/epic-example-volumes.html
+    - title: Create LUN
+      url: /epic/epic-example-luns.html
+    - title: Presentation
+      url: /epic/epic-example-platforms.html
+    - title: Integration tuning
+      url: /epic/epic-config-huk.html
+  - title: Where to find additional information
+    url: /epic/epic-additional-info.html

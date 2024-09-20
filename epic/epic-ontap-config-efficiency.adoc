@@ -1,0 +1,56 @@
+---
+sidebar: sidebar
+permalink: epic/epic-ontap-config-efficiency.html
+keywords: epic,cache,iris
+summary: Epic on ONTAP is awesome
+---
+
+= >>> Level One Title
+
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media
+
+[.lead]
+>>> Placeholder for descriptive lead sentence or paragraph
+
+= Storage efficiencies
+
+The NetApp AFF solution includes built-in thin provisioning, inline data deduplication, inline compression, inline compaction, and zero-cost cloning with FlexClone technology. This technology offers multilevel storage efficiency across database, installed applications, and user data. Aggregate-level inline deduplication is available in ONTAP 9.2, and postprocess aggregate deduplication is available in ONTAP 9.3.
+
+ONTAP inline efficiencies are on by default and work regardless of storage protocol, application, or storage tier. Efficiencies reduce the amount of data written to expensive flash disk and reduce the number of disks required. ONTAP preserves efficiencies with replication. Each of the efficiencies has little to no effect on performance, even for a latency-sensitive application like Epic.
+
+Best practice
+
+
+
+To maximize disk utilization, NetApp recommends turning on all efficiency settings. These settings are on by default. 
+Inline efficiencies
+
+The following features make this storage efficiency possible:
+
+* Deduplication saves space on primary storage by removing redundant copies of blocks in a volume that hosts LUNs. This recommended option is on by default. 
+
+* Inline compression reduces the amount of data to be written to disk, and a considerable savings in space is realized with Epic workloads. This recommended option is on by default.
+
+* Inline compaction takes 4k blocks that are less than half full and combines them into a single block. This recommended option is on by default.
+
+Operational efficiencies
+
+* NetApp Snapshot copies and FlexClone volumes. A Snapshot copy is a point-in-time backup of a volume that is read-only. A Snapshot copy puts a lock on all the blocks in the active file system at that point in time. Snapshot copies are near instant, and they do not use any additional storage. WAFL is a write-only file system; it does not do copy on writes. No data is ever moved; therefore, Snapshot copies have zero effect on storage capacity or performance. Snapshot copies provide tremendous savings in storage while augmenting the backup solution.
+
+A FlexClone volume is a readable and writable Snapshot copy – it can write data to new, available, empty blocks. Epic requires 10 to 30 copies of the production databases for various operational requirements such as streaming backups, integrity checks, and staging upgrade environments. The need for a solution built on FlexClone volumes has increased with the moves to more frequent upgrades.
+
+Note: A fully automated Epic backup solution and Epic refresh solution are provided by NetApp as part of the solution using Ansible and native NetApp tools.
+
+* Thin replication is at the center of the NetApp data protection software portfolio, which includes NetApp SnapMirror and NetApp SnapVault software. SnapVault thin replication enables more frequent backups that use less storage capacity because no redundant data is moved or stored. SnapMirror thin replication protects business-critical data while minimizing storage capacity requirements. NetApp recommends turning on this option.
+
+* Aggregate deduplication. Deduplication has always been at the volume level. With ONTAP 9.2, aggregate deduplication became available, providing additional disk reduction savings. Postprocess aggregate deduplication was added with ONTAP 9.3. NetApp recommends turning on this option.
+
+Best practice
+
+
+
+NetApp recommends using clones to refresh each of the full copy test environments.

@@ -1,0 +1,31 @@
+---
+sidebar: sidebar
+permalink: epic/epic-example-protocol.html
+keywords: epic,cache,iris
+summary: Epic on ONTAP is awesome
+---
+
+= >>> Level One Title
+
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media
+
+[.lead]
+>>> Placeholder for descriptive lead sentence or paragraph
+
+= Create FCP data LIFs
+
+To create FCP data LIFs: https://docs.netapp.com/us-en/ontap-cli-9141//network-interface-create.html#description
+
+Start FCP on the SVM
+
+To start FCP on the SVM: https://docs.netapp.com/us-en/ontap-cli-9141//vserver-fcp-start.html
+
+Create igroup
+
+Initiator groups are used to allow server access to LUNs. To create an igroup: https://docs.netapp.com/us-en/ontap-cli-9141//lun-igroup-create.html
+
+Note: This example is a 4-node VMWare cluster and includes all the initiator WWPN for each server in the cluster.

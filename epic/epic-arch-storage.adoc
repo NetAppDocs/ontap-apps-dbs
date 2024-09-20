@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
-permalink: epic/epic-storage-requirements.html
+permalink: epic/epic-arch-storage.html
 keywords: epic,cache,iris
-summary: Epic on ONTAP is awesome
+summary: Epic storage requirements
 ---
 
-= >>> Level One Title
+= Epic storage requirements
 
 :hardbreaks:
 :nofooter:
@@ -14,10 +14,6 @@ summary: Epic on ONTAP is awesome
 :imagesdir: ../media
 
 [.lead]
->>> Placeholder for descriptive lead sentence or paragraph
-
-= Epic storage requirements
-
 Beyond sizing considerations, Epic has the following additional storage layout rules and key considerations: 
 
 * By year 2020, all operational database (ODB) workloads must be on all-flash arrays.
@@ -34,7 +30,7 @@ Note: A node in a cluster can be considered as a pool of storage. With ONTAP 9.4
 
 3. Copies of the data
 
-Note: Customers who use NetApp SnapVault® to back up NetApp do not meet the 3-2-1 recommendations. ONTAP to ONTAP does not satisfy the “2” requirement above. You can use SnapMirror directly from ONTAP to object storage on-premises (through StorageGrid, for example) or to the cloud to meet Epic requirements.
+Note: Customers who use NetApp SnapMirror or SnapVault to back up NetApp do not meet the 3-2-1 recommendations. ONTAP to ONTAP does not satisfy the “2” requirement above. You can use SnapMirror directly from ONTAP to object storage on-premises (through StorageGrid, for example) or to the cloud to meet Epic requirements.
 
 For more information about storage mandates, see the following Epic guides available in Galaxy:
 

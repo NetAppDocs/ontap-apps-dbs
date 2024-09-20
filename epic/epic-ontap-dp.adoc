@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
-permalink: epic/epic-data-protection.html
+permalink: epic/epic-ontap-dp.html
 keywords: epic,cache,iris
-summary: Epic on ONTAP is awesome
+summary: Epic data protection
 ---
 
-= >>> Level One Title
+= Epic data protection
 
 :hardbreaks:
 :nofooter:
@@ -14,9 +14,6 @@ summary: Epic on ONTAP is awesome
 :imagesdir: ../media
 
 [.lead]
->>> Placeholder for descriptive lead sentence or paragraph
-
-= Snapshot and clone technology
 
 Epic recognizes that the storage node-based NetApp Snapshot technology has no performance effect on production workloads compared to traditional file-based backups. When Snapshot backups are used as a recovery source for the production database, the backup method must be implemented with database consistency in mind.
 

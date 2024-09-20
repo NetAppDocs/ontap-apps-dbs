@@ -23,10 +23,6 @@ entries:
       url: /epic/epic-sizing-6node.html
   - title: Configuration and Best Practices
     entries:
-    - title: NetApp AFF overview 
-      url: /epic/epic-ontap-config-overview.html
-    - title: Consolidation of workloads
-      url: /epic/epic-ontap-config-consolidation.html
     - title: Performance
       url: /epic/epic-ontap-config-performance.html
     - title: Storage efficiencies

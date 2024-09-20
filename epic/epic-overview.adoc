@@ -27,11 +27,12 @@ Use this document as a guide to successfully construct and implement Epic EHR. R
 == Purpose
 
 This document describes best practices for integrating NetApp storage into an Epic software environment. It contains the following sections:
-* Epic overview” offers NetApp field engineers a technical understanding of the Epic software environment and its storage requirements across various configurations.
-* Epic storage considerations" describes important decision-making storage factors when architecting an Epic solution, NetApp reference architecture, and sizing.
-* NetApp AFF overview” describes important features of the NetApp AFF solution.
-* NetApp storage recommendations” describes NetApp storage configuration best practices for satisfying Epic storage requirements.
-* Integration tuning” describes the host-side tuning required by Epic to enable the software to best integrate with NetApp storage.
+
+* Epic overview offers NetApp field engineers a technical understanding of the Epic software environment and its storage requirements across various configurations.
+* Epic storage considerations describes important decision-making storage factors when architecting an Epic solution, NetApp reference architecture, and sizing.
+* NetApp AFF overview describes important features of the NetApp AFF solution.
+* NetApp storage recommendations describes NetApp storage configuration best practices for satisfying Epic storage requirements.
+* Integration tuning describes the host-side tuning required by Epic to enable the software to best integrate with NetApp storage.
 
 == Scope
 

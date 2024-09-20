@@ -3,6 +3,8 @@ title: Epic
 entries:
   - title: Overview
     url: /epic/epic-overview.html   
+  - title: Epic on ONTAP
+    url: /epic/epic-ontap-overview.html
   - title: Epic Architecture
     entries:
     - title: Epic Architecture and Design
@@ -19,28 +21,6 @@ entries:
       url: /epic/epic-sizing-6node.html
     - title: Eight-node architecture
       url: /epic/epic-sizing-6node.html
-  - title: Epic with ONTAP
-    entries:
-    - title: Epic on ONTAP
-      url: /epic/epic-ontap-overview.html
-    - title: Consolidation or workload isolation?
-      url: /epic/epic-ontap-consolidation.html
-    - title: Consolidation and Efficiency
-      url: /epic/epic-ontap-efficiency.html
-    - title: Scale
-      url: /epic/epic-ontap-scalability.html
-    - title: SAN leadership
-      url: /epic/epic-ontap-san.html
-    - title: Performance
-      url: /epic/epic-ontap-performance.html
-    - title: Reliability
-      url: /epic/epic-ontap-reliability.html
-    - title: Monitoring and reporting
-      url: /epic/epic-ontap-monitoring.html
-    - title: Security
-      url: /epic/epic-ontap-security.html
-    - title: Futureproof
-      url: /epic/epic-ontap-futureproof.html
   - title: Configuration and Best Practices
     entries:
     - title: NetApp AFF overview 

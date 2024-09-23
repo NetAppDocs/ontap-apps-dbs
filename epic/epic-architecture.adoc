@@ -45,7 +45,7 @@ The updated Iris database brings a few advantages:
 
 * Report. A reporting mirror database server provides read-only access to production data. It hosts an Iris data server configured as a backup mirror of the production Iris data server. The reporting database server has the same storage capacity requirements as the production database server. Reporting write performance is the same as production but read workload characteristics are different and sized differently.
 
-* Supports read-only. This database server is optional and not shown in Figure 1. A mirror database server can also be deployed to support Epic supports read-only functionality, in which access is provided to a copy of production in read-only mode. This type of database server can be switched to read/write mode for business continuity reasons.
+* Supports read-only. This database server is optional and not shown the figure below. A mirror database server can also be deployed to support Epic supports read-only functionality, in which access is provided to a copy of production in read-only mode. This type of database server can be switched to read/write mode for business continuity reasons.
 
 * Disaster recovery. To meet business continuity and disaster recovery objectives, a disaster recovery mirror database server is commonly deployed at a site geographically separate from the production and/or reporting mirror database servers. A disaster recovery mirror database server also hosts an Iris data server configured as a backup mirror of the production Iris data server. If the production site becomes unavailable for an extended time, this backup mirror database server can be configured to act as a mirror read/write instance (SRW). The backup mirror database server has the same file storage requirements as the production database server. In contrast, the backup mirror database storage is sized the same as the production storage from a performance perspective for business continuity. 
 
@@ -53,7 +53,7 @@ image:epic-iris-odb.png[Error: Missing Graphic Image]
 
 * Test. Healthcare organizations often deploy development, testing, and staging environments. Additional Iris data servers for these environments also require storage, which can be accommodated by the same storage system. Epic has specific requirements and constraints for providing additional storage from a shared storage system. These specific requirements are addressed generically by the best practices in this document.
 
-In addition to Iris ODB data servers, Epic software environments commonly include other components such as the following and as shown in Figure 2:
+In addition to Iris ODB data servers, Epic software environments commonly include other components such as the following and as shown in the figure below:
 
 * An Oracle or Microsoft SQL Server database server as a back end to Epic’s Clarity business-reporting tools
 

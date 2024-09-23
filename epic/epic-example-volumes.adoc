@@ -2,10 +2,10 @@
 sidebar: sidebar
 permalink: epic/epic-example-volumes.html
 keywords: epic,cache,iris
-summary: Epic on ONTAP is awesome
+summary: Epic on ONTAP example deployment - volumes
 ---
 
-= >>> Level One Title
+= Epic on ONTAP example deployment - volumes
 
 :hardbreaks:
 :nofooter:
@@ -14,14 +14,10 @@ summary: Epic on ONTAP is awesome
 :imagesdir: ../media
 
 [.lead]
->>> Placeholder for descriptive lead sentence or paragraph
-
-Create volumes 
-
-To create volumes: https://docs.netapp.com/us-en/ontap-cli-9141//volume-create.html
+To create volumes, see https://docs.netapp.com/us-en/ontap-cli-9141//volume-create.html
 
 Note: Starting with ONTAP 9.7, aggregate and volume encryption is enabled by default when you have an NVE license and onboard or external key management. To enable volume-level deduplication, set the add -encrypt fault to the volume create/modify command (if you have an NVE license).
 
-Autodelete Snapshots
+== Autodelete Snapshots
 
 To autodelete Snapshots: https://docs.netapp.com/us-en/ontap-cli-9141//volume-snapshot-autodelete-modify.html

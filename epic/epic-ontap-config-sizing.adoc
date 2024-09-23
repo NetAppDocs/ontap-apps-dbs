@@ -2,10 +2,10 @@
 sidebar: sidebar
 permalink: epic/epic-ontap-config-sizing.html
 keywords: epic,cache,iris
-summary: Epic on ONTAP is awesome
+summary: Storage sizing for Epic
 ---
 
-= >>> Level One Title
+= Storage sizing for Epic
 
 :hardbreaks:
 :nofooter:
@@ -14,10 +14,6 @@ summary: Epic on ONTAP is awesome
 :imagesdir: ../media
 
 [.lead]
->>> Placeholder for descriptive lead sentence or paragraph
-
-= Storage sizing
-
 For information about how to use NetApp sizing tools to determine the correct RAID group size and number of RAID groups for Epic software environment storage needs, see TR-3930i: NetApp Sizing Guidelines for Epic. 
 
 Note: NetApp Field Portal access is required.

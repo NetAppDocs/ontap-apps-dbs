@@ -2,10 +2,10 @@
 sidebar: sidebar
 permalink: epic/epic-ontap-config-files.html
 keywords: epic,cache,iris
-summary: Epic on ONTAP is awesome
+summary: Epic and file protocols
 ---
 
-= >>> Level One Title
+= Epic and file protocols
 
 :hardbreaks:
 :nofooter:
@@ -14,24 +14,19 @@ summary: Epic on ONTAP is awesome
 :imagesdir: ../media
 
 [.lead]
->>> Placeholder for descriptive lead sentence or paragraph
+Combining NAS and SAN on the same all-flash array is supported. 
 
-NAS Considerations
-
-Combining NAS and SAN on the same all-flash array is supported. If a document management application is not being used, it can cause many small files to be written to WebBLOB; thus, causing the size of WebBLOB to grow faster. FlexGroup volumes eliminate any issues with scale, high file count, or directory count, and it is recommended with a supported version of ONTAP.
+If a document management application is not being used, it can cause many small files to be written to WebBLOB; thus, causing the size of WebBLOB to grow faster. FlexGroup volumes eliminate any issues with scale, high file count, or directory count, and it is recommended with a supported version of ONTAP.
 
 Most of the feature gaps between FlexVol volumes and FlexGroup volumes have been removed but check if there are any gaps with the version of ONTAP you are running to make sure that required features are available.
 
-Best practice
-
-
+== Best practice
 
 NetApp recommends using FlexGroup volumes for NAS shares, such as WebBLOB (when available).
+
 WebBLOB is up to 95% cold data. You can optionally free space on your all-flash array and tier backups and cold data to object storage on-premises or in the cloud using the Flash Pool feature. All of which can be accomplished without any noticeable performance effect. Flash Pool is part of ONTAP, so you can generate a cold data report to review how cold your data is before enabling automatic tiering. You can set the age of the data to tier through policy. Epic customers have realized significant savings with this feature.
 
-Best practice
-
-
+== Best practice
 
 NetApp recommends optionally using the FabricPool feature for WebBLOB.
 NetApp storage recommendations 

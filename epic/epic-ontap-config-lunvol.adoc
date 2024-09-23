@@ -2,10 +2,10 @@
 sidebar: sidebar
 permalink: epic/epic-ontap-config-lunvol.html
 keywords: epic,cache,iris
-summary: Epic on ONTAP is awesome
+summary: Epic LUN and volume configuration
 ---
 
-= >>> Level One Title
+= Epic LUN and volume configuration
 
 :hardbreaks:
 :nofooter:
@@ -14,17 +14,15 @@ summary: Epic on ONTAP is awesome
 :imagesdir: ../media
 
 [.lead]
->>> Placeholder for descriptive lead sentence or paragraph
+Attain [NS1]a copy of the “Epic Database Storage Layout Recommendations” that details the size and number of LUNs for each ODB database.
 
-LUN and volume configuration
-
-Attain [NS1]a copy of the “Epic Database Storage Layout Recommendations” that details the size and number of LUNs for each ODB database. It is important to review that with the Epic DBA and Epic support as well as finalize the number of LUNs and LUN sizes as they might need to be adjusted. These storage recommendations are important for q-depth, storage performance, ease of operations and ease of expansion.
+It is important to review that with the Epic DBA and Epic support as well as finalize the number of LUNs and LUN sizes as they might need to be adjusted. These storage recommendations are important for q-depth, storage performance, ease of operations and ease of expansion.
 
 For the server OS q-depth consideration, use a minimum of eight LUNs (one LUN per volume) for the Epic cache DB. Increase the number of LUNs by multiples of eight. For larger environments, more LUNs might be required; use the same number of volumes (eight total, four per node) and add LUNs in multiples of eight, as shown in Figure 17, Figure 18, Figure 19, and Figure 20. Epic recommends keeping the LUNs < 8TB and the number of LUNs < 32. This approach enables you to easily scale your Epic environment.
 
 To maximize performance for a workload, such as Epic ODB or Clarity, each layout in Figure 17, Figure 18, Figure 19, and Figure 20 work best also for NetApp storage. By using eight volumes, volume affinity is spread evenly across the controllers to maximizing access to CPU utilization. For replication and backup, it’s best to keep the number of volumes to eight to simplify operations. 
 
-Scaling options
+== Scaling options
 
 If more storage is required by the server, the easiest option is to grow the LUNs containing volumes. The second option is to add LUNs to the volume groups in multiples of eight at a time. Adding just one or two LUNs can create a hot spot and affect performance.
 
@@ -48,8 +46,6 @@ image:epic-32lun.png[]
 
 Best practices
 
-
-
 * Use either 8, 16, 24, or 32 LUNs in 8 volumes, as shown in Figure 17, Figure 18, Figure 19, and Figure 20.
 
 * Balance the workloads across the HA pair to maximize performance and efficiency.
@@ -69,7 +65,3 @@ Best practices
 * After GenIO or Clarity testing, NetApp recommends deleting the storage and reprovisioning before loading production data.
 
 * It’s important that -space-allocation enabled is set on the LUNs. If not, any deleted data on the LUNs will not be seen by ONTAP and might cause capacity issues. For more information, see the Epic Storage Configuration Quick Reference Guide.
-
-
-
-LUNs can only grow to 10 times their initial size. For ease of operation, make sure that the number of LUNs and initial size can grow well beyond expected requirements after 3 years. Growing LUNs is much easier to manage than adding LUNs when scaling. With thin provisioning on the LUN and volume, only storage used shows in the aggregate. Starting with larger LUNs is highly recommended and is no cost to storage.

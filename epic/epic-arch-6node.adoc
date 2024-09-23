@@ -2,10 +2,10 @@
 sidebar: sidebar
 permalink: epic/epic-arch-6node.html
 keywords: epic,cache,iris
-summary: Epic on ONTAP is awesome
+summary: Epic six-node architecture
 ---
 
-= >>> Level One Title
+= Epic six-node architecture
 
 :hardbreaks:
 :nofooter:
@@ -14,11 +14,7 @@ summary: Epic on ONTAP is awesome
 :imagesdir: ../media
 
 [.lead]
->>> Placeholder for descriptive lead sentence or paragraph
-
-= Six-node architecture
-
-Customers might want to start with a six-node design or seamlessly scale out from four to six nodes with growing demand (as shown in Figure 9). With scale-out, you can nondisruptively move workloads between nodes and rebalance across the cluster. 
+Customers might want to start with a six-node design or seamlessly scale out from four to six nodes with growing demand. With scale-out, you can nondisruptively move workloads between nodes and rebalance across the cluster. 
 
 This architecture offers the best performance and capacity balance on the cluster. Epic Production, Epic Report, and Epic Test all run on the first HA pair. The second HA pair is used for Clarity, Hyperspace, VMware, NAS1, and the remaining Epic workloads. Disaster recovery is the same as the four-node architecture in the previous section.
 

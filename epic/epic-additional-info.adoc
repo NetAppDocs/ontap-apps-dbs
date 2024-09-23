@@ -2,10 +2,10 @@
 sidebar: sidebar
 permalink: epic/epic-additional-info.html
 keywords: epic,cache,iris
-summary: Epic on ONTAP is awesome
+summary: Additional information for Epic on ONTAP
 ---
 
-= >>> Level One Title
+= Additional information for Epic on ONTAP
 
 :hardbreaks:
 :nofooter:
@@ -14,10 +14,6 @@ summary: Epic on ONTAP is awesome
 :imagesdir: ../media
 
 [.lead]
->>> Placeholder for descriptive lead sentence or paragraph
-
-Where to find additional information
-
 To learn more about the information described in this document, refer to the following documents and/or websites:
 
 * NetApp Product Documentation

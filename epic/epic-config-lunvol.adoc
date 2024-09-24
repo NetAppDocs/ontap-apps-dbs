@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: epic/epic-ontap-config-lunvol.html
+permalink: epic/epic-config-lunvol.html
 keywords: epic,cache,iris
 summary: Epic LUN and volume configuration
 ---

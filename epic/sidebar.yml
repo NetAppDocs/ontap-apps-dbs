@@ -35,24 +35,22 @@ entries:
       url: /epic/epic-arch-8node.html
   - title: Configuration and Best Practices
     entries:
-    - title: Snapshot and clone technology
-      url: /epic/epic-ontap-dp.html
-    - title: Performance
-      url: /epic/epic-ontap-config-performance.html
-    - title: Storage efficiencies
-      url: /epic/epic-ontap-config-efficiency.html
-    - title: NAS Considerations
-      url: /epic/epic-ontap-config-files.html
-    - title: Storage sizing
-      url: /epic/epic-ontap-config-sizing.html
     - title: LUN and volume configuration
-      url: /epic/epic-ontap-config-lunvol.html
-    - title: Consistency Groups (CGs)
-      url: /epic/epic-ontap-config-cgs.html
-    - title: Protocols
-      url: /epic/epic-ontap-config-protocols.html
+      url: /epic/epic-config-lunvol.html
     - title: Mount options
-      url: /epic/epic-config-filesystems.html
+      url: /epic/epic-filesystems.html
+    - title: NAS Considerations
+      url: /epic/epic-config-files.html
+    - title: Performance
+      url: /epic/epic-config-performance.html
+    - title: Protocols
+      url: /epic/epic-config-protocols.html
+    - title: Snapshot, clones, and consistency groups
+      url: /epic/epic-config-dp.html
+    - title: Storage efficiency
+      url: /epic/epic-config-efficiency.html
+    - title: Storage sizing
+      url: /epic/epic-config-sizing.html
   - title: Deployment example
     entries: 
     - title: Sample Epic deployment

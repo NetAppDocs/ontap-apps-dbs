@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: epic/epic-ontap-config-efficiency.html
+permalink: epic/epic-config-efficiency.html
 keywords: epic,cache,iris
 summary: Epic storage efficiency configuration
 ---

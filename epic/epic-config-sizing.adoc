@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: epic/epic-ontap-config-sizing.html
+permalink: epic/epic-config-sizing.html
 keywords: epic,cache,iris
 summary: Storage sizing for Epic
 ---

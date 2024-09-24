@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: epic/epic-ontap-config-protocols.html
+permalink: epic/epic-config-protocols.html
 keywords: epic,cache,iris
 summary: Epic on ONTAP example deployment - protocols
 ---

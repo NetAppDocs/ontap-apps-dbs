@@ -24,7 +24,7 @@ entries:
     - title: Overview
       url: /epic/epic-arch-overview.html
     - title: Sizing
-      url: /epic/epic-arch-overview.html
+      url: /epic/epic-arch-sizing.html
     - title: Storage requirements
       url: /epic/epic-arch-storage.html
     - title: Four-node architecture
@@ -55,6 +55,8 @@ entries:
     entries: 
     - title: Sample Epic deployment
       url: /epic/epic-example-overview.html
+    - title: Install Host Utilities
+      url: /epic/epic-example-huk.html
     - title: Provision aggregates
       url: /epic/epic-example-provision.html
     - title: Set up the SVM
@@ -67,7 +69,5 @@ entries:
       url: /epic/epic-example-luns.html
     - title: Presentation
       url: /epic/epic-example-platforms.html
-    - title: Integration tuning
-      url: /epic/epic-config-huk.html
   - title: Where to find additional information
     url: /epic/epic-additional-info.html

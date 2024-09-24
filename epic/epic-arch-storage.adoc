@@ -14,6 +14,10 @@ summary: Epic storage requirements
 :imagesdir: ../media
 
 [.lead]
+Dedicated storage resources are generally provided for the production database, whereas mirror database instances share secondary storage resources with other Epic software-related components, such as the Clarity reporting tools.
+
+Other software storage environments, such as those used for application and system files, are also provided by the secondary storage resources.
+
 Beyond sizing considerations, Epic has the following additional storage layout rules and key considerations: 
 
 * By year 2020, all operational database (ODB) workloads must be on all-flash arrays.
@@ -22,11 +26,11 @@ Beyond sizing considerations, Epic has the following additional storage layout r
 
 Note: A node in a cluster can be considered as a pool of storage. With ONTAP 9.4 or later and AQoS, you can create protected pools using policies.
 
-* New Epic 3-2-1 backup recommendation. The “2” requirement was added with the 2020.
+* New Epic 3-2-1 backup recommendation. 
 
 1. Copy located in remote site (disaster recovery)
 
-2. One of the copies must be on a different storage platform than ONTAP
+2. One of the copies must be on a different storage platform than the primary copy
 
 3. Copies of the data
 
@@ -39,3 +43,4 @@ For more information about storage mandates, see the following Epic guides avail
 * Storage Products and Technology Status (SPaTS)
 
 * Hardware Configuration Guide
+

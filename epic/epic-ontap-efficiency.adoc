@@ -5,7 +5,7 @@ keywords: epic,cache,iris
 summary: Epic on ONTAP efficiency
 ---
 
-= Epic on ONTAP Efficiency
+= Epic on ONTAP efficiency
 
 :hardbreaks:
 :nofooter:
@@ -16,7 +16,9 @@ summary: Epic on ONTAP efficiency
 [.lead]
 Epic runs on all-flash arrays where most of the cost is the disk. Therefore, storage efficiency is critical for cost savings.
 
-NetApp inline storage efficiency achieves industry-leading savings on storage with no effects to performance, and we even offer a written efficiency guarantee with the all-flash arrays. When calculating storage efficiency, it is important to measure raw to usable to effective capacity.  
+NetApp inline storage efficiency achieves industry-leading savings on storage with no effects to performance, and we even offer a written efficiency guarantee with the all-flash arrays. 
+
+When calculating storage efficiency, it is important to measure raw to usable to effective capacity.  
 
 * Raw capacity. Before any RAID is applied, size of disk by number of disks.
 
@@ -30,10 +32,4 @@ Note: Based on the number of disks, raw-to-usable capacity varies slightly.
 
 image:epic-config-efficiency.adoc[]
 
-Note: NetApp does not use NetApp Snapshot™ technology or thin provisioning to calculate efficiency in the guarantee program. Doing so would show unrealistic efficiencies of 30–100:1, which do not mean anything when sizing storage capacity.
-
-== Consolidation and Efficiency
-
-One of the major challenges in healthcare is the inefficiency of siloed environments. Multiple point solutions are created by various groups that impedes progress. Having a unified strategy to data management brings efficiency to accelerate transformation. Disruptive technology like digitizing patient records, Ransomware, and generative AI all the drive the need for consolidation.
-
-With ONTAP you can consolidate file/block/object and each of your tier 0/1/2/3 workloads on premises and in the cloud today.
+Note: NetApp does not use NetApp Snapshot™ technology or thin provisioning to calculate efficiency in the guarantee program. Doing so would show unrealistic efficiencies of 30–100:1, which do not mean anything when sizing real-world storage capacity.

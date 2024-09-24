@@ -9,6 +9,8 @@ entries:
         url: /epic/epic-ontap-overview.html
       - title: Availability
         url: /epic/epic-ontap-availability.html
+      - title: Consolidation
+        url: /epic/epic-ontap-consolidation.html
       - title: Efficiency
         url: /epic/epic-ontap-efficiency.html
       - title: Performance
@@ -21,16 +23,16 @@ entries:
     entries:
     - title: Overview
       url: /epic/epic-arch-overview.html
-    - title: Storage requirements
-      url: /epic/epic-arch-storage.html
     - title: Sizing
       url: /epic/epic-arch-overview.html
+    - title: Storage requirements
+      url: /epic/epic-arch-storage.html
     - title: Four-node architecture
       url: /epic/epic-arch-4node.html
     - title: Six-node architecture
       url: /epic/epic-arch-6node.html
     - title: Eight-node architecture
-      url: /epic/epic-arch-6node.html
+      url: /epic/epic-arch-8node.html
   - title: Configuration and Best Practices
     entries:
     - title: Snapshot and clone technology
@@ -47,7 +49,7 @@ entries:
       url: /epic/epic-ontap-config-lunvol.html
     - title: Consistency Groups (CGs)
       url: /epic/epic-ontap-config-cgs.html
-    - title: Presentation
+    - title: Protocols
       url: /epic/epic-ontap-config-protocols.html
     - title: Mount options
       url: /epic/epic-config-filesystems.html

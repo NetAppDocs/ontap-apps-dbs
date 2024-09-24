@@ -12,7 +12,7 @@ summary: This page describes the best practices for implementing a ONTAP storage
 :imagesdir: ../media/
 
 [.lead]
-Configuring network settings when using vSphere with systems running ONTAP software is straightforward and similar to other network configuration. 
+Configuring network settings when using vSphere with systems running ONTAP is straightforward and similar to other network configuration. 
 
 Here are some things to consider:
 

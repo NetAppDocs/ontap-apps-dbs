@@ -53,7 +53,7 @@ Each VM in Hyper-V can in turn be provided with the NetApp LUNs and CIFS shares 
 * For more information about virtual Fibre Channel, see the Microsoft https://technet.microsoft.com/en-us/library/hh831413.aspx[Hyper-V Virtual Fibre Channel Overview] page.
 
 == Offloaded data transfer
-Microsoft ODX, also known as copy offload, enables direct data transfers within a storage device or between compatible storage devices without transferring the data through the host computer. NetApp ONTAP supports the ODX feature for both CIFS and SAN protocols. ODX can potentially improve performance if copies are within same volume, reduce utilization of CPU and memory on the client, and reduce network I/O bandwidth utilization.
+Microsoft ODX, also known as copy offload, enables direct data transfers within a storage device or between compatible storage devices without transferring the data through the host computer. ONTAP supports the ODX feature for both CIFS and SAN protocols. ODX can potentially improve performance if copies are within same volume, reduce utilization of CPU and memory on the client, and reduce network I/O bandwidth utilization.
 
 With ODX, it is faster and efficient to copy files within the SMB shares, within the LUNs, and between the SMB shares and LUNs if it's in same volume. This approach is more helpful in a scenario for which multiple copies of the golden image of an OS (VHD/VHDX) are required within same volume. Several copies of the same golden image can be made in significantly less time if copies are within same volume. ODX is also applied in Hyper-V storage live migration for moving VM storage.
 

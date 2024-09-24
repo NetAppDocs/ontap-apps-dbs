@@ -16,11 +16,11 @@ summary: Epic on ONTAP overview
 [.lead]
 Epic is easier with ONTAP. This consideration is first because it is the most important when selecting a data management platform.
 
-ONTAP is a single data management platform you can consolidate Epic workloads with while meeting all of your requirements.
+ONTAP is a single data management platform that allows you to consolidate Epic workloads while meeting all of your performance, data protection, and data management requirements.
 
 Only on NetApp can you standardize all your healthcare workloads for SAN, NAS, and Object on a single high data management platform. ONTAP is the most widely deployed storage software platform in the world and comes with almost 30 years of constant innovation. You can meet all Epic challenges with native ONTAP data management tools and application integration. There is no need to purchase a multitude of third-party tools to fill gaps in the solution.
 
-A lot of storage vendors offer traditional, reliable, and fast block storage. They work well but are typically deployed in silos to run a single workload like production, report, clarity, VDI, VMWare, and NAS. Each of these silos have different hardware and different management tools, and they are typically managed by different IT groups. This traditional approach adds to the biggest problem with healthcare today.
+A lot of storage vendors offer traditional, reliable, and fast block storage. They work well but are typically deployed in silos to run a single workload such as production, report, clarity, VDI, VMWare, and NAS. Each of these silos have different hardware and different management tools, and they are typically managed by different IT groups. This traditional approach adds to the biggest problem with healthcare today - complexity.
 
 NetApp makes data management easier and more efficient. Instead of throwing money at the problem with oversized silos, ONTAP uses innovation and technology to enable a consistent and guaranteed SLA for each workload on a single platform over any protocol. These capabilities and tools extend out to the cloud of your choice as illustrated below.
 

@@ -15,7 +15,7 @@ This documentation replaces the previously published technical report _TR-4590: 
 
 NetApp assumes that the reader has working knowledge of the following: 
 
-* ONTAP software
+* ONTAP
 * NetApp SnapCenter as backup software, which includes:
     - SnapCenter Plug-in for Microsoft Windows
     - SnapCenter Plug-in for SQL Server

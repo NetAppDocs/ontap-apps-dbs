@@ -5,7 +5,7 @@ keywords: epic,cache,iris
 summary: Epic on ONTAP availability
 ---
 
-= Epic on ONTAP availability
+= Epic on ONTAP - availability
 
 :hardbreaks:
 :nofooter:
@@ -20,4 +20,4 @@ NetApp delivers over 99.999999% availability based on production data, which is 
 
 Epic recommends the use of HA storage systems to mitigate hardware component failure. This recommendation extends from basic hardware (such as redundant power supplies) to networking (such as multipath networking).
 
-NetApp has a 100% written availability guarantee. Rest assured when you need to upgrade storage, scale up, scale out, or rebalance workloads across the cluster, there is no effect to patient care. You might move data, but you never again need to disrupt patient care with data migrations or forklift upgrades. Move to next-generation technology, futureproof, and avoid hardware lock-in.
+NetApp has a 100% written availability guarantee. When you need to upgrade storage, scale up, scale out, or rebalance workloads across the cluster, there is no effect to patient care. You might move data, but you never again need to disrupt patient care with data migrations or forklift upgrades. Move to next-generation technology, futureproof, and avoid hardware lock-in.

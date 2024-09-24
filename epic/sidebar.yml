@@ -47,7 +47,7 @@ entries:
       url: /epic/epic-ontap-config-lunvol.html
     - title: Consistency Groups (CGs)
       url: /epic/epic-ontap-config-cgs.html
-    - title: Presentation
+    - title: Protocols
       url: /epic/epic-ontap-config-protocols.html
     - title: Mount options
       url: /epic/epic-config-filesystems.html

@@ -2,10 +2,10 @@
 sidebar: sidebar
 permalink: epic/epic-ontap-config-protocols.html
 keywords: epic,cache,iris
-summary: Epic on ONTAP example deployment - zoning
+summary: Epic on ONTAP example deployment - protocols
 ---
 
-= Epic on ONTAP example deployment - zoning
+= Epic on ONTAP example deployment - protocols
 
 :hardbreaks:
 :nofooter:

@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: epic/epic-example-overview.html
 keywords: epic,cache,iris
-summary: Epic on ONTAP is awesome
+summary: Epic on ONTAP example deployment
 ---
 
 = >>> Level One Title
@@ -14,11 +14,9 @@ summary: Epic on ONTAP is awesome
 :imagesdir: ../media
 
 [.lead]
->>> Placeholder for descriptive lead sentence or paragraph
+This section takes you through a complete advanced configuration of an ONTAP cluster, provisioning, and presenting storage to an Epic server.
 
-= Sample Epic deployment
-
-This section takes you through a complete advanced configuration of an ONTAP cluster, provisioning, and presenting storage to an Epic server. For the purpose of capturing details and for easier documentation, the command line is used. If the GUI is preferred, you can provision all the settings in System Manager. 
+For the purpose of capturing details and for easier documentation, the command line is used. If the GUI is preferred, you can provision all the settings in System Manager. 
 
 Historically, the initial bulk setup for larger projects is usually faster by using the commands listed Table 1, especially if you concatenate the commands in a worksheet. This list of commands also serves as excellent build documentation.
 

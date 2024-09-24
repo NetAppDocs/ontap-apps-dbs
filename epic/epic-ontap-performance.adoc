@@ -22,7 +22,7 @@ As mentioned in the section, “SAN leadership”, NetApp is an industry leader 
 
 Since year 2020, all Epic ODB workloads are required to be on all-flash storage. Epic workloads typically operate at approximately 1,000–2,000 IOPs per terabyte of storage (8k block, 75%/25% read and write ratio, and 100% random). Epic is latency-sensitive, and high latency has an effect on the end-user experience as well as operational tasks such as running reports, backup, integrity checks, and environment refresh times.
 
-As can be seen in Figure 14, our GenIO testing achieved a much greater number of IOPS using NVMe/FC protocol versus the FC protocol. The NVMe/FC connected solution achieved over 700k IOPS before surpassing the 45-second write cycle threshold. By replacing SCSI with NVMe commands over fiber channel, you also significantly reduce the utilization on the host.
+As can be seen in the figure below, our GenIO testing achieved a much greater number of IOPS using NVMe/FC protocol versus the FC protocol. The NVMe/FC connected solution achieved over 700k IOPS before surpassing the 45-second write cycle threshold. By replacing SCSI with NVMe commands over fiber channel, you also significantly reduce the utilization on the host.
 
 image:epic-genio.png[]
 

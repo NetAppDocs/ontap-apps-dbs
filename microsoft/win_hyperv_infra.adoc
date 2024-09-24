@@ -92,7 +92,7 @@ For information about ODX, see https://docs.netapp.com/us-en/ontap/smb-admin/imp
 == Hyper-V clustering: High availability and scalability for virtual machines
 Failover clusters provide high availability and scalability to Hyper-V servers. A failover cluster is a group of independent Hyper-V servers that work together to increase availability and scalability for the VMs.
 
-Hyper-V clustered servers (called nodes) are connected by the physical network and by cluster software. These nodes use shared storage to store the VM files, which include configuration, virtual hard disk (VHD) files, and Snapshot copies. The shared storage can be a NetApp SMB/CIFS share or a CSV on top of a NetApp LUN, as shown in Figure 6. This shared storage provides a consistent and distributed namespace that can be accessed simultaneously by all the nodes in the cluster. Therefore, if one node fails in the cluster, the other node provides service by a process called failover. Failover clusters can be managed by using the Failover Cluster Manager snap-in and the failover clustering Windows PowerShell cmdlets.
+Hyper-V clustered servers (called nodes) are connected by the physical network and by cluster software. These nodes use shared storage to store the VM files, which include configuration, virtual hard disk (VHD) files, and Snapshot copies. The shared storage can be a NetApp SMB/CIFS share or a CSV on top of a NetApp LUN, as shown below. This shared storage provides a consistent and distributed namespace that can be accessed simultaneously by all the nodes in the cluster. Therefore, if one node fails in the cluster, the other node provides service by a process called failover. Failover clusters can be managed by using the Failover Cluster Manager snap-in and the failover clustering Windows PowerShell cmdlets.
 
 === Cluster Shared Volumes
 CSVs enable multiple nodes in a failover cluster to simultaneously have read/write access to the same NetApp LUN that is provisioned as an NTFS or ReFS volume. With CSVs, clustered roles can fail over quickly from one node to another without requiring a change in drive ownership or dismounting and remounting a volume. CSVs also simplify the management of a potentially large number of LUNs in a failover cluster. CSVs provide a general-purpose clustered file system that is layered above NTFS or ReFS.
@@ -128,7 +128,7 @@ For information about deploying live migration in a clustered environment, see l
 === Live Migration outside a clustered environment
 You can live migrate a VM between two nonclustered, independent Hyper-V servers. This process can use either shared or shared nothing live migration.
 
-* In shared live migration, the VM is stored on an SMB share. Therefore, when you live migrate a VM, the VM's storage remains on the central SMB share for instant access by the other node, as shown in the following Figure.
+* In shared live migration, the VM is stored on an SMB share. Therefore, when you live migrate a VM, the VM's storage remains on the central SMB share for instant access by the other node, as shown below.
 
 image:win_image8.png[Shared live migration in a nonclustered environment,width=331,height=271]
 

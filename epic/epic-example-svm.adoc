@@ -2,10 +2,10 @@
 sidebar: sidebar
 permalink: epic/epic-example-svm.html
 keywords: epic,cache,iris
-summary: Epic on ONTAP is awesome
+summary: Epic on ONTAP example deployment - SVMs
 ---
 
-= >>> Level One Title
+= Epic on ONTAP example deployment - SVMs
 
 :hardbreaks:
 :nofooter:
@@ -14,10 +14,8 @@ summary: Epic on ONTAP is awesome
 :imagesdir: ../media
 
 [.lead]
->>> Placeholder for descriptive lead sentence or paragraph
+NetApp virtualizes storage, and user access is provided by the SVM. 
 
-= Set up the SVM
-
-NetApp virtualizes storage, and user access is provided by the SVM. For Epic, there is an FCP SVM and a CIFC SVM. Depending on how you want to manage your storage, and possibly multitenancy, you can use more SVMs. 
+For Epic, there is an FCP SVM and an SMB SVM. Depending on how you want to manage your storage, and possibly multitenancy, you can use more SVMs. 
 
 To set up an SVM: https://docs.netapp.com/us-en/ontap/networking/create_svms.html

@@ -22,6 +22,6 @@ Only on NetApp can you standardize all your healthcare workloads for SAN, NAS, a
 
 A lot of storage vendors offer traditional, reliable, and fast block storage. They work well but are typically deployed in silos to run a single workload like production, report, clarity, VDI, VMWare, and NAS. Each of these silos have different hardware and different management tools, and they are typically managed by different IT groups. This traditional approach adds to the biggest problem with healthcare today.
 
-NetApp makes data management easier and more efficient. Instead of throwing money at the problem with oversized silos, ONTAP uses innovation and technology to enable a consistent and guaranteed SLA for each workload on a single platform over any protocol. These capabilities and tools extend out to the cloud of your choice as illustrated in Figure 3.
+NetApp makes data management easier and more efficient. Instead of throwing money at the problem with oversized silos, ONTAP uses innovation and technology to enable a consistent and guaranteed SLA for each workload on a single platform over any protocol. These capabilities and tools extend out to the cloud of your choice as illustrated below.
 
 image:epic-consolidation.png[Error: Missing Graphic Image]

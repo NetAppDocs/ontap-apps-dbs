@@ -2,10 +2,10 @@
 sidebar: sidebar
 permalink: epic/epic-example-luns.html
 keywords: epic,cache,iris
-summary: Epic on ONTAP is awesome
+summary: Epic on ONTAP example deployment - LUNs
 ---
 
-= >>> Level One Title
+= Epic on ONTAP example deployment - LUNs
 
 :hardbreaks:
 :nofooter:

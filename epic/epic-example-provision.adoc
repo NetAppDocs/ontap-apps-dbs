@@ -2,10 +2,10 @@
 sidebar: sidebar
 permalink: epic/epic-example-provision.html
 keywords: epic,cache,iris
-summary: Epic on ONTAP is awesome
+summary: Epic on ONTAP example deployment - aggregates
 ---
 
-= >>> Level One Title
+= Epic on ONTAP example deployment - aggregates
 
 :hardbreaks:
 :nofooter:
@@ -14,10 +14,6 @@ summary: Epic on ONTAP is awesome
 :imagesdir: ../media
 
 [.lead]
->>> Placeholder for descriptive lead sentence or paragraph
-
-= Provision aggregates
-
 To provision aggregates: https://docs.netapp.com/us-en/ontap-cli-9141//storage-aggregate-auto-provision.html
 
 Note: The default settings optimize performance and capacity. One large aggregate is created per node.

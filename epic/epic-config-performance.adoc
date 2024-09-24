@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: epic/epic-ontap-config-performance.html
+permalink: epic/epic-config-performance.html
 keywords: epic,cache,iris
 summary: Epic performance management
 ---

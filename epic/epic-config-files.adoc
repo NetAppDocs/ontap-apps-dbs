@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: epic/epic-ontap-config-files.html
+permalink: epic/epic-config-files.html
 keywords: epic,cache,iris
 summary: Epic and file protocols
 ---

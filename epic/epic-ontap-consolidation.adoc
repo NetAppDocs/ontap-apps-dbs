@@ -1,0 +1,21 @@
+---
+sidebar: sidebar
+permalink: epic/epic-ontap-consolidation.html
+keywords: epic,cache,iris
+summary: Epic on ONTAP consolidation
+---
+
+= Epic on ONTAP consolidation
+
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media
+
+[.lead]
+One of the major challenges in healthcare is the inefficiency of siloed environments. 
+
+Multiple point solutions are created by various groups that impedes progress. Having a unified strategy to data management brings efficiency to accelerate transformation. Disruptive technology like digitizing patient records, Ransomware, and generative AI all the drive the need for consolidation.
+
+With ONTAP you can consolidate file/block/object and each of your tier 0/1/2/3 workloads on premises and in the cloud today.

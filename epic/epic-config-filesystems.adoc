@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: epic/epic-config-filesystems.html
+permalink: epic/epic-filesystems.html
 keywords: epic,cache,iris
 summary: Epic on ONTAP example deployment - filesystems
 ---

@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: epic/epic-ontap-config-dp.html
+permalink: epic/epic-config-dp.html
 keywords: epic,cache,iris
 summary: Epic data protection
 ---

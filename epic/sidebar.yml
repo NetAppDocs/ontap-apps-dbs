@@ -17,6 +17,8 @@ entries:
         url: /epic/epic-ontap-performance.html
       - title: Scaling
         url: /epic/epic-ontap-scalability.html
+      - title: Snapshots and Cloning
+        url: /epic/epic-ontap-snapshots.html
       - title: Security
         url: /epic/epic-ontap-security.html
   - title: Epic Architecture and Design
@@ -37,18 +39,16 @@ entries:
     entries:
     - title: LUN and volume configuration
       url: /epic/epic-config-lunvol.html
-    - title: Mount options
-      url: /epic/epic-filesystems.html
     - title: NAS Considerations
       url: /epic/epic-config-files.html
     - title: Performance
       url: /epic/epic-config-performance.html
     - title: Protocols
       url: /epic/epic-config-protocols.html
-    - title: Snapshot, clones, and consistency groups
-      url: /epic/epic-config-dp.html
     - title: Storage efficiency
       url: /epic/epic-config-efficiency.html
+    - title: Consistency groups
+      url: /epic/epic-config-cgs.html
     - title: Storage sizing
       url: /epic/epic-config-sizing.html
   - title: Deployment example
@@ -69,5 +69,7 @@ entries:
       url: /epic/epic-example-luns.html
     - title: Presentation
       url: /epic/epic-example-platforms.html
+    - title: Filesystems
+      url: /epic/epic-example-filesystems.html
   - title: Where to find additional information
     url: /epic/epic-additional-info.html

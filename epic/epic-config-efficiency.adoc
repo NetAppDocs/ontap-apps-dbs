@@ -29,18 +29,6 @@ The following features make this storage efficiency possible:
 
 * Inline compaction takes 4k blocks that are less than half full and combines them into a single block. This recommended option is on by default.
 
-== Operational efficiencies
-
-* NetApp snapshots and FlexClone volumes. A snapshot is a point-in-time backup of a volume that is read-only. A snapshot puts a lock on all the blocks in the active file system at that point in time. Snapshot copies are near instant, and they do not use any additional storage. WAFL is a write-only file system; it does not do copy on writes. No data is ever moved; therefore, snapshots copies have zero effect on storage capacity or performance. Snapshots provide tremendous savings in storage while augmenting the backup solution.
-
-A FlexClone volume is a readable and writable snapshot – it can write data to new, available, empty blocks. Epic requires 10 to 30 copies of the production databases for various operational requirements such as streaming backups, integrity checks, and staging upgrade environments. The need for a solution built on FlexClone volumes has increased with the moves to more frequent upgrades.
-
-Note: A fully automated Epic backup solution and Epic refresh solution are provided by NetApp as part of the solution using Ansible and native NetApp tools.
-
 * Thin replication is at the center of the NetApp data protection software portfolio, which includes NetApp SnapMirror and NetApp SnapVault software. SnapVault thin replication enables more frequent backups that use less storage capacity because no redundant data is moved or stored. SnapMirror thin replication protects business-critical data while minimizing storage capacity requirements. NetApp recommends turning on this option.
 
 * Aggregate deduplication. Deduplication has always been at the volume level. With ONTAP 9.2, aggregate deduplication became available, providing additional disk reduction savings. Postprocess aggregate deduplication was added with ONTAP 9.3. NetApp recommends turning on this option.
-
-== Best practice
-
-NetApp recommends using clones to refresh each of the full copy test environments.

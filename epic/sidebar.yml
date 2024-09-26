@@ -39,7 +39,7 @@ entries:
     entries:
     - title: LUN and volume configuration
       url: /epic/epic-config-lunvol.html
-    - title: NAS Considerations
+    - title: File services
       url: /epic/epic-config-files.html
     - title: Performance
       url: /epic/epic-config-performance.html
@@ -53,7 +53,7 @@ entries:
       url: /epic/epic-config-sizing.html
   - title: Deployment example
     entries: 
-    - title: Sample Epic deployment
+    - title: Overview
       url: /epic/epic-example-overview.html
     - title: Install Host Utilities
       url: /epic/epic-example-huk.html

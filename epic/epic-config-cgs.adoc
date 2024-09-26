@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: epic/epic-ontap-cgs.html
+permalink: epic/epic-config-cgs.html
 keywords: epic,cache,iris
 summary: Epic storage snapshots configuration
 ---

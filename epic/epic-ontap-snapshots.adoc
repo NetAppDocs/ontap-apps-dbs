@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: epic/epic-ontap-snapshots.html
 keywords: epic,cache,iris
-summary: Epic storage snapshots configuration
+summary: Epic snapshots and cloning
 ---
 
 = Epic storage efficiency configuration
@@ -14,75 +14,10 @@ summary: Epic storage snapshots configuration
 :imagesdir: ../media
 
 [.lead]
-ONTAP inline efficiencies are on by default and work regardless of storage protocol, application, or storage tier. 
+A snapshot is a point-in-time backup of a volume that is read-only. 
 
-Efficiencies reduce the amount of data written to expensive flash disk and reduce the number of disks required. ONTAP preserves efficiencies with replication. Each of the efficiencies has little to no effect on performance, even for a latency-sensitive application like Epic.
-
-To maximize disk utilization, NetApp recommends turning on all efficiency settings. These settings are on by default. 
-Inline efficiencies
-
-The following features make this storage efficiency possible:
-
-* Deduplication saves space on primary storage by removing redundant copies of blocks in a volume that hosts LUNs. This recommended option is on by default. 
-
-* Inline compression reduces the amount of data to be written to disk, and a considerable savings in space is realized with Epic workloads. This recommended option is on by default.
-
-* Inline compaction takes 4k blocks that are less than half full and combines them into a single block. This recommended option is on by default.
-
-== Operational efficiencies
-
-* NetApp snapshots and FlexClone volumes. A snapshot is a point-in-time backup of a volume that is read-only. A snapshot puts a lock on all the blocks in the active file system at that point in time. Snapshot copies are near instant, and they do not use any additional storage. WAFL is a write-only file system; it does not do copy on writes. No data is ever moved; therefore, snapshots copies have zero effect on storage capacity or performance. Snapshots provide tremendous savings in storage while augmenting the backup solution.
+A snapshot puts a lock on all the blocks in the active file system at that point in time. Snapshot copies are near instant, and they do not use any additional storage. WAFL is a write-only file system; it does not do copy on writes. No data is ever moved; therefore, snapshots copies have zero effect on storage capacity or performance. Snapshots provide tremendous savings in storage while augmenting the backup solution.
 
 A FlexClone volume is a readable and writable snapshot – it can write data to new, available, empty blocks. Epic requires 10 to 30 copies of the production databases for various operational requirements such as streaming backups, integrity checks, and staging upgrade environments. The need for a solution built on FlexClone volumes has increased with the moves to more frequent upgrades.
 
 Note: A fully automated Epic backup solution and Epic refresh solution are provided by NetApp as part of the solution using Ansible and native NetApp tools.
-
-* Thin replication is at the center of the NetApp data protection software portfolio, which includes NetApp SnapMirror and NetApp SnapVault software. SnapVault thin replication enables more frequent backups that use less storage capacity because no redundant data is moved or stored. SnapMirror thin replication protects business-critical data while minimizing storage capacity requirements. NetApp recommends turning on this option.
-
-* Aggregate deduplication. Deduplication has always been at the volume level. With ONTAP 9.2, aggregate deduplication became available, providing additional disk reduction savings. Postprocess aggregate deduplication was added with ONTAP 9.3. NetApp recommends turning on this option.
-
-== Data management
-
-As part of the solution, NetApp delivers a fully automated backup and test refresh solution by using native ONTAP tools. This solution was designed to simplify Epic data management specifically for the large community of Epic database administrators (DBAs):
-
-* Epic Mirror is used to replicate data to disaster recovery and Report (indicated with green).
-
-* Daily data dumps from Report to Clarity. 
-
-* NetApp automated backups (indicated with yellow).
-
-* NetApp automated test refresh of SUP, REP, and other (indicated with blue).
-
-* The test environments are for full-copy environments, not smaller squash copies.
-
-For more information, reach out to NetApp Services for Epic applications.
-
-Applications with storage spread across more than one volume with one or more LUNs of appropriate quantities for the workload need the contents to be backed up together ensuring consistent data protection require CGs.
-
-Consistency Groups (CGs for short) provide this capability and more. They can be used nightly to create on-demand or scheduled consistent snapshots using a policy. You can use this to restore, clone and even replicate data.
-
-For additional information on CGs please refer to: 
-
-https://docs.netapp.com/us-en/ontap/consistency-groups/
-
-Configuring Consistency Groups for Epic 
-
-Once the volumes and LUNs are provisioned as detailed in the previous sections of this document, they can then be configured into a set of CGs. The recommended best practice is to set them up as depicted in the picture below:
-
-image:epic-cg-layout.png[]
-
-== Consistency Group snapshots
-
-A nightly CG snapshot schedule should be set on each of the child-CGs associated with the volumes providing storage for the production database. This will result in a fresh set of consistent backups of these CGs every night. These can then be used for cloning the production database for use in non-production environments such as development and test. NetApp has developed proprietary CG based automated Ansible workflows for Epic to automate the backup of production databases, the refresh and test environments too.
-
-CG snapshots can be used to support the restore operations of Epic’s production database.
-
-For SAN volumes, disable the default snapshot policy on each volume being used for CGs. These snapshots are typically managed by the backup application being used or NetApp’s Epic Ansible automation service. 
-
-For SAN volumes, disable the default snapshot policy on each volume. These snapshots are typically managed by a backup application or by Epic Ansible automation.[NS2]
-
-WebBLOB and VMWare datasets should be configured as just volumes, not associated with CGs.  You can use SnapMirror or SnapVault technology to maintain their Snapshot copies on storage systems separate from production.
-
-When complete, the configuration would look as follows:
-
-image:epic-cg-snapshots.png[]

@@ -51,25 +51,5 @@ entries:
       url: /epic/epic-config-cgs.html
     - title: Storage sizing
       url: /epic/epic-config-sizing.html
-  - title: Deployment example
-    entries: 
-    - title: Overview
-      url: /epic/epic-example-overview.html
-    - title: Install Host Utilities
-      url: /epic/epic-example-huk.html
-    - title: Provision aggregates
-      url: /epic/epic-example-provision.html
-    - title: Set up the SVM
-      url: /epic/epic-example-svm.html
-    - title: Create FCP data LIFs
-      url: /epic/epic-example-protocol.html
-    - title: Create volumes 
-      url: /epic/epic-example-volumes.html
-    - title: Create LUN
-      url: /epic/epic-example-luns.html
-    - title: Presentation
-      url: /epic/epic-example-platforms.html
-    - title: Filesystems
-      url: /epic/epic-example-filesystems.html
   - title: Where to find additional information
     url: /epic/epic-additional-info.html

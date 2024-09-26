@@ -14,14 +14,10 @@ summary: Epic on ONTAP example deployment - FCP protocol
 :imagesdir: ../media
 
 [.lead]
-To create FCP data LIFs: https://docs.netapp.com/us-en/ontap-cli-9141//network-interface-create.html#description
+Once the SVM has been created, you need to add protocols to it.
 
-== Start FCP on the SVM
+To create FCP data LIFs, click link:https://docs.netapp.com/us-en/ontap/san-admin/configure-svm-fc-task.html[here].
 
-To start FCP on the SVM: https://docs.netapp.com/us-en/ontap-cli-9141//vserver-fcp-start.html
+Initiator groups are used to allow server access to LUNs. To create an igroup, click link:https://docs.netapp.com/us-en/ontap/san-admin/manage-san-initiators-task.html#view-manage-san-igroups[here].
 
-== Create igroup
 
-Initiator groups are used to allow server access to LUNs. To create an igroup: https://docs.netapp.com/us-en/ontap-cli-9141//lun-igroup-create.html
-
-Note: This example is a 4-node VMWare cluster and includes all the initiator WWPN for each server in the cluster.

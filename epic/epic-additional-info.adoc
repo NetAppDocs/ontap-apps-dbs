@@ -36,34 +36,6 @@ https://www.netapp.com/us/documentation/ontap-and-oncommand-system-manager.aspx
 
 https://fieldportal.netapp.com/content/192412?assetComponentId=192510 
 
-* TR-4684: Implementing and Configuring Modern SANs with NVMe/FC 
-
-https://fieldportal.netapp.com/content/752801?assetComponentId=754285 
-
-* TR-4080: Best Practices for Modern SAN and ONTAP 9 (NetApp login required)
-
-https://fieldportal.netapp.com/content/196096?assetComponentId=196194 
-
-* TR-4379: Name Services Best Practice Guide (NetApp login required)
-
-https://fieldportal.netapp.com/content/204182?assetComponentId=204280 
-
-* TR-4707: FlexPod for Epic Directional Sizing Guide (NetApp login require)
-
-https://fieldportal.netapp.com/content/766548?assetComponentId=768086 
-
-* TR-4784: FlexPod for Epic Performance Testing
-
-https://fieldportal.netapp.com/content/898523?assetComponentId=900376 
-
-* Collection: ONTAP 9 Technical Collateral
-
-https://fieldportal.netapp.com/collections/616108?assetComponentId=617277 
-
-* Collection: AFF Technical Collateral (NetApp login required) 
-
-https://fieldportal.netapp.com/collections/500339?assetComponentId=501077 
-
 Epic Customer Guidance documents
 
 Epic provides customers the following documents to its customers for guidance on server, storage, and network. These documents are referenced in this technical report.
@@ -82,4 +54,3 @@ Epic provides customers the following documents to its customers for guidance on
 
 * Database Storage Layout Recommendations (customer-specific)
 
-NetApp Support tools and services

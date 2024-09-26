@@ -17,3 +17,5 @@ summary: Epic on ONTAP - protocols
 FCP is the preferred protocol for presenting LUNs. NetApp recommends single initiator zoning: one initiator per zone with all the required target ports on storage using worldwide port names (WWPNs).
 
 After the LUN is created, map the LUN to the initiator group (igroup) containing the WWPNs of the host to enable access.
+
+NetApp also supports using NVMe/FC (if you have versions of AIX and RHEL operating systems that are capable) and enhances the performance. FCP and NVMe/FC can coexist on the same fabric.

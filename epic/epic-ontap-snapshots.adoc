@@ -20,8 +20,14 @@ A snapshot puts a logical lock on all the blocks in the active file system. Snap
 
 WAFL is a write-only file system; it does not perform additional IO, such as copying the data in a snapshot-protected block before being overwritten. No data is ever moved; therefore, snapshots have no effect on storage capacity or performance. Snapshots provide tremendous savings in storage while augmenting the backup solution.
 
-A FlexClone volume is a readable and writable snapshot. As with snapshots, a FlexClone does not require any additional space at creation time. Only changes to the FlexClone require additional capacity. 
+== FlexClone
+
+A FlexClone volume is a clone of an existing volume or a snapshot of an existing volume. It is otherwise an ONTAP volume like any other, and can itself be cloned, protected with snapshots, and configured with a QoS policy.
+
+As with snapshots, a clone does not require any additional space at creation time. Only changes to the clone require additional capacity. 
 
 Epic requires 10 to 30 copies of the production databases for various operational requirements such as streaming backups, integrity checks, and staging upgrade environments. The need for a solution built on FlexClone volumes has increased with the move to more frequent upgrades.
 
-Note: A fully automated Epic backup solution and Epic refresh solution are provided by NetApp as part of the solution using Ansible and native NetApp tools.
+[NOTE]
+
+A fully automated Epic backup solution and Epic refresh solution are provided by NetApp as part of the solution using Ansible and native NetApp tools.

@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: epic/epic-example-huk.html
+permalink: epic/epic-config-huk.html
 keywords: epic,cache,iris
 summary: Epic on ONTAP - Host Utilities
 ---

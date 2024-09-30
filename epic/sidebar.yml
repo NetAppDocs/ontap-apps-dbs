@@ -37,6 +37,8 @@ entries:
       url: /epic/epic-arch-8node.html
   - title: Configuration and Best Practices
     entries:
+    - title: Host Utilities
+      url: /epic/epic-config-huk.html
     - title: LUN and volume configuration
       url: /epic/epic-config-lunvol.html
     - title: File services

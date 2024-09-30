@@ -16,8 +16,12 @@ summary: Epic snapshots and cloning
 [.lead]
 A snapshot is a point-in-time backup of a volume that is read-only. 
 
-A snapshot puts a lock on all the blocks in the active file system at that point in time. Snapshot copies are near instant, and they do not use any additional storage. WAFL is a write-only file system; it does not do copy on writes. No data is ever moved; therefore, snapshots copies have zero effect on storage capacity or performance. Snapshots provide tremendous savings in storage while augmenting the backup solution.
+A snapshot puts a logical lock on all the blocks in the active file system. Snapshot copies are near instant, and they do not use any additional storage.
 
-A FlexClone volume is a readable and writable snapshot – it can write data to new, available, empty blocks. Epic requires 10 to 30 copies of the production databases for various operational requirements such as streaming backups, integrity checks, and staging upgrade environments. The need for a solution built on FlexClone volumes has increased with the moves to more frequent upgrades.
+WAFL is a write-only file system; it does not perform additional IO, such as copying the data in a snapshot-protected block before being overwritten. No data is ever moved; therefore, snapshots have no effect on storage capacity or performance. Snapshots provide tremendous savings in storage while augmenting the backup solution.
+
+A FlexClone volume is a readable and writable snapshot. As with snapshots, a FlexClone does not require any additional space at creation time. Only changes to the FlexClone require additional capacity. 
+
+Epic requires 10 to 30 copies of the production databases for various operational requirements such as streaming backups, integrity checks, and staging upgrade environments. The need for a solution built on FlexClone volumes has increased with the move to more frequent upgrades.
 
 Note: A fully automated Epic backup solution and Epic refresh solution are provided by NetApp as part of the solution using Ansible and native NetApp tools.

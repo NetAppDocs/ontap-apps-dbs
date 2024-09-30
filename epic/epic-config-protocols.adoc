@@ -14,7 +14,7 @@ summary: Epic on ONTAP - protocols
 :imagesdir: ../media
 
 [.lead]
-FCP is the preferred protocol for presenting LUNs. NetApp recommends single initiator zoning: one initiator per zone with all the required target ports on storage using worldwide port names (WWPNs).
+FCP is the preferred protocol for presenting LUNs. NetApp recommends single initiator zoning: one initiator per zone with all the required target ports on storage using worldwide port names (WWPNs). The presence of more than one initiator in a single zone is likely to lead to intermittent HBA crosstalk, which causes significant disruption. 
 
 After the LUN is created, map the LUN to the initiator group (igroup) containing the WWPNs of the host to enable access.
 

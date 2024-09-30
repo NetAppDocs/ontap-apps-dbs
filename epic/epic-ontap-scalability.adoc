@@ -14,16 +14,14 @@ summary: Epic on ONTAP scalability
 :imagesdir: ../media
 
 [.lead]
-The Epic Hardware Configuration Guide accounts for ~20% growth per year and it is sized to accommodate 3 years of growth. However, environments grow frequently and unexpectedly.
+The Epic Hardware Configuration Guide accounts for ~20% growth per year for 3 years. However, environments can also grow unexpectedly.
 
 NetApp can seamlessly scale performance and capacity up to 12 nodes for NAS, SAN, and Object clusters. As a result, you can nondisruptively scale up and out as your business grows.
 
-Epic Iris brings added scaling capabilities. It enables larger customers that have multiple Epic instances to consolidate to a single instance. The recent NetApp Verified Architecture Epic on Modern SAN document demonstrates that Epic can seamlessly scale consolidated workloads to 720K IOPS on an single HA and scale out to over 4M IOPS in a cluster.
-
-You can scale up nondisruptively by upgrading controllers or adding disks. You can also scale out nondisruptively by adding HA pairs to the cluster. 
+Epic Iris brings added scaling capabilities. It enables larger customers that have multiple Epic instances to consolidate to a single instance. The recent NetApp Verified Architecture Epic on Modern SAN document demonstrates that Epic can seamlessly scale consolidated workloads to 720K IOPS on an single HA and scale out to over 4M IOPS in a cluster. You can scale up nondisruptively by upgrading controllers or adding disks to existing clusters.
 
 NAS, SAN, and Object data also has the ability to be moved nondisruptively between nodes in the cluster. Each HA pair in the cluster can be any combination of ONTAP FAS and AFF system types and sizes. You can balance your workloads across a single cluster to maximize your storage investment.
 
-ONTAP provides the option to use object storage on StorageGrid or the cloud as a backup target and/or automatic cold storage tiering target. This capability enables you to free up expensive, all-flash disks, tier snapshots, and cold data automatically to Object.
+ONTAP also provides the option to use object storage on StorageGrid or the cloud as a backup target and/or automatic cold storage tiering target. This capability enables you to free up expensive, all-flash disks, tier snapshots, and cold data automatically to Object.
 
-The result is that Epic simply runs better with the NetApp product portfolio, leveraging ONTAP, multiple protocols, StorageGrid®, and the cloud of your choice. These products provide options for disaster recovery, archiving, analytics, tiering, and more.
+The result is that Epic simply runs better with the NetApp product portfolio, leveraging ONTAP, multiple protocols, StorageGrid, and the cloud of your choice. These products provide options for disaster recovery, archiving, analytics, tiering, and more.

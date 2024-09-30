@@ -26,4 +26,4 @@ It is important to note that this is only a starting point only. You should work
 
 * Large Epic architecture with an Epic database from greater than 50TB
 
-image:epic-sizing-overview.png[]
+image:epic-sizing.png[]

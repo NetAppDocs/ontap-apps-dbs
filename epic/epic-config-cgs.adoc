@@ -14,22 +14,6 @@ summary: Epic storage snapshots configuration
 :imagesdir: ../media
 
 [.lead]
-As part of the solution, NetApp delivers a fully automated backup and test refresh solution by using native ONTAP tools. 
-
-This solution was designed to simplify Epic data management specifically for the large community of Epic database administrators (DBAs):
-
-* Epic Mirror is used to replicate data to disaster recovery and Report (indicated with green).
-
-* Daily data dumps from Report to Clarity. 
-
-* NetApp automated backups (indicated with yellow).
-
-* NetApp automated test refresh of SUP, REP, and other (indicated with blue).
-
-* The test environments are for full-copy environments, not smaller squash copies.
-
-For more information, reach out to NetApp Services for Epic applications.
-
 Applications with storage spread across more than one volume with one or more LUNs of appropriate quantities for the workload need the contents to be backed up together ensuring consistent data protection require CGs.
 
 Consistency Groups (CGs for short) provide this capability and more. They can be used nightly to create on-demand or scheduled consistent snapshots using a policy. You can use this to restore, clone and even replicate data.
@@ -37,8 +21,6 @@ Consistency Groups (CGs for short) provide this capability and more. They can be
 For additional information on CGs please refer to: 
 
 https://docs.netapp.com/us-en/ontap/consistency-groups/
-
-Configuring Consistency Groups for Epic 
 
 Once the volumes and LUNs are provisioned as detailed in the previous sections of this document, they can then be configured into a set of CGs. The recommended best practice is to set them up as depicted in the picture below:
 

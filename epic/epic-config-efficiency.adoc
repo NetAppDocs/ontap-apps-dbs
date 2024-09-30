@@ -16,10 +16,9 @@ summary: Epic storage efficiency configuration
 [.lead]
 ONTAP inline efficiencies are on by default and work regardless of storage protocol, application, or storage tier. 
 
-Efficiencies reduce the amount of data written to expensive flash disk and reduce the number of disks required. ONTAP preserves efficiencies with replication. Each of the efficiencies has little to no effect on performance, even for a latency-sensitive application like Epic.
+Efficiencies reduce the amount of data written to expensive flash storage and reduce the number of drives required. ONTAP preserves efficiency with replication. Each of the efficiencies has little to no effect on performance, even for a latency-sensitive application like Epic.
 
 To maximize disk utilization, NetApp recommends turning on all efficiency settings. These settings are on by default. 
-Inline efficiencies
 
 The following features make this storage efficiency possible:
 

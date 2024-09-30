@@ -9,7 +9,7 @@ summary: Provision ONTAP storage for Windows and Hyper-V in SAN Environments
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 ONTAP SVMs support the block protocols iSCSI and FC. When an SVM is created with block protocol iSCSI or FC, the SVM gets either an iSCSI Qualified Name (IQN) or an FC worldwide name (WWN), respectively. This identifier presents a SCSI target to hosts that access NetApp block storage.

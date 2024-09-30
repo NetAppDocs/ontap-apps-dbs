@@ -9,7 +9,7 @@ summary: Learn how to deploy and configure Hyper-V replica with Windows Server F
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 Learn how to deploy and configure Hyper-V replica with Windows Server Failover Cluster.

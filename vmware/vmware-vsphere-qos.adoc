@@ -30,8 +30,6 @@ The following tools are currently available for managing ONTAP QoS policies and 
 * NetApp PowerShell Toolkit for ONTAP
 * ONTAP tools for VMware vSphere VASA Provider
 
-
-
 To assign a QoS policy to a LUN, including VMFS and RDM, the ONTAP SVM (displayed as Vserver), LUN path, and serial number can be obtained from the Storage Systems menu on the ONTAP tools for VMware vSphere home page. Select the storage system (SVM),  and then Related Objects > SAN.  Use this approach when specifying QoS using one of the ONTAP tools.
 
 Refer to link:https://docs.netapp.com/us-en/ontap/performance-admin/index.html[Performance monitoring and management overview] for more information.
@@ -44,7 +42,9 @@ An ONTAP QoS policy can be applied to the entire datastore or individual VMDK fi
 * The same host (esxi-01) is using vm2.vmdk and it is on the same volume.
 * If vm1.vmdk gets throttled, then vm2.vmdk will also appear to be throttled since it shares the same IO queue with vm1.vmdk.
 
-*Note:* This does not apply to vVols.
+[NOTE]
+
+This does not apply to vVols.
 
 Beginning in vSphere 6.5 you can manage file-granular limits on non-vVols datastores by leveraging Storage Policy-Based Management (SPBM) with Storage I/O Control (SIOC) v2.
 
@@ -69,7 +69,9 @@ Minimum and/or maximum QoS can be easily set on individual VMs or VMDKs without 
 
 When creating the storage capability profile for the vVol container, specify a max and/or min IOPS value under the performance capability and then reference this SCP with the VM's storage policy. Use this policy when creating the VM or apply the policy to an existing VM.
 
-*Note:* vVols requires the use ONTAP tools for VMware vSphere which functions as the VASA Provider for ONTAP. Refer to link:/vmware/vmware-vvols-overview.html[VMware vSphere Virtual Volumes (vVols) with ONTAP] for vVols best practices.
+[NOTE]
+
+vVols requires the use ONTAP tools for VMware vSphere which functions as the VASA Provider for ONTAP. Refer to link:/vmware/vmware-vvols-overview.html[VMware vSphere Virtual Volumes (vVols) with ONTAP] for vVols best practices.
 
 == ONTAP QoS and VMware SIOC
 

@@ -28,8 +28,12 @@ When calculating storage efficiency, it is important to measure raw to usable to
 
 The figure below is a sample efficiency calculation of a typical Epic deployment including all workloads requiring 852TB of effective storage and with 5.2:1 efficiency delivering 1.32PB of total effective data. 
 
-Note: Based on the number of disks, raw-to-usable capacity varies slightly.
+[NOTE]
+
+ Based on the number of disks, raw-to-usable capacity varies slightly.
 
 image:epic-efficiency.png[Epic storage efficiency]
 
-Note: NetApp does not use NetApp Snapshot™ technology or thin provisioning to calculate efficiency in the guarantee program. Doing so would show unrealistic efficiencies of 30–100:1, which do not mean anything when sizing real-world storage capacity.
+[NOTE]
+
+ NetApp does not use NetApp Snapshot™ technology or thin provisioning to calculate efficiency in the guarantee program. Doing so would show unrealistic efficiencies of 30–100:1, which do not mean anything when sizing real-world storage capacity.

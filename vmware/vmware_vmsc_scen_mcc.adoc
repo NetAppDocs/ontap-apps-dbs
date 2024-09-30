@@ -18,7 +18,9 @@ The following sections outline the expected results from various failure scenari
 
 In this scenario, if components such as the HBA port, the network port, the front-end data switch port, or an FC or Ethernet cable fails, that particular path to the storage device is marked as dead by the ESXi host. If several paths are configured for the storage device by providing resiliency at the HBA/network/switch port, ESXi ideally performs a path switchover. During this period, virtual machines remain running without getting affected, because availability to the storage is taken care of by providing multiple paths to the storage device.
 
-*Note:* There is no change in MetroCluster behavior in this scenario, and all the datastores continue to be intact from their respective sites.
+[NOTE]
+
+There is no change in MetroCluster behavior in this scenario, and all the datastores continue to be intact from their respective sites.
 
 === _Best Practice_
 In environments in which NFS/iSCSI volumes are used, NetApp recommends having at least two network uplinks configured for the NFS vmkernel port in the standard vSwitch and the same at the port group where the NFS vmkernel interface is mapped for the distributed vSwitch. NIC teaming can be configured in either active-active or active-standby.
@@ -56,7 +58,9 @@ In this scenario, there is a failure of more than two disks or an entire shelf. 
 
 image::../media/vmsc_5_3.png[A single disk shelf failure.,width=624,height=576]
 
-*Note:* During this period, there is no impact on the virtual machine I/O operations, but there is degraded performance because the data is being accessed from the remote disk shelf through ISL links.
+*[NOTE]
+
+* During this period, there is no impact on the virtual machine I/O operations, but there is degraded performance because the data is being accessed from the remote disk shelf through ISL links.
 
 == Single Storage Controller Failure
 
@@ -74,7 +78,9 @@ image::../media/vmsc_5_5.png[Interswitch link failure at the management network,
 
 In this scenario, if the ISL links at the front-end host management network fail, the ESXi hosts at site A will not be able to communicate with ESXi hosts at site B. This will lead to a network partition because ESXi hosts at a particular site will be unable to send the network heartbeats to the master node in the HA cluster. As such, there will be two network segments because of partition and there will be a master node in each segment that will protect VMs from host failures within the particular site.
 
-*Note:* During this period, the virtual machines remain running and there is no change in the MetroCluster behavior in this scenario. All the datastores continue to be intact from their respective sites.
+[NOTE]
+
+During this period, the virtual machines remain running and there is no change in the MetroCluster behavior in this scenario. All the datastores continue to be intact from their respective sites.
 
 === Interswitch Link Failure at Storage Network
 
@@ -122,7 +128,9 @@ In a complete site A failure scenario, the ESXi hosts at site B will not get the
 
 If the vSphere HA master agent’s attempt to restart a VM (which involves registering it and powering it on) fails, the restart is retried after a delay. The delay between restarts can be configured to up to a maximum of 30 minutes. vSphere HA attempts these restarts for a maximum number of attempts (six attempts by default).
 
-*Note:* The HA master does not begin the restart attempts until the placement manager finds suitable storage, so in the case of a complete site failure, that would be after the switchover has been performed.
+[NOTE]
+
+The HA master does not begin the restart attempts until the placement manager finds suitable storage, so in the case of a complete site failure, that would be after the switchover has been performed.
 
 If site A has been switched over, a subsequent failure of one of the surviving site B nodes can be seamlessly handled by failover to the surviving node. In this case, the work of four nodes is now being performed by only one node. Recovery in this case would consist of performing a giveback to the local node. Then, when site A is restored, a switchback operation is performed to restore steady state operation of the configuration.
 

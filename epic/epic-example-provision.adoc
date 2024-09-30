@@ -16,4 +16,6 @@ summary: Epic on ONTAP example deployment - aggregates
 [.lead]
 For the latest documentation on provisioning aggregates, click link:https://docs.netapp.com/us-en/ontap/disks-aggregates/manage-local-tiers-overview-concept.html[here]
 
-Note: The default settings optimize performance and capacity. One large aggregate is created per node.
+[NOTE]
+
+ The default settings optimize performance and capacity. One large aggregate is created per node.

@@ -11,7 +11,7 @@ summary: Epic on ONTAP example deployment - filesystems
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 For information about mounting LUNs, creating volume groups and logical volumes, and configuring the file systems, see the Epic Storage Configuration Quick Reference Guide. Use the following sample commands to set up Epic Production servers for RHEL.

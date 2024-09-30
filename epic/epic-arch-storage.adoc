@@ -11,7 +11,7 @@ summary: Epic storage requirements
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 Dedicated storage resources are generally provided for the production database, whereas mirror database instances share secondary storage resources with other Epic software-related components, such as the Clarity reporting tools.

@@ -11,7 +11,7 @@ summary: Epic on ONTAP example deployment - aggregates
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 For the latest documentation on provisioning aggregates, click link:https://docs.netapp.com/us-en/ontap/disks-aggregates/manage-local-tiers-overview-concept.html[here]

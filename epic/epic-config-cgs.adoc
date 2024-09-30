@@ -11,7 +11,7 @@ summary: Epic storage snapshots configuration
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 Applications with storage spread across more than one volume with one or more LUNs of appropriate quantities for the workload need the contents to be backed up together ensuring consistent data protection require CGs.
@@ -24,7 +24,7 @@ https://docs.netapp.com/us-en/ontap/consistency-groups/
 
 Once the volumes and LUNs are provisioned as detailed in the previous sections of this document, they can then be configured into a set of CGs. The recommended best practice is to set them up as depicted in the picture below:
 
-image:epic-cg-layout.png[]
+image:epic-cg-layout.png[Epic Consistency Group layout]
 
 == Consistency Group snapshots
 
@@ -40,4 +40,4 @@ WebBLOB and VMWare datasets should be configured as just volumes, not associated
 
 When complete, the configuration would look as follows:
 
-image:epic-cg-snapshots.png[]
+image:epic-cg-snapshots.png[Epic with CG snapshots]

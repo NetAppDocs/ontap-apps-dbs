@@ -11,7 +11,7 @@ summary: Epic on ONTAP example deployment - Host Utilities
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 This section describes host integration for various operating systems. Use the NetApp Interoperability Matrix Tool (IMT) to validate all versions of software and firmware.

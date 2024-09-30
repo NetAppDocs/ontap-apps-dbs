@@ -11,7 +11,7 @@ summary: Epic on ONTAP security
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 Security is the number one concern for organizations and healthcare executives today. It has never been more difficult to manage, and organizations are challenged with compliance, data governance, antivirus protection, and ransomware.

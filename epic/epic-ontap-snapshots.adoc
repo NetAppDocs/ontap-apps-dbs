@@ -11,7 +11,7 @@ summary: Epic snapshots and cloning
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 A snapshot is a point-in-time backup of a volume that is read-only. 

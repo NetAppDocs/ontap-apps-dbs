@@ -11,7 +11,7 @@ summary: Epic on ONTAP availability
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 At the core of ONTAP are nondisruptive operations that enable you to avoid costly interruption to business operations.

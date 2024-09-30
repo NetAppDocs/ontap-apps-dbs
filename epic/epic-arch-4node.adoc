@@ -11,7 +11,7 @@ summary: Epic four-node architecture
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 The figures below show the storage layout for a four-node architecture: an HA pair in production and an HA pair in disaster recovery. The size of the controllers and number of disks are based on the latter sizing image. 
@@ -22,8 +22,8 @@ Test full copy environments (such as SUP, REL, and PJX) are cloned from either E
 
 == Four-node architecture.
 
-image:epic-4node.png[]
+image:epic-4node.png[Epic 4-node architecture]
 
 == Four-node workload placement
 
-image:epic-4node-design.png[]
+image:epic-4node-design.png[Epic 4-node placement]

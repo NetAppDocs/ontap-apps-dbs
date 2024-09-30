@@ -11,7 +11,7 @@ summary: Epic LUN and volume configuration
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 The Epic Database Storage Layout Recommendations document provides guidance on the size and number of LUNs for each database.
@@ -28,19 +28,19 @@ If more storage is required by the server, the easiest option is to grow the LUN
 
 == Volume and 8-LUN layout.
 
-image:epic-8lun.png[]
+image:epic-8lun.png[Epic 8-LUN layout]
 
 == Volume and 16-LUN layout.
 
-image:epic-16lun.png[]
+image:epic-16lun.png[Epic 16-LUN layout]
 
 == Volume and 24-LUN layout.
 
-image:epic-24lun.png[]
+image:epic-24lun.png[Epic 24-LUN layout]
 
 ==Volume and 32-LUN layout.
 
-image:epic-32lun.png[]
+image:epic-32lun.png[Epic 32-LUN layout]
 
 Best practices
 

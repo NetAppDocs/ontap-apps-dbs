@@ -11,7 +11,7 @@ summary: Epic on ONTAP scalability
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 The Epic Hardware Configuration Guide accounts for ~20% growth per year for 3 years. However, environments can also grow unexpectedly.

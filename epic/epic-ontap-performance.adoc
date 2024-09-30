@@ -11,7 +11,7 @@ summary: Epic on ONTAP performance
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 ONTAP introduced flash technologies in 2009 and has supported SSDs since 2010. This long experience with flash storage allows NetApp to tune ONTAP features to optimize SSD performance and enhance flash media endurance while keeping the feature-rich capabilities of ONTAP.
@@ -36,4 +36,4 @@ When performance is paramount, NetApp also supports NVMe/FC, the next-generation
 
 As can be seen in the figure below, our GenIO testing achieved a much greater number of IOPS using NVMe/FC protocol versus the FC protocol. The NVMe/FC connected solution achieved over 700k IOPS before surpassing the 45-second write cycle threshold. By replacing SCSI commands with NVMe, you also significantly reduce the utilization on the host.
 
-image:epic-genio.png[]
+image:epic-genio.png[Epic GenIO graph]

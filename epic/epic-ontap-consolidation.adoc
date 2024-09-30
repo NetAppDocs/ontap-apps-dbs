@@ -11,7 +11,7 @@ summary: Epic on ONTAP consolidation
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 One of the major challenges in healthcare is the inefficiency of siloed environments. 

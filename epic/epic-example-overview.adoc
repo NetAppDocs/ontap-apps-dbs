@@ -11,7 +11,7 @@ summary: Epic on ONTAP example deployment
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 This section takes you through a complete advanced configuration of an ONTAP cluster, provisioning, and presenting storage to an Epic server.

@@ -11,7 +11,7 @@ summary: Epic on ONTAP example deployment - SVMs
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 NetApp virtualizes storage, and user access is provided by the SVM. 

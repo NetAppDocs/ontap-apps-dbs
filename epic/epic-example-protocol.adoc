@@ -11,7 +11,7 @@ summary: Epic on ONTAP example deployment - FCP protocol
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 Once the SVM has been created, you need to add protocols to it.

@@ -11,7 +11,7 @@ summary: Epic storage requirements
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 Dedicated storage resources are generally provided for the production database, whereas mirror database instances share secondary storage resources with other Epic software-related components, such as the Clarity reporting tools.
@@ -20,7 +20,7 @@ Other software storage environments, such as those used for application and syst
 
 Beyond sizing considerations, Epic has the following additional storage layout rules and key considerations: 
 
-* By year 2020, all operational database (ODB) workloads must be on all-flash arrays.
+* Since 2020, all operational database (ODB) workloads must be on all-flash arrays.
 
 * Epic recommends each pool of storage to be on separate physical hardware, including pool1, pool2, pool3, NAS1, and NAS2. 
 
@@ -34,7 +34,7 @@ Note: A node in a cluster can be considered as a pool of storage. With ONTAP 9.4
 
 3. Copies of the data
 
-Note: Customers who use NetApp SnapMirror or SnapVault to back up NetApp do not meet the 3-2-1 recommendations. ONTAP to ONTAP does not satisfy the “2” requirement above. You can use SnapMirror directly from ONTAP to object storage on-premises (through StorageGrid, for example) or to the cloud to meet Epic requirements.
+Note: Customers who use NetApp SnapMirror or SnapVault to back up NetApp do not meet the 3-2-1 recommendations. The reason is ONTAP to ONTAP does not satisfy the second requirement listed above. You can use SnapMirror directly from ONTAP to object storage on-premises (through StorageGrid, for example) or to the cloud to meet Epic requirements.
 
 For more information about storage mandates, see the following Epic guides available in Galaxy:
 

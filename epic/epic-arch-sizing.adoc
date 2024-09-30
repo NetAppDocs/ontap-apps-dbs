@@ -11,7 +11,7 @@ summary: Epic sizing
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 One of the key architecture considerations is the ODB database size. 
@@ -26,4 +26,4 @@ It is important to note that this is only a starting point only. You should work
 
 * Large Epic architecture with an Epic database from greater than 50TB
 
-image:epic-sizing-overview.png[]
+image:epic-sizing.png[Epic sizing guidance]

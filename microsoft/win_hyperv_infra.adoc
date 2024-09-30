@@ -9,7 +9,7 @@ summary: Hyper-V Storage Infrastructure with ONTAP
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 A Hyper-V storage infrastructure can be hosted on ONTAP storage systems. Storage for Hyper-V to store the VM files and its disks can be provided using NetApp LUNs or NetApp CIFS shares, as shown in the following figure.

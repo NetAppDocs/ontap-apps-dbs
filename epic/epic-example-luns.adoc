@@ -11,7 +11,7 @@ summary: Epic on ONTAP example deployment - LUNs
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 >>> Placeholder for descriptive lead sentence or paragraph

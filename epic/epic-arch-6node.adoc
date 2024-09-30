@@ -11,7 +11,7 @@ summary: Epic six-node architecture
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 Customers might want to start with a six-node design or seamlessly scale out from four to six nodes with growing demand. With scale-out, you can nondisruptively move workloads between nodes and rebalance across the cluster. 
@@ -20,8 +20,8 @@ This architecture offers the best performance and capacity balance on the cluste
 
 == Six-node architecture.
 
-image:epic-6node.png[]
+image:epic-6node.png[Epic 6-node architecture]
 
 == Six-node workload placement
 
-image:epic-6node-design.png[]
+image:epic-6node-design.png[Epic 6-node placement]

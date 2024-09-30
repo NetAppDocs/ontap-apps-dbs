@@ -11,11 +11,11 @@ summary: Epic on ONTAP example deployment - SVMs
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 NetApp virtualizes storage, and user access is provided by the SVM. 
 
 For Epic, there is an FCP SVM and an SMB SVM. Depending on how you want to manage your storage, and possibly multitenancy, you can use more SVMs. 
 
-To set up an SVM: https://docs.netapp.com/us-en/ontap/networking/create_svms.html
+To set up an SVM, click link:https://docs.netapp.com/us-en/ontap/networking/create_svms.html[here]

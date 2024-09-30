@@ -11,26 +11,26 @@ summary: Epic on ONTAP overview
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 The key to digital transformation is doing more with your data. 
 
 Hospitals require large amounts of data to start the journey of digital transformation. Part of the process of treating patients, managing staff schedules and medical resources is that information is collected and processed. However, many actions are still performed manually or through outdated systems. The one constant is that the amount of data continues to grow exponentially and thus, becomes increasingly difficult to manage.
 
-The major cause of this problem with hospitals is that data is often held in data silos. Too much time is spent on manual entries and updates which lead to burnout and errors. This document is about one part of healthcare data, specifically Epic Electronic Health Records (EHR). However, this data management strategy can and should be applied to all healthcare data. NetApp has a proven history of modernizing and simplifying digital infrastructure. Our intelligent data infrastructure forms the foundation of digital transformation. 
+The major cause of this problem is that hospital data is often stored in data silos. Too much time is spent on manual entries and updates which lead to burnout and errors. This document is about one part of healthcare data, Epic Electronic Health Records (EHR). However, the data management strategy covered here can and should be applied to all healthcare data. NetApp has a proven history of modernizing and simplifying digital infrastructure. Our intelligent data infrastructure forms the foundation of digital transformation. 
 
-NetApp offers a single data management solution for all healthcare needs, and we are able to guide hospitals through their journey toward digital transformation. Building a foundation with structure and smart solutions, healthcare can extract the full value of this precious information. This framework can help medical providers diagnose diseases faster and develop individualized treatment plans to better support decision-making processes in emergency situations. You will also be able to build your own data fabric and enable your hospital to unlock data silos, facilitate data interoperability, and protect sensitive patient information. 
+NetApp offers a single data management solution for all healthcare needs, and we are able to guide hospitals through their journey toward digital transformation. Building a foundation with structure and smart solutions, healthcare can extract the full value of this precious information. This framework can help medical providers diagnose diseases faster and develop individualized treatment plans to better support decision-making processes in emergency situations. You will also be able to build your own intelligent data infrastructure and enable your hospital to unlock data silos, facilitate data interoperability, and protect sensitive patient information. 
 
-Use this document as a guide to successfully construct and implement Epic EHR. Rather than building multiple Epic silos, build Epic on your new data fabric and transform your hospital.
+Use this document as a guide to successfully construct and implement Epic EHR. Rather than building multiple Epic silos, build a single Epic data infrastructure and transform your hospital.
 
 == Purpose
 
 This document describes best practices for integrating NetApp storage into an Epic software environment. It contains the following sections:
 
-* Epic overview offers NetApp field engineers a technical understanding of the Epic software environment and its storage requirements across various configurations.
-* Epic storage considerations describes important decision-making storage factors when architecting an Epic solution, NetApp reference architecture, and sizing.
-* NetApp storage recommendations describes NetApp storage configuration best practices for satisfying Epic storage requirements.
+* A technical understanding of the Epic software environment and its storage requirements across various configurations.
+* Epic storage considerations, describing important decision-making factors for Epic solutions.
+* NetApp storage recommendations, describing NetApp storage configuration best practices for satisfying Epic storage requirements.
 
 == Scope
 

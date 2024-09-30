@@ -11,7 +11,7 @@ summary: Epic on ONTAP example deployment - volumes
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 To create volumes, see https://docs.netapp.com/us-en/ontap-cli-9141//volume-create.html

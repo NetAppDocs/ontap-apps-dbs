@@ -11,7 +11,7 @@ summary: Epic performance management
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 Most all-flash arrays can deliver the performance required for Epic workloads. The NetApp differentiator is its ability to set floor level performance policies using Service Level Manager (SLM) and guarantee a consistent performance for each application.

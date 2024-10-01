@@ -14,6 +14,10 @@ summary: Epic on ONTAP - Host Utilities
 :imagesdir: ../media/
 
 [.lead]
-NetApp recommends installing the NetApp Host Utility Kit (Host Utilities) on the operating systems of hosts that are connected to and accessing NetApp storage systems. Native Microsoft Multipath I/O (MPIO) can be used and is supported. For more information, see the Interoperability Matrix Tool.
+The NetApp Host Utilities are software packages for various operating systems that contain management utilities such as the `sanlun` CLI binary, multipath drivers, and other important files required for proper SAN operations.
 
-With AIX, it is especially critical that the Host Utilities are installed before discovering LUNs. This ensures that the LUN multipathing behavior is configured correctly. If discovery was performed without the Host Utilities, the LUNs will need to be deconfigured from the system using the 'rmdev -dl' command and then rediscovered via cfgmgr or a reboot.
+NetApp recommends installing the NetApp Host Utilities on hosts that are connected to and accessing NetApp storage systems. For more information, see  link:https://imt.netapp.com/matrix/[Interoperability Matrix Tool] and link:https://docs.netapp.com/us-en/ontap-sanhost/[SAN Hosts] documentation.
+
+[NOTE]
+
+With AIX, it is especially critical that the Host Utilities are installed before discovering LUNs. This ensures that the LUN multipathing behavior is configured correctly. If discovery was performed without the Host Utilities, the LUNs will need to be deconfigured from the system using the `rmdev -dl` command and then rediscovered via `cfgmgr`` or a reboot.

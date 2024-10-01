@@ -1,0 +1,23 @@
+---
+sidebar: sidebar
+permalink: epic/epic-ontap-availability.html
+keywords: epic,cache,iris
+summary: Epic on ONTAP availability
+---
+
+= Epic on ONTAP availability
+
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+At the core of ONTAP are nondisruptive operations that enable you to avoid costly interruption to business operations.
+
+NetApp delivers over 99.999999% availability based on production data, which is called home through NetApp Active IQ. Each HA pair in the cluster has no single point of failure. ONTAP dates back to 1992 and is the most widely deployed data management software in the world with an exceptional history of delivering reliable storage. Now, with Active IQ proactively monitoring and automatically resolving 97% of issues, availability is higher with significantly less support cases.
+
+Epic recommends the use of HA storage systems to mitigate hardware component failure. This recommendation extends from basic hardware (such as redundant power supplies) to networking (such as multipath networking).
+
+When you need to upgrade storage, scale up, scale out, or rebalance workloads across the cluster, there is no effect to patient care. You might move data, but you never again need to disrupt patient care with data migrations or forklift upgrades. Move to next-generation technology, futureproof, and avoid hardware lock-in. NetApp even offers a 100% written availability guarantee. 

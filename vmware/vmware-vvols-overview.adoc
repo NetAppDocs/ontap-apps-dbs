@@ -5,7 +5,6 @@ keywords: tr-4400, vvols, ontap, virtual volumes
 summary: This is an overview of VMware vSphere Virtual Volumes (vVols) with ONTAP
 ---
 = Overview
-
 :nofooter:
 :icons: font
 :linkattrs:
@@ -74,7 +73,7 @@ Once a VM is provisioned, the VASA Provider will continue to check compliance, a
 === VM Storage Policy Compliance
 image::vvols-image4.png[Virtual machine storare policy compliance,320,100]
 
-== NetApp vVols suppor
+== NetApp vVols support
 ONTAP has supported the VASA specification since its initial release in 2012. While other NetApp storage systems may support VASA, this document focuses on currently supported releases of ONTAP 9.
 
 === ONTAP
@@ -100,7 +99,7 @@ As covered in section 1.2, policy based management allows VMs to be provisioned 
 
 * *Avoid mistakes.* Storage and VM policies are developed in advance and applied as needed without having to customize storage each time a VM is provisioned. Compliance alarms are raised when storage capabilities drift from the defined policies. As previously mentioned, SCPs make the initial provisioning predictable and repeatable, while basing VM storage policies on the SCPs guarantees accurate placement.
 
-* *Better capacity management.* VASA and ONTAP tools make it possible to view storage capacity down to the induvial aggregate level if needed and provide multiple layers of alerting in the event capacity starts to run low.
+* *Better capacity management.* VASA and ONTAP tools make it possible to view storage capacity down to the individual aggregate level if needed and provide multiple layers of alerting in the event capacity starts to run low.
 
 === VM granular management on the modern SAN
 SAN storage systems using Fibre Channel and iSCSI were the first to be supported by VMware for ESX, but they have lacked the ability to manage individual VM files and disks from the storage system. Instead, LUNs are provisioned and VMFS manages the individual files. This makes it difficult for the storage system to directly manage individual VM storage performance, cloning, and protection. vVols bring storage granularity that customers using NFS storage already enjoy, with the robust, high performance SAN capabilities of ONTAP.

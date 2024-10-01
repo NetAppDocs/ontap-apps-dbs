@@ -29,6 +29,12 @@ entries:
         url: /vmware/vmware-vsphere-dp.html
       - title: QoS
         url: /vmware/vmware-vsphere-qos.html
+      - title: Cloud migration and backup
+        url: /vmware/vmware-vsphere-cloud_migration_backup.html
+      - title: Encryption for vSphere data
+        url: /vmware/vmware-vsphere-encryption.html
+      - title: Active IQ Unified Manager                  
+        url: /vmware/vmware-vsphere-aiqum.html
       - title: Storage policy based management
         url: /vmware/vmware-vsphere-policy-and-vvols.html
       - title: VMware Storage Distributed Resource Scheduler
@@ -49,7 +55,7 @@ entries:
         url: /vmware/vmware-vvols-resources.html
   - title: "VMware Site Recovery Manager with ONTAP"
     entries:
-      - title: Overview
+      - title: SRM with ONTAP Overview
         url: /vmware/vmware-srm-overview.html
       - title: "Deployment best practices"
         url: /vmware/vmware-srm-deployment_best_practices.html
@@ -59,6 +65,8 @@ entries:
         url: /vmware/vmware-srm-replication_topologies.html
       - title: "Troubleshooting SRM when using vVols replication"
         url: /vmware/vmware-srm-vvol-troubleshooting.html
+      - title: "Additional information for SRM"
+        url: /vmware/vmware-srm-additional-information.html
   - title: "vSphere Metro Storage Cluster with ONTAP"
     entries:
       - title: "vMSC overview"
@@ -87,3 +95,27 @@ entries:
         url: /vmware/vmware-security-tools.html
       - title: SnapCenter Plug-in for VMware vSphere
         url: /vmware/vmware-security-snapcenter.html
+  - title: Security hardening guide for ONTAP tools for VMware vSphere
+    entries:
+      - title: ONTAP tools hardening overview
+        url: /vmware/vmware-otv-hardening-overview.html
+      - title: Verifying the integrity of ONTAP tools install packages
+        url: /vmware/vmware-otv-hardening-integrity.html
+      - title: Ports and protocols
+        url: /vmware/vmware-otv-hardening-ports.html
+      - title: Access points (users)
+        url: /vmware/vmware-otv-hardening-access.html
+      - title: Mutual TLS
+        url: /vmware/vmware-otv-hardening-mutual-tls.html
+      - title: HTTPS certificate
+        url: /vmware/vmware-otv-hardening-https-cert.html
+      - title: Login banner
+        url: /vmware/vmware-otv-hardening-login-banner.html
+      - title: Inactivity timeout
+        url: /vmware/vmware-otv-hardening-timeout.html
+      - title: DOS attack
+        url: /vmware/vmware-otv-hardening-dos.html
+      - title: NTP configuration
+        url: /vmware/vmware-otv-hardening-ntp.html
+      - title: Password policies
+        url: /vmware/vmware-otv-hardening-passwords.html

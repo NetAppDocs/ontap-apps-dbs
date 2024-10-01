@@ -40,7 +40,7 @@ For more information on administrative access control, click link:https://docs.n
 
 == Multfactor authentication
 
-ONTAP and certain other NetApp products now support multifactor authentication using a variety of methods. The result is a compromised username/password alone is not a security thread without the data from the second factor, such as a FOB or a smartphone app.
+ONTAP and certain other NetApp products now support multifactor authentication (MFA) using a variety of methods. The result is a compromised username/password alone is not a security thread without the data from the second factor, such as a FOB or a smartphone app.
 
 For more information, click link:https://docs.netapp.com/us-en/ontap/authentication/mfa-overview.html[here.]
 
@@ -50,8 +50,7 @@ Automation requires API calls, but not all tools require full administrative acc
 
 To learn more, start chttps://docs.netapp.com/us-en/ontap-automation/rest/rbac_overview.html[here.]
 
-== Multi-admin verification
-
+== Multi-admin verification (MAV)
 Multi "factor" authentication can be taken even further by requiring two different administrators, each with their own credentials, to approve certain activities. This includes changing login permissions, running diagnostic commands, and deleting data.
 
 For more information on multi-admin verification (MAV), click link:https://docs.netapp.com/us-en/ontap/multi-admin-verify/index.html[here]

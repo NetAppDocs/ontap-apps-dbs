@@ -4,7 +4,6 @@ permalink: vmware/vmware-vsphere-settings.html
 keywords: VMware,vSphere,ESXi,settings,NFS,iSCSI,FC,FCP
 summary: This document categorizes and enumerates recommended storage and network settings. 
 ---
-
 = Recommended ESXi host and other ONTAP settings
 :hardbreaks:
 :nofooter:
@@ -28,7 +27,7 @@ Here are the currently recommended host settings with the 9.8-9.13 releases.
 |No
 |VMFS3.EnableBlockDelete
 |Keep default (0), but can be changed if needed.
-For more information, see link:https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2007427[VMware KB 2007427]
+For more information, see link:https://knowledge.broadcom.com/external/article?legacyId=2007427[VMware KB 2007427]
 |No
 |VMFS3.EnableVMFS6Unmap
 |Keep default (1)
@@ -42,7 +41,7 @@ All other NFS configurations, set to 30
 |Yes
 |Net.TcpipHeapMax
 |Set to 512MB for most vSphere 6.X releases.
-Set to 1024MB for 6.5U3, 6.7U3, and 7.0 or later.
+Set to default (1024MB) for 6.5U3, 6.7U3, and 7.0 or later.
 |Yes
 |NFS.MaxVolumes
 |vSphere 6.0 or later, set to 256

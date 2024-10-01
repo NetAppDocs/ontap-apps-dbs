@@ -4,7 +4,6 @@ permalink: vmware/vmware-vvols-protect.html
 keywords: tr-4400, vvols, ontap, virtual volumes, protect
 summary: 
 ---
-
 = Protecting vVols
 :nofooter:
 :icons: font
@@ -42,7 +41,7 @@ Currently, VMware SRM is the only disaster recovery and migration automation sol
 
 === vVols replication with SRM
 
-image:vvols-image17.png[vVols replication with SRM,300]
+image:vvols-image17.png[vVols replication with SRM]
 
 == MetroCluster Support
 
@@ -76,7 +75,7 @@ SnapCenter plugin for VMware vSphere is deployed as a standalone appliance regis
 
 === SnapCenter architecture
 
-image:vvols-image18.png[SnapCenter architecture,300]
+image:snapcenter_arch.png[SnapCenter architecture]
 
 Since the other SnapCenter plugins don't yet support vVols at the time of this writing, we will focus on the standalone deployment model in this document.
 
@@ -110,7 +109,7 @@ a| * Configure notification settings on your resource groups to be notified of t
 
 === Resource group notification options
 
-image:vvols-image19.png[Resource group notification options,300]
+image:vvols-image19.png[Resource group notification options]
 
 === Get started with SCV using these documents 
 

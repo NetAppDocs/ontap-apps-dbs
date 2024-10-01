@@ -4,9 +4,7 @@ permalink: microsoft/win_deploy_hyperv_lmoce.html
 keywords: Windows,Hyper-V,VHDX,VM,Virtual
 summary: This appendix describes how to use Hyper-V live migration outside of a clustered environment
 ---
-
-= Deploy Hyper-V Live Migration Outside a Clustered Environment
-
+= Deploy Hyper-V Live Migration outside a clustered environment
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -17,13 +15,11 @@ summary: This appendix describes how to use Hyper-V live migration outside of a 
 This section describes the deployment of Hyper-V live migration outside a clustered environment.
 
 == Prerequisites
-
 * Standalone Hyper-V servers with independent storage or shared SMB storage.
 * The Hyper-V role installed on both the source and destination servers.
 * Both Hyper-V servers belong to the same domain or to domains that trust each other.
 
 == Deployment
-
 To perform live migration in a non-clustered environment, configure source and destination Hyper-V servers so that they can send and receive live migration operations. On both Hyper-V servers, complete the following steps:
 
 [arabic]

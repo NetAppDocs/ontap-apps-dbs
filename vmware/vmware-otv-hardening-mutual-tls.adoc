@@ -1,0 +1,46 @@
+---
+sidebar: sidebar
+permalink: vmware/vmware-otv-hardening-mutual-tls.html
+keywords: VMware, Data protection, security, OTV, Hardening, ONTAP Tools
+summary: Security Hardening Guide for ONTAP tools for VMware vSphere, mutual TLS encryption for storage management connections.
+---
+= Mutual TLS (certificate-based authentication)
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+ONTAP versions 9.7 and later support mutual TLS communication. Beginning with ONTAP Tools for VMware and vSphere 9.12, mutual TLS is used for communication with newly added clusters (depending on ONTAP version).
+
+== ONTAP
+For all previously added storage systems: During an upgrade, all added storage storage systems will get auto-trusted, and certificate-based authentication mechanisms will get configured. 
+
+As in the below screenshot, the Cluster setup page will show the status of Mutual TLS (Certificate-based authentication), configured for each cluster. 
+
+image:vmware-otv-hardening-mutual-tls-image2.png[image2,width=468,height=158]
+
+=== *Cluster Add* 
+
+During cluster add workflow, if the cluster being added supports MTLS, MTLS will be configured by default. The user does not need to do any configuration for this. The below screen shot shows the screen presented to the user during cluster add.
+
+image:vmware-otv-hardening-mutual-tls-image3.png[Add Storage System,width=450,height=400]
+
+image:vmware-otv-hardening-mutual-tls-image4.png[Add Storage System,width=468,height=416]
+
+image:vmware-otv-hardening-mutual-tls-image5.png[Add Storage System,width=450,height=400]
+
+image:vmware-otv-hardening-mutual-tls-image6.png[Add Storage System,width=468,height=516]
+
+=== Cluster Edit
+
+During cluster edit operation, there are two scenarios:
+
+* If the ONTAP certificate expires then the user will have to get the new cert and upload it.
+* If the OTV certificate expires then the user can regenerate it by checking the checkbox.
+** _Generate a new client certificate for ONTAP._
+
+image:vmware-otv-hardening-mutual-tls-image7.png[Modify Storage System,width=468,height=461]
+
+image:vmware-otv-hardening-mutual-tls-image8.png[Modify Storage System,width=468,height=461]

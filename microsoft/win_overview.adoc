@@ -4,9 +4,7 @@ permalink: microsoft/win_overview.html
 keywords: Windows,Hyper-V,VHDX,VM,Virtual
 summary: Overview of Microsoft Windows and Hyper-V virtualization with ONTAP
 ---
-
 = Overview
-
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -19,7 +17,7 @@ Microsoft Windows Server is an enterprise-class operating system (OS) that cover
 [NOTE]
 *This documentation replaces previously published technical reports _TR-4568: NetApp Deployment Guidelines and Storage Best Practices for Windows Server_*
 
-.NetApp ONTAP(R) management software runs on NetApp storage controllers. It is available in multiple formats.
+.ONTAP runs on NetApp storage controllers. It is available in multiple formats.
 * A unified architecture supporting file, object, and block protocols. This enables the storage controllers to act as both NAS and SAN devices as well as object stores
 * An All SAN Array (ASA) that focuses only on block protocols and optimizes I/O resume times (IORT) by adding symmetric active-active multipathing for connect hosts
 * A software defined unified architecture
@@ -34,8 +32,7 @@ ONTAP provides NetApp storage efficiency features such as NetApp Snapshot(R) tec
 
 Together, Windows Server and ONTAP can operate in large environments and bring immense value to data center consolidation and private or hybrid cloud deployments. This combination also provides nondisruptive workloads efficiently and supports seamless scalability.
 
-== Intended Audience
-
+== Intended audience
 This document is intended for system and storage architects who design NetApp storage solutions for the Windows Server.
 
 We make the following assumptions in this document:

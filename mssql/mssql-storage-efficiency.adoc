@@ -10,13 +10,21 @@ summary: Microsoft SQL Server and ONTAP storage efficiency
 [.lead]
 ONTAP storage efficiency is optimized to store and manage SQL Server data in a way that consumes the least amount of storage space with little to no effect on the overall performance. 
 
-== Thin provisioning
-
-include::../_include/thin-provisioning.adoc[]
-
-== Efficiency
-
 include::../_include/efficiency.adoc[]
+
+include::../_include/compression.adoc[]
+
+include::../_include/compaction.adoc[]
+
+include::../_include/tsse.adoc[]
+
+include::../_include/deduplication.adoc[]
+
+include::../_include/efficiency-and-thin-provisioning.adoc[]
+
+include::../_include/efficiency-bp.adoc[]
+
+== Database compression
 
 SQL Server itself also has features to compress and efficiently manage data. SQL Server currently supports two types of data compression: row compression and page compression. 
 

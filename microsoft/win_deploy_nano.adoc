@@ -4,9 +4,7 @@ permalink: microsoft/win_deploy_nano.html
 keywords: Windows,Hyper-V,VHDX,VM,Virtual
 summary: Learn about deploying Microsoft Windows Nano Server
 ---
-
-= Deploy Nano Server
-
+= Deploy Nano server
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -17,7 +15,6 @@ summary: Learn about deploying Microsoft Windows Nano Server
 Learn about deploying Microsoft Windows Nano Server.
 
 == Deployment
-
 To deploy a Nano Server as a Hyper-V host, complete the following steps:
 
 [arabic]
@@ -73,7 +70,6 @@ To deploy a Nano Server as a Hyper-V host, complete the following steps:
 .. Reboot the Nano Server.
 
 == Connect to Nano Server
-
 To connect to the Nano Server remotely using PowerShell, complete the following steps:
 
 [arabic]

@@ -11,7 +11,7 @@ summary: Additional resources for Microsoft Windows and Hyper-V
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 Additional resources for Microsoft Windows and Hyper-V

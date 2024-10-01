@@ -11,7 +11,7 @@ summary: Learn about the NetApp storage and Windows Server Environment
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 As mentioned in the link:win_overview.html[Overview], NetApp storage controllers provide a truly unified architecture that supports file, block, and object protocols. This includes SMB/CIFS, NFS, NVMe/TCP, NVMe/FC, iSCSI, FC(FCP) and S3, and they create unified client and host access. The same storage controller can concurrently deliver block storage service in the form of SAN LUNs and file service as NFS and SMB/CIFS. ONTAP is also available as an All SAN Array (ASA) that optimizes host access though symmetric active-active multipathing with iSCSI and FCP, whereas the unified ONTAP systems use asymmetric active-active multipathing. In both modes, ONTAP uses ANA for NVMe over Fabrics (NVMe-oF) multipath management.

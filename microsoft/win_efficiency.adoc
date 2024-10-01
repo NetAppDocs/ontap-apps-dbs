@@ -11,7 +11,7 @@ summary: ONTAP storage efficiency with Microsoft Hyper-V
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 ONTAP provides industry leading storage efficiency for virtualized environments including Microsoft Hyper-V. NetApp also offers storage efficiency guarantee programs.

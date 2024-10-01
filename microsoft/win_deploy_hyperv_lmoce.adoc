@@ -11,7 +11,7 @@ summary: This appendix describes how to use Hyper-V live migration outside of a 
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 This section describes the deployment of Hyper-V live migration outside a clustered environment.

@@ -11,7 +11,7 @@ summary: ONTAP NAS storage for Hyper-V using SMB3
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 ONTAP provides resilient and high performance NAS storage for Hyper-V virtual machines using the SMB3 protocol.

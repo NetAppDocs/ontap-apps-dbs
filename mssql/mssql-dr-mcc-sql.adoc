@@ -1,0 +1,25 @@
+---
+sidebar: sidebar
+permalink: mssql/mssql-dr-mcc-sql.html
+keywords: MSSQL,SQL Server, MetroCluster
+summary: Microsoft SQL Server with NetApp MetroCluster
+---
+= Microsoft SQL Server with MetroCluster
+
+[.lead]
+Protecting SQL Server with zero RPO can be achieved using MetroCluster across sites. SQL Server can scale up to thousands of databases on a single MetroCluster system. There could be SQL Server standalone instance or failover cluster instance, MetroCluster system does not necessarily add to or change any best practices for managing a database. Follow the recommendations in the SQL Server on ONTAP documentation.
+
+Database could be hosted on virtualized environment or physical server connected to guest connected iSCSI storage or FC-based protocol. There is no special configuration while running SQL Server on MetroCluster. SyncMirror delivers a synchronous copy of the data at the disaster recovery site, but there will be additional steps to bring the database online. 
+
+In event of disaster, switchover MetroCluster from primary site to secondary site and start the SQL Services from secondary location. With scripted solution, failover process can be automated in following sequence: 
+
+* Force a MetroCluster switchover
+* Performing discovery of FC/iSCSI LUNs (SAN only)
+* Mount file systems 
+* Start SQL Services
+
+The primary requirement of this approach is a running OS in place on the remote site. It must be preconfigured with SQL Server setup and should be updated with equivalent build version. SQL Server system databases can also be mirrored to the remote site and mounted if a disaster is declared.
+
+If the SQL Server is virtualized, operating system volume should be replicated along with database volume. Process to bring the virtual machine online at the disaster recovery site is similar to above flow and can be automated. After the MetroCluster switchover, instead of discovering database lun, discover the volumes hosting datastore and mount it on hypervisor. Start the virtual machine and bring the SQL Service up if the service are set to manual. 
+
+If the volumes, file systems and datastore  hosting virtualized databases are not in use at the disaster recovery site prior to the switchover, there is no requirement to set `dr-force- nvfail` on associated volumes.

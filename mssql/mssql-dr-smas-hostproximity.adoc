@@ -1,0 +1,18 @@
+---
+sidebar: sidebar
+permalink: mssql/mssql-dr-smas-hostproximity.html
+keywords: MSSQL,SQL Server, preferred path, host proximity
+summary: Microsoft SQL Server and SnapMirror active sync
+---
+= Microsoft SQL Server and ONTAP path selection
+:imagesdir: ../media/
+
+[.lead]
+SnapMirror active sync can enable SQL Server to use the preferred path for optimizing operation in this active/active solution.
+
+When SnapMirror active sync is setup with AutomatedFailOverDuplex protection policy and uniform host access configuration, the default behavior is that the host accesses all active/optimized paths for read/write operations. If secondary storage is located at the remote site then it is not an optimal design. With the multipathing feature enabled on Windows, IOs are distributed across the storage. Read/write IOs on primary are optimal, operation on secondary needs to pass through WAN which adds overall overhead to fetch the results causing unnecessary latency.
+
+[TIP]
+SnapMirror active sync provides an option in System Manager to configure the SQL Server host to select the required path to access local storage using host proximity. NetApp recommends settings to modify host proximity during initial configuration or after SnapMirror active sync is configured.
+
+image:mssql-smas-proximity.png[Error: Missing Graphic Image]

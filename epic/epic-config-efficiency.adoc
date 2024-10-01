@@ -1,0 +1,33 @@
+---
+sidebar: sidebar
+permalink: epic/epic-config-efficiency.html
+keywords: epic,cache,iris
+summary: Epic storage efficiency configuration
+---
+
+= Epic storage efficiency configuration
+
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+ONTAP inline efficiencies are on by default and work regardless of storage protocol, application, or storage tier. 
+
+Efficiencies reduce the amount of data written to expensive flash storage and reduce the number of drives required. ONTAP preserves efficiency with replication. Each of the efficiencies has little to no effect on performance, even for a latency-sensitive application like Epic.
+
+To maximize disk utilization, NetApp recommends turning on all efficiency settings. These settings are on by default. 
+
+The following features make this storage efficiency possible:
+
+* Deduplication saves space on primary storage by removing redundant copies of blocks in a volume that hosts LUNs. This recommended option is on by default. 
+
+* Inline compression reduces the amount of data to be written to disk, and a considerable savings in space is realized with Epic workloads. This recommended option is on by default.
+
+* Inline compaction takes 4k blocks that are less than half full and combines them into a single block. This recommended option is on by default.
+
+* Thin replication is at the center of the NetApp data protection software portfolio, which includes NetApp SnapMirror and NetApp SnapVault software. SnapVault thin replication enables more frequent backups that use less storage capacity because no redundant data is moved or stored. SnapMirror thin replication protects business-critical data while minimizing storage capacity requirements. NetApp recommends turning on this option.
+
+* Aggregate deduplication. Deduplication has always been at the volume level. With ONTAP 9.2, aggregate deduplication became available, providing additional disk reduction savings. Postprocess aggregate deduplication was added with ONTAP 9.3. NetApp recommends turning on this option.

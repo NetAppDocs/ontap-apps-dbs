@@ -4,20 +4,17 @@ permalink: microsoft/win_deploy_hyperv.html
 keywords: Windows,Hyper-V,VHDX,VM,Virtual
 summary: This appendix describes deploying a high availability Hyper-V cluster on NetApp storage.
 ---
-
-= Deploy Hyper-V Cluster
-
+= Deploy Hyper-V cluster
 :hardbreaks:
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 This appendix describes deploying a Hyper-V cluster.
 
 == Prerequisites
-
 * At least two Hyper-V servers exist connected to each other.
 * At least one virtual switch is configured on each Hyper-V server.
 * The failover cluster feature is enabled on each Hyper-V server.
@@ -26,7 +23,6 @@ This appendix describes deploying a Hyper-V cluster.
 * If the SMB share is used as shared storage, then permissions on the SMB share must be configured to grant access to the computer accounts of all the Hyper-V servers in the cluster.
 
 == Deployment
-
 [arabic]
 . Log in to one of the Windows Hyper-V servers as a member of the administrator group.
 . Start Server Manager**.**
@@ -54,5 +50,5 @@ This appendix describes deploying a Hyper-V cluster.
 .. Select the node from the cluster where the VM should reside.
 .. In the Virtual Machine Creation wizard, provide the shared storage (SMB share or CSV) as the path to store the VM and its disks.
 .. Use Hyper-V Manager to set the shared storage (SMB share or CSV) as the default path to store the VM and its disks for a Hyper-V server.
-. Test planned failover. Move VMs to another node using live migration, quick migration, or storage migration (move). Review the section "link:\win_deploy_hyperv_lmce.html[Live Migration in a Clustered Environment]" for more details.
+. Test planned failover. Move VMs to another node using live migration, quick migration, or storage migration (move). Review link:win_deploy_hyperv_lmce.html[Live Migration in a Clustered Environment] for more details.
 . Test unplanned failover. Stop cluster service on the server owning the VM.

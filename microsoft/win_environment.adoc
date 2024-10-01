@@ -4,19 +4,17 @@ permalink: microsoft/win_environment.html
 keywords: Windows,Hyper-V,VHDX,VM,Virtual
 summary: Learn about the NetApp storage and Windows Server Environment
 ---
-
-=  NetApp Storage and Windows Server Environment
-
+=  NetApp storage and Windows Server environment
 :hardbreaks:
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 As mentioned in the link:win_overview.html[Overview], NetApp storage controllers provide a truly unified architecture that supports file, block, and object protocols. This includes SMB/CIFS, NFS, NVMe/TCP, NVMe/FC, iSCSI, FC(FCP) and S3, and they create unified client and host access. The same storage controller can concurrently deliver block storage service in the form of SAN LUNs and file service as NFS and SMB/CIFS. ONTAP is also available as an All SAN Array (ASA) that optimizes host access though symmetric active-active multipathing with iSCSI and FCP, whereas the unified ONTAP systems use asymmetric active-active multipathing. In both modes, ONTAP uses ANA for NVMe over Fabrics (NVMe-oF) multipath management.
 
-A NetApp storage controller running ONTAP software can support the following workloads in a Windows Server environment:
+A NetApp storage controller running ONTAP can support the following workloads in a Windows Server environment:
 
 * VMs hosted on continuously available SMB 3.0 shares
 * VMs hosted on Cluster Shared Volume (CSV) LUNs running on iSCSI or FC
@@ -27,7 +25,6 @@ A NetApp storage controller running ONTAP software can support the following wor
 In addition, NetApp storage efficiency features such as deduplication, NetApp FlexClone(R) copies, NetApp Snapshot technology, thin provisioning, compression, and storage tiering provide significant value for workloads running on Windows Server.
 
 == ONTAP data management
-
 ONTAP is management software that runs on a NetApp storage controller. Referred to as a node, a NetApp storage controller is a hardware device with a processor, RAM, and NVRAM. The node can be connected to SATA, SAS, or SSD disk drives or a combination of those drives.
 
 Multiple nodes are aggregated into a clustered system. The nodes in the cluster communicate with each other continuously to coordinate cluster activities. The nodes can also move data transparently from node to node by using redundant paths to a dedicated cluster network consisting of two 10Gb Ethernet switches. The nodes in the cluster can take over one another to provide high availability during any failover scenarios. Clusters are administered on a whole-cluster rather than a per-node basis, and data is served from one or more storage virtual machines (SVMs). A cluster must have at least one SVM to serve data.
@@ -37,15 +34,13 @@ The basic unit of a cluster is the node, and nodes are added to the cluster as p
 image:win_image1.png[NetApp storage deployment in Windows Server environment,width=624,height=479]
 
 == Storage Virtual Machines
-
 An ONTAP SVM is a logical storage server that provides data access to LUNs and/or a NAS namespace from one or more logical interfaces (LIFs). The SVM is thus the basic unit of storage segmentation that enables secure multitenancy in ONTAP. Each SVM is configured to own storage volumes provisioned from a physical aggregate and logical interfaces (LIFs) assigned either to a physical Ethernet network or to FC target ports.
 
 Logical disks (LUNs) or CIFS shares are created inside an SVM's volumes and are mapped to Windows hosts and clusters to provide them with storage space, as shown in the following figure. SVMs are node independent and cluster based; they can use physical resources such as volumes or network ports anywhere in the cluster.
 
 image:win_image2.png[ONTAP storage virtual machine,width=572,height=443]
 
-== Provisioning NetApp Storage for Windows Server 
-
+== Provisioning NetApp storage for Windows Server 
 Storage can be provisioned to Windows Server in both SAN and NAS environments. In a SAN environment, the storage is provided as disks from LUNs on NetApp volume as block storage. In a NAS environment, the storage is provided as CIFS/SMB shares on NetApp volumes as file storage. These disks and shares can be applied in Windows Server as follows:
 
 * Storage for Windows Server hosts for application workloads
@@ -54,8 +49,7 @@ Storage can be provisioned to Windows Server in both SAN and NAS environments. I
 * Shared storage for Hyper-V clusters in the form of CSVs to store VMs
 * Storage for SQL Server databases
 
-== Managing NetApp Storage
-
+== Managing NetApp storage
 To connect, configure, and manage NetApp storage from Windows Server 2016, use one of the following methods:
 
 * *Secure Shell (SSH).* Use any SSH client on Windows Server to run NetApp CLI commands.
@@ -63,23 +57,19 @@ To connect, configure, and manage NetApp storage from Windows Server 2016, use o
 * *NetApp PowerShell Toolkit.* This is the NetApp PowerShell Toolkit for automating and implementing custom scripts and workflows.
 
 == NetApp PowerShell Toolkit
+NetApp PowerShell Toolkit (PSTK) is a PowerShell module that provides end-to-end automation and enables storage administration of ONTAP. The ONTAP module contains over 2,000 cmdlets and helps with the administration of FAS, NetApp All Flash FAS (AFF), commodity hardware, and cloud resources.
 
-NetApp PowerShell Toolkit (PSTK) is a PowerShell module that provides end-to-end automation and enables storage administration of NetApp ONTAP. The ONTAP module contains over 2,000 cmdlets and helps with the administration of FAS, NetApp All Flash FAS (AFF), commodity hardware, and cloud resources.
-
-=== Things to Remember
-
+=== Things to remember
 * NetApp does not support Windows Server storage spaces. Storage spaces are used only for JBOD (just a bunch of disks) and does not work with any type of RAID (direct-attached storage [DAS] or SAN).
 * Clustered storage pools in Windows Server are not supported by ONTAP.
 * NetApp supports the shared virtual hard disk format (VHDX) for guest clustering in Windows SAN environments.
 * Windows Server does not support creating storage pools using iSCSI or FC LUNs.
 
-=== Further Reading
-
+=== Further reading
 * For more information about the NetApp PowerShell Toolkit, visit the https://mysupport.netapp.com/site/tools/tool-eula/ontap-powershell-toolkit[NetApp Support Site].
 * For information about NetApp PowerShell Toolkit best practices, see https://www.netapp.com/media/16861-tr-4475.pdf?v=93202073432AM[TR-4475: NetApp PowerShell Toolkit Best Practices Guide].
 
-== Networking Best Practices
-
+== Networking best practices
 Ethernet networks can be broadly segregated into the following groups:
 
 * A client network for the VMs
@@ -89,8 +79,7 @@ Ethernet networks can be broadly segregated into the following groups:
 * A migration network (for host live migration)
 * VM replication (a Hyper-V Replica)
 
-=== Best Practices
-
+=== Best practices
 * NetApp recommends having dedicated physical ports for each of the preceding functionalities for network isolation and performance.
 * For each of the preceding network requirements (except for the storage requirements), multiple physical network ports can be aggregated to distribute load or provide fault tolerance.
 * NetApp recommends having a dedicated virtual switch created on the Hyper-V host for guest storage connection within the VM.

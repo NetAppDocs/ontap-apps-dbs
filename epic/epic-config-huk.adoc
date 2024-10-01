@@ -1,0 +1,19 @@
+---
+sidebar: sidebar
+permalink: epic/epic-config-huk.html
+keywords: epic,cache,iris
+summary: Epic on ONTAP - Host Utilities
+---
+
+= Epic on ONTAP - Host Utilities
+
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+NetApp recommends installing the NetApp Host Utility Kit (Host Utilities) on the operating systems of hosts that are connected to and accessing NetApp storage systems. Native Microsoft Multipath I/O (MPIO) can be used and is supported. For more information, see the Interoperability Matrix Tool.
+
+With AIX, it is especially critical that the Host Utilities are installed before discovering LUNs. This ensures that the LUN multipathing behavior is configured correctly. If discovery was performed without the Host Utilities, the LUNs will need to be deconfigured from the system using the 'rmdev -dl' command and then rediscovered via cfgmgr or a reboot.

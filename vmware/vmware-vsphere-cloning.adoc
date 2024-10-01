@@ -4,7 +4,6 @@ permalink: vmware/vmware-vsphere-cloning.html
 keywords: Data protection, Space reclamation, VM and datastore cloning, Storage efficiency, thin provisioning, QoS, SIOC, Storage Distributed Resource Scheduler, DRS, Active IQ Unified Manager, Encryption
 summary: SnapCenter allows you to create backup policies that can be applied to multiple jobs. These policies can define schedule, retention, replication, and other capabilities. They continue to allow optional selection of VM-consistent snapshots, which leverages the hypervisor's ability to quiesce I/O before taking a VMware snapshot.
 ---
-
 = VM and datastore cloning
 :hardbreaks:
 :nofooter:
@@ -23,7 +22,7 @@ The following figure depicts ONTAP cloning.
 
 image:vsphere_ontap_image5.png[ONTAP cloning]
 
-Cloning can be offloaded to systems running ONTAP software through several mechanisms, typically at the VM, vVol, or datastore level. These include the following:
+Cloning can be offloaded to systems running ONTAP through several mechanisms, typically at the VM, vVol, or datastore level. These include the following:
 
 * vVols using the NetApp vSphere APIs for Storage Awareness (VASA) Provider.  ONTAP clones are used to support vVol snapshots managed by vCenter that are space-efficient with minimal I/O effect to create and delete them.  VMs can also be cloned using vCenter, and these are also offloaded to ONTAP, whether within a single datastore/volume or between datastores/volumes.
 * vSphere cloning and migration using vSphere APIs – Array Integration (VAAI). VM cloning operations can be offloaded to ONTAP in both SAN and NAS environments (NetApp supplies an ESXi plug-in to enable VAAI for NFS).  vSphere only offloads operations on cold (powered off) VMs in a NAS datastore, whereas operations on hot VMs (cloning and storage vMotion) are also offloaded for SAN. ONTAP uses the most efficient approach based on source, destination, and installed product licenses. This capability is also used by VMware Horizon View.

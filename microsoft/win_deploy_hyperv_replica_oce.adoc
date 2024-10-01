@@ -4,26 +4,22 @@ permalink: microsoft/win_deploy_hyperv_replica_oce.html
 keywords: Windows,Hyper-V,VHDX,VM,Virtual
 summary: This appendix describes deploying Hyper-V Replica outside a clustered environment.
 ---
-
-= Deploy Hyper-V Replica Outside a Clustered Environment
-
+= Deploy Hyper-V Replica outside a clustered environment
 :hardbreaks:
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 This appendix describes deploying Hyper-V Replica outside a clustered environment.
 
 == Prerequisites
-
 * You need standalone Hyper-V servers located in the same or separate geographical locations serving as primary and replica servers.
 * If separate sites are used, then the firewall at each site must be configured to allow communication between the primary and replica servers.
 * The replica server must have enough space to store the replicated workloads.
 
 == Deployment
-
 [arabic]
 . Configure the replica server.
 .. So that the inbound firewall rules allow incoming replication traffic, run the following PowerShell cmdlet:
@@ -47,7 +43,6 @@ This appendix describes deploying Hyper-V Replica outside a clustered environmen
 .. This process creates a VM replica on the replica server.
 
 == Replication
-
 [arabic]
 . Run a test failover to make sure that the replica VM functions properly on the replica server. The test creates a temporary VM on the replica server.
 .. Log in to the replica server.

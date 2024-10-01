@@ -1,0 +1,21 @@
+---
+sidebar: sidebar
+permalink: epic/epic-config-sizing.html
+keywords: epic,cache,iris
+summary: Storage sizing for Epic
+---
+
+= Storage sizing for Epic
+
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+For information about how to use NetApp sizing tools to determine the correct RAID group size and number of RAID groups for Epic software environment storage needs, see https://fieldportal.netapp.com/content/192412?assetComponentId=192510[TR-3930i: NetApp Sizing Guidelines for Epic] (NetApp login required). 
+
+[NOTE]
+
+ NetApp Field Portal access is required.

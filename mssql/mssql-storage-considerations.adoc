@@ -8,9 +8,9 @@ summary: Microsoft SQL Server  storage consideration
 :imagesdir: ../media/
 
 [.lead]
-The combination of ONTAP storage solutions and Microsoft SQL Server enables the creation of enterprise-level database storage designs that can meet today's most demanding application requirements. 
+The combination of ONTAP storage solutions and Microsoft SQL Server enables enterprise-level database storage designs that can meet today's most demanding application requirements. 
 
-To optimize both technologies, it is vital to understand the SQL Server I/O pattern and characteristics. A well-designed storage layout for a SQL Server database supports the performance of SQL Server and the management of the SQL Server infrastructure. A good storage layout also allows the initial deployment to be successful and the environment to grow smoothly over time as the business grows.
+Optimizing a SQL Server on ONTAp solution requires understanding the SQL Server I/O pattern and characteristics. A well-designed storage layout for a SQL Server database must support the performance requirements of SQL Server while also delivering maximum managability of the infrastructure as a whole. A good storage layout also allows the initial deployment to be successful and the environment to grow smoothly over time as the business grows.
 
 == Data storage design
 For SQL Server databases that do not use SnapCenter to perform backups, Microsoft recommends placing the data and log files on separate drives. For applications that simultaneously update and request data, the log file is write intensive, and the data file (depending on your application) is read/write intensive. For data retrieval, the log file is not needed. Therefore, requests for data can be satisfied from the data file placed on its own drive.
@@ -40,12 +40,12 @@ Before you create a database volume design, it is important to understand how th
 • Set the snapshot reserve value in the volume to zero for ease of monitoring from an operational perspective.
 • Disable snapshot schedules and retention policies. Instead, use SnapCenter to coordinate Snapshot copies of the SQL Server data volumes.
 • Place the SQL Server system databases on a dedicated volume.
-• tempdb is a system database used by SQL Server as a temporary workspace, especially for I/O intensive DBCC CHECKDB operations. Therefore, place this database on a dedicated volume with a separate set of spindles. In large environments in which volume count is a challenge, you can consolidate tempdb into fewer volumes and store it in the same volume as other system databases after careful planning. Data protection for tempdb is not a high priority because this database is recreated every time SQL Server is restarted.
+• tempdb is a system database used by SQL Server as a temporary workspace, especially for I/O intensive DBCC CHECKDB operations. Therefore, place this database on a dedicated volume with a separate set of spindles. In large environments in which volume count is a challenge, you ca consolidate tempdb into fewer volumes and store it in the same volume as other system databases after careful planning. Data protection for tempdb is not a high priority because this database is recreated every time SQL Server is restarted.
 • Place user data files (.mdf) on separate volumes because they are random read/write workloads. It is common to create transaction log backups more frequently than database backups. For this reason, place transaction log files (.ldf) on a separate volume or VMDK from the data files so that independent backup schedules can be created for each. This separation also isolates the sequential write I/O of the log files from the random read/write I/O of data files and significantly improves SQL Server performance.
 
 == LUNs
 * Make sure that the user database files and the log directory to store log backup are on separate volumes to prevent the retention policy from overwriting snapshots when these are used with SnapVault technology.
-* Make sure that SQL Server databases reside on LUNs separate from LUNs that have non-database files, such as full-text search-related files.
+* Do not mix database and non-database files, such as full-text search-related files, on the same LUN.
 * Placing database secondary files (as part of a filegroup) on separate volumes improves the performance of the SQL Server database. This separation is valid only if the database's .mdf file does not share its LUN with any other .mdf files.
 * If you create LUNs with DiskManager or other tools, make sure that the allocation unit size is set to 64K for partitions when formatting the LUNs.
 * See the link:https://www.netapp.com/media/10680-tr4080.pdf[Microsoft Windows and native MPIO under ONTAP best practices for modern SAN] to apply multipathing support on Windows to iSCSI devices in the MPIO properties.

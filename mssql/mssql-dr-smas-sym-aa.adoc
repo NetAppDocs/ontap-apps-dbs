@@ -8,21 +8,28 @@ summary: Microsoft SQL Server and SnapMirror active sync
 :imagesdir: ../media/
 
 [.lead]
-Starting in ONTAP 9.15.1, SnapMirror active sync (SM-as) also support symmetric active-active capability. A LUN can be accessed using two different clusters. All read I/O will be serviced by a cluster's local copy of the data, and write I/O is committed to both controllers before acknowledgement. 
+With SnapMirror active sync capability to read/write between independent storage clusters in each failure domain, SQL Server database host can be configured in different ways to connect to ONTAP storage.
 
-The active/active capability in SM-as is enabled by using the protection policy AutomatedFailOverDuplex while creating a business continuity relationship. Both clusters provide read/write access with synchronous bidirectional replication ensuring that writes to either storage are consistently mirrored and managed. This setup is ideal for mission-critical applications and databases that provide seamless failover without any perceived downtime, and also require symmetric I/O performance. 
+SnapMirror active sync symmetric active/active is enabled by using the protection policy AutomatedFailOverDuplex while creating a business continuity relationship. Both primary and secondary storage provide read/write access with synchronous bidirectional replication ensuring that writes to either storage are consistently mirrored and managed. This setup is ideal for mission-critical applications and databases that provide seamless failover without any perceived downtime.
+
+This feature is a storage-level replication but SQL Server instance running on standalone host or failover cluster instance can perform read/write operations from one of the storages, either primary or secondary storage.
+
+While setting up the path between the host and storage, the host can use uniform access or non-uniform access. Paths are managed through asymmetric logical unit access (ALUA), which is an industry-standard protocol for identifying optimized paths. Generally, the device path that is the shortest to access I/O is considered Active/Optimized paths and the rest of the paths are considered Active/Non-optimized paths.
 
 == Uniform host access
 
-Uniform host access means all paths on both ONTAP storage clusters are available to hosts. The result is a SQL Server database host will access LUNs on both the local storage and remote storage systems. In case of storage failure, the host will experience the lost of some, but not all paths and can continue to serve IOs for database transactions. This model ensures consistent and seamless data access for enhanced operational continuity. This is suitable for environments prioritizing high connectivity and data availability.
+Uniform host access has connectivity of each host to ONTAP storage participating in SnapMirror active sync. SQL Server database host will have access to LUN at local storage and remote storage. In case of storage failure, the host will access a path that connects to remote storage and continue to serve IOs for database transactions. This model ensures consistent and seamless data access for enhanced operational continuity. This is suitable for environments prioritizing high connectivity and data availability.
 
 image:mssql-smas-uniform.png[Error: Missing Graphic Image]
 
-In uniform host access, the SQL Server host will be performing IO's using paths to ONTAP storage systems irrespective of their location. The result is I/O to a remote path may have higher latency compared to local storage. In some configurations, such as with the use of dark fiber between sites, this additional latency may be negligible. If the remote storage connection uses a telco-supplied WAN connection, it may add enough latency to create problems. In such cases, it may be preferable to run SM-as in asymmetric mode to allow certain paths to be deprioritized.
+In uniform host access, SQL Server can access storage from both sites, local and remote, irrespective of its location. Host access to remote storage may have higher latency compared to local storage. For example, when a write operation is triggered from SQL Server, the operation occurs on local storage and remote storage. As IO processes from remote storage, the round trip could include latency to post data and get acknowledgment depending on network speed. 
+
+[TIP]
+NetApp recommends database server should be configured to use storage path that is near to SQL Server host. This can be configured using the host proximity option in SnapMirror active sync.
 
 == Non-uniform host access
 
-In a non-uniform host access setup, each host can be configured to "see" only the local storage system. 
+In a non-uniform host access setup, each host will be connected to local storage respectively. Replication between the storage will happen through ethernet connectivity. This promotes local host access, optimizing performance within individual sites, so, this is suitable for environments requiring local data management and boosted site-specific performance. 
 
 image:mssql-smas-nonuniform.png[Error: Missing Graphic Image]
 

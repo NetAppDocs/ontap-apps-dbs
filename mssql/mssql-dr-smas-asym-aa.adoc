@@ -1,0 +1,24 @@
+---
+sidebar: sidebar
+permalink: mssql/mssql-dr-smas-asym-aa.html
+keywords: MSSQL,SQL Server, asymmteric active/active
+summary: Microsoft SQL Server and SnapMirror active sync
+---
+= Microsoft SQL Server with SnapMirror active sync and asymmeteric active/active
+:imagesdir: ../media/
+
+[.lead]
+SQL Server on SnapMirror active sync provides transparent failover during planned and unplanned storage events. When run in asymmetric mode, the same LUN image is presented from both the primary and remote cluster, but the remote cluster is effectively a read-only copy.
+
+The primary copy can service read and write IO as usual. The remote copy will accept I/O, but it will not be serviced locally. Instead, it will be proxied to the primary cluster. 
+
+== Path access
+
+In this configuration of SnapMirror active sync, storage devices are visible to host operating systems from both the primary and remote storage arrays. Paths are managed through asymmetric logical unit access (ALUA), which is an industry standard protocol for identifying optimized paths between a storage system and a host. The device path that is the shortest to access I/O is considered Active/Optimized paths and the rest of the paths are considered Active/Nonoptimized paths.
+
+ALUA will preferentially use the paths to the cluster that currently has ownership of the drives on which the LUNs reside. In normal operation, the slower performance of the remote paths should be irrelevant because those paths will not be utilized. Upon failover, the remote copy will become read-write and those paths will become Active/Optimized paths. 
+
+image:smas-failover-1.png[Error: Missing Graphic Image]
+
+include::../_include/smas-failover.adoc[]
+

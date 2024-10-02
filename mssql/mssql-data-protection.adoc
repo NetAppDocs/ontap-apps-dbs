@@ -18,7 +18,7 @@ SQL Server instance can be a standalone setup, failover cluster instance or it c
 
 [TIP]
 *NetApp recommends* using SnapCenter to create Snapshot copies. The T-SQL method described below also works, but SnapCenter offers complete automation over the backup, restore, and cloning process. It also performs discovery to ensure the correct snapshots are being created. No pre-configuration is required.
-...
+
 SQL Server also requires coordination between the OS and the storage to ensure the correct data is present in snapshots at the time of creation. In most cases, the only safe method to do this is with SnapCenter or T-SQL. Snapshots created without this additional coordination may not be reliably recoverable. 
 
 For more details about the SQL Server Plug-in for SnapCenter, see link:https://www.netapp.com/pdf.html?item=/media/12400-tr4714.pdf[TR-4714: Best practice guide for SQL Server using NetApp SnapCenter^].
@@ -28,9 +28,9 @@ In SQL Server 2022, Microsoft introduced T-SQL snapshots that offers a path to s
 
 The following is a sample backup workflow:
 
-1. Freeze a database with ALTER command. This prepares the database for a consistent snapshot on the underlying storage. After the freeze you can thaw the database and record the snapshot with BACKUP command.
-2. Perform snapshots of multiple databases on the storage volumes simultaneously with the new BACKUP GROUP and BACKUP SERVER commands. 
-3. Perform FULL backups or COPY_ONLY FULL backups. These backups are recorded in msdb as well.
-4. Perform point-in-time recovery using log backups taken with the normal streaming approach after the snapshot FULL backup. Streaming differential backups are also supported if desired.
+. Freeze a database with ALTER command. This prepares the database for a consistent snapshot on the underlying storage. After the freeze you can thaw the database and record the snapshot with BACKUP command.
+. Perform snapshots of multiple databases on the storage volumes simultaneously with the new BACKUP GROUP and BACKUP SERVER commands. 
+. Perform FULL backups or COPY_ONLY FULL backups. These backups are recorded in msdb as well.
+. Perform point-in-time recovery using log backups taken with the normal streaming approach after the snapshot FULL backup. Streaming differential backups are also supported if desired.
 
 To learn more, see link:https://learn.microsoft.com/en-us/sql/relational-databases/databases/create-a-database-snapshot-transact-sql?view=sql-server-ver16[Microsoft documentation to know about the T-SQL snapshots^].

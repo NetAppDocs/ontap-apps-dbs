@@ -11,7 +11,7 @@ summary: Microsoft SQL Server CPU configuration
 SQL Server performance has multiple dependencies on the CPU and core configuration. 
 
 == Hyperthreading
-Hyperthreading is Intel's proprietary simultaneous multithreading (SMT) implementation, which improves parallelization of computations (multitasking) performed on x86 microprocessors.
+Hyperthreading is refers to either simultaneous multithreading (SMT) implementation, which improves parallelization of computations performed on x86 processors. SMT is available on both Intel and AMD processors. 
 
 Hyperthreading results in logical CPUs that appear as physical CPUs to the operating system. SQL Server then sees the those additional CPUs and uses them as if there are more cores than physically present. This can substantially improve performance by increasing parallelization.
 
@@ -59,9 +59,9 @@ When should you configure SQL Server to use more worker threads? If the average 
 image:mssql-max-worker-threads.png[Error: Missing Graphic Image]
 
 === Configuring max worker threads using SQL Server Management Studio.
-....
 The following example shows how to configure the max work threads option using T-SQL.
 
+....
 EXEC sp_configure 'show advanced options', 1;  
 GO  
 RECONFIGURE ;  

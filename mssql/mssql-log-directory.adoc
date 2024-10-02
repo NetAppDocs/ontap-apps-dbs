@@ -22,7 +22,7 @@ Place the log directory on a dedicated volume or LUN. The amount of data in the 
 
 * Make sure that the host log directory is not shared by any other type of data that can potentially corrupt the backup snapshot data.
 * Do not place user databases or system databases on a LUN that hosts mount points.
-* Create the host log directory on the dedicated FlexVol volume to which SnapCenter copies transaction logs.
+* Create the host log directory on a dedicated volume to which SnapCenter copies transaction logs.
 * Use SnapCenter wizards to migrate databases to NetApp storage so that the databases are stored in valid locations, enabling successful SnapCenter backup and restore operations. Keep in mind that the migration process is disruptive and can cause the databases to go offline while the migration is in progress.
 * The following conditions must be in place for failover cluster instances (FCIs) of SQL Server:
     - If you are using a failover cluster instance, the host log directory LUN must be a cluster disk resource in the same cluster group as the SQL Server instance being backed up SnapCenter.

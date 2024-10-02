@@ -31,6 +31,8 @@ entries:
     entries:
     - title: Overview
       url: /mssql/mssql-disaster-recovery.html
+    - title: Overview
+      url: /mssql/mssql-dr-snapmirror.html
     - title: MetroCluster
       entries:
       - title: MetroCluster architecture

@@ -41,21 +41,19 @@ entries:
         url: /mssql/mssql-dr-mcc-sql.html
     - title: SnapMirror active sync
       entries:
-      - title: SnapMirror active sync
+      - title: Overview
+        url: /mssql/mssql-dr-smas-overview.html
+      - title: ONTAP Mediator
+        url: /mssql/mssql-dr-smas-mediator.html
+      - title: Preferred site
+        url: /mssql/mssql-dr-smas-preferred-site.html
+      - title: Network topology
         entries:
-        - title: Overview
-          url: /mssql/mssql-dr-smas-overview.html
-        - title: ONTAP Mediator
-          url: /mssql/mssql-dr-smas-mediator.html
-        - title: Preferred site
-          url: /mssql/mssql-dr-smas-preferred-site.html
-        - title: Network topology
-          entries:
-          - title: Uniform access
-            url: /mssql/mssql-dr-smas-uniform.html  
-          - title: Nonuniform access
-            url: /mssql/mssql-dr-smas-nonuniform.html  
-      - title: SQL Server with SnapMirror active sync
-        url: /mssql/mssql-dr-smas-sql.html
+        - title: Uniform access
+          url: /mssql/mssql-dr-smas-uniform.html  
+        - title: Nonuniform access
+          url: /mssql/mssql-dr-smas-nonuniform.html  
+        - title: SQL Server with SnapMirror active sync
+          url: /mssql/mssql-dr-smas-sql.html
   - title: Data security
     url: /mssql/mssql-data-security.html

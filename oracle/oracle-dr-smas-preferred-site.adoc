@@ -1,0 +1,13 @@
+---
+sidebar: sidebar
+permalink: oracle/oracle-dr-smas-preferred-site.html
+keywords: Oracle,SM-as,active sync,preferred
+summary: Oracle and SM-as preferred site
+---
+= Oracle and SM-as preferred site
+:imagesdir: ../media/
+
+[.lead]
+SnapMirror active sync behavior is symmetric, with one important exception - preferred site configuration. 
+
+include::../_include/smas-preferred-site.adoc[]

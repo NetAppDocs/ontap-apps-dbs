@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar
-permalink: mssql/mssql-dr-smas-overview.html
-keywords: MSSQL,SQL Server, SnapMirror active sync, SMBC, overview
-summary: Microsoft SQL Server and SnapMirror active sync
+permalink: oracle/oracle-dr-smas-overview.html
+keywords: Oracle,SM-as,active sync
+summary: Oracle and SnapMirror active sync
 ---
-= SQL Server and SnapMirror active sync
+= Oracle and SnapMirror active sync
 :imagesdir: ../media/
 
 [.lead]

@@ -49,12 +49,6 @@ entries:
             url: /mssql/mssql-dr-smas-uniform.html  
           - title: Nonuniform access
             url: /mssql/mssql-dr-smas-nonuniform.html  
-      - title: SnapMirror active sync asymmetric active/active
-        url: /mssql/mssql-dr-smas-asym-aa.html
-      - title: SnapMirror active sync symmteric active/active
-        url: /mssql/mssql-dr-smas-sym-aa.html
-      - title: Host proximity
-        url: /mssql/mssql-dr-smas-hostproximity.html
       - title: SQL Server with SnapMirror active sync
         url: /mssql/mssql-dr-smas-sql.html
       - title: Failure scenarios

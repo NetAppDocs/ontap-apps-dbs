@@ -4,7 +4,7 @@ permalink: mssql/mssql-dr-smas-nonuniform.html
 keywords: MSSQL,SQL Server, SnapMirror active sync, SMBC, overview
 summary: Microsoft SQL Server and SM-as uniform access
 ---
-= SnapMirror active sync overview
+= Microsoft SQL Server and SM-as uniform access
 :imagesdir: ../media/
 
 [.lead]

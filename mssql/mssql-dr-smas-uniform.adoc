@@ -1,0 +1,13 @@
+---
+sidebar: sidebar
+permalink: mssql/mssql-dr-smas-nonuniform.html
+keywords: MSSQL,SQL Server, SnapMirror active sync, SMBC, overview
+summary: Microsoft SQL Server and SM-as uniform access
+---
+= SnapMirror active sync overview
+:imagesdir: ../media/
+
+[.lead]
+Uniform networking means hosts are able to access paths on both clusters. 
+
+include::../_include/smas-topology-uniform.adoc[]

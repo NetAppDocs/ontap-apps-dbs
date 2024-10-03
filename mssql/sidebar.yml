@@ -31,7 +31,7 @@ entries:
     entries:
     - title: Overview
       url: /mssql/mssql-disaster-recovery.html
-    - title: Overview
+    - title: SnapMirror
       url: /mssql/mssql-dr-snapmirror.html
     - title: MetroCluster
       entries:
@@ -42,7 +42,13 @@ entries:
     - title: SnapMirror active sync
       entries:
       - title: SnapMirror active sync overview
-        url: /mssql/mssql-dr-smas-overview.html 
+        url: /mssql/mssql-dr-smas-overview.html
+        - title: Network topologies
+          entries:
+          - title: Uniform access
+            url: /mssql/mssql-dr-smas-uniform.html  
+          - title: Nonuniform access
+            url: /mssql/mssql-dr-smas-nonuniform.html  
       - title: SnapMirror active sync asymmetric active/active
         url: /mssql/mssql-dr-smas-asym-aa.html
       - title: SnapMirror active sync symmteric active/active

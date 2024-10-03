@@ -20,4 +20,4 @@ NetApp recommends installing the NetApp Host Utilities on hosts that are connect
 
 [NOTE]
 
-With AIX, it is especially critical that the Host Utilities are installed before discovering LUNs. This ensures that the LUN multipathing behavior is configured correctly. If discovery was performed without the Host Utilities, the LUNs will need to be deconfigured from the system using the `rmdev -dl` command and then rediscovered via `cfgmgr`` or a reboot.
+With AIX, it is especially critical that the Host Utilities are installed before discovering LUNs. This ensures that the LUN multipathing behavior is configured correctly. If discovery was performed without the Host Utilities, the LUNs will need to be deconfigured from the system using the `rmdev -dl` command and then rediscovered via `cfgmgr` or a reboot.

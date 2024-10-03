@@ -1,0 +1,13 @@
+
+An important feature of SM-as is the ability to configure the storage systems know where the hosts are located. When you map the LUNs to a given host, you can indicate whether or not they are local to the storage system.  
+
+With an AFF system, the paths would appear as shown below.
+
+image:smas-uniform-aff.png[SnapMirror active uniform networking]
+
+In normal operation, all IO is local IO. Reads and writes are serviced from the local storage array. Write IO will, of course, need to be replicated by the local controller to the remote system before being acknowledged, but all read IO will be serviced locally and will not incur extra latency by traversing the SAN link between sites.
+
+The only time the nonoptimized paths will be used is when all active/optimized paths are lost. For example, if the entire array on site A lost power, the hosts at site A would still be operational, although they would be experiencing higher latency. 
+
+[Note]
+There are redundant paths through the local cluster that are not shown on these diagrams for the sake of simplicity. ONTAP storage systems are HA themselves, so a controller failure should not result in site failure. It should merely result in a change in which local paths are used on the affected site.

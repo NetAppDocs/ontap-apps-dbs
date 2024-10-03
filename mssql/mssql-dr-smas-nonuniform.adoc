@@ -1,0 +1,14 @@
+---
+sidebar: sidebar
+permalink: mssql/mssql-dr-smas-nonuniform.html
+keywords: MSSQL,SQL Server, SnapMirror active sync, SMBC, overview
+summary: Microsoft SQL Server and SM-as nonuniform access
+---
+= SnapMirror active sync overview
+:imagesdir: ../media/
+
+[.lead]
+Nonuniform access means each host has access to only a subset of available ports.
+
+include::../_include/smas-topology-nonuniform.adoc[]
+

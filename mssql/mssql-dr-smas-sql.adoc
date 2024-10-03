@@ -5,6 +5,7 @@ keywords: MSSQL,SQL Server, SnapMirror active sync, ONTAP, SMBC, SMas, SnapMirro
 summary: Microsoft SQL Server and SnapMirror active sync
 ---
 = Microsoft SQL Server with SnapMirror active sync
+:imagesdir: ../media/
 
 [.lead]
 SQL Server can be configured to work with SnapMirror active in several ways. The right answer depends on the available network connectivity, RPO requirements, and availability requirements.

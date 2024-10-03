@@ -1,0 +1,21 @@
+The mediator is not really a tiebreaker, although that is effectively the function it provides. It does not take any actions; instead it provides an alternate communication channel for cluster to cluster communication.
+
+The #1 challenge with automated failover is the split-brain problem, and that problem arises if your two sites lose connectivity with each other. What should happen? You do not want to have two different sites activate themselves as the surviving copy of the data, but how can a single site tell the difference between actual loss of the opposite site and an inability to communicate with the opposite site?
+
+This is where the mediator enters the picture. If placed on a 3rd site, and each site has a separate network connection to that site, then you have an additional path for each site to validate the health of the other. Look at the picture above again and consider the following scenarios. 
+
+* What happens if the mediator fails or is unreachable from one or both sites?
+**The two clusters can still communicate with each other over the same link used for replication services.
+** Data is still served with RPO=0 protection
+
+* What happens if Site A fails? 
+** Site B will see both of the communication channels go down.
+** Site B will take over data services, but without RPO=0 mirroring
+
+* What happens if Site B fails? 
+** Site A will see both of the communication channels go down.
+** Site A will take over data services, but without RPO=0 mirroring
+
+There is one other scenario to consider: Loss of the data replication link. If the replication link between sites is lost, RPO=0 mirroring will obviously be impossible. What should happen then? 
+
+This is controlled by the preferred site status. In an SM-as relationship, one of the sites is secondary to the other. This makes no difference in normal operations, and all data access is symmetric, but if replication is interrupted then the tie will have to be broken to resume operations. The preferred site will continue operations without mirroring and the secondary will halt IO processing until replication communication resumes.

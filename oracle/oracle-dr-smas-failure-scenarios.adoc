@@ -3,7 +3,7 @@ sidebar: sidebar
 permalink: oracle/oracle-dr-smas-failure-scenarios.html
 keywords: Oracle, SnapMirror active sync, SMBC, failover
 summary: Oracle and SnapMirror active sync failover
-
+---
 = Oracle and SnapMirror active sync failover
 :imagesdir: ../media/
 

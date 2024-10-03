@@ -169,7 +169,7 @@ entries:
           url: /oracle/oracle-dr-smas-uniform.html  
         - title: Nonuniform access
           url: /oracle/oracle-dr-smas-nonuniform.html  
-      - title: Failover scenarios
+      - title: Failure scenarios
         url: /oracle/oracle-dr-smas-failure-scenarios.html
 #    - title: SnapMirror
 #      entries:

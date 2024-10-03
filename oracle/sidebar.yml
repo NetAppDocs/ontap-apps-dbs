@@ -156,6 +156,7 @@ entries:
       - title: Oracle RAC on MetroCluster
         url: /oracle/oracle-dr-mcc-rac.html
     - title: SnapMirror active sync
+      entries: 
       - title: Overview
         url: /oracle/oracle-dr-smas-overview.html
       - title: ONTAP Mediator

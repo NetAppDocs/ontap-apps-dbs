@@ -53,7 +53,7 @@ entries:
           url: /mssql/mssql-dr-smas-uniform.html  
         - title: Nonuniform access
           url: /mssql/mssql-dr-smas-nonuniform.html  
-      - title: Failover scenarios
+      - title: Failure scenarios
         url: /mssql/mssql-dr-smas-failure-scenarios.html
       - title: SQL Server with SM-as
         url: /mssql/mssql-dr-smas-sql.html

@@ -43,12 +43,12 @@ entries:
       entries:
       - title: SnapMirror active sync overview
         url: /mssql/mssql-dr-smas-overview.html
-        - title: Network topologies
-          entries:
-          - title: Uniform access
-            url: /mssql/mssql-dr-smas-uniform.html  
-          - title: Nonuniform access
-            url: /mssql/mssql-dr-smas-nonuniform.html  
+      - title: Network topology
+        entries:
+        - title: Uniform access
+          url: /mssql/mssql-dr-smas-uniform.html  
+        - title: Nonuniform access
+          url: /mssql/mssql-dr-smas-nonuniform.html  
       - title: SQL Server with SnapMirror active sync
         url: /mssql/mssql-dr-smas-sql.html
       - title: Failure scenarios

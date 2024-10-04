@@ -181,8 +181,8 @@ entries:
         entries: 
         - title: Overview
           url: /oracle/oracle-dr-smas-fail-overview.html
-        - title: Failure1
-          url: /oracle/oracle-dr-smas-fail-repl.html           
+        - title: Sample architecture
+          url: /oracle/oracle-dr-smas-fail-sample.html           
 #    - title: SnapMirror
 #      entries:
 #      - title: Consistency group disaster recovery

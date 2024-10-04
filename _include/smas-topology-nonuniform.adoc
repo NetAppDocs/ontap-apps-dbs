@@ -1,4 +1,4 @@
-image:smas-nonuniform-aff.png[SnapMirror active sync nonuniform networking]
+image:smas-nonuniform.png[SnapMirror active sync nonuniform networking]
 
 The primary benefit to this approach is SAN simplicity - you remove the need to stretch a SAN over the network. Some users don't have dark fiber between sites or lack the infrastructure to tunnel FC SAN traffic over an IP network. 
 

@@ -4,7 +4,7 @@ For the following examples, assume that site A is configured as the preferred si
 
 If SM-as replication is interrupted, write IO cannot be completed because it would be impossible for a cluster to replicate changes to the opposite site. 
 
-=== Site (Preferred site)
+=== Site A (Preferred site)
 
 The result of replication link failure on the preferred site will be an approximately 15 second pause in write IO processing as ONTAP retries replicated writes operations before it determines that the replication link is genuinely inoperable. After the 15 seconds elapses, the site A system resumes read and write IO processing. The SAN paths will not change, and the LUNs will remain online.
 

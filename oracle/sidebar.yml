@@ -177,12 +177,20 @@ entries:
           url: /oracle/oracle-dr-smas-arch-si.html
         - title: Oracle RAC
           url: /oracle/oracle-dr-smas-arch-rac.html
+        - title: Oracle RAC and tiebreakers
+          url: /oracle/oracle-dr-smas-arch-tiebreaker.html
       - title: Failure scenarios
         entries: 
         - title: Overview
           url: /oracle/oracle-dr-smas-fail-overview.html
         - title: Sample architecture
-          url: /oracle/oracle-dr-smas-fail-sample.html           
+          url: /oracle/oracle-dr-smas-fail-sample.html          
+        - title: RAC interconnect failure
+          url: /oracle/oracle-dr-smas-fail-interconnect.html    
+        - title: SnapMirror communication failure
+          url: /oracle/oracle-dr-smas-fail-snapmirror.html 
+        - title: Total network interconnect failure
+          url: /oracle/oracle-dr-smas-fail-repl.html    
 #    - title: SnapMirror
 #      entries:
 #      - title: Consistency group disaster recovery

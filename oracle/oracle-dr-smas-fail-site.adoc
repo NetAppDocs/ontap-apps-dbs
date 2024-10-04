@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: oracle/oracle-dr-smas-fail-repl.html
+permalink: oracle/oracle-dr-smas-fail-site.html
 keywords: Oracle, SnapMirror active sync, SMBC, failover
 summary: Oracle and SnapMirror active sync - total loss of connectivity
 ---
@@ -8,34 +8,43 @@ summary: Oracle and SnapMirror active sync - total loss of connectivity
 :imagesdir: ../media/
 
 [.lead]
-If the replication link between sites is completely lost, both SnapMirror active sync and Oracle RAC connectivity will be interrupted.
+The result of a storage system or site failure is nearly identical to the result of losing the replication link. The surviving site should experience a roughly 15 second IO pause on writes. Once that 15 second period elapses, IO will resume on that site as usual.
 
-Oracle RAC split-brain detection has a dependency on the Oracle RAC storage heartbeat. If loss of site-to-site connectivity results in simultaneous loss of both the RAC network heartbeat and storage replication services, the result is the RAC sites will not be able to communicate cross-site via either the RAC interconnect or the RAC voting disks. The result in an even-numbed set of nodes may be eviction of both sites under default settings. The exact behavior will depend on the sequence of events and the timing of the RAC network and disk heartbeat polls. 
-
-The risk of a 2-site outage can be addressed in two ways. First, a link:oracle-dr-smas-arch-tiebreaker[tiebreaker] configuration can be used.
-
-If a 3rd site is not available, this risk can be addressed by adjusting the misscount parameter on the RAC cluster. Under the defaults, the RAC network heartbeat timeout is 30 seconds. This normally is used by RAC to identify failed RAC nodes and remove them from the cluster. It also has a connection to the voting disk heartbeat.
-
-If, for example, the conduit carrying intersite traffic for both Oracle RAC and storage replication services is cut by a backhoe, the 30 second misscount countdown will begin. If the RAC preferred site node cannot reestablish contact with the opposite site within 30 seconds, and it also cannot use the voting disks to confirm the opposite site is down within that same 30 second window, then the preferred site nodes will also evict. The result is a full database outage.
-
-Depending on when the misscount polling occurs, 30 seconds may not be enough time for SnapMirror active sync to time out and allow storage on the preferred site to resume services before the 30 second window expires. This 30 second window can be increased. 
+If only the storage system was affected, the Oracle RAC node on the failed site will lose storage services and enter the same 200 second disktimeout countdown before eviction and subsequent reboot.
 
 ....
-[root@jfs12 ~]# /grid/bin/crsctl set css misscount 100
-CRS-4684: Successful set of parameter misscount to 100 for Cluster Synchronization Services.
+2024-09-11 13:44:38.613 [ONMD(3629)]CRS-1615: No I/O has completed after 50% of the maximum interval. If this persists, voting file /dev/mapper/grid2 will be considered not functional in 99750 milliseconds.
+2024-09-11 13:44:51.202 [ORAAGENT(5437)]CRS-5011: Check of resource "NTAP" failed: details at "(:CLSN00007:)" in "/gridbase/diag/crs/jfs13/crs/trace/crsd_oraagent_oracle.trc"
+2024-09-11 13:44:51.798 [ORAAGENT(75914)]CRS-8500: Oracle Clusterware ORAAGENT process is starting with operating system process ID 75914
+2024-09-11 13:45:28.626 [ONMD(3629)]CRS-1614: No I/O has completed after 75% of the maximum interval. If this persists, voting file /dev/mapper/grid2 will be considered not functional in 49730 milliseconds.
+2024-09-11 13:45:33.339 [ORAAGENT(76328)]CRS-8500: Oracle Clusterware ORAAGENT process is starting with operating system process ID 76328
+2024-09-11 13:45:58.629 [ONMD(3629)]CRS-1613: No I/O has completed after 90% of the maximum interval. If this persists, voting file /dev/mapper/grid2 will be considered not functional in 19730 milliseconds.
+2024-09-11 13:46:18.630 [ONMD(3629)]CRS-1604: CSSD voting file is offline: /dev/mapper/grid2; details at (:CSSNM00058:) in /gridbase/diag/crs/jfs13/crs/trace/onmd.trc.
+2024-09-11 13:46:18.631 [ONMD(3629)]CRS-1606: The number of voting files available, 0, is less than the minimum number of voting files required, 1, resulting in CSSD termination to ensure data integrity; details at (:CSSNM00018:) in /gridbase/diag/crs/jfs13/crs/trace/onmd.trc
+2024-09-11 13:46:18.638 [ONMD(3629)]CRS-1699: The CSS daemon is terminating due to a fatal error from thread: clssnmvDiskPingMonitorThread; Details at (:CSSSC00012:) in /gridbase/diag/crs/jfs13/crs/trace/onmd.trc
+2024-09-11 13:46:18.651 [OCSSD(3631)]CRS-1652: Starting clean up of CRSD resources.
 ....
 
-This value allows the storage system on the preferred site to resume operations before the miscount timeout expires. The result will then be eviction only of the nodes at the site where the LUN paths were removed. Example below:
+The SAN path state on the RAC node that has lost storage services looks like this:
 
 ....
-2024-09-12 09:50:59.352 [ONMD(681360)]CRS-1612: Network communication with node jfs13 (2) has been missing for 50% of the timeout interval.  If this persists, removal of this node from cluster will occur in 49.570 seconds
-2024-09-12 09:51:10.082 [CRSD(682669)]CRS-7503: The Oracle Grid Infrastructure process 'crsd' observed communication issues between node 'jfs12' and node 'jfs13', interface list of local node 'jfs12' is '192.168.30.1:46039;', interface list of remote node 'jfs13' is '192.168.30.2:42037;'.
-2024-09-12 09:51:24.356 [ONMD(681360)]CRS-1611: Network communication with node jfs13 (2) has been missing for 75% of the timeout interval.  If this persists, removal of this node from cluster will occur in 24.560 seconds
-2024-09-12 09:51:39.359 [ONMD(681360)]CRS-1610: Network communication with node jfs13 (2) has been missing for 90% of the timeout interval.  If this persists, removal of this node from cluster will occur in 9.560 seconds
-2024-09-12 09:51:47.527 [OHASD(680884)]CRS-8011: reboot advisory message from host: jfs13, component: cssagent, with time stamp: L-2024-09-12-09:51:47.451
-2024-09-12 09:51:47.527 [OHASD(680884)]CRS-8013: reboot advisory message text: oracssdagent is about to reboot this node due to unknown reason as it did not receive local heartbeats for 10470 ms amount of time
-2024-09-12 09:51:48.925 [ONMD(681360)]CRS-1632: Node jfs13 is being removed from the cluster in cluster incarnation 621596607
+oradata7 (3600a0980383041334a3f55676c697347) dm-20 NETAPP,LUN C-Mode
+size=128G features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp=rw
+|-+- policy='service-time 0' prio=0 status=enabled
+| `- 34:0:0:18 sdam 66:96  failed faulty running
+`-+- policy='service-time 0' prio=0 status=enabled
+  `- 33:0:0:18 sdaj 66:48  failed faulty running
 ....
 
-[Note]
-Oracle Support strongly discourages altering with the misscount or disktimeout parameters to solve configuration problems. Changing these parameters can, however, be warranted and unavoidable in many cases, including SAN booting, virtualized, and storage replication configurations. If, for example, you had stability problems with a SAN or IP network that was resulting in RAC evictions you should fix the underlying problem and not charge the values of the misscount or disktimeout. Changing timeouts to address configuration errors is masking a problem, not solving a problem. Changing these parameters to properly configure a RAC environment based on design aspects of the underlying infrastructure is different and is consistent with Oracle support statements. With SAN booting, it is common to adjust misscount all the way up to 200 to match disktimeout. See link:oracle-app-config-rac.html[this link] for additional information.
+The linux host detected the loss of the paths much quicker than 200 seconds, but from a database perspective the client connections to the host on the failed site will still be frozen for 200 seconds under the default Oracle RAC settings. Full database operations will only resume after the eviction is completed. 
+
+Meanwhile, the Oracle RAC node on the opposite site will record the loss of the other RAC node. It otherwise continues to operate as usual.
+
+....
+2024-09-11 13:46:34.152 [ONMD(3547)]CRS-1612: Network communication with node jfs13 (2) has been missing for 50% of the timeout interval.  If this persists, removal of this node from cluster will occur in 14.020 seconds
+2024-09-11 13:46:41.154 [ONMD(3547)]CRS-1611: Network communication with node jfs13 (2) has been missing for 75% of the timeout interval.  If this persists, removal of this node from cluster will occur in 7.010 seconds
+2024-09-11 13:46:46.155 [ONMD(3547)]CRS-1610: Network communication with node jfs13 (2) has been missing for 90% of the timeout interval.  If this persists, removal of this node from cluster will occur in 2.010 seconds
+2024-09-11 13:46:46.470 [OHASD(1705)]CRS-8011: reboot advisory message from host: jfs13, component: cssmonit, with time stamp: L-2024-09-11-13:46:46.404
+2024-09-11 13:46:46.471 [OHASD(1705)]CRS-8013: reboot advisory message text: At this point node has lost voting file majority access and oracssdmonitor is rebooting the node due to unknown reason as it did not receive local hearbeats for 28180 ms amount of time
+2024-09-11 13:46:48.173 [ONMD(3547)]CRS-1632: Node jfs13 is being removed from the cluster in cluster incarnation 621516934
+....

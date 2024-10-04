@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: oracle/oracle-dr-smas-failure-scenarios.html
+permalink: oracle/oracle-dr-smas-fail-repl.html
 keywords: Oracle, SnapMirror active sync, SMBC, failover
 summary: Oracle and SnapMirror active sync failover
 ---

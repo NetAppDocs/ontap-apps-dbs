@@ -169,8 +169,6 @@ entries:
           url: /oracle/oracle-dr-smas-uniform.html  
         - title: Nonuniform access
           url: /oracle/oracle-dr-smas-nonuniform.html  
-      - title: Failure scenarios
-        url: /oracle/oracle-dr-smas-failure-scenarios.html
       - title: Oracle Configurations
         entries:
         - title: Basic architecture
@@ -178,7 +176,13 @@ entries:
         - title: Oracle Single Instance
           url: /oracle/oracle-dr-smas-arch-si.html
         - title: Oracle RAC
-          url: /oracle/oracle-dr-smas-arch-rac.html           
+          url: /oracle/oracle-dr-smas-arch-rac.html
+      - title: Failure scenarios
+        entries: 
+        - title: Overview
+          url: /oracle/oracle-dr-smas-fail-overview.html
+        - title: Failure1
+          url: /oracle/oracle-dr-smas-fail-repl.html           
 #    - title: SnapMirror
 #      entries:
 #      - title: Consistency group disaster recovery

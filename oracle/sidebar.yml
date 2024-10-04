@@ -190,7 +190,15 @@ entries:
         - title: SnapMirror communication failure
           url: /oracle/oracle-dr-smas-fail-snapmirror.html 
         - title: Total network interconnect failure
-          url: /oracle/oracle-dr-smas-fail-repl.html    
+          url: /oracle/oracle-dr-smas-fail-repl.html
+        - title: Site failure
+          url: /oracle/oracle-dr-smas-fail-site.html 
+        - title: Mediator failure
+          url: /oracle/oracle-dr-smas-fail-mediator.html
+        - title: Service restoration after failure
+          url: /oracle/oracle-dr-smas-fail-restore.html
+        - title: Manual failovers
+          url: /oracle/oracle-dr-smas-fail-manual.html 
 #    - title: SnapMirror
 #      entries:
 #      - title: Consistency group disaster recovery

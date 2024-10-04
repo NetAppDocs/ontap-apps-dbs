@@ -1,0 +1,18 @@
+---
+sidebar: sidebar
+permalink: oracle/oracle-dr-smas-fail-sample.html
+keywords: Oracle, SnapMirror active sync, SMBC, failover
+summary: Oracle and SnapMirror active sync failover
+---
+= Oracle with SnapMirror active sync sample architecture
+:imagesdir: ../media/
+
+[.lead]
+The detailed failure examples shown in this sections are based on the architecture shown below. 
+
+[NOTE]
+This is only one of many options for Oracle databases on SnapMirror active sync. This design was chosen because it illustrates some of the more complicated scenarios.
+
+In this design, assume that site A is set at the link:oracle-dr-smas-preferred-site[preferred site].
+
+image:smas-fail-example.png[Sample Oracle on SM-as design]

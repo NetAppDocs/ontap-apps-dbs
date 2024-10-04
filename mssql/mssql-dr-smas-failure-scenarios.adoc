@@ -1,0 +1,14 @@
+---
+sidebar: sidebar
+permalink: mssql/mssql-dr-smas-failure-scenarios.html
+keywords: MSSQL,SQL Server, SnapMirror active sync, SMBC, failover
+summary: Microsoft SQL Server and SM-as failover scenarios
+---
+= Microsoft SQL Server and SnapMirror active sync failover
+:imagesdir: ../media/
+
+[.lead]
+Planning a complete SnapMirror active sync application architecture requires understanding how SM-as will respond in various planned and unplanned failover scenarios.
+
+include::../_include/smas-failure-scenarios.adoc[]
+

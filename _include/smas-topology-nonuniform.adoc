@@ -1,0 +1,10 @@
+image:smas-nonuniform.png[SnapMirror active sync nonuniform networking]
+
+The primary benefit to this approach is SAN simplicity - you remove the need to stretch a SAN over the network. Some users don't have dark fiber between sites or lack the infrastructure to tunnel FC SAN traffic over an IP network. 
+
+The disadvantage to nonuniform access is that certain failure scenarios including loss of the replication link will result in half of your hosts losing access to storage. Applications that run as single instances, such as a non-clustered database that is inherently only running on a single host at any given mount would fail if local storage connectivity were lost. The data would still be protected, but the database server would no longer have access. It would need to be restarted on a remote site, preferably through an automated process. For example, VMware HA can detect an all-paths-down situation and restart a VM on another server where paths are available. 
+
+In contrast, a clustered application such as Oracle RAC can deliver the same services that are running at both sites. Losing a site doesn’t mean loss of the application service as a whole. Instances are still available and running at the surviving site. In some cases, the additional latency overhead of an application accessing storage across sites would be unacceptable, rendering the improved availability of uniform access unnecessary. 
+
+[Note]
+There are redundant paths through the local cluster that are not shown on these diagrams for the sake of simplicity. ONTAP storage systems are HA themselves, so a controller failure should not result in site failure. It should merely result in a change in which local paths are used on the affected site.

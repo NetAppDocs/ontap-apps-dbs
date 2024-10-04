@@ -56,7 +56,7 @@ In addition to Iris ODB data servers, Epic software environments commonly includ
 
  Clarity is used to report on data extracted daily from the reporting Iris database.
 
-* WebBLOB server (CIFS)
+* WebBLOB server (SMB)
 
 * Multipurpose database server
 

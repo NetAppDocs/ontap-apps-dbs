@@ -12,8 +12,8 @@ Microsoft SQL Server deployment with MetroCluster environment requires some expl
 
 MetroCluster synchronously mirrors data and configuration between two ONTAP clusters in separate locations or failure domains. MetroCluster provides continuously available storage for applications by automatically managing two objectives:
 
-• Zero recovery point objective (RPO) by synchronously mirroring data written to the cluster.
-• Near zero recovery time objective (RTO) by mirroring configuration and automating access to data at the second site.
+* Zero recovery point objective (RPO) by synchronously mirroring data written to the cluster.
+* Near zero recovery time objective (RTO) by mirroring configuration and automating access to data at the second site.
 
 MetroCluster provides simplicity with automatic mirroring of data and configuration between the two independent clusters located in the two sites. As storage is provisioned within one cluster, it is automatically mirrored to the second cluster at the second site. NetApp SyncMirror® provides a complete copy of all data with a zero RPO. This means that workloads from one site could switch over at any time to the opposite site and continue serving data without data loss. MetroCluster manages the switchover process of providing access to NAS and SAN-provisioned data at the second site. The design of MetroCluster as a validated solution contains sizing and configuration that enables a switchover to be performed within the protocol timeout periods or sooner (typically less than 120 seconds). This results in a near zero RPO and applications can continue accessing data without incurring failures.MetroCluster is available in several variations defined by the back-end storage fabric.
 

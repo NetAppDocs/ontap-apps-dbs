@@ -4,7 +4,7 @@ permalink: mssql/mssql-dr-smas-overview.html
 keywords: MSSQL,SQL Server, SnapMirror active sync, SMBC, overview
 summary: Microsoft SQL Server and SnapMirror active sync
 ---
-= SnapMirror active sync overview
+= SQL Server and SnapMirror active sync
 :imagesdir: ../media/
 
 [.lead]
@@ -20,7 +20,7 @@ image:mssql-smas-architecture.png[Error: Missing Graphic Image]
 
 **Synchronous replication**
 
-In normal operation, the remote copy is an RPO=0 synchronous replica at all times, with one exception. If data cannot be replicated, with SnapMirror active sync will release the requirement to replicate data and resume serving IO. This option is preferred by customers who consider loss of the replication link a near-disaster, or who do not want business operations to halt when data cannot be replicated.
+In normal operation, each copy is an RPO=0 synchronous replica at all times, with one exception. If data cannot be replicated, ONTAP will release the requirement to replicate data and resume serving IO on one site while the LUNs on the other site are taken offline.
 
 **Storage hardware**
 

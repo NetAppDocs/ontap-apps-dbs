@@ -1,0 +1,22 @@
+---
+sidebar: sidebar
+permalink: oracle/oracle-dr-smas-arch-si.html
+keywords: oracle, active sync, mcc, MCC-IP
+summary: Oracle SnapMirror active sync
+---
+= Oracle Single-Instance with SnapMirror active sync
+
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+There are many ways to design an Oracle database infrastructure using SnapMirror active async and there is no true best practice. 
+
+== Single instance or RAC?
+
+== 
+
+For a m

@@ -31,6 +31,8 @@ entries:
     entries:
     - title: Overview
       url: /mssql/mssql-disaster-recovery.html
+    - title: SnapMirror
+      url: /mssql/mssql-dr-snapmirror.html
     - title: MetroCluster
       entries:
       - title: MetroCluster architecture
@@ -39,17 +41,21 @@ entries:
         url: /mssql/mssql-dr-mcc-sql.html
     - title: SnapMirror active sync
       entries:
-      - title: SnapMirror active sync overview
-        url: /mssql/mssql-dr-smas-overview.html 
-      - title: SnapMirror active sync asymmetric active/active
-        url: /mssql/mssql-dr-smas-asym-aa.html
-      - title: SnapMirror active sync symmteric active/active
-        url: /mssql/mssql-dr-smas-sym-aa.html
-      - title: Host proximity
-        url: /mssql/mssql-dr-smas-hostproximity.html
-      - title: SQL Server with SnapMirror active sync
+      - title: Overview
+        url: /mssql/mssql-dr-smas-overview.html
+      - title: ONTAP Mediator
+        url: /mssql/mssql-dr-smas-mediator.html
+      - title: Preferred site
+        url: /mssql/mssql-dr-smas-preferred-site.html
+      - title: Network topology
+        entries:
+        - title: Uniform access
+          url: /mssql/mssql-dr-smas-uniform.html  
+        - title: Nonuniform access
+          url: /mssql/mssql-dr-smas-nonuniform.html  
+      - title: SQL Server with SM-as
         url: /mssql/mssql-dr-smas-sql.html
       - title: Failure scenarios
-        url: /mssql/mssql-dr-smas-failurescenarios.html
+        url: /mssql/mssql-dr-smas-failure-scenarios.html
   - title: Data security
     url: /mssql/mssql-data-security.html

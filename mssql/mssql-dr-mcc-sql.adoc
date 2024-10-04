@@ -5,6 +5,7 @@ keywords: MSSQL,SQL Server, MetroCluster
 summary: Microsoft SQL Server with NetApp MetroCluster
 ---
 = Microsoft SQL Server with MetroCluster
+:imagesdir: ../media/
 
 [.lead]
 One option for protecting SQL Server databases with a zero RPO is MetroCluster. MetroCluster is a simple, high-performance RPO=0 replication technology that allows you to easily replicate an entire infrastructure across sites.

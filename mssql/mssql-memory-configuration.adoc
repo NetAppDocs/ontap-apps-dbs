@@ -12,9 +12,7 @@ The following section explains the SQL Server memory settings required to optimi
 
 == Max server memory
 
-The max server memory option sets the maximum amount of memory that the SQL Server instance can use.
-
-It is generally used if multiple applications are running on the same server where SQL Server is running and you want to guarantee that these applications have sufficient memory to function properly.
+The max server memory option sets the maximum amount of memory that the SQL Server instance can use. It is generally used if multiple applications are running on the same server where SQL Server is running and you want to guarantee that these applications have sufficient memory to function properly.
 
 Some applications only use whatever memory is available when they start and do not request additional memory, even if they are under memory pressure. That is where the max server memory setting comes into play.
 
@@ -41,7 +39,7 @@ RECONFIGURE WITH OVERRIDE
 == Nonuniform memory access
 Nonuniform memory access (NUMA) is a memory-access optimization technology that helps avoid extra the load on the processor bus. 
 
-If NUMA is configured on a server where SQL Server is installed, no additional configuration is required because SQL Server is NUMA aware and performs well on NUMA hardware.
+If NUMA is configured on a server where SQL Server is installed, no additional configuration is required because SQL Server is NUMA-aware and performs well on NUMA hardware.
 
 == Index create memory
 The index create memory option is another advanced option that should not normally need to be changed from defaults.

@@ -1,0 +1,14 @@
+---
+sidebar: sidebar
+permalink: oracle/oracle-dr-smas-fail-overview.html
+keywords: Oracle, SnapMirror active sync, SMBC, failover
+summary: Oracle and SnapMirror active sync failover
+---
+= Oracle and SnapMirror active sync failover
+:imagesdir: ../media/
+
+[.lead]
+Planning a complete SnapMirror active sync application architecture requires understanding how SM-as will respond in various planned and unplanned failover scenarios.
+
+include::../_include/smas-failure-scenarios.adoc[]
+

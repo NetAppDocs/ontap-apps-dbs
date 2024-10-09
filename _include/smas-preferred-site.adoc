@@ -4,7 +4,7 @@ The `source` designation is controls the preferred site. If the replication link
 
 My current configuration has site A as the preferred site for both Oracle and ONTAP. This can be viewed via SystemManager:
 
-image:smas-source-systemmanager[SM screenshot of SM-as source]
+image:smas-source-systemmanager.png[SM screenshot of SM-as source]
 
 or at the CLI:
 

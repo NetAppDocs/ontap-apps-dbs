@@ -21,7 +21,7 @@ Traditional extended RAC clustered relied on ASM mirroring to provide data prote
 
 They key to understanding RAC functionality on SnapMirror active sync is to view storage as a single set of LUNs which are hosted on mirrored storage. 
 
-image:smas-oracle-oracle-logical.png[Oracle logical access]
+image:smas-oracle-logical.png[Oracle logical access]
 
 There is no primary copy or mirror copy. Logically, there is only a single copy of each LUN, and that LUN is available on SAN paths that are located on two different storage systems. From a host point of view, there are no storage failovers; instead there are path changes. Various failure events might lead to loss of certain paths to the LUN while other paths remain only. SnapMirror active sync ensures the same data is available across all paths.
 

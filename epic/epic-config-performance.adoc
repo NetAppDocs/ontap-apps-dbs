@@ -26,4 +26,4 @@ NetApp recommends using Adaptive QoS (AQoS) managed by NSLM. The benefit of AQoS
 
 * NetApp recommends balancing all workloads evenly across the HA pair.
 
-* Do not use QOS policies when performing any I/O testing. Only assign policies after SLM has analyzed real production data; otherwise, GenIO testing will fail. Allow SLM to analyze the production workloads for 2–4 weeks before assigning any recommended policies.
+* Do not use QOS policies when performing any I/O testing. Only assign policies after SLM has analyzed real production data; otherwise, GenIO testing will fail. Allow SLM to analyze the production workloads for 2-4 weeks before assigning any recommended policies.

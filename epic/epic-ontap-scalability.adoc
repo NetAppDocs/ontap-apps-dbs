@@ -18,7 +18,7 @@ The Epic Hardware Configuration Guide accounts for ~20% growth per year for 3 ye
 
 NetApp can seamlessly scale performance and capacity up to 12 nodes for NAS, SAN, and Object clusters. As a result, you can nondisruptively scale up and out as your business grows.
 
-Epic Iris brings added scaling capabilities. It enables larger customers that have multiple Epic instances to consolidate to a single instance. The link:https://www.netapp.com/media/27905-nva-1159-design.pdf[^NetApp Verified Architecture Epic on Modern SAN^] document demonstrates that Epic can seamlessly scale consolidated workloads to 720K IOPS on an single HA and scale out to over 4M IOPS in a cluster. You can scale up nondisruptively by upgrading controllers or adding disks to existing clusters.
+Epic Iris brings added scaling capabilities. It enables larger customers that have multiple Epic instances to consolidate to a single instance. The link:https://www.netapp.com/media/27905-nva-1159-design.pdf[NetApp Verified Architecture Epic on Modern SAN^] document demonstrates that Epic can seamlessly scale consolidated workloads to 720K IOPS on an single HA and scale out to over 4M IOPS in a cluster. You can scale up nondisruptively by upgrading controllers or adding disks to existing clusters.
 
 NAS, SAN, and Object data also has the ability to be moved nondisruptively between nodes in the cluster. Each HA pair in the cluster can be any combination of ONTAP FAS and AFF system types and sizes. You can balance your workloads across a single cluster to maximize your storage investment.
 

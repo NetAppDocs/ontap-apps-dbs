@@ -53,23 +53,23 @@ entries:
       url: /epic/epic-config-cgs.html
     - title: Storage sizing
       url: /epic/epic-config-sizing.html
-  - title: Epic configuration example
-    entries:
-    - title: Overview
-      url: /epic/epic-example-overview.html
-    - title: Aggregates
-      url: /epic/epic-example-aggregates.html
-    - title: SVM
-      url: /epic/epic-example-svm.html
-    - title: Protocols
-      url: /epic/epic-example-protocol.html
-    - title: Volumes
-      url: /epic/epic-example-volumes.html
-    - title: LUNs
-      url: /epic/epic-example-luns.html
-    - title: Platforms  
-      url: /epic/epic-example-platforms.html
-    - title: Filesystem
-      url: /epic/epic-example-filesystems.html
+#  - title: Epic configuration example
+#    entries:
+#    - title: Overview
+#      url: /epic/epic-example-overview.html
+#    - title: Aggregates
+#      url: /epic/epic-example-aggregates.html
+#    - title: SVM
+#      url: /epic/epic-example-svm.html
+#    - title: Protocols
+#      url: /epic/epic-example-protocol.html
+#    - title: Volumes
+#      url: /epic/epic-example-volumes.html
+#    - title: LUNs
+#      url: /epic/epic-example-luns.html
+#    - title: Platforms  
+#      url: /epic/epic-example-platforms.html
+#    - title: Filesystem
+#      url: /epic/epic-example-filesystems.html
   - title: Where to find additional information
     url: /epic/epic-additional-info.html

@@ -24,7 +24,7 @@ When calculating storage efficiency, it is important to measure raw to usable to
 
 * *Usable capacity* After RAID is applied, how much usable storage is available.
 
-* E*ffective capacity* How much storage is provisioned and presented to the host or client.
+* *Effective capacity* How much storage is provisioned and presented to the host or client.
 
 The figure below is a sample efficiency calculation of a typical Epic deployment including all workloads requiring 852TB of effective storage and with 5.2:1 efficiency delivering 1.32PB of total effective data. 
 

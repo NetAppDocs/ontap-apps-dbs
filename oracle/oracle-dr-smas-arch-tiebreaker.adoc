@@ -27,7 +27,7 @@ The best method to manage split-brain Oracle RAC risks is to use an odd number o
 
 With an even number of nodes, the default Oracle RAC behavior is that one of the nodes in the cluster will be deemed more important than the other nodes. The site with that higher priority node will survive site isolation while the nodes on the other site will evict. The prioritization is based on multiple factors, but you can also control this behavior using the `css_critical` setting. 
 
-In the link:oracle-dr/smas-fail-sample[example] architecture, the hostnames for the RAC nodes are jfs12 and jfs13. The current settings for `css_critical` are as follows:
+In the link:oracle-dr-smas-fail-sample.html[example] architecture, the hostnames for the RAC nodes are jfs12 and jfs13. The current settings for `css_critical` are as follows:
 
 ....
 [root@jfs12 ~]# /grid/bin/crsctl get server css_critical

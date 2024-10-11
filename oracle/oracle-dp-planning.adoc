@@ -41,7 +41,7 @@ The RTO can usually be measured in seconds. A an application is shut down, the v
 The simplest approach is to place all the files or LUNs in a single volume consistency group, which allows a snapshot creation to be scheduled directly in ONTAP. Where a dataset must span volumes, a consistency group snapshot (cg-snapshot) is required. This can be configured using System Manager or RESTful API calls, plus SnapCenter is capable of creating a simple consistency group snapshot on a defined list of volumes. 
 
 == Replication and disaster recovery architecture
-This section addresses remote data protection, for which data is replicated to a remote site for the purposes of secure offsite storage and disaster recovery. Note that these tables do not address synchronous mirroring data protection. For this requirement, see the NetApp MetroCluster documentation including link:../metrocluster/overview.html[MetroCluster] and link:../smbc/overview.html[SnapMirror active sync]
+This section addresses remote data protection, for which data is replicated to a remote site for the purposes of secure offsite storage and disaster recovery. Note that these tables do not address synchronous mirroring data protection. For this requirement, see the NetApp MetroCluster documentation including link:oracle-dr-mcc-failover.html[MetroCluster] and link:oracle-dr-smas-overview.html[SnapMirror active sync]
 
 The DR RPO is limited by the available network bandwidth and the total size of the data being protected. After the initial baseline transfer is created, the updates are only based on the changed data, which typically is a low percentage of the total data footprint, although exceptions do exist. 
 

@@ -15,15 +15,15 @@ summary: Oracle Extended RAC with SnapMirror active sync
 [.lead]
 Many customers optimize their RTO by stretching an Oracle RAC cluster across sites, yielding a fully active-active configuration. The overall design becomes more complicated because it must include quorum management of Oracle RAC. 
 
-Traditional extended RAC clustered relied on ASM mirroring to provide data protection. This approach works, but it also requires a lot of manual configuration steps and imposes overhead on the network infrastructure. In contrast, allowing SnapMirror active sync to take responsibility for data replication dramatically simplifies the requirements. Operations such as synchronization, resynchronization after disruptions, failovers, and quorum management are easier, plus the SAN does not need to be distributed across sites.
+Traditional extended RAC clustered relied on ASM mirroring to provide data protection. This approach works, but it also requires a lot of manual configuration steps and imposes overhead on the network infrastructure. In contrast, allowing SnapMirror active sync to take responsibility for data replication dramatically simplifies the solution. Operations such as synchronization, resynchronization after disruptions, failovers, and quorum management are easier, plus the SAN does not need to be distributed across sites which simplifies SAN design and management. 
 
 == Replication
 
-They key to understanding RAC functionality on SnapMirror active sync is to view storage as a single set of LUNs which are hosted on mirrored storage. 
+They key to understanding RAC functionality on SnapMirror active sync is to view storage as a single set of LUNs which are hosted on mirrored storage. For example:
 
 image:smas-oracle-logical.png[Oracle logical access]
 
-There is no primary copy or mirror copy. Logically, there is only a single copy of each LUN, and that LUN is available on SAN paths that are located on two different storage systems. From a host point of view, there are no storage failovers; instead there are path changes. Various failure events might lead to loss of certain paths to the LUN while other paths remain only. SnapMirror active sync ensures the same data is available across all paths.
+There is no primary copy or mirror copy. Logically, there is only a single copy of each LUN, and that LUN is available on SAN paths that are located on two different storage systems. From a host point of view, there are no storage failovers; instead there are path changes. Various failure events might lead to loss of certain paths to the LUN while other paths remain online. SnapMirror active sync ensures the same data is available across all operational paths.
 
 == Storage configuration
 
@@ -47,12 +47,12 @@ The primary downside of the link:oracle-dr-smas-nonuniform.html[nonuniform acces
 
 == Uniform access
 
-Uniform access requires extending the SAN across sites. The primary benefit is that loss of a storage system will not result in loss of a database instance. Instead, it would result in a multipath change to use one of the operational paths.
+Uniform access requires extending the SAN across sites. The primary benefit is that loss of a storage system will not result in loss of a database instance. Instead, it would result in a multipathing change in which paths are currently in use.
 
 There are several ways to configure nonuniform access.
 
 [NOTE]
-In the diagrams below there are also active but nonoptimized paths present that would be used during simple controller failures, but those paths are not shown in the interest of simplifying the diagrams.
+In the diagrams below, there are also active but nonoptimized paths present that would be used during simple controller failures, but those paths are not shown in the interest of simplifying the diagrams.
 
 === AFF with proximity settings
 
@@ -64,7 +64,7 @@ In normal operation, each Oracle instance would preferentially use the local act
 
 === ASA / AFF without proximity settings
 
-If there is no significant latency between sites, then AFFsystems can be configured without host proximity settings or ASA can be used
+If there is no significant latency between sites, then AFF systems can be configured without host proximity settings, or ASA can be used.
 
 image:smas-oracle-rac-uniform.png[RAC with uniform access]
 

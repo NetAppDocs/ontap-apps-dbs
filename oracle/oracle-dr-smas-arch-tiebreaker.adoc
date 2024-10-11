@@ -17,17 +17,17 @@ While extended RAC using SnapMirror active sync is a symmetric architecture with
 
 What happens if the replication link is lost and neither site has quorum? What should happen? This question applies to both the Oracle RAC and the ONTAP behavior. If changes cannot be replicated across sites, and you want to resume operations, one of the sites will have to survive and the other site will have to become unavailable.
 
-The link:oracle-dr-smas-mediator[ONTAP Mediator] addresses this requirement at the ONTAP layer. There are multiple options for RAC tiebreaking.
+The link:oracle-dr-smas-mediator.html[ONTAP Mediator] addresses this requirement at the ONTAP layer. There are multiple options for RAC tiebreaking.
 
 == Oracle tiebreakers
 
-The best method to manage split-brain Oracle RAC risks is to use an odd number of RAC nodes, preferably by use of a 3rd site tiebreaker. If a 3rd site is unavailable, the tiebreaker instance could be placed on one site to effectively create a preferred site.
+The best method to manage split-brain Oracle RAC risks is to use an odd number of RAC nodes, preferably by use of a 3rd site tiebreaker. If a 3rd site is unavailable, the tiebreaker instance could be placed on one site of the two sites, effectively designating it a preferred survivor site.
 
 == Oracle and css_critical
 
-With an even number of nodes, the default Oracle RAC behavior is that one of the nodes in the cluster will be deemed more important than the other nodes. The site with that higher priority node will survive site isolation while the nodes on the other site will evict. The prioritization is based on multiple factors, but you can also control this behavior using the css_critical setting. 
+With an even number of nodes, the default Oracle RAC behavior is that one of the nodes in the cluster will be deemed more important than the other nodes. The site with that higher priority node will survive site isolation while the nodes on the other site will evict. The prioritization is based on multiple factors, but you can also control this behavior using the `css_critical` setting. 
 
-In the link:oracle-dr/smas-fail-sample[example] architecture, the hostnames for the RAC nodes are jfs12 and jfs13. The current settings for css_critical are as follows:
+In the link:oracle-dr/smas-fail-sample[example] architecture, the hostnames for the RAC nodes are jfs12 and jfs13. The current settings for `css_critical` are as follows:
 
 ....
 [root@jfs12 ~]# /grid/bin/crsctl get server css_critical

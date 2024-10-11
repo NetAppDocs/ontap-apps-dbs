@@ -28,7 +28,7 @@ To learn more about the information described in this document, refer to the fol
 
 == Epic customer guidance documents
 
-Epic provides customers the following documents to its customers for guidance on server, storage, and network. These documents are referenced in this technical report.
+Epic provides customers the following documents for guidance on server, storage, and network. These documents are referenced in this technical report.
 
 * Storage Area Network Considerations
 
@@ -43,4 +43,3 @@ Epic provides customers the following documents to its customers for guidance on
 * Hardware Configuration Guide (customer-specific)
 
 * Database Storage Layout Recommendations (customer-specific)
-

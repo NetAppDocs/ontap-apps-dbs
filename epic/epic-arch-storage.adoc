@@ -36,7 +36,7 @@ A node in a cluster can be considered as a pool of storage. With ONTAP 9.4 or la
 3. Copies of the data
 
 [NOTE]
-Customers who use NetApp SnapMirror or SnapVault to back up NetApp do not meet the 3-2-1 recommendations. The reason is ONTAP to ONTAP does not satisfy the second requirement listed above. You can use SnapMirror directly from ONTAP to object storage on-premises (through StorageGRID, for example) or to the cloud to meet Epic requirements.
+Customers who use NetApp SnapMirror to back up NetApp do not meet the 3-2-1 recommendations. The reason is ONTAP to ONTAP does not satisfy the second requirement listed above. You can use SnapMirror directly from ONTAP to object storage on-premises (through StorageGRID, for example) or to the cloud to meet Epic requirements.
 
 For more information about storage mandates, see the following Epic guides available in Galaxy:
 

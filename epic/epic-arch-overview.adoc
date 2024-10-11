@@ -16,7 +16,7 @@ summary: Epic architecture
 [.lead]
 This section describes the Epic software environment and the key components that require storage. It provides key considerations to help guide storage design.
 
-Epic is a software company headquartered in Verona, Wisconsin. Epic makes software for midsize and large medical groups, hospitals, and integrated healthcare organizations. Customers also include community hospitals, academic facilities, childrens' organizations, safety net providers, and multi-hospital systems. Epic-integrated software spans clinical, access, and revenue functions and extends into the home.
+Epic, headquartered in Verona, Wisconsin, makes software for medium to large medical groups, hospitals, and integrated healthcare organizations. Customers also include community hospitals, academic facilities, childrens' organizations, safety-net providers, and multi-hospital systems. Epic-integrated software spans clinical, access, and revenue functions and extends into the home.
 
 It is beyond the scope of this document to cover the wide span of functions supported by Epic software. From the storage system point of view, however, all Epic software shares a single patient-centric database for each deployment. Epic is transitioning from the InterSystems Caché database to the new InterSystems Iris database. Because the storage requirements are the same for Caché and Iris, we will refer to the database as Iris throughout the rest of this document. Iris is available for the AIX and Linux operating systems.
 
@@ -26,9 +26,9 @@ InterSystems Iris is the database used by the Epic application. In this database
 
 The use of failover-enabled clustered hardware enables a standby data server to access the same storage as the primary data server. It also enables the standby data server to take over processing responsibilities during a hardware failure.
 
-InterSystems also provides technologies to satisfy data replication, disaster recovery, and high-availability (HA) requirements. InterSystems' replication technology is typically used to synchronously or asynchronously replicate an Iris database from a primary data server to one or more secondary data servers. NetApp SnapMirror® storage-based replication is commonly used for WebBLOB for backup and disaster recovery.
+InterSystems also provides technologies to satisfy data replication, disaster recovery, and high-availability (HA) requirements. InterSystems' replication technology is used to replicate an Iris database synchronously or asynchronously from a primary data server to one or more secondary data servers. NetApp SnapMirror is used to replicate WebBLOB storage or for backup and disaster recovery.
 
-The updated Iris database brings a few advantages:
+The updated Iris database has many advantages:
 
 * Increased scale and enables larger organizations with multiple Epic instances to consolidate into one larger instance.
 
@@ -75,10 +75,10 @@ Each Epic database server performs I/O on the following types of files:
 * Journal files
 * Application files
 
-The workload of an individual database server depends on its role in the Epic software environment. For example, production database files typically incur the most demanding workload, consisting of 100% random I/O requests. The workloads of any mirror database are typically less demanding and have fewer read requests. Journal files workloads are mainly sequential.
+The workload of an individual database server depends on its role in the Epic software environment. For example, production database files typically incur the most demanding workload, consisting of 100% random I/O requests. The workload of any mirror database is typically less demanding and has fewer read requests. Journal file workloads are mainly sequential.
 
 Epic maintains a workload model for storage performance benchmarking and customer workload. For more information about the Epic workload model, benchmark results, and guidance on using NetApp sizing tools to correctly size storage for Epic environments, see https://fieldportal.netapp.com/content/192412?assetComponentId=192510[TR-3930i: NetApp Sizing Guidelines for Epic] (NetApp login required).
 
-Epic also provides each customer with a customized hardware configuration guide containing I/O projections and storage capacity requirements. The final storage requirements might include development, testing, and/or staging environments, and any other ancillary workloads that can be consolidated. The customer can use the hardware configuration guide to communicate the total storage requirements to NetApp. This guide contains all the data needed to size an Epic deployment.
+Epic also provides each customer with a customized hardware configuration guide containing I/O projections and storage capacity requirements. The final storage requirements might include development, testing, and/or staging environments, and any other ancillary workloads which may be consolidated. Customers can use the hardware configuration guide to communicate the total storage requirements to NetApp. This guide contains all the data needed to size an Epic deployment.
 
 During the deployment phase, Epic provides a Database Storage Layout Guide, which provides more granular LUN-level details that can be used for an advanced storage design. Note that the Database Storage Layout Guide is general storage recommendations and not specific to NetApp. Use this guide to determine the best storage layout on NetApp.

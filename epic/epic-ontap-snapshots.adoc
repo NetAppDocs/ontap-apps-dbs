@@ -18,7 +18,7 @@ A snapshot is a point-in-time copy of a volume that is read-only.
 
 A snapshot puts a logical lock on all the blocks in the active file system. NetApp ONTAP Snapshot copies are near instant, and they do not use any additional storage.
 
-WAFL is a write-only file system; it does not perform additional IO, such as copying the data in a snapshot-protected block before being overwritten. No data is ever moved; therefore, snapshots have no effect on storage capacity or performance. Snapshots provide tremendous savings in storage while augmenting the backup solution.
+Write Anwhere File Layout, or WAFL, is a write-only file system; it does not perform additional IO, such as copying the data in a snapshot-protected block before being overwritten. No data is ever moved; therefore, snapshots have no effect on storage capacity or performance. Snapshots provide tremendous savings in storage while augmenting the backup solution.
 
 == FlexClone
 

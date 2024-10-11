@@ -8,6 +8,6 @@ summary: Microsoft SQL Server and SM-as uniform access
 :imagesdir: ../media/
 
 [.lead]
-Uniform networking means hosts are able to access paths on both clusters. 
+Uniform access networking means hosts are able to access paths on both sites (or failure domains within the same site). 
 
 include::../_include/smas-topology-uniform.adoc[]

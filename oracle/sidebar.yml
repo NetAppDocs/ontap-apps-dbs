@@ -171,7 +171,7 @@ entries:
           url: /oracle/oracle-dr-smas-nonuniform.html  
       - title: Oracle Configurations
         entries:
-        - title: Basic architecture
+        - title: Overview
           url: /oracle/oracle-dr-smas-arch-overview.html
         - title: Oracle Single Instance
           url: /oracle/oracle-dr-smas-arch-si.html

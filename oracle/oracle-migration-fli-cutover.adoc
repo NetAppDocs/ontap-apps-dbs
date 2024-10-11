@@ -129,7 +129,7 @@ vserver1  800DT$HuVWBo /vol/new_lvm/LUN9 2
 20 entries were displayed.
 ....
 
-If you require an offline process, delay rediscovering or restarting services until the `lun import show` command indicates that all migration is successful and complete. You can then complete the migration process as described in link:../migration/migration_options.html#foreign-lun-import-fli[Foreign LUN Import—Completion].
+If you require an offline process, delay rediscovering or restarting services until the `lun import show` command indicates that all migration is successful and complete. You can then complete the migration process as described in link:oracle-migration-fli-completion.html[Foreign LUN Import—Completion].
 
 If you require an online migration, proceed to rediscover the LUNs in their new home and bring up the services.
 

@@ -137,6 +137,8 @@ entries:
         url: /oracle/oracle-dp-backup-tools.html
   - title: Oracle disaster recovery
     entries:
+    - title: Overview
+      url: /oracle/oracle-dr-overview.html
     - title: MetroCluster
       entries:
       - title: Oracle Failover with MetroCluster

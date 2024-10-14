@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: epic/epic-config-performance.html
-keywords: epic,cache,iris
+keywords: epic,cache,iris,QoS
 summary: Epic performance management
 ---
 
@@ -16,16 +16,12 @@ summary: Epic performance management
 [.lead]
 Most all-flash arrays can deliver the performance required for Epic workloads. The NetApp differentiator is its ability to set floor level performance policies and guarantee a consistent performance for each application.
 
-== Adaptive QoS
+== Quality of Service (QoS)
 
-NetApp recommends using Adaptive QoS (AQoS). The benefit of AQoS is the ability to consolidate all Epic workloads. All protocols and pools of storage can reside on less hardware. You do not need to separate pools of storage.
+NetApp recommends using QoS. The benefit of QoS is the ability to consolidate all Epic workloads. All protocols and pools of storage can reside on less hardware. You do not need to separate pools of storage.
 
-* NetApp recommends accepting SLM recommended performance policy for at least Production ODB, Report, and Clarity when consolidating Epic workloads and stay compliant with Epic recommendations.
-
-* NetApp recommends having all workloads in the cluster assigned to a policy by SLM to better manage headroom on the cluster.
+* NetApp recommends having all workloads in the cluster assigned to a QoS policy to better manage headroom on the cluster.
 
 * NetApp recommends balancing all workloads evenly across the HA pair.
 
-* Do not use QOS policies when performing any I/O testing. Only assign policies after SLM has analyzed real production data; otherwise, GenIO testing will fail. Allow SLM to analyze the production workloads for 2-4 weeks before assigning any recommended policies.
-
-//chrisgeb - revisit this page as Mike may want to update these recommendations as NSLM is no longer.
+* Do not use QoS policies when performing any I/O testing; otherwise, GenIO testing will fail. Analyze the different production workloads for 2-4 weeks before assigning any QoS policies.

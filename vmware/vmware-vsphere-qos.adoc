@@ -15,7 +15,7 @@ summary: SnapCenter allows you to create backup policies that can be applied to 
 Throughput limits are useful in controlling service levels, managing unknown workloads, or to test applications before deployment to make sure they don't affect other workloads in production. They can also be used to constrain a bully workload after it is identified. 
 
 == ONTAP QoS policy support
-Systems running ONTAP software can use the storage QoS feature to limit throughput in MBps and/or I/Os per second (IOPS) for different storage objects such as files, LUNs, volumes, or entire SVMs.
+Systems running ONTAP can use the storage QoS feature to limit throughput in MBps and/or I/Os per second (IOPS) for different storage objects such as files, LUNs, volumes, or entire SVMs.
 
 Minimum levels of service based on IOPS are also supported to provide consistent performance for SAN objects in ONTAP 9.2 and for NAS objects in ONTAP 9.3.
 
@@ -30,8 +30,6 @@ The following tools are currently available for managing ONTAP QoS policies and 
 * NetApp PowerShell Toolkit for ONTAP
 * ONTAP tools for VMware vSphere VASA Provider
 
-
-
 To assign a QoS policy to a LUN, including VMFS and RDM, the ONTAP SVM (displayed as Vserver), LUN path, and serial number can be obtained from the Storage Systems menu on the ONTAP tools for VMware vSphere home page. Select the storage system (SVM),  and then Related Objects > SAN.  Use this approach when specifying QoS using one of the ONTAP tools.
 
 Refer to link:https://docs.netapp.com/us-en/ontap/performance-admin/index.html[Performance monitoring and management overview] for more information.
@@ -44,7 +42,9 @@ An ONTAP QoS policy can be applied to the entire datastore or individual VMDK fi
 * The same host (esxi-01) is using vm2.vmdk and it is on the same volume.
 * If vm1.vmdk gets throttled, then vm2.vmdk will also appear to be throttled since it shares the same IO queue with vm1.vmdk.
 
-*Note:* This does not apply to vVols.
+[NOTE]
+
+This does not apply to vVols.
 
 Beginning in vSphere 6.5 you can manage file-granular limits on non-vVols datastores by leveraging Storage Policy-Based Management (SPBM) with Storage I/O Control (SIOC) v2.
 
@@ -69,11 +69,13 @@ Minimum and/or maximum QoS can be easily set on individual VMs or VMDKs without 
 
 When creating the storage capability profile for the vVol container, specify a max and/or min IOPS value under the performance capability and then reference this SCP with the VM's storage policy. Use this policy when creating the VM or apply the policy to an existing VM.
 
-*Note:* vVols requires the use ONTAP tools for VMware vSphere which functions as the VASA Provider for ONTAP. Refer to link:/vmware/vmware-vvols-overview.html[VMware vSphere Virtual Volumes (vVols) with ONTAP] for vVols best practices.
+[NOTE]
+
+vVols requires the use ONTAP tools for VMware vSphere which functions as the VASA Provider for ONTAP. Refer to link:/vmware/vmware-vvols-overview.html[VMware vSphere Virtual Volumes (vVols) with ONTAP] for vVols best practices.
 
 == ONTAP QoS and VMware SIOC
 
-ONTAP QoS and VMware vSphere Storage I/O Control (SIOC) are complementary technologies that vSphere and storage administrators can use together to manage performance of vSphere VMs hosted on systems running ONTAP software. Each tool has its own strengths, as shown in the following table. Because of the different scopes of VMware vCenter and ONTAP, some objects can be seen and managed by one system and not the other.
+ONTAP QoS and VMware vSphere Storage I/O Control (SIOC) are complementary technologies that vSphere and storage administrators can use together to manage performance of vSphere VMs hosted on systems running ONTAP. Each tool has its own strengths, as shown in the following table. Because of the different scopes of VMware vCenter and ONTAP, some objects can be seen and managed by one system and not the other.
 
 |===
 |Property |ONTAP QoS |VMware SIOC

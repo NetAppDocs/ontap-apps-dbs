@@ -1,0 +1,37 @@
+---
+sidebar: sidebar
+permalink: epic/epic-ontap-efficiency.html
+keywords: epic,cache,iris
+summary: Epic on ONTAP efficiency
+---
+
+= Epic on ONTAP efficiency
+
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+Epic runs on all-flash arrays where most of the cost is the disk. Therefore, storage efficiency is critical for cost savings.
+
+NetApp inline storage efficiency achieves industry-leading savings on storage with no effects to performance, and we even offer a written efficiency guarantee with the all-flash arrays. 
+
+When calculating storage efficiency, it is important to measure raw to usable to effective capacity.  
+
+* *Raw capacity* Before any RAID is applied, size of disk by number of disks.
+
+* *Usable capacity* After RAID is applied, how much usable storage is available.
+
+* *Effective capacity* How much storage is provisioned and presented to the host or client.
+
+The figure below is a sample efficiency calculation of a typical Epic deployment including all workloads requiring 852TB of effective storage and with 5.2:1 efficiency delivering 1.32PB of total effective data. 
+
+[NOTE]
+Based on the number of disks, raw-to-usable capacity varies slightly.
+
+image:epic-efficiency.png[Epic storage efficiency]
+
+[NOTE]
+ NetApp does not use NetApp Snapshot technology or thin provisioning to calculate efficiency in the guarantee program. Doing so would show unrealistic efficiencies of 30-100:1, which do not mean anything when sizing real-world storage capacity.

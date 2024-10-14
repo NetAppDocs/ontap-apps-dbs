@@ -1,0 +1,80 @@
+---
+sidebar: sidebar
+permalink: oracle/oracle-dr-smas-arch-rac.html
+keywords: oracle, active sync, extended rac, RAC
+summary: Oracle Extended RAC with SnapMirror active sync
+---
+= Oracle Extended RAC with SnapMirror active sync
+
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+Many customers optimize their RTO by stretching an Oracle RAC cluster across sites, yielding a fully active-active configuration. The overall design becomes more complicated because it must include quorum management of Oracle RAC. 
+
+Traditional extended RAC clustered relied on ASM mirroring to provide data protection. This approach works, but it also requires a lot of manual configuration steps and imposes overhead on the network infrastructure. In contrast, allowing SnapMirror active sync to take responsibility for data replication dramatically simplifies the solution. Operations such as synchronization, resynchronization after disruptions, failovers, and quorum management are easier, plus the SAN does not need to be distributed across sites which simplifies SAN design and management. 
+
+== Replication
+
+They key to understanding RAC functionality on SnapMirror active sync is to view storage as a single set of LUNs which are hosted on mirrored storage. For example:
+
+image:smas-oracle-logical.png[Oracle logical access]
+
+There is no primary copy or mirror copy. Logically, there is only a single copy of each LUN, and that LUN is available on SAN paths that are located on two different storage systems. From a host point of view, there are no storage failovers; instead there are path changes. Various failure events might lead to loss of certain paths to the LUN while other paths remain online. SnapMirror active sync ensures the same data is available across all operational paths.
+
+== Storage configuration
+
+In this example configuration, the ASM disks are configured the same as they would be in any single-site RAC configuration on enterprise storage. Since the storage system provides data protection, ASM external redundancy would be used.
+
+== Uniform vs nonuninform access
+
+The most important consideration with Oracle RAC on SnapMirror active sync is whether to use uniform or nonuniform access.
+
+Uniform access means each host can see paths on both clusters. Nonuniform access means hosts can only see paths to the local cluster. 
+
+Neither option is specifically recommended or discouraged. Some customers have dark fibre readily available to connect sites, others either do not have such connectivity or their SAN infrastructure doesn't support a long-distance ISL. 
+
+== Nonuniform access
+
+Nonuniform access is simpler to configure from a SAN perspective. 
+
+image:smas-oracle-rac-nonuniform.png[Oracle RAC nonuniform access]
+
+The primary downside of the link:oracle-dr-smas-nonuniform.html[nonuniform access] approach is that loss of site-to-site ONTAP connectivity or loss of a storage system will result in loss of the database instances at one site. This obviously is not desirable, but it may be an acceptable risk in exchange for a simpler SAN configuration.
+
+== Uniform access
+
+Uniform access requires extending the SAN across sites. The primary benefit is that loss of a storage system will not result in loss of a database instance. Instead, it would result in a multipathing change in which paths are currently in use.
+
+There are several ways to configure nonuniform access.
+
+[NOTE]
+In the diagrams below, there are also active but nonoptimized paths present that would be used during simple controller failures, but those paths are not shown in the interest of simplifying the diagrams.
+
+=== AFF with proximity settings
+
+If there is significant latency between sites, then AFF systems can be configured with host proximity settings. This allows each storage system to be aware of which hosts are local and which are remote and assign path priorities appropriately.
+
+image:smas-oracle-rac-uniform-prox.png[RAC with uniform access]
+
+In normal operation, each Oracle instance would preferentially use the local active/optimized paths. The result is that all reads would be serviced by the local copy of the blocks. This yields the lowest possible latency. Write IO is similarly sent down paths to the local controller. The IO must still be replicated before being acknowledged and therefor would still incur the additional latency of crossing the site-to-site network, but this cannot be avoided in a synchronous replication solution. 
+
+=== ASA / AFF without proximity settings
+
+If there is no significant latency between sites, then AFF systems can be configured without host proximity settings, or ASA can be used.
+
+image:smas-oracle-rac-uniform.png[RAC with uniform access]
+
+Each host will be able to use all operational paths on both storage systems. This potentially improves performance significantly by allowing each host to draw upon the performance potential of two clusters, not just one.
+
+With ASA, not only would all paths to both clusters be considered active and optimized, but the paths on partner controllers would also be active. The result would be all-active SAN paths on the entire cluster, all the time. 
+
+[NOTE]
+ASA systems may also be used in a nonuniform access configuration. Since no cross-site paths exist, there would be no impact on performance resulting from IO crossing the ISL. 
+
+
+
+

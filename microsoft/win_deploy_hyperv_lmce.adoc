@@ -9,7 +9,7 @@ summary: This appendix describes deploying live migration in a clustered environ
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 This appendix describes deploying live migration in a clustered environment.

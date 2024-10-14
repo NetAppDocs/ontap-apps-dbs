@@ -156,17 +156,49 @@ entries:
       - title: Oracle RAC on MetroCluster
         url: /oracle/oracle-dr-mcc-rac.html
     - title: SnapMirror active sync
-      entries:
-      - title: Architecture
-        url: /oracle/oracle-dr-smbc-architecture.html
-      - title: Failover
-        url: /oracle/oracle-dr-smbc-failover.html
-      - title: Oracle SI with SnapMirror active sync
-        url: /oracle/oracle-dr-smbc-si.html
-      - title: Oracle RAC with SnapMirror active sync
-        url: /oracle/oracle-dr-smbc-rac.html
+      entries: 
+      - title: Overview
+        url: /oracle/oracle-dr-smas-overview.html
+      - title: ONTAP Mediator
+        url: /oracle/oracle-dr-smas-mediator.html
+      - title: Preferred site
+        url: /oracle/oracle-dr-smas-preferred-site.html
+      - title: Network topology
+        entries:
+        - title: Uniform access
+          url: /oracle/oracle-dr-smas-uniform.html  
+        - title: Nonuniform access
+          url: /oracle/oracle-dr-smas-nonuniform.html  
+      - title: Oracle Configurations
+        entries:
+        - title: Overview
+          url: /oracle/oracle-dr-smas-arch-overview.html
+        - title: Oracle Single Instance
+          url: /oracle/oracle-dr-smas-arch-si.html
+        - title: Oracle RAC
+          url: /oracle/oracle-dr-smas-arch-rac.html
+        - title: Oracle RAC and tiebreakers
+          url: /oracle/oracle-dr-smas-arch-tiebreaker.html
       - title: Failure scenarios
-        url: /oracle/oracle-dr-smbc-failure-scenarios.html
+        entries: 
+        - title: Overview
+          url: /oracle/oracle-dr-smas-fail-overview.html
+        - title: Sample architecture
+          url: /oracle/oracle-dr-smas-fail-sample.html          
+        - title: RAC interconnect failure
+          url: /oracle/oracle-dr-smas-fail-interconnect.html    
+        - title: SnapMirror communication failure
+          url: /oracle/oracle-dr-smas-fail-snapmirror.html 
+        - title: Total network interconnect failure
+          url: /oracle/oracle-dr-smas-fail-repl.html
+        - title: Site failure
+          url: /oracle/oracle-dr-smas-fail-site.html 
+        - title: Mediator failure
+          url: /oracle/oracle-dr-smas-fail-mediator.html
+        - title: Service restoration after failure
+          url: /oracle/oracle-dr-smas-fail-restore.html
+        - title: Manual failovers
+          url: /oracle/oracle-dr-smas-fail-manual.html 
 #    - title: SnapMirror
 #      entries:
 #      - title: Consistency group disaster recovery

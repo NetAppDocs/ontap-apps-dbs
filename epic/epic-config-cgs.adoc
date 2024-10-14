@@ -1,0 +1,41 @@
+---
+sidebar: sidebar
+permalink: epic/epic-config-cgs.html
+keywords: epic,cache,iris
+summary: Epic storage snapshots configuration
+---
+
+= Epic storage efficiency configuration
+
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+Applications with storage spread across more than one volume with one or more LUNs of appropriate quantities for the workload need the contents to be backed up together ensuring consistent data protection require CGs.
+
+Consistency groups (CGs for short) provide this capability and more. They can be used nightly to create on-demand or scheduled consistent snapshots using a policy. You can use this to restore, clone and even replicate data.
+
+For additional information on CGs please refer to the link:https://docs.netapp.com/us-en/ontap/consistency-groups/[Consistency groups overview^]
+
+Once the volumes and LUNs are provisioned as detailed in the previous sections of this document, they can then be configured into a set of CGs. The recommended best practice is to set them up as depicted in the picture below:
+
+image:epic-cg-layout.png[Epic consistency group layout]
+
+== Consistency group snapshots
+
+A nightly CG snapshot schedule should be set on each of the child-CGs associated with the volumes providing storage for the production database. This will result in a fresh set of consistent backups of these CGs every night. These can then be used for cloning the production database for use in non-production environments such as development and test. NetApp has developed proprietary CG based automated Ansible workflows for Epic to automate the backup of production databases, the refresh and test environments too.
+
+CG snapshots can be used to support the restore operations of Epic's production database.
+
+For SAN volumes, disable the default snapshot policy on each volume being used for CGs. These snapshots are typically managed by the backup application being used or NetApp's Epic Ansible automation service. 
+
+For SAN volumes, disable the default snapshot policy on each volume. These snapshots are typically managed by a backup application or by Epic Ansible automation.[NS2]
+
+WebBLOB and VMware datasets should be configured as just volumes, not associated with CGs.  You can use SnapMirror to maintain snapshots on storage systems separate from production.
+
+When complete, the configuration would look as follows:
+
+image:epic-cg-snapshots.png[Epic with CG snapshots]

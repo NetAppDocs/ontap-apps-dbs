@@ -16,8 +16,6 @@ Use ONTAP and FlexGroup volumes with VMware vSphere for simple and scalable data
 
 ONTAP 9.8, along with the ONTAP tools for VMware vSphere 9.8 and SnapCenter plugin for VMware 4.4 releases added support for FlexGroup volume-backed datastores in vSphere. FlexGroup volumes simplify the creation of large datastores and automatically create the necessary distributed constituent volumes across the ONTAP cluster to get the maximum performance from an ONTAP system.
 
-Learn more about FlexGroup volumes in link:../nas-containers.html[FlexCache and FlexGroup volume technical reports].
-
 Use FlexGroup volumes with vSphere if you require a single, scalable vSphere datastore with the power of a full ONTAP cluster, or if you have very large cloning workloads that can benefit from the new FlexGroup cloning mechanism.
 
 == Copy offload

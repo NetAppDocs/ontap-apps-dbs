@@ -20,6 +20,6 @@ NetApp delivers over 99.999999% availability based on production data, which is 
 
 Epic recommends the use of HA storage systems to mitigate hardware component failure. This recommendation extends from basic hardware (such as redundant power supplies) to networking (such as multipath networking).
 
-When you need to upgrade storage, scale up, scale out, or rebalance workloads across the cluster, there is no effect to patient care. You might move data, but you never again need to disrupt patient care with data migrations or forklift upgrades. Move to next-generation technology, futureproof, and avoid hardware lock-in. NetApp even offers a 100% written availability guarantee.
+When you need to upgrade storage, scale up, scale out, or rebalance workloads across the cluster, there is no effect to patient care. You might move data, but you never again need to disrupt patient care with data migrations or forklift upgrades. Move to next-generation technology, future proof, and avoid hardware lock-in. NetApp even offers a 100% written availability guarantee.
 
 More information on NetApp's reliability, availability, serviceability, and security capabilities can be found in the link:https://www.netapp.com/media/67355-wp-7354.pdf[NetApp ONTAP reliability, availability, serviceability, and security^] white paper.

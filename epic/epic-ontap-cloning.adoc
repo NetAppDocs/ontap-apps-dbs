@@ -41,11 +41,9 @@ Applications with storage spread across more than one volume with one or more LU
 
 Consistency Groups (CGs for short) provide this capability and more. They can be used nightly to create on-demand or scheduled consistent snapshots using a policy. You can use this to restore, clone and even replicate data.
 
-For additional information on CGs please refer to: 
+For additional information on CGs please refer to link:https://docs.netapp.com/us-en/ontap/consistency-groups/[NetApp documentation on consistency groups^]
 
-https://docs.netapp.com/us-en/ontap/consistency-groups/
-
-Configuring Consistency Groups for Epic 
+== Configuring Consistency Groups for Epic 
 
 Once the volumes and LUNs are provisioned as detailed in the previous sections of this document, they can then be configured into a set of CGs. The recommended best practice is to set them up as depicted in the picture below:
 

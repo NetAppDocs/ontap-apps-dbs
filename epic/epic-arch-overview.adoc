@@ -77,7 +77,7 @@ Each Epic database server performs I/O on the following types of files:
 
 The workload of an individual database server depends on its role in the Epic software environment. For example, production database files typically incur the most demanding workload, consisting of 100% random I/O requests. The workload of any mirror database is typically less demanding and has fewer read requests. Journal file workloads are mainly sequential.
 
-Epic maintains a workload model for storage performance benchmarking and customer workload. For more information about the Epic workload model, benchmark results, and guidance on using NetApp sizing tools to correctly size storage for Epic environments, see https://fieldportal.netapp.com/content/192412?assetComponentId=192510[TR-3930i: NetApp Sizing Guidelines for Epic] (NetApp login required).
+Epic maintains a workload model for storage performance benchmarking and customer workload. For more information about the Epic workload model, benchmark results, and guidance on using NetApp sizing tools to correctly size storage for Epic environments, see https://fieldportal.netapp.com/content/192412?assetComponentId=192510[TR-3930i: NetApp Sizing Guidelines for Epic^] (NetApp login required).
 
 Epic also provides each customer with a customized hardware configuration guide containing I/O projections and storage capacity requirements. The final storage requirements might include development, testing, and/or staging environments, and any other ancillary workloads which may be consolidated. Customers can use the hardware configuration guide to communicate the total storage requirements to NetApp. This guide contains all the data needed to size an Epic deployment.
 

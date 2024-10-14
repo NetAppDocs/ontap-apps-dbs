@@ -1,8 +1,8 @@
-SnapMirror active sync will consider one site the "source" and the other the "destination". This implies a one-way replication relationship, but this does not apply to IO. Replication is bidirectional and symmetric, as it IO response times.
+SnapMirror active sync will consider one site the "source" and the other the "destination". This implies a one-way replication relationship, but this does not apply to IO behavior. Replication is bidirectional and symmetric and IO response times are the same on either side of the mirror.
 
-The `source` designation is controls the preferred site. If the replication link is lost, the LUN paths on the source copy will continue to serve data while the LUN paths on the destination copy will become unavailable until replication is reestablished as enters a synchronous state. The paths will then resume serving data.
+The `source` designation is controls the preferred site. If the replication link is lost, the LUN paths on the source copy will continue to serve data while the LUN paths on the destination copy will become unavailable until replication is reestablished and SnapMirror reenters a synchronous state. The paths will then resume serving data.
 
-My current configuration has site A as the preferred site for both Oracle and ONTAP. This can be viewed via SystemManager:
+The sourced/destination configuration can be viewed via SystemManager:
 
 image:smas-source-systemmanager.png[SM screenshot of SM-as source]
 

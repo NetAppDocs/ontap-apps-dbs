@@ -41,4 +41,4 @@ When the mount options for single-instance databases are used, they enable cachi
 Only change mount options when (a) dNFS is used and (b) a problem results from a lag in file visibility. If dNFS is not in use, using Oracle RAC mount options on a single-instance database results in degraded performance.
 
 [NOTE]
-See the note about `nosharecache` in link:../host-configuration/linux.html#linux-direct-nfs[Linux NFS mount options] for a Linux-specific dNFS issue that can produce unusual results.
+See the note about `nosharecache` in link:oracle-host-config-linux.html#linux-direct-nfs[Linux NFS mount options] for a Linux-specific dNFS issue that can produce unusual results.

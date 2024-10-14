@@ -16,7 +16,7 @@ summary: Epic on ONTAP performance
 [.lead]
 ONTAP introduced flash technologies in 2009 and has supported SSDs since 2010. This long experience with flash storage allows NetApp to tune ONTAP features to optimize SSD performance and enhance flash media endurance while keeping the feature-rich capabilities of ONTAP.
 
-Since year 2020, all Epic ODB workloads are required to be on all-flash storage. Epic workloads typically operate at approximately 1,000–2,000 IOPs per terabyte of storage (8k block, 75%/25% read and write ratio, and 100% random). Epic is very latency-sensitive, and high latency has an visible effect on the end-user experience as well as operational tasks such as running reports, backup, integrity checks, and environment refresh times.
+Since year 2020, all Epic ODB workloads are required to be on all-flash storage. Epic workloads typically operate at approximately 1,000-2,000 IOPs per terabyte of storage (8k block, 75%/25% read and write ratio, and 100% random). Epic is very latency-sensitive, and high latency has an visible effect on the end-user experience as well as operational tasks such as running reports, backup, integrity checks, and environment refresh times.
 
 * The limiting factor for all-flash arrays is not the drives but, rather, it is the utilization on the controllers. 
 * ONTAP uses an active-active architecture. For performance, both nodes in the HA pair write to the drives. 
@@ -28,7 +28,7 @@ Since year 2020, all Epic ODB workloads are required to be on all-flash storage.
 
 * WAFL, NVRAM, and the modular architecture enable NetApp to use software to innovate with inline efficiencies, encryption, performance. They also enable NetApp to introduce new features and functionality without impacting performance. 
 
-* Historically, with each new version of ONTAP there is an increase in performance and efficiency in the range of 30–50%. Performance is optimal when you stay current with ONTAP.
+* Historically, with each new version of ONTAP there is an increase in performance and efficiency in the range of 30-50%. Performance is optimal when you stay current with ONTAP.
 
 == NVMe
 

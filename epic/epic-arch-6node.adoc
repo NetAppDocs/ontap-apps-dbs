@@ -18,7 +18,7 @@ Customers might want to start with a six-node design or seamlessly scale out fro
 
 This architecture offers the best performance and capacity balance on the cluster. Epic Production, Epic Report, and Epic Test all run on the first HA pair. The second HA pair is used for Clarity, Hyperspace, VMware, NAS1, and the remaining Epic workloads. Disaster recovery is the same as the four-node architecture in the previous section.
 
-== Six-node architecture.
+== Six-node architecture
 
 image:epic-6node.png[Epic 6-node architecture]
 

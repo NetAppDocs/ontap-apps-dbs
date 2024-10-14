@@ -18,7 +18,7 @@ The figures below show the scale-out eight-node architecture. Again, you can sta
 
 The test environments are cloned from Report instead of Production in this design. This offloads test environments and integrity checks from production.
 
-== Eight-node architecture.
+== Eight-node architecture
 
 image:epic-8node.png[Epic 4-node architecture]
 

@@ -14,8 +14,9 @@ summary: Storage sizing for Epic
 :imagesdir: ../media/
 
 [.lead]
-For information about how to use NetApp sizing tools to determine the correct RAID group size and number of RAID groups for Epic software environment storage needs, see https://fieldportal.netapp.com/content/192412?assetComponentId=192510[TR-3930i: NetApp Sizing Guidelines for Epic] (NetApp login required). 
+You should work with our Epic alliance team to confirm any Epic designs. The team can be reached at epic@netapp.com. Every deployment needs to accommodate customer requests while adhering to Epic and NetApp recommended best practices.
+
+For information about how to use NetApp sizing tools to determine the correct RAID group size and number of RAID groups for Epic software environment storage needs, see link:https://fieldportal.netapp.com/content/192412?assetComponentId=192510[TR-3930i: NetApp Sizing Guidelines for Epic^] (NetApp login required). 
 
 [NOTE]
-
- NetApp Field Portal access is required.
+NetApp Field Portal access is required.

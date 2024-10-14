@@ -26,7 +26,7 @@ The GUI also works great with a simple single-page LUN and shared provisioning. 
 
 The complete cluster setup and storage/host provisioning should not take more than an hour when staged.
 
-Table 1) Best practice storage settings.
+*Best practice storage settings*
 
 [cols="1,1"]
 |===

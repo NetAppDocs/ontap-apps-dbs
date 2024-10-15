@@ -1,9 +1,21 @@
 
 An important feature of SM-as is the ability to configure the storage systems to know where the hosts are located. When you map the LUNs to a given host, you can indicate whether or not they are proximal to a given storage system.
 
+== Proximity settings
+
+Proximity refers to a per-cluster configuration that indicates a particular host WWN or iSCSI initiator ID belongs to a local host. It is a second, optional step for configuring LUN access.
+
+The first step is the usual igroup configuration. Each LUN must be mapped to an igroup that contains the WWN/iSCSi IDs of the hosts that need access to that LUN. This controls which host has _access_ to a LUN. 
+
+The second, optional step is to configure host proximity. This does not control access, it controls _priority_. 
+
+For example, a host at site A might be configured to access a LUN that is protected by SnapMirror active sync, and since the SAN is extended across sites, paths are available to that LUN using storage on site A or storage on site B.
+
+Without proximity settings, that host will use both storage systems equally because both storage systems will advertise active/optimized paths. If the SAN latency and/or bandwidth between sites is limited, this may not be desireable, and you may wish to ensure that during normal operation each host preferentially uses paths to the local storage system. This is configured by adding the host WWN/iSCSI ID to the local cluster as a proximal host. This can be done at the CLI or SystemManager.
+
 == AFF
 
-With an AFF system, the paths would appear as shown below.
+With an AFF system, the paths would appear as shown below when host proximity has been configured.
 
 image:smas-uniform-aff.png[SnapMirror active sync AFF uniform networking]
 

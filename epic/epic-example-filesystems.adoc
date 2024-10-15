@@ -21,8 +21,7 @@ For information about mounting LUNs, creating volume groups and logical volumes,
 After the LUNs have been created and mapped, and the zoning is complete, use the following procedure to attach storage to the server. 
 
 [NOTE]
-
- In this example, we used 8x 1024Gb LUNs for the DB, 2x 1024Gb LUNs for journals, and 2x 1024Gb LUNs for application installations.
+In this example, we used 8x 1024Gb LUNs for the DB, 2x 1024Gb LUNs for journals, and 2x 1024Gb LUNs for application installations.
 
 == Asynchronous I/O
 

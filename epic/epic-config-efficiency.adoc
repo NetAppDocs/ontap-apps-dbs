@@ -18,7 +18,11 @@ ONTAP inline efficiencies are on by default and work regardless of storage proto
 
 Efficiencies reduce the amount of data written to expensive flash storage and reduce the number of drives required. ONTAP preserves efficiency with replication. Each of the efficiencies has little to no effect on performance, even for a latency-sensitive application like Epic.
 
-To maximize disk utilization, NetApp recommends turning on all efficiency settings. These settings are on by default. 
+
+[TIP]
+====
+*NetApp recommends* turning on all efficiency settings to maximize disk utilization. These settings are on by default on AFF and ASA based systems. 
+====
 
 The following features make this storage efficiency possible:
 
@@ -28,6 +32,6 @@ The following features make this storage efficiency possible:
 
 * Inline compaction takes 4k blocks that are less than half full and combines them into a single block. This recommended option is on by default.
 
-* Thin replication is at the center of the NetApp data protection software portfolio, which includes NetApp SnapMirror and NetApp SnapVault software. SnapVault thin replication enables more frequent backups that use less storage capacity because no redundant data is moved or stored. SnapMirror thin replication protects business-critical data while minimizing storage capacity requirements. NetApp recommends turning on this option.
+* Thin replication is at the center of the NetApp data protection software portfolio, which includes NetApp SnapMirror software. SnapMirror thin replication protects business-critical data while minimizing storage capacity requirements. *NetApp recommends* turning on this option.
 
-* Aggregate deduplication. Deduplication has always been at the volume level. With ONTAP 9.2, aggregate deduplication became available, providing additional disk reduction savings. Postprocess aggregate deduplication was added with ONTAP 9.3. NetApp recommends turning on this option.
+* Aggregate deduplication. Deduplication has always been at the volume level. With ONTAP 9.2, aggregate deduplication became available, providing additional disk reduction savings. Postprocess aggregate deduplication was added with ONTAP 9.3. *NetApp recommends* turning on this option.

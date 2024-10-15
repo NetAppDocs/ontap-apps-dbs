@@ -16,20 +16,19 @@ summary: Additional information for Epic on ONTAP
 [.lead]
 To learn more about the information described in this document, refer to the following documents and/or websites:
 
-* link:https://www.netapp.com/us/documentation/index.aspx[NetApp Product Documentation]
+* link:https://www.netapp.com/us/documentation/index.aspx[NetApp Product Documentation^]
 
-* link:https://docs.netapp.com/ontap-9/index.jsp[ONTAP 9 Documentation Center]
+* link:https://docs.netapp.com/us-en/ontap/index.html[ONTAP 9 Documentation^]
 
-* link:https://docs.netapp.com/us-en/ontap/consistency-groups/#learn-about-consistency-groups[Consistency Groups]
+* link:https://docs.netapp.com/us-en/ontap/consistency-groups/#learn-about-consistency-groups[Consistency Groups^]
 
+* link:https://www.netapp.com/us/documentation/ontap-and-oncommand-system-manager.aspx[ONTAP and ONTAP System Manager Documentation Resources^]
 
-* link:https://www.netapp.com/us/documentation/ontap-and-oncommand-system-manager.aspx[ONTAP and ONTAP System Manager Documentation Resources]
+* link:https://fieldportal.netapp.com/content/192412?assetComponentId=192510[TR-3930i: NetApp Sizing Guidelines for Epic^] (NetApp login required) 
 
-* link:https://fieldportal.netapp.com/content/192412?assetComponentId=192510[TR-3930i: NetApp Sizing Guidelines for Epic] (NetApp login required) 
+== Epic customer guidance documents
 
-== Epic Customer Guidance documents
-
-Epic provides customers the following documents to its customers for guidance on server, storage, and network. These documents are referenced in this technical report.
+Epic provides customers the following documents for guidance on server, storage, and network. These documents are referenced in this technical report.
 
 * Storage Area Network Considerations
 
@@ -44,4 +43,3 @@ Epic provides customers the following documents to its customers for guidance on
 * Hardware Configuration Guide (customer-specific)
 
 * Database Storage Layout Recommendations (customer-specific)
-

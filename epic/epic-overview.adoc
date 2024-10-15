@@ -17,7 +17,7 @@ summary: Epic on ONTAP overview
 The key to digital transformation is doing more with your data. 
 
 [NOTE]
-This documentation replaces these previously published technical report _TR-3923: NetApp Best Practices for Epic_
+This documentation replaces these previously published technical report _TR-3923: NetApp Best Practices for Epic_.
 
 Hospitals require large amounts of data to start the journey of digital transformation. Part of the process of treating patients, managing staff schedules and medical resources is that information is collected and processed. However, many actions are still performed manually or through outdated systems. The one constant is that the amount of data continues to grow exponentially and thus, becomes increasingly difficult to manage.
 
@@ -39,7 +39,7 @@ This document describes best practices for integrating NetApp storage into an Ep
 
 This document does not cover the following subjects:
 
-* Quantitative performance requirements and sizing guidance, which are addressed in TR-3930i: NetApp Sizing Guidelines for Epic (NetApp login required).
+* Quantitative performance requirements and sizing guidance, which are addressed in https://fieldportal.netapp.com/content/192412?assetComponentId=192510[TR-3930i: NetApp Sizing Guidelines for Epic^] (NetApp login required)
 
 == Audience
 

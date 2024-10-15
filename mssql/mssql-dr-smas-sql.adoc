@@ -8,7 +8,7 @@ summary: Microsoft SQL Server and SnapMirror active sync
 :imagesdir: ../media/
 
 [.lead]
-SQL Server can be configured to work with SnapMirror active in several ways. The right answer depends on the available network connectivity, RPO requirements, and availability requirements.
+SQL Server can be configured to work with SnapMirror active sync in several ways. The right answer depends on the available network connectivity, RPO requirements, and availability requirements.
 
 == Standalone instance of SQL Server
 

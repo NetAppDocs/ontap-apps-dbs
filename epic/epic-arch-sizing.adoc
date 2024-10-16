@@ -14,11 +14,11 @@ summary: Epic sizing
 :imagesdir: ../media/
 
 [.lead]
-One of the key architecture considerations is the ODB database size. 
+One of the key architecture considerations when sizing an Epic storage environment is the ODB database size. 
 
 You can use the diagram shown below to select a small-medium-large Epic storage architecture. These designs include running all workloads listed in the Hardware Configuration Guide. The sizing tree is based on data from over 100 hardware configuration guides and should be mostly accurate estimate.
 
-It is important to note that this is only a starting point only. You should work with our Epic Alliance team to confirm any Epic designs. The team can be reached at epic@netapp.com. Every deployment needs to accommodate customer requests while adhering to Epic and NetApp recommended best practices.
+It is important to note that this is only a starting point only. You should work with our Epic alliance team to confirm any Epic designs. The team can be reached at epic@netapp.com. Every deployment needs to accommodate customer requests while adhering to Epic and NetApp recommended best practices.
 
 * Small Epic architecture with an Epic database less than 10TB
 

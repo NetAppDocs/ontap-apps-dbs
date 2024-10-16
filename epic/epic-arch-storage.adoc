@@ -25,8 +25,7 @@ Beyond sizing considerations, Epic has the following additional storage layout r
 * Epic recommends each pool of storage to be on separate physical hardware, including pool1, pool2, pool3, NAS1, and NAS2. 
 
 [NOTE]
-
- A node in a cluster can be considered as a pool of storage. With ONTAP 9.4 or later and AQoS, you can create protected pools using policies.
+A node in a cluster can be considered as a pool of storage. With ONTAP 9.4 or later and AQoS, you can create protected pools using policies.
 
 * New Epic 3-2-1 backup recommendation. 
 
@@ -37,8 +36,7 @@ Beyond sizing considerations, Epic has the following additional storage layout r
 3. Copies of the data
 
 [NOTE]
-
- Customers who use NetApp SnapMirror or SnapVault to back up NetApp do not meet the 3-2-1 recommendations. The reason is ONTAP to ONTAP does not satisfy the second requirement listed above. You can use SnapMirror directly from ONTAP to object storage on-premises (through StorageGrid, for example) or to the cloud to meet Epic requirements.
+Customers who use NetApp SnapMirror to back up NetApp do not meet the 3-2-1 recommendations. The reason is ONTAP to ONTAP does not satisfy the second requirement listed above. You can use SnapMirror directly from ONTAP to object storage on-premises (through StorageGRID, for example) or to the cloud to meet Epic requirements.
 
 For more information about storage mandates, see the following Epic guides available in Galaxy:
 
@@ -47,4 +45,3 @@ For more information about storage mandates, see the following Epic guides avail
 * Storage Products and Technology Status (SPaTS)
 
 * Hardware Configuration Guide
-

@@ -16,15 +16,15 @@ The SQL Server Always-On availability group replication feature can be an excell
 
 SnapMirror technology offers a fast and flexible enterprise solution for replicating data over LANs and WANs. SnapMirror technology transfers only changed  data blocks to the destination after the initial mirror is created, significantly reducing network bandwidth requirements. It can be configured in either synchronous or asynchronous mode.
 
-== NetApp MetroCluster
+== NetApp MetroCluster and SnapMirror active sync
 
-MetroCluster configurations helps in providing high availability, zero data loss storage solutions for applications, databases, and virtualization platforms. The solution is implemented with combination of array-based clustering and synchronous replication that provides an additional layer of protection for entire storage and host environment.
+For many customers, DR requires more than just possessing a remote copy of data, it requires the ability to rapidly make use of that data. NetApp offers two technologies that address this need - MetroCluster and SnapMirror active sync
 
-== SnapMirror active sync (formerly SnapMirror Business Continuity)
+MetroCluster refers to ONTAP in a hardware configuration that includes low-level synchronously mirrored storage and numerous additional features. Integrated solutions such as MetroCluster simplify today's complicated, scale-out database, application, and virtualization infrastructures. It replaces multiple, external data protection products and strategies with one simple, central storage array. It also provides integrated backup, recovery, disaster recovery, and high availability (HA) within a single clustered storage system.
 
-SnapMirror active sync is based on SnapMirror Synchronous and its capability to replicate multiple LUNs to replica storage while maintaining write-order consistency. With MetroCluster, ONTAP controller including network configuration should be identical across sites. With SnapMirror active sync, you essentially have two different ONTAP systems maintaining independent copies of your LUN data, but cooperating to present a single instance of that LUN. From a host point of view, it's a single LUN entity.
+SnapMirror active sync is based on SnapMirror Synchronous. With MetroCluster, each ONTAP controller is responsible for replicating its drive data to a remote location. With SnapMirror active sync, you essentially have two different ONTAP systems maintaining independent copies of your LUN data, but cooperating to present a single instance of that LUN. From a host point of view, it's a single LUN entity.
 
-The primary difference between MetroCluster and SnapMirror active sync is granularity and scalability. If you only need to select specific workloads to be synchronous replicated or LUNs should be available at both sites for read/write operation, SnapMirror active sync is the better option. If you need to replicate entire environments or even data centers, MetroCluster is a better option. In addition, SnapMirror active sync is currently SAN-only while MetroCluster is multiprotocol, including SAN, NFS, and SMB.
+== SM-as and MCC comparison
 
-For more information about SnapMirror, see link:https://www.netapp.com/pdf.html?item=/media/17229-tr4015pdf.pdf[TR-4015: SnapMirror Configuration and Best Practices Guide for ONTAP 9^].
+include::../_include/dr-mcc-smas-compared.adoc[]
 

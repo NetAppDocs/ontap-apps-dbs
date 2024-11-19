@@ -3,8 +3,9 @@ sidebar: sidebar
 permalink: oracle/oracle-tiering-retrieval-policies.html
 keywords: tiering, FabricPool
 summary: Oracle databases and FabricPool retrieval policies
+searchtitle: Oracle databases and FabricPool retrieval policies
 ---
-= Oracle databases and FabricPool retrieval policies
+= Retrieval policies
 :hardbreaks:
 :nofooter:
 :icons: font

@@ -3,8 +3,9 @@ sidebar: sidebar
 permalink: oracle/oracle-tiering-logs.html
 keywords: tiering, fabricpool
 summary: Oracle archive log tiering
+searchtitle: Oracle database archive log tiering
 ---
-= Oracle database archive log tiering
+= Archive log tiering
 :nofooter:
 :icons: font
 :linkattrs:

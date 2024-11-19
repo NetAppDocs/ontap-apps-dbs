@@ -3,8 +3,9 @@ sidebar: sidebar
 permalink: oracle/oracle-migration-log-shipping.html
 keywords: migration, oracle, log shipping
 summary: Oracle migration via log shipping
+searchtitle: Oracle database migration via log shipping
 ---
-= Oracle database migration via log shipping
+= Log shipping
 :hardbreaks:
 :nofooter:
 :icons: font

@@ -2,9 +2,10 @@
 sidebar: sidebar
 permalink: oracle/oracle-storage-nfs-config-dnfs.html
 keywords: oracle, database, ontap, nfs, ADR, dNFS
-summary: Oracle direct NFS 
+summary: Oracle direct NFS
+searchtitle: Oracle direct NFS
 ---
-= Oracle directNFS
+= Oracle direct NFS (dNFS)
 
 :hardbreaks:
 :nofooter:

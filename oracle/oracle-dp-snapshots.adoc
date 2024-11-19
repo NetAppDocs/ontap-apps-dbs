@@ -3,8 +3,9 @@ sidebar: sidebar
 permalink: oracle/oracle-dp-snapshots.html
 keywords: oracle, database, ontap, snapshots
 summary: Oracle databases on ONTAP and the role of snapshots
+searchtitle: Oracle databases and snapshot-based backups
 ---
-= Oracle databases and snapshot-based backups
+= Snapshot-based backups
 
 :hardbreaks:
 :nofooter:

@@ -5,6 +5,7 @@ keywords: oracle, database, ontap, SAN, ASM, blocks
 summary: Oracle database block sizes
 searchtitle: Oracle database block sizes
 ---
+
 = Block sizes
 
 :hardbreaks:

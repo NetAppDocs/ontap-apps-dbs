@@ -3,8 +3,9 @@ sidebar: sidebar
 permalink: oracle/oracle-host-config-linux.html
 keywords: oracle, database, ontap, linux, nfs, xfs, ext4, slot tables
 summary: Oracle databases with Linux
+searchtitle: Oracle databases with Linux
 ---
-= Oracle databases with Linux
+= Linux
 
 :hardbreaks:
 :nofooter:

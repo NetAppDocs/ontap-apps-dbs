@@ -3,9 +3,10 @@ sidebar: sidebar
 permalink: oracle/oracle-ontap-config-raid.html
 keywords: oracle,raid,mirroring
 summary: RAID and Oracle Databases
+searchtitle: RAID and Oracle databases
 ---
 
-= RAID and Oracle databases
+= RAID
 
 :hardbreaks:
 :nofooter:

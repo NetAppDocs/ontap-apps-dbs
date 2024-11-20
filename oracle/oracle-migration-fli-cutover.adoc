@@ -3,9 +3,10 @@ sidebar: sidebar
 permalink: oracle/oracle-migration-fli-cutover.html
 keywords: migration, oracle, FLI
 summary: Oracle migration with FLI - cutover
+searchtitle: Oracle migration with FLI - cutover
 ---
 
-= Oracle migration with FLI - cutover
+= Cutover
 :hardbreaks:
 :nofooter:
 :icons: font

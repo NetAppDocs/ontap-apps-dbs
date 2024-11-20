@@ -3,8 +3,9 @@ sidebar: sidebar
 permalink: oracle/oracle-dp-data-integrity.html
 keywords: checksums, data integrity
 summary: Checksums and Oracle database integrity
+searchtitle: Checksums and Oracle database integrity
 ---
-= Checksums and Oracle database integrity
+= Checksums and data integrity
 
 :hardbreaks:
 :nofooter:

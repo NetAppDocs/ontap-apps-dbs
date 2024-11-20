@@ -3,8 +3,9 @@ sidebar: sidebar
 permalink: oracle/oracle-network-config-fc.html
 keywords: SAN, zoning
 summary: FC Network configuration for Oracle databases
+searchtitle: FC SAN configuration for Oracle databases
 ---
-= FC configuration for Oracle databases
+= FC SAN configuration
 :hardbreaks:
 :nofooter:
 :icons: font

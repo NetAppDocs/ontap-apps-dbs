@@ -3,8 +3,9 @@ sidebar: sidebar
 permalink: mssql/mssql-memory-configuration.html
 keywords: MSSQL,SQL Server, memory
 summary: Microsoft SQL Server memory configuration
+searchtitle: Microsoft SQL Server memory configuration
 ---
-= Microsoft SQL Server memory configuration
+= Memory configuration
 :imagesdir: ../media/
 
 [.lead]

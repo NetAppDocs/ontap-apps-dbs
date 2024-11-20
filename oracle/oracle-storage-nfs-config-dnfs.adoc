@@ -23,6 +23,7 @@ The second method is Oracle Direct NFS (dNFS). This is an implementation of the 
 A database with the dNFS feature enabled still has the usual NFS filesystems mounted. Once the database is open, the Oracle database opens a set of TCP/IP sessions and performs NFS operations directly.
 
 == Direct NFS
+
 The primary value of Oracle's Direct NFS is to bypass the host NFS client and perform NFS file operations directly on an NFS server. Enabling it only requires changing the Oracle Disk Manager (ODM) library. Instructions for this process are provided in the Oracle documentation.
 
 Using dNFS results in a significant improvement in I/O performance and decreases the load on the host and the storage system because I/O is performed in the most efficient way possible.
@@ -39,6 +40,9 @@ Do not use dNFS with any type of round-robin name resolution, including DNS, DDN
 Oracle dNFS can work with NFSv3 with no configuration required beyond enabling the dNFS library (See Oracle documentation for the specific command required) but if dNFS is unable to establish connectivity, it can silently revert back to the kernel NFS client. If this happens, performance can be severely affected.
 
 If you wish to use dNFS multiplexing across multiple interface, with NFSv4.X, or use encryption, you must configure an oranfstab file. The syntax is extremely strict. Small errors in the file can result in startup hanging or bypassing the oranfstab file.
+
+[Note]
+At the time of writing, dNFS multipathing does not work with NFSv4.1 with recent versions of Oracle Database. An oranfstab file that specifies NFSv4.1 as a protocol can only use a single path statement for a given export. The reason is ONTAP does not support clientID trunking. Oracle Database patches to resolve this limitation may be available in the future. 
 
 The only way to be certain dNFS is operating as expected is to query the v$dnfs tables.
 

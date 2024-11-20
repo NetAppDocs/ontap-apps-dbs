@@ -3,8 +3,9 @@ sidebar: sidebar
 permalink: oracle/oracle-storage-san-config-lvm-striping.html
 keywords: SAN, ASM, LVM
 summary: LVM stripe configuration for Oracle databases
+searchtitle: LVM striping with Oracle databases
 ---
-= LVM striping with Oracle databases
+= LVM striping
 :hardbreaks:
 :nofooter:
 :icons: font

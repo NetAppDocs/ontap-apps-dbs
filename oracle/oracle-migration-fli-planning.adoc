@@ -3,9 +3,10 @@ sidebar: sidebar
 permalink: oracle/oracle-migration-fli-planning.html
 keywords: migration, oracle, fli
 summary: Oracle migration with FLI - planning
+searchtitle: Oracle migration with FLI - planning
 ---
 
-= Oracle migration with FLI - planning
+= Planning
 :hardbreaks:
 :nofooter:
 :icons: font

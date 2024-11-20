@@ -3,8 +3,9 @@ sidebar: sidebar
 permalink: oracle/oracle-dr-smas-fail-manual.html
 keywords: Oracle, SnapMirror active sync, SMBC, failover
 summary: Oracle and SnapMirror active sync - manual failover
+searchtitle: Oracle and SnapMirror active sync - manual failover
 ---
-= Oracle and SnapMirror active sync - manual failover
+= Manual failover
 :imagesdir: ../media/
 
 [.lead]

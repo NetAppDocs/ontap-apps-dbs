@@ -3,8 +3,9 @@ sidebar: sidebar
 permalink: mssql/mssql-log-directory.html
 keywords: MSSQL,SQL Server, volumes, LUN, SnapCenter
 summary: Microsoft SQL Server log directory
+searchtitle: Microsoft SQL Server log directory
 ---
-= Microsoft SQL Server log directory
+= Log directory
 :imagesdir: ../media/
 
 [.lead]

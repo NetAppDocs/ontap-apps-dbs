@@ -3,9 +3,10 @@ sidebar: sidebar
 permalink: oracle/oracle-migration-procedures-overview.html
 keywords: migration, oracle
 summary: Oracle migration procedures
+searchtitle: Oracle migration procedures overview
 ---
 
-= Oracle migration procedures overview
+= Overview
 :hardbreaks:
 :nofooter:
 :icons: font

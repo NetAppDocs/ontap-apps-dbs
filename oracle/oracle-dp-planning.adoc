@@ -3,8 +3,9 @@ sidebar: sidebar
 permalink: oracle/oracle-dp-planning.html
 keywords: data protection, DR, snapshots, CG
 summary: Data protection planning for Oracle databases
+searchtitle: Data protection planning for Oracle databases
 ---
-= Data protection planning for Oracle databases
+= Data protection planning
 :hardbreaks:
 :nofooter:
 :icons: font

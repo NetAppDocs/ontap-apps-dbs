@@ -3,8 +3,9 @@ sidebar: sidebar
 permalink: oracle/oracle-dr-smas-nonuniform.html
 keywords: Oracle,SM-as,active sync,nonuniform
 summary: Oracle and SM-as nonuniform access
+searchtitle: Oracle and SM-as nonuniform access
 ---
-= Oracle and SM-as nonuniform access
+= Nonuniform access
 :imagesdir: ../media/
 
 [.lead]

@@ -1,0 +1,14 @@
+---
+sidebar: sidebar
+permalink: oracle/oracle-dr-smas-uniform.html
+keywords: Oracle,SM-as,active sync,uniform
+summary: Oracle and SM-as uniform access
+searchtitle: Oracle and SM-as uniform access
+---
+= Uniform access
+:imagesdir: ../media/
+
+[.lead]
+Uniform access networking means hosts are able to access paths on both sites (or failure domains within the same site). 
+
+include::../_include/smas-topology-uniform.adoc[]

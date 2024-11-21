@@ -1,0 +1,28 @@
+---
+sidebar: sidebar
+permalink: oracle/oracle-dr-smas-fail-mediator.html
+keywords: Oracle, SnapMirror active sync, SMBC, failover
+summary: Oracle and SnapMirror active sync - mediator failure
+searchtitle: Oracle and SnapMirror active sync - mediator failure
+---
+= Mediator failure
+:imagesdir: ../media/
+
+[.lead]
+The mediator service does not directly control storage operations. It functions as an alternate control path between clusters. It exists primarily to automate failover without the risk of a split-brain scenario. 
+
+In normal operation, each cluster is replicating changes to its partner, and each cluster therefore can verify that the partner cluster is online and serving data. If the replication link failed, replication would cease. 
+
+The reason a mediator is required for safe automated operations is because it would otherwise be impossible for a storage clusters to be able to determine whether loss of bidirectional communication was the result of a network outage or actual storage failure. 
+
+The mediator provides an alternate path for each cluster to verify the health of its partner. The scenarios are as follows:
+
+* If a cluster can contact its partner directly, replication services are operational. No action required.
+* If a preferred site cannot contact its partner directly or via the mediator, it will assume the partner is either actually unavailable or was isolated and has taken its LUN paths offline. The preferred site will then proceed to release the RPO=0 state and continue processing both read and write IO.
+* If a non-preferred site cannot contact its partner directly, but can contact it via the mediator, it will take its paths offline and await the return of the replication connection.
+* If a non-preferred site cannot contact its partner directly or via an operational mediator, it will assume the partner is either actually unavailable or was isolated and has taken its LUN paths offline. The non-preferred site will then proceed to release the RPO=0 state and continue processing both read and write IO. It will assume the role of the replication source and will become the new preferred site.
+
+If the mediator is wholly unavailable:
+
+* Failure of replication services for any reason will result in the preferred site releasing the RPO=0 state and resuming read and write IO processing. The non-preferred site will take its paths offline.
+* Failure of the preferred site will result in an outage because the non-preferred site will be unable to verify that the opposite site is truly offline and therefore it would not be safe for the nonpreferred site to resume services.

@@ -12,7 +12,7 @@ summary: This page describes the best practices for implementing VMware vSphere 
 :imagesdir: ../media/
 
 [.lead]
-NetApp ONTAP is, among many other things, an enterprise-class scale-out NAS array. ONTAP empowers VMware vSphere with concurrent access to NFS-connected datastores from many ESXi hosts, far exceeding the limits imposed on VMFS file systems. Using NFS with vSphere provides some ease of use and storage efficiency visibility benefits, as mentioned in the link:vmware-vsphere-datastores-top.html[datastores] section.
+ONTAP is, among many other things, an enterprise-class scale-out NAS array. ONTAP empowers VMware vSphere with concurrent access to NFS-connected datastores from many ESXi hosts, far exceeding the limits imposed on VMFS file systems. Using NFS with vSphere provides some ease of use and storage efficiency visibility benefits, as mentioned in the link:vmware-vsphere-datastores-top.html[datastores] section.
 
 The following best practices are recommended when using ONTAP NFS with vSphere:
 

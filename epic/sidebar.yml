@@ -1,0 +1,75 @@
+section: epic
+title: Epic
+entries:
+  - title: Overview
+    url: /epic/epic-overview.html   
+  - title: Epic on ONTAP
+    entries:
+      - title: Overview
+        url: /epic/epic-ontap-overview.html
+      - title: Availability
+        url: /epic/epic-ontap-availability.html
+      - title: Consolidation
+        url: /epic/epic-ontap-consolidation.html
+      - title: Efficiency
+        url: /epic/epic-ontap-efficiency.html
+      - title: Performance
+        url: /epic/epic-ontap-performance.html
+      - title: Scaling
+        url: /epic/epic-ontap-scalability.html
+      - title: Snapshots and cloning
+        url: /epic/epic-ontap-snapshots.html
+      - title: Security
+        url: /epic/epic-ontap-security.html
+  - title: Epic architecture and design
+    entries:
+    - title: Overview
+      url: /epic/epic-arch-overview.html
+    - title: Sizing
+      url: /epic/epic-arch-sizing.html
+    - title: Storage requirements
+      url: /epic/epic-arch-storage.html
+    - title: Four-node architecture
+      url: /epic/epic-arch-4node.html
+    - title: Six-node architecture
+      url: /epic/epic-arch-6node.html
+    - title: Eight-node architecture
+      url: /epic/epic-arch-8node.html
+  - title: Configuration and best practices
+    entries:
+    - title: Host Utilities
+      url: /epic/epic-config-huk.html
+    - title: LUN and volume configuration
+      url: /epic/epic-config-lunvol.html
+    - title: File services
+      url: /epic/epic-config-files.html
+    - title: Performance
+      url: /epic/epic-config-performance.html
+    - title: Protocols
+      url: /epic/epic-config-protocols.html
+    - title: Storage efficiency
+      url: /epic/epic-config-efficiency.html
+    - title: Consistency groups
+      url: /epic/epic-config-cgs.html
+    - title: Storage sizing
+      url: /epic/epic-config-sizing.html
+#  - title: Epic configuration example
+#    entries:
+#    - title: Overview
+#      url: /epic/epic-example-overview.html
+#    - title: Aggregates
+#      url: /epic/epic-example-aggregates.html
+#    - title: SVM
+#      url: /epic/epic-example-svm.html
+#    - title: Protocols
+#      url: /epic/epic-example-protocol.html
+#    - title: Volumes
+#      url: /epic/epic-example-volumes.html
+#    - title: LUNs
+#      url: /epic/epic-example-luns.html
+#    - title: Platforms  
+#      url: /epic/epic-example-platforms.html
+#    - title: Filesystem
+#      url: /epic/epic-example-filesystems.html
+  - title: Where to find additional information
+    url: /epic/epic-additional-info.html

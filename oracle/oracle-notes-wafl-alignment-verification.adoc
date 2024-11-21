@@ -3,8 +3,9 @@ sidebar: sidebar
 permalink: oracle/oracle-notes-wafl-alignment-verification.html
 keywords: oracle, database, ontap, wafl, alignment
 summary: WAFL alignment for Oracle databases
+searchtitle: WAFL alignment verification for Oracle databases
 ---
-= WAFL alignment verification for Oracle databases
+= WAFL alignment verification
 :hardbreaks:
 :nofooter:
 :icons: font

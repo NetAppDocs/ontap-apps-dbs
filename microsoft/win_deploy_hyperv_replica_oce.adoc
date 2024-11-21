@@ -9,7 +9,7 @@ summary: This appendix describes deploying Hyper-V Replica outside a clustered e
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 This appendix describes deploying Hyper-V Replica outside a clustered environment.

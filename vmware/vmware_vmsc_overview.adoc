@@ -59,4 +59,4 @@ SnapMirror active sync can also be deployed in two different ways.
 
 image::../media/vmsc_1_2.png[vMSC diagram with MCC,width=624,height=485]
 
-Refer to https://docs.netapp.com/us-en/ontap/smbc/index.html[NetApp Docs] for specific design and deployment information for SnapMirror active sync.
+For more information about the advantages of symmetric or asymmetric design and deployment, see the https://docs.netapp.com/us-en/ontap/smbc/index.html[SnapMirror active sync documentation].

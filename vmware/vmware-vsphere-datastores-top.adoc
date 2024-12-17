@@ -19,7 +19,7 @@ Six protocols are used to connect VMware vSphere to datastores on a system runni
 * NVMe/TCP
 * iSCSI
 * NFS v3
-* NFS v4.1
+* NFS v4.1 
 
 FCP, NVMe/FC, NVMe/TCP, and iSCSI are block protocols that use the vSphere Virtual Machine File System (VMFS) to store VMs inside ONTAP LUNs or NVMe namespaces that are contained in an ONTAP FlexVol volume. NFS is a file protocol that places VMs into datastores (which are simply ONTAP volumes) without the need for VMFS. SMB (CIFS), iSCSI, NVMe/TCP, or NFS can also be used directly from a guest OS to ONTAP.
 

@@ -119,9 +119,9 @@ It's worth noting that NFSv3 and NFSv4.1 use different locking mechanisms. NFSv3
 ** Because there is no automatic datastore conversion between NFSv3 and NFSv4.1, create a new NFSv4.1 datastore and use Storage vMotion to migrate VMs to the new datastore.
 ** Please refer to the NFS v4.1 Interoperability table notes in the link:https://mysupport.netapp.com/matrix/[NetApp Interoperability Matrix tool^] for specific ESXi patch levels required for support.
 
-* NFS export policies are used to control access by vSphere hosts. You can use one policy with multiple volumes (datastores). With NFSv3, ESXi uses the sys (UNIX) security style and requires the root mount option to execute VMs. In ONTAP, this option is referred to as superuser, and when the superuser option is used, it is not necessary to specify the anonymous user ID. Note that export policy rules with different values for `-anon` and `-allow-suid` can cause SVM discovery problems with ONTAP tools. The IP addresses listed in the export policy should match the IP addresses of the vmkernel ports mounting the datastores. Here's a sample policy:
+* NFS export policies are used to control access by vSphere hosts. You can use one policy with multiple volumes (datastores). With NFS, ESXi uses the sys (UNIX) security style and requires the root mount option to execute VMs. In ONTAP, this option is referred to as superuser, and when the superuser option is used, it is not necessary to specify the anonymous user ID. Note that export policy rules with different values for `-anon` and `-allow-suid` can cause SVM discovery problems with ONTAP tools. The IP addresses listed in the export policy should match the IP addresses of the vmkernel ports mounting the datastores. Here's a sample policy:
 [block, align=center]
-** Access Protocol: nfs
+** Access Protocol: nfs (which includes both nfs3 and nfs4)
 ** List of Client Match Hostnames, IP Addresses, Netgroups, or Domains: 192.168.42.21,192.168.42.22 
 ** RO Access Rule: any
 ** RW Access Rule: any
@@ -129,9 +129,9 @@ It's worth noting that NFSv3 and NFSv4.1 use different locking mechanisms. NFSv3
 ** Superuser Security Types: any
 ** Honor SetUID Bits in SETATTR: true
 ** Allow Creation of Devices: true
-* If the NetApp NFS Plug-In for VMware VAAI is used, the protocol should be set as `nfs` when the export policy rule is created or modified. The NFSv4 protocol is required for VAAI copy offload to work, and specifying the protocol as `nfs` automatically includes both the NFSv3 and the NFSv4 versions.
+* If the NetApp NFS Plug-In for VMware VAAI is used, the protocol should be set as `nfs` when the export policy rule is created or modified. The NFSv4 protocol is required for VAAI copy offload to work, and specifying the protocol as `nfs` automatically includes both the NFSv3 and the NFSv4 versions. This is required even if the datastore type is created as NFS v3.
 * NFS datastore volumes are junctioned from the root volume of the SVM; therefore, ESXi must also have access to the root volume to navigate and mount datastore volumes. The export policy for the root volume, and for any other volumes in which the datastore volume's junction is nested, must include a rule or rules for the ESXi servers granting them read-only access. Here's a sample policy for the root volume, also using the VAAI plug-in:
-** Access Protocol: nfs (which includes both nfs3 and nfs4)
+** Access Protocol: nfs
 ** Client Match Spec: 192.168.42.21
 ** RO Access Rule: sys
 ** RW Access Rule: never (best security for root volume)

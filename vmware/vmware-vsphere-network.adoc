@@ -108,7 +108,7 @@ Other best practices to consider:
 image:vsphere_ontap_image2.png[Multipathing connectivity]
 
 == NFS
-vSphere allows customers to use enterprise-class NFS arrays to provide concurrent access to datastores to all the nodes in an ESXi cluster. As mentioned in the datastore section, there are some ease of use and storage efficiency visibility benefits when using NFS with vSphere.
+vSphere allows customers to use enterprise-class NFS arrays to provide concurrent access to datastores to all the nodes in an ESXi cluster. As mentioned in the link:vmware-vsphere-datastores-top.html[datastores] section, there are some ease of use and storage efficiency visibility benefits when using NFS with vSphere.
 
 For recommended best practices refer to link:vmware-vsphere-datastores-nfs.html[Datastores and Protocols - NFS]
 

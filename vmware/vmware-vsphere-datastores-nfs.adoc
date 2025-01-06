@@ -21,7 +21,7 @@ The following best practices are recommended when using ONTAP NFS with vSphere:
 ** Because there is no automatic datastore conversion between NFSv3 and NFSv4.1, create a new NFSv4.1 datastore and use Storage vMotion to migrate VMs to the new datastore.
 ** Please refer to the NFS v4.1 Interoperability table notes in the link:https://mysupport.netapp.com/matrix/[NetApp Interoperability Matrix tool^] for specific ESXi patch levels required for support.
 ** VMware supports nconnect with NFSv3 beginning in vSphere 8.0U2. More information on nconnect can be found at the link:https://docs.netapp.com/us-en/netapp-solutions/virtualization/vmware-vsphere8-nfsv3-nconnect.html[NFSv3 nConnect feature with NetApp and VMware] 
-* NFS export policies are used to control access by vSphere hosts. You can use one policy with multiple volumes (datastores). With NFSv3, ESXi uses the sys (UNIX) security style and requires the root mount option to execute VMs. In ONTAP, this option is referred to as superuser, and when the superuser option is used, it is not necessary to specify the anonymous user ID. Note that export policy rules with different values for `-anon` and `-allow-suid` can cause SVM discovery problems with the ONTAP tools. Here's a sample policy:
+* NFS export policies are used to control access by vSphere hosts. You can use one policy with multiple volumes (datastores). With NFS, ESXi uses the sys (UNIX) security style and requires the root mount option to execute VMs. In ONTAP, this option is referred to as superuser, and when the superuser option is used, it is not necessary to specify the anonymous user ID. Note that export policy rules with different values for `-anon` and `-allow-suid` can cause SVM discovery problems with the ONTAP tools. The IP addresses should be a comma-separated list without spaces of the vmkernel ports mounting the datastores. Here's a sample policy:
 ** Access Protocol: nfs (which includes both nfs3 and nfs4)
 ** Client Match Spec: 192.168.42.21
 ** RO Access Rule: sys
@@ -30,7 +30,7 @@ The following best practices are recommended when using ONTAP NFS with vSphere:
 ** Superuser: sys
 * If the NetApp NFS Plug-In for VMware VAAI is used, the protocol should be set as `nfs` instead of `nfs3` when the export policy rule is created or modified. The VAAI copy offload feature requires the NFSv4 protocol to function, even if the data protocol is NFSv3. Specifying the protocol as `nfs` includes both the NFSv3 and NFSv4 versions.
 * NFS datastore volumes are junctioned from the root volume of the SVM; therefore, ESXi must also have access to the root volume to navigate and mount datastore volumes. The export policy for the root volume, and for any other volumes in which the datastore volume's junction is nested, must include a rule or rules for the ESXi servers granting them read-only access. Here's a sample policy for the root volume, also using the VAAI plug-in:
-** Access Protocol: nfs (which includes both nfs3 and nfs4)
+** Access Protocol: nfs
 ** Client Match Spec: 192.168.42.21
 ** RO Access Rule: sys
 ** RW Access Rule: never (best security for root volume)

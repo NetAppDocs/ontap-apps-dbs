@@ -12,8 +12,6 @@ summary: This page describes the best practices for implementing a ONTAP storage
 :imagesdir: ../media/
 
 [.lead]
-ONTAP provides enterprise-class block storage for VMware vSphere using iSCSI, Fibre Channel Protocol(FCP, or FC for short), and NVMe over Fabrics (NVMe-oF). The following are best practices for implementing block protocols for VM storage with vSphere and ONTAP.
-
 In vSphere, there are three ways to use block storage LUNs:
 
 * With VMFS datastores

@@ -74,7 +74,9 @@ The following table provides a summary of network configuration items and indica
 
 == SAN (FC, FCoE, NVMe/FC, iSCSI), RDM
 
-ONTAP provides enterprise-class block storage for VMware vSphere using traditional iSCSI and Fibre Channel Protocol(FCP, or FC for short), and the incredibly performant and CPU efficient next-generation block protocol NVMe over Fabrics (NVMe-oF); with both NVMe/FC and NVMe/TCP support. For detailed best practices for implementing block protocols for VM storage with vSphere and ONTAP refer to link:vmware-vsphere-datastores-nfs.html[Datastores and Protocols - SAN]
+ONTAP provides enterprise-class block storage for VMware vSphere using traditional iSCSI and Fibre Channel Protocol(FCP, or FC for short), and the incredibly performant and CPU efficient next-generation block protocol NVMe over Fabrics (NVMe-oF); with both NVMe/FC and NVMe/TCP support.
+
+For detailed best practices for implementing block protocols for VM storage with vSphere and ONTAP refer to link:vmware-vsphere-datastores-nfs.html[Datastores and Protocols - SAN]
 
 == NFS
 vSphere allows customers to use enterprise-class NFS arrays to provide concurrent access to datastores to all the nodes in an ESXi cluster. As mentioned in the link:vmware-vsphere-datastores-top.html[datastores] section, there are some ease of use and storage efficiency visibility benefits when using NFS with vSphere.

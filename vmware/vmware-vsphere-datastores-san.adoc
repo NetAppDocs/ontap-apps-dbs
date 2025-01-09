@@ -12,8 +12,6 @@ summary: This page describes the best practices for implementing a ONTAP storage
 :imagesdir: ../media/
 
 [.lead]
-NetApp ONTAP provides enterprise-class block storage for VMware vSphere using iSCSI, Fibre Channel Protocol(FCP, or FC for short), and NVMe over Fabrics (NVMe-oF). The following are best practices for implementing block protocols for VM storage with vSphere and ONTAP.
-
 In vSphere, there are three ways to use block storage LUNs:
 
 * With VMFS datastores
@@ -28,7 +26,7 @@ Both NMP and ONTAP support Asymmetric Logical Unit Access (ALUA) to negotiate op
 
 ESXi 6 supports up to 256 LUNs and up to 1,024 total paths to LUNs. ESXi does not see any LUNs or paths beyond these limits. Assuming the maximum number of LUNs, the path limit allows four paths per LUN. In a larger ONTAP cluster, it is possible to reach the path limit before the LUN limit. To address this limitation, ONTAP supports selective LUN map (SLM) in release 8.3 and later.
 
-SLM limits the nodes that advertise paths to a given LUN. It is a NetApp best practice to have at least one LIF per node per SVM and to use SLM to limit the paths advertised to the node hosting the LUN and its HA partner. Although other paths exist, they aren't advertised by default. It is possible to modify the paths advertised with the add and remove reporting node arguments within SLM. Note that LUNs created in releases prior to 8.3 advertise all paths and need to be modified to only advertise the paths to the hosting HA pair. For more information about SLM, review section 5.9 of http://www.netapp.com/us/media/tr-4080.pdf[TR-4080^]. The previous method of portsets can also be used to further reduce the available paths for a LUN. Portsets help by reducing the number of visible paths through which initiators in an igroup can see LUNs.
+SLM limits the nodes that advertise paths to a given LUN. It is a NetApp best practice to have at least one LIF per node per SVM and to use SLM to limit the paths advertised to the node hosting the LUN and its HA partner. Although other paths exist, they aren't advertised by default. It is possible to modify the paths advertised with the add and remove reporting node arguments within SLM. Note that LUNs created in releases prior to 8.3 advertise all paths and need to be modified to only advertise the paths to the hosting HA pair. For more information about SLM, review section 5.9 of https://www.netapp.com/pdf.html?item=/media/10680-tr4080pdf.pdf[TR-4080^]. The previous method of portsets can also be used to further reduce the available paths for a LUN. Portsets help by reducing the number of visible paths through which initiators in an igroup can see LUNs.
 
 * SLM is enabled by default. Unless you are using portsets, no additional configuration is required.
 

@@ -2,9 +2,10 @@
 sidebar: sidebar
 permalink: oracle/oracle-storage-nfs-config-dnfs.html
 keywords: oracle, database, ontap, nfs, ADR, dNFS
-summary: Oracle direct NFS 
+summary: Oracle direct NFS
+searchtitle: Oracle direct NFS
 ---
-= Oracle directNFS
+= Oracle direct NFS (dNFS)
 
 :hardbreaks:
 :nofooter:
@@ -22,6 +23,7 @@ The second method is Oracle Direct NFS (dNFS). This is an implementation of the 
 A database with the dNFS feature enabled still has the usual NFS filesystems mounted. Once the database is open, the Oracle database opens a set of TCP/IP sessions and performs NFS operations directly.
 
 == Direct NFS
+
 The primary value of Oracle's Direct NFS is to bypass the host NFS client and perform NFS file operations directly on an NFS server. Enabling it only requires changing the Oracle Disk Manager (ODM) library. Instructions for this process are provided in the Oracle documentation.
 
 Using dNFS results in a significant improvement in I/O performance and decreases the load on the host and the storage system because I/O is performed in the most efficient way possible.
@@ -33,7 +35,114 @@ When dNFS is used, it is critical that all patches described in Oracle Doc 14951
 [Note]
 Do not use dNFS with any type of round-robin name resolution, including DNS, DDNS, NIS or any other method. This includes the DNS load balancing feature available in ONTAP. When an Oracle database using dNFS resolves a host name to an IP address it must not change on subsequent lookups. This can result in Oracle database crashes and possible data corruption.
 
-=== Direct NFS and host file system access
+=== Enabling dNFS
+
+Oracle dNFS can work with NFSv3 with no configuration required beyond enabling the dNFS library (See Oracle documentation for the specific command required) but if dNFS is unable to establish connectivity, it can silently revert back to the kernel NFS client. If this happens, performance can be severely affected.
+
+If you wish to use dNFS multiplexing across multiple interface, with NFSv4.X, or use encryption, you must configure an oranfstab file. The syntax is extremely strict. Small errors in the file can result in startup hanging or bypassing the oranfstab file.
+
+[Note]
+At the time of writing, dNFS multipathing does not work with NFSv4.1 with recent versions of Oracle Database. An oranfstab file that specifies NFSv4.1 as a protocol can only use a single path statement for a given export. The reason is ONTAP does not support clientID trunking. Oracle Database patches to resolve this limitation may be available in the future. 
+
+The only way to be certain dNFS is operating as expected is to query the v$dnfs tables.
+
+Below is a sample oranfstab file located at /etc. This is one of multiple locations an oranfstab file can be placed.
+
+....
+[root@jfs11 trace]# cat /etc/oranfstab
+server: NFSv3test
+path: jfs_svmdr-nfs1
+path: jfs_svmdr-nfs2
+export: /dbf mount: /oradata
+export: /logs mount: /logs
+nfs_version: NFSv3
+....
+
+The first step is to check that dNFS is operational for the specified filesystems:
+
+....
+SQL> select dirname,nfsversion from v$dnfs_servers;
+
+DIRNAME
+------------------------------------
+NFSVERSION
+----------------
+/logs
+NFSv3.0
+
+/dbf
+NFSv3.0
+....
+
+This output indicates that dNFS is in use with these two filesystems, but it does *not* mean that oranfstab is operational. If an error was present, dNFS would have autodiscovered the host's NFS filesystems and you may still see the same output from this command.
+
+Multipathing can be checked as follows:
+
+....
+SQL> select svrname,path,ch_id from v$dnfs_channels;
+
+SVRNAME
+------------------------------------
+PATH
+------------------------------------
+     CH_ID
+----------
+NFSv3test
+jfs_svmdr-nfs1
+         0
+
+NFSv3test
+jfs_svmdr-nfs2
+         1
+
+SVRNAME
+------------------------------------
+PATH
+------------------------------------
+     CH_ID
+----------
+
+NFSv3test
+jfs_svmdr-nfs1
+         0
+
+NFSv3test
+jfs_svmdr-nfs2
+
+[output truncated]
+
+SVRNAME
+------------------------------------
+PATH
+------------------------------------
+     CH_ID
+----------
+NFSv3test
+jfs_svmdr-nfs2
+         1
+
+NFSv3test
+jfs_svmdr-nfs1
+         0
+
+SVRNAME
+------------------------------------
+PATH
+------------------------------------
+     CH_ID
+----------
+
+NFSv3test
+jfs_svmdr-nfs2
+         1
+
+
+66 rows selected.
+....
+
+These are the connections that dNFS is using. Two paths and channels are visible for each SVRNAME entry. This means multipathing is working, which means the oranfstab file was recognized and processed. 
+
+== Direct NFS and host file system access
 Using dNFS can occasionally cause problems for applications or user activities that rely on the visible file systems mounted on the host because the dNFS client accesses the file system out of band from the host OS. The dNFS client can create, delete, and modify files without the knowledge of the OS.
 
 When the mount options for single-instance databases are used, they enable caching of file and directory attributes, which also means that the contents of a directory are cached. Therefore, dNFS can create a file, and there is a short lag before the OS rereads the directory contents and the file becomes visible to the user. This is not generally a problem, but, on rare occasions, utilities such as SAP BR*Tools might have issues. If this happens, address the problem by changing the mount options to use the recommendations for Oracle RAC. This change results in the disabling of all host caching.
@@ -41,4 +150,4 @@ When the mount options for single-instance databases are used, they enable cachi
 Only change mount options when (a) dNFS is used and (b) a problem results from a lag in file visibility. If dNFS is not in use, using Oracle RAC mount options on a single-instance database results in degraded performance.
 
 [NOTE]
-See the note about `nosharecache` in link:../host-configuration/linux.html#linux-direct-nfs[Linux NFS mount options] for a Linux-specific dNFS issue that can produce unusual results.
+See the note about `nosharecache` in link:oracle-host-config-linux.html#linux-direct-nfs[Linux NFS mount options] for a Linux-specific dNFS issue that can produce unusual results.

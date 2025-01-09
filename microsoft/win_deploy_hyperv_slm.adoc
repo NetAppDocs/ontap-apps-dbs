@@ -9,7 +9,7 @@ summary: How to configure Hyper-V storage live migration
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 Learn how to configure Hyper-V storage live migration

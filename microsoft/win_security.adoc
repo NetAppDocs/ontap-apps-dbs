@@ -9,7 +9,7 @@ summary: ONTAP storage security with Hyper-V
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 ONTAP provides a secure storage system for the Windows operating system.

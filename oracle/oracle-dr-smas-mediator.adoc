@@ -1,0 +1,15 @@
+---
+sidebar: sidebar
+permalink: oracle/oracle-dr-smas-mediator.html
+keywords: MSSQL,SQL Server, SnapMirror active sync, SMBC, overview
+summary: Oracle,SM-as,active sync,mediator
+searchtitle: Oracle, SnapMirror active sync, and the ONTAP Mediator
+---
+= ONTAP Mediator
+:imagesdir: ../media/
+
+[.lead]
+The mediator is required for safely automating failover. Ideally, it would be placed on an independent 3rd site, but it can still function for most needs if colocated with one of the clusters participating in replication.
+
+include::../_include/smas-mediator.adoc[]
+

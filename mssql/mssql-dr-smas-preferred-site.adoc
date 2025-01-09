@@ -1,0 +1,14 @@
+---
+sidebar: sidebar
+permalink: mssql/mssql-dr-smas-preferred-site.html
+keywords: MSSQL,SQL Server, SnapMirror active sync, SMBC, overview
+summary: Microsoft SQL Server and SM-as preferred site
+searchtitle: Microsoft SQL Server and SM-as preferred site
+---
+= Preferred site
+:imagesdir: ../media/
+
+[.lead]
+SnapMirror active sync behavior is symmetric, with one important exception - preferred site configuration. 
+
+include::../_include/smas-preferred-site.adoc[]

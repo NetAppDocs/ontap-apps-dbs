@@ -1,0 +1,27 @@
+---
+sidebar: sidebar
+permalink: epic/epic-config-performance.html
+keywords: epic,cache,iris,QoS
+summary: Epic performance management
+---
+
+= Epic performance management
+
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+Most all-flash arrays can deliver the performance required for Epic workloads. The NetApp differentiator is its ability to set floor level performance policies and guarantee a consistent performance for each application.
+
+== Quality of Service (QoS)
+
+NetApp recommends using QoS. The benefit of QoS is the ability to consolidate all Epic workloads. All protocols and pools of storage can reside on less hardware. You do not need to separate pools of storage.
+
+* NetApp recommends having all workloads in the cluster assigned to a QoS policy to better manage headroom on the cluster.
+
+* NetApp recommends balancing all workloads evenly across the HA pair.
+
+* Do not use QoS policies when performing any I/O testing; otherwise, GenIO testing will fail. Analyze the different production workloads for 2-4 weeks before assigning any QoS policies.

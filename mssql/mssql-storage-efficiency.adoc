@@ -3,14 +3,13 @@ sidebar: sidebar
 permalink: mssql/mssql-storage-efficiency.html
 keywords: MSSQL,SQL Server, efficiency, compression, deduplication
 summary: Microsoft SQL Server and ONTAP storage efficiency
+searchtitle: Microsoft SQL Server and storage efficiency
 ---
-= Microsoft SQL Server and storage efficiency
+= Storage efficiency
 :imagesdir: ../media/
 
 [.lead]
-ONTAP storage efficiency is optimized to store and manage SQL Server data in a way that consumes the least amount of storage space with little or no effect on the overall performance of the system. 
-
-Storage efficiency is a combination of RAID, provisioning (overall layout and utilization), mirroring, and other data protection technologies. NetApp technologies including snapshots, thin provisioning, and cloning optimizes existing storage in the infrastructure and deferring or avoiding future storage expenditures. The more you use these technologies together, the larger the savings.
+ONTAP storage efficiency is optimized to store and manage SQL Server data in a way that consumes the least amount of storage space with no effect on performance. 
 
 include::../_include/efficiency.adoc[]
 
@@ -36,11 +35,12 @@ Data compression is currently supported in the Enterprise, Developer, and Evalua
 
 Here are the recommendation for managing space for SQL Server data files
 
-- Use thin provisioning in SQL Server environments to improve space utilization and to reduce the overall storage requirements when the space guarantee functionality is used.
+* Use thin provisioning in SQL Server environments to improve space utilization and to reduce the overall storage requirements when the space guarantee functionality is used.
 - Use autogrow for most common deployment configurations because the storage admin only needs to monitor space usage in the aggregate.
-- Advice not to enable deduplication on any volumes containing SQL Server data files unless the volume is known to contain multiple copies of the same data, such as restoring database from backups to a single volume.
+* Do not enable deduplication on any volumes containing SQL Server data files unless the volume is known to contain multiple copies of the same data, such as restoring database from backups to a single volume.
 
 == Space reclamation
+
 Space reclamation can be initiated periodically to recover unused space in a LUN. With SnapCenter, you can use the following PowerShell command to start space reclamation. 
 ----
 Invoke-SdHostVolumeSpaceReclaim -Path drive_path

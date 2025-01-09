@@ -3,9 +3,10 @@ sidebar: sidebar
 permalink: oracle/oracle-migration-sample-scripts.html
 keywords: oracle, Scripts
 summary: Sample scripts for automating Oracle migration operations
+searchtitle: Oracle migration procedure sample scripts
 ---
 
-= Oracle migration procedure sample scripts
+= Sample scripts
 
 :hardbreaks:
 :nofooter:

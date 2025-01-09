@@ -3,8 +3,9 @@ sidebar: sidebar
 permalink: oracle/oracle-dp-snaprestore.html
 keywords: ontap, snaprestore
 summary: Rapid Oracle database recovery with SnapRestore
+searchtitle: Rapid Oracle database recovery with SnapRestore
 ---
-= Rapid Oracle database recovery with SnapRestore
+= SnapRestore
 :hardbreaks:
 :nofooter:
 :icons: font

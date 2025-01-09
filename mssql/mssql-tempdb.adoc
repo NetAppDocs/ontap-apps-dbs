@@ -3,14 +3,15 @@ sidebar: sidebar
 permalink: mssql/mssql-tempdb.html
 keywords: MSSQL,SQL Server, tempdb, ONTAP
 summary: Microsoft SQL Server tempdb placement on ONTAP
+searchtitle: icrosoft SQL Server tempdb files
 ---
-= Microsoft SQL Server tempdb files
+= Tempdb files
 :imagesdir: ../media/
 
 [.lead]
-Tempdb database can be heavily utilized. In addition to optimal placement of user database files on ONTAP, alter tempdb  datafiles to reduce allocation contention
+The Tempdb database can be heavily utilized. In addition to optimal placement of user database files on ONTAP, tempdb  datafiles placement is also critical to reduce allocation contention
 
-Page contention can occur on lobal allocation map (GAM), shared global allocation map (SGAM), or page free space (PFS) pages when SQL Server must write to special system pages to allocate new objects. Latches protect (lock) these pages in memory. On a busy SQL Server instance, it can take a long time to get a latch on a system page in tempdb. This results in slower query run times and is known as latch contention. See the following best practices for creating tempdb data files:
+Page contention can occur on the global allocation map (GAM), shared global allocation map (SGAM), or page free space (PFS) pages when SQL Server must write to special system pages to allocate new objects. Latches lock these pages in memory. On a busy SQL Server instance, it can take a long time to get a latch on a system page in tempdb. This results in slower query run times and is known as latch contention. See the following best practices for creating tempdb data files:
 
 * For < or = to 8 cores: tempdb data files = number of cores
 * For > 8 cores: 8 tempdb data files

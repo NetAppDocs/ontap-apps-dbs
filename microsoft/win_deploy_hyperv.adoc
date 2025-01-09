@@ -9,7 +9,7 @@ summary: This appendix describes deploying a high availability Hyper-V cluster o
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 This appendix describes deploying a Hyper-V cluster.

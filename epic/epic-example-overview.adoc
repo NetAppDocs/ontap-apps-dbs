@@ -1,0 +1,65 @@
+---
+sidebar: sidebar
+permalink: epic/epic-example-overview.html
+keywords: epic,cache,iris
+summary: Epic on ONTAP example deployment
+---
+
+= Epic on ONTAP example deployment
+
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+This section takes you through a complete advanced configuration of an ONTAP cluster, provisioning, and presenting storage to an Epic server.
+
+For the purpose of capturing details and for easier documentation, the command line is used. If the GUI is preferred, you can provision all the settings in System Manager. 
+
+Historically, the initial bulk setup for larger projects is usually faster by using the commands listed Table 1, especially if you concatenate the commands in a worksheet. This list of commands also serves as excellent build documentation.
+
+Another provisioning option is using day 0 and day 1 automation scripts using Ansible. NetApp has hundreds of existing Ansible playbooks available for download, including the Ansible Galaxy collection through the ansible-galaxy collection install netapp.ontap command.
+
+The GUI also works great with a simple single-page LUN and shared provisioning. GUI is best used for operations when adding, modifying, or deleting storage. Either option is fine if you apply the best practice storage settings in Table 1.
+
+The complete cluster setup and storage/host provisioning should not take more than an hour when staged.
+
+*Best practice storage settings*
+
+[cols="1,1"]
+|===
+|Setting
+|Value
+
+|Aggregate
+|Default auto provision, one ADP aggregate per node with RAID DEP
+
+|SVM
+|Two SVMs when using multiprocol (Block SVM and SMB/NFS SVM). Use Epic and protocol naming convention. Use proper security style
+
+|Volume space guarantee
+|none
+
+|Volume snapshot policy
+|none
+
+|Volume autosize
+|grow
+
+|Volume max autosize
+|2T or 2 X LUN size
+
+|Volume snapshot autodelete
+|enabled
+
+|Volume size
+|1.5 X LUN size
+
+|Volume layout
+|Distributed even across controllers
+
+|igroup type
+|OS when used with physical servers, VMware type when used with ESX. 
+|===

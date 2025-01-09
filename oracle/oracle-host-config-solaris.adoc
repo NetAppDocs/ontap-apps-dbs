@@ -3,8 +3,9 @@ sidebar: sidebar
 permalink: oracle/oracle-host-config-solaris.html
 keywords: oracle, database, ontap, solaris, zfs
 summary: Oracle databases with Solaris
+searchtitle: Oracle databases with Solaris
 ---
-= Oracle databases with Solaris
+= Solaris
 
 :hardbreaks:
 :nofooter:
@@ -75,9 +76,13 @@ NetApp strongly recommends using the logging mount option so that data integrity
 Solaris ZFS must be installed and configured carefully to deliver optimum performance.
 
 === mvector
-Solaris 11 included a change in how it processes large I/O operations which can result in severe performance problems on SAN storage arrays. The problem is documented in detail in the NetApp bug report 630173, "Solaris 11 ZFS Performance Regression. " The solution is to change an OS parameter called `zfs_mvector_max_size`.
+Solaris 11 included a change in how it processes large I/O operations which can result in severe performance problems on SAN storage arrays. The problem is documented NetApp tracking bug report 630173, "Solaris 11 ZFS Performance Regression."
 
-Run the following command as root:
+This is not an ONTAP bug. It is a Solaris defect that is tracked under Solaris defects 7199305 and 7082975. 
+
+You can consult Oracle Support to find out if your version of Solaris 11 is affected, or you can test the workaround by changing `zfs_mvector_max_size` to a smaller value.
+
+You can do this by running the following command as root:
 
 ....
 [root@host1 ~]# echo "zfs_mvector_max_size/W 0t131072" |mdb -kw

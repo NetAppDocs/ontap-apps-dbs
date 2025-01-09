@@ -11,7 +11,7 @@ summary:
 :imagesdir: ../media/
 
 [.lead]
-There are several steps to creating vVols storage for your VMs. 
+Creating vVols storage for your VMs involves several steps. These steps are simpler if you are using an ASA r2 system with ONTAP tools 10.3 or later.
 
 The first two steps may not be needed for an existing vSphere environment that uses ONTAP for traditional datastores. You may already be using ONTAP tools for managing, automating, and reporting with your VMFS or traditional NFS based storage. These steps are covered in more detail in the following section.
 

@@ -140,7 +140,7 @@ While not currently configured by available ONTAP tools, NetApp suggests these c
 
 == Additional documentation
 
-For FCP and iSCSI with vSphere 7, more details can be found at https://docs.netapp.com/us-en/ontap-sanhost/hu_vsphere_7.html[Use VMware vSphere 7.x with ONTAP^]
-For FCP and iSCSI with vSphere 8, more details can be found at https://docs.netapp.com/us-en/ontap-sanhost/hu_vsphere_8.html[Use VMware vSphere 8.x with ONTAP^]
-For NVMe-oF with vSphere 7, more details can be found at https://docs.netapp.com/us-en/ontap-sanhost/nvme_esxi_7.html[For NVMe-oF, more details can be found at NVMe-oF Host Configuration for ESXi 7.x with ONTAP^]
-For NVMe-oF with vSphere 8, more details can be found at https://docs.netapp.com/us-en/ontap-sanhost/nvme_esxi_8.html[For NVMe-oF, more details can be found at NVMe-oF Host Configuration for ESXi 8.x with ONTAP^]
+For FCP and iSCSI with vSphere 7, more details can be found at link:https://docs.netapp.com/us-en/ontap-sanhost/hu_vsphere_7.html[Use VMware vSphere 7.x with ONTAP^]
+For FCP and iSCSI with vSphere 8, more details can be found at link:https://docs.netapp.com/us-en/ontap-sanhost/hu_vsphere_8.html[Use VMware vSphere 8.x with ONTAP^]
+For NVMe-oF with vSphere 7, more details can be found at link:https://docs.netapp.com/us-en/ontap-sanhost/nvme_esxi_7.html[For NVMe-oF, more details can be found at NVMe-oF Host Configuration for ESXi 7.x with ONTAP^]
+For NVMe-oF with vSphere 8, more details can be found at link:https://docs.netapp.com/us-en/ontap-sanhost/nvme_esxi_8.html[For NVMe-oF, more details can be found at NVMe-oF Host Configuration for ESXi 8.x with ONTAP^]

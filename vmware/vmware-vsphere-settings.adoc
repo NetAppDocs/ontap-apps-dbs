@@ -27,7 +27,7 @@ Here are the currently recommended host settings with the 9.8-9.13 releases.
 |No
 |VMFS3.EnableBlockDelete
 |Keep default (0), but can be changed if needed.
-For more information, see link:https://knowledge.broadcom.com/external/article?legacyId=2007427[VMware KB 2007427]
+For more information, see link:https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-storage-8-0/storage-provisioning-and-space-reclamation-in-vsphere/storage-space-reclamation-in-vsphere/space-reclamation-for-guest-operating-systems.html[Space Reclamation for VMFS5 Virtual Machines]
 |No
 |VMFS3.EnableVMFS6Unmap
 |Keep default (1)

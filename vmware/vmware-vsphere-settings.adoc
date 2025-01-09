@@ -16,7 +16,7 @@ NetApp has developed a set of optimal ESXi host settings for both NFS and block 
 
 These values are easily set using ONTAP tools for VMware vSphere: From the Summary dashboard, click Edit Settings in the Host Systems portlet or right-click the host in vCenter, then navigate to ONTAP tools > Set Recommended Values.
 
-Here are the currently recommended host settings with the 9.8-9.13 releases.
+Here are the currently recommended host settings for all versions of ONTAP.
 
 [%autowidth.stretch]
 |===
@@ -135,8 +135,8 @@ ONTAP tools also specify certain default settings when creating ONTAP FlexVol vo
 
 While not currently configured by available ONTAP tools, NetApp suggests these configuration options:
 
-* In high-performance environments or when testing performance with a single LUN datastore, consider changing the load balance setting of the round-robin (VMW_PSP_RR) path selection policy (PSP) from the default IOPS setting of 1000 to a value of 1. See VMware KB https://kb.vmware.com/s/article/2069356[2069356^] for more info.
-* In vSphere 6.7 Update 1, VMware introduced a new latency load balance mechanism for the Round Robin PSP. The new option considers I/O bandwidth and path latency when selecting the optimal path for I/O. You might benefit from using it in environments with non-equivalent path connectivity, such as cases with more network hops on one path than another, or when using a NetApp All SAN Array (ASA) system. See https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.storage.doc/GUID-B7AD0CA0-CBE2-4DB4-A22C-AD323226A257.html?hWord=N4IghgNiBcIA4Gc4AIJgC4FMB2BjAniAL5A[Path Selection Plug-Ins and Policies^] for more information.
+* In high-performance environments or when testing performance with a single LUN datastore, consider changing the load balance setting of the round-robin (VMW_PSP_RR) path selection policy (PSP) from the default IOPS setting of 1000 to a value of 1. See link:https://knowledge.broadcom.com/external/article?legacyId=2069356[VMware KB 2069356^] for more info.
+* In vSphere 6.7 Update 1, VMware introduced a new latency load balance mechanism for the Round Robin PSP. The new option considers I/O bandwidth and path latency when selecting the optimal path for I/O. You might benefit from using it in environments with non-equivalent path connectivity, such as cases with more network hops on one path than another, or when using a NetApp All SAN Array (ASA) system. See https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-storage-8-0/understanding-multipathing-and-failover-in-the-esxi-environment/viewing-and-managing-storage-paths-on-esxi-hosts.html#GUID-1940AE9E-04CF-40BE-BB71-398621F0642E-en[Change Default Parameters for Latency Round Robin^] for more information.
 
 == Additional documentation
 

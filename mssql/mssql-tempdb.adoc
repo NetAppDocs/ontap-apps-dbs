@@ -9,7 +9,7 @@ searchtitle: icrosoft SQL Server tempdb files
 :imagesdir: ../media/
 
 [.lead]
-The Tempdb database can be heavily utilized. In addition to optimal placement of user database files on ONTAP, tempdb  datafiles placement is also critical to reduce allocation contention
+The Tempdb database can be heavily utilized. In addition to optimal placement of user database files on ONTAP, tempdb  datafiles placement is also critical to reduce allocation contention. Tempdb should be placed on separate disk and not shared with user datafiles.
 
 Page contention can occur on the global allocation map (GAM), shared global allocation map (SGAM), or page free space (PFS) pages when SQL Server must write to special system pages to allocate new objects. Latches lock these pages in memory. On a busy SQL Server instance, it can take a long time to get a latch on a system page in tempdb. This results in slower query run times and is known as latch contention. See the following best practices for creating tempdb data files:
 

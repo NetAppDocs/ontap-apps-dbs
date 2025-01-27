@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
-permalink: mssql/mssql-files-and-filegroups.html
-keywords: MSSQL,SQL Server, backup, recovery, database file management 
-summary: Microsoft SQL Server database file placement
+permalink: mssql/mssql-files-and-filegroups-ASA.html
+keywords: MSSQL,SQL Server, backup, recovery, database file management ,ASA
+summary: Microsoft SQL Server database file placement on ASA
 searchtitle: Microsoft SQL Server database files and filegroups
 ---
 = Database files and filegroups

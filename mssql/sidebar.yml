@@ -30,13 +30,13 @@ entries:
     pdf-filename: Storage configuration for Microsoft SQL Server on ASA systems
     entries:
     - title: Overview
-      url: /mssql/mssql-storage-considerations.html
+      url: /mssql/mssql-storage-considerations-ASA.html
     - title:  Database files and filegroups
-      url: /mssql/mssql-files-and-filegroups.html
+      url: /mssql/mssql-files-and-filegroups-ASA.html
     - title: Log directory
-      url: /mssql/mssql-log-directory.html
+      url: /mssql/mssql-log-directory-ASA.html
     - title: Storage efficiency
-      url: /mssql/mssql-storage-efficiency.html
+      url: /mssql/mssql-storage-efficiency-ASA.html
   - title: Data protection
     url: /mssql/mssql-data-protection.html
   - title: Disaster recovery

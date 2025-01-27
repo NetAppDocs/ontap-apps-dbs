@@ -16,7 +16,7 @@ entries:
       url: /mssql/mssql-tempdb.html
     - title: Database instance file initialization
   - title: Storage configuration on AFF/FAS systems
-    pdf-filename: Storage configuration for Microsoft SQL Server
+    pdf-filename: Storage configuration for Microsoft SQL Server on AFF/FAS systems
     entries:
     - title: Overview
       url: /mssql/mssql-storage-considerations.html
@@ -27,7 +27,7 @@ entries:
     - title: Storage efficiency
       url: /mssql/mssql-storage-efficiency.html
   - title: Storage configuration on ASA systems
-    pdf-filename: Storage configuration for Microsoft SQL Server
+    pdf-filename: Storage configuration for Microsoft SQL Server on ASA systems
     entries:
     - title: Overview
       url: /mssql/mssql-storage-considerations.html

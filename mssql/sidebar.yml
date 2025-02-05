@@ -67,6 +67,32 @@ entries:
         url: /mssql/mssql-storage-considerations-ASA.html
       - title:  Database files and filegroups
         url: /mssql/mssql-files-and-filegroups-ASA.html
+    - title: Data protection
+      url: /mssql/mssql-data-protection.html
+    - title: Disaster recovery
+      entries:
+      - title: Overview
+        url: /mssql/mssql-disaster-recovery.html
+      - title: SnapMirror
+        url: /mssql/mssql-dr-snapmirror.html
+      - title: SnapMirror active sync
+        entries:
+        - title: Overview
+          url: /mssql/mssql-dr-smas-overview.html
+        - title: ONTAP Mediator
+          url: /mssql/mssql-dr-smas-mediator.html
+        - title: Preferred site
+          url: /mssql/mssql-dr-smas-preferred-site.html
+        - title: Network topology
+          entries:
+          - title: Uniform access
+            url: /mssql/mssql-dr-smas-uniform.html  
+          - title: Nonuniform access
+            url: /mssql/mssql-dr-smas-nonuniform.html  
+        - title: SQL Server with SM-as
+          url: /mssql/mssql-dr-smas-sql.html
+        - title: Failure scenarios
+          url: /mssql/mssql-dr-smas-failure-scenarios.html
   - title: Data security
     url: /mssql/mssql-data-security.html
   

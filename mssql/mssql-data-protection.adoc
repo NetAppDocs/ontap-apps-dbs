@@ -17,9 +17,6 @@ SnapCenter is the NetApp data protection software for enterprise applications. S
 
 SQL Server instance can be a standalone setup, failover cluster instance or it can be always on availability group. The result is that from single-pane-of-glass, databases can be protected, cloned and restored from primary or secondary copy. SnapCenter can manage SQL Server databases both on-premises, in the cloud, and hybrid configurations.Database copies can also be created in few minutes on the orignal or alternate host for development or for reporting purpose. 
 
-[TIP]
-*NetApp recommends* using SnapCenter to create Snapshot copies. The T-SQL method described below also works, but SnapCenter offers complete automation over the backup, restore, and cloning process. It also performs discovery to ensure the correct snapshots are being created. No pre-configuration is required.
-
 SQL Server also requires coordination between the OS and the storage to ensure the correct data is present in snapshots at the time of creation. In most cases, the only safe method to do this is with SnapCenter or T-SQL. Snapshots created without this additional coordination may not be reliably recoverable. 
 
 For more details about the SQL Server Plug-in for SnapCenter, see link:https://www.netapp.com/pdf.html?item=/media/12400-tr4714.pdf[TR-4714: Best practice guide for SQL Server using NetApp SnapCenter^].
@@ -35,3 +32,6 @@ The following is a sample backup workflow:
 . Perform point-in-time recovery using log backups taken with the normal streaming approach after the snapshot FULL backup. Streaming differential backups are also supported if desired.
 
 To learn more, see link:https://learn.microsoft.com/en-us/sql/relational-databases/databases/create-a-database-snapshot-transact-sql?view=sql-server-ver16[Microsoft documentation to know about the T-SQL snapshots^].
+
+[TIP]
+*NetApp recommends* using SnapCenter to create Snapshot copies. The T-SQL method described below also works, but SnapCenter offers complete automation over the backup, restore, and cloning process. It also performs discovery to ensure the correct snapshots are being created. No pre-configuration is required.

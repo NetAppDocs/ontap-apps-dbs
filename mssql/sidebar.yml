@@ -33,8 +33,6 @@ entries:
       url: /mssql/mssql-storage-considerations-ASA.html
     - title:  Database files and filegroups
       url: /mssql/mssql-files-and-filegroups-ASA.html
-    - title: Storage efficiency
-      url: /mssql/mssql-storage-efficiency-ASA.html
   - title: Data protection
     url: /mssql/mssql-data-protection.html
   - title: Disaster recovery

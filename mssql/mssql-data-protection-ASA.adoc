@@ -9,7 +9,7 @@ searchtitle: Microsoft SQL Server data protection with NetApp management softwar
 :imagesdir: ../media/
 
 
-../mssql/mssql-data-protection.adoc
+include::../mssql/mssql-data-protection.adoc[]
 
 [NOTE]
 Use SnapCenter if SQL Server databases are hosted on virtual disk running in a VMware virtualized environment. In case the databases are hosted on bare metal physical server or on guest-connect SCSI then backup database using T-SQL snapshot command.

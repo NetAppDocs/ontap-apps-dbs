@@ -35,11 +35,6 @@ entries:
       - title: SnapMirror
         url: /mssql/mssql-dr-snapmirror.html
       - title: MetroCluster
-        entries:
-        - title: MetroCluster architecture
-          url: /mssql/mssql-dr-mcc-overview.html
-        - title: SQL Server with MetroCluster
-          url: /mssql/mssql-dr-mcc-sql.html
       - title: SnapMirror active sync
         entries:
         - title: Overview
@@ -87,10 +82,10 @@ entries:
             url: /mssql/mssql-dr-smas-uniform.html  
           - title: Nonuniform access
             url: /mssql/mssql-dr-smas-nonuniform.html  
-     - title: SQL Server with SM-as
-       url: /mssql/mssql-dr-smas-sql.html
-     - title: Failure scenarios
-       url: /mssql/mssql-dr-smas-failure-scenarios.html
+          - title: SQL Server with SM-as
+            url: /mssql/mssql-dr-smas-sql.html
+          - title: Failure scenarios
+            url: /mssql/mssql-dr-smas-failure-scenarios.html
   - title: Data security
     url: /mssql/mssql-data-security.html
   

@@ -54,8 +54,9 @@ The reason that the entire cluster must be onboarded in the ONTAP tools manager 
 
 [start=6]
 . Use the _ONTAP tools_ menu in vCenter to start the _Provision datastore_ wizard.
-[.thumb]
-image:vvols-deploy-1.png[Provision datastore wizard]
+
+image:vvols-deploy-1.png[role="thumb" Provision datastore wizard]
+
 * Choose vVols and provide a meaningful name and select the desired protocol. You may provide a description of the datastore as well.
 ** ONTAP tools 9.13
 *** Select one or more SCPs to be supported by the vVols datastore. This will filter out any ONTAP systems which are unable to match the profile. From the resulting list, select your desired cluster and SVM.
@@ -70,7 +71,7 @@ image:vvols-deploy-1.png[Provision datastore wizard]
 
 ** ONTAP tools 10.3 with ASA r2.
 
-image:vvols-deploy-2.png[Provision datastore wizard]
+image:vvols-deploy-2.png[role="thumb" Provision datastore wizard]
 
 *** Select the ASA r2 system SVM and click _next_.
 

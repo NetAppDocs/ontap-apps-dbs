@@ -35,6 +35,11 @@ entries:
       - title: SnapMirror
         url: /mssql/mssql-dr-snapmirror.html
       - title: MetroCluster
+        entries:
+        - title: MetroCluster architecture
+          url: /mssql/mssql-dr-mcc-overview.html
+        - title: SQL Server with MetroCluster
+          url: /mssql/mssql-dr-mcc-sql.html
       - title: SnapMirror active sync
         entries:
         - title: Overview

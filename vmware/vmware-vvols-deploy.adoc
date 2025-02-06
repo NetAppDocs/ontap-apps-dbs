@@ -13,9 +13,9 @@ summary:
 [.lead]
 Creating vVols storage for your VMs involves several steps. These steps are simpler if you are using an ASA r2 system with ONTAP tools 10.3 or later.
 
-The first two steps may not be needed for an existing vSphere environment that uses ONTAP for traditional datastores. You may already be using ONTAP tools for managing, automating, and reporting with your VMFS or traditional NFS based storage. These steps are covered in more detail in the following section.
+The first two steps may not be needed for an existing vSphere environment that uses ONTAP for traditional datastores. You may already be using ONTAP tools for managing, automating, and reporting with your VMFS or traditional NFS based storage. These steps are covered in more detail in the following section:
 
-. Create the Storage Virtual Machine (SVM) and its protocol configuration. You will select NVMe/FC, NFSv3, NFSv4.1, iSCSI, FCP, or a mix of those options. NVMe/TCP may also be used for traditional VMFS datastores. You may use either ONTAP System Manager wizards, or the cluster shell command line.
+. Create the Storage Virtual Machine (SVM) and its protocol configuration. Note that this may not be required for ASA r2 systems since they will typically already have a single SVM for data services. You will select NVMe/FC (ONTAP tools 9.13 only), NFSv3, NFSv4.1, iSCSI, FCP, or a mix of those options. NVMe/TCP and NVMe/FC may also be used for traditional VMFS datastores with ONTAP tools 10.3. You may use either ONTAP System Manager wizards, or the cluster shell command line.
 * At least one LIF per node for each switch/fabric connection. As a best practice, create two or more per node for FCP, iSCSI, or NVMe-based protocols. One LIF per node is sufficient for NFS-based vVols, but this LIF should be protected by an LACP ifgroup.
 * Volumes may be created at this time, but it is the best practice to let the _Provision Datastore_ wizard in ONTAP tools create them. The only exception to this rule is if you plan to use vVols replication with VMware Site Recovery Manager and ONTAP tools 9. This is easier to set up with pre-existing FlexVol volumes with existing SnapMirror relationships. Be mindful to not enable QoS on any volumes to be used for vVols as this is intended to be managed by SPBM and ONTAP tools.
 
@@ -54,8 +54,8 @@ The reason that the entire cluster must be onboarded in the ONTAP tools manager 
 
 [start=6]
 . Use the _ONTAP tools_ menu in vCenter to start the _Provision datastore_ wizard.
-
-* Provide a meaningful name and select the desired protocol. You may provide a description of the datastore as well.
+image:vvols-deploy-1.png[Provision datastore wizard]
+* Choose vVols and provide a meaningful name and select the desired protocol. You may provide a description of the datastore as well.
 ** ONTAP tools 9.13
 *** Select one or more SCPs to be supported by the vVols datastore. This will filter out any ONTAP systems which are unable to match the profile. From the resulting list, select your desired cluster and SVM.
 
@@ -68,9 +68,15 @@ The reason that the entire cluster must be onboarded in the ONTAP tools manager 
 *** You will specify the Storage Capability Profile by name when creating a VM Storage Policy. While at this step, you may also configure SnapMirror policy matching by using the replication tab, and tag-based matching using the tags tab. Note that tags must already be created in order to be selectable.
 
 ** ONTAP tools 10.3 with ASA r2.
-
+image:vvols-deploy-2.png[Provision datastore wizard]
+*** Select the ASA r2 system SVM and click _next_.
+image:vvols-deploy-3.png[Provision datastore wizard]
+*** Click _finish_
+image:vvols-deploy-4.png[Provision datastore wizard]
+*** It's that easy!
 
 * ONTAP tools 10.3 with ONTAP FAS, AFF, and ASA prior ASA r2.
+
 
 . Create your VMs, selecting the VM Storage Policy and compatible datastore under Select storage.
 

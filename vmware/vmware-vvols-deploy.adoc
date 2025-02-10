@@ -55,7 +55,7 @@ The reason that the entire cluster must be onboarded in the ONTAP tools manager 
 [start=6]
 . Use the _ONTAP tools_ menu in vCenter to start the _Provision datastore_ wizard.
 
-image:vvols-deploy-1.png[role="thumb" Provision datastore wizard]
+image:vvols-deploy-1.png[role="thumb" "Provision datastore wizard",300]
 
 * Choose vVols and provide a meaningful name and select the desired protocol. You may provide a description of the datastore as well.
 ** ONTAP tools 9.13
@@ -71,40 +71,40 @@ image:vvols-deploy-1.png[role="thumb" Provision datastore wizard]
 
 ** ONTAP tools 10.3 with ASA r2.
 
-image:vvols-deploy-2.png[role="thumb" Provision datastore wizard]
+image:vvols-deploy-2.png[role="thumb" "Provision datastore wizard",300]
 
 *** Select the ASA r2 system SVM and click _next_.
 
-image:vvols-deploy-3.png[role="thumb" Provision datastore wizard]
+image:vvols-deploy-3.png[role="thumb" "Provision datastore wizard",300]
 
 *** Click _finish_
 
-image:vvols-deploy-4.png[role="thumb" Provision datastore wizard]
+image:vvols-deploy-4.png[role="thumb" "Provision datastore wizard",300]
 
 *** It's that easy!
 
 ** ONTAP tools 10.3 with ONTAP FAS, AFF, and ASA prior ASA r2.
 *** Select the protocol
 
-image:vvols-deploy-5.png[role="thumb" Provision datastore wizard]
+image:vvols-deploy-5.png[role="thumb" "Provision datastore wizard",300]
 
 *** Select the SVM and click _next_.
 
-image:vvols-deploy-5a.png[role="thumb" Provision datastore wizard]
+image:vvols-deploy-5a.png[role="thumb" "Provision datastore wizard",300]
 
 *** Click _add new volumes_ or _use existing volume_ and specify the attributes. Note that in ONTAP tools 10.3 you can request multiple volumes be created at the same time. You may also manually add multiple volumes to balance them across the ONTAP cluster. Click _next_
 
-image:vvols-deploy-6.png[role="thumb" Provision datastore wizard]
+image:vvols-deploy-6.png[role="thumb" "Provision datastore wizard",300]
 
-image:vvols-deploy-7.png[role="thumb" Provision datastore wizard]
+image:vvols-deploy-7.png[role="thumb" "Provision datastore wizard",300]
 
 *** Click _finish_
 
-image:vvols-deploy-8.png[role="thumb" Provision datastore wizard]
+image:vvols-deploy-8.png[role="thumb" "Provision datastore wizard",300]
 
 *** You can see the assigned volumes in the ONTAP tools menu of the configure tab for the datastore.
 
-image:vvols-deploy-9.png[role="thumb" Provision datastore wizard]
+image:vvols-deploy-9.png[role="thumb" "Provision datastore wizard",300]
 
 ** Now you can create VM storage policies from the _Policies and Profiles_ menu in the vCenter UI.
 

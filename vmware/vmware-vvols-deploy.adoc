@@ -20,7 +20,7 @@ You can skip the first two steps of the deployment process if you are already us
 * Volumes may be created at this time, but it is the best practice to let the _Provision Datastore_ wizard in ONTAP tools create them. The only exception to this rule is if you plan to use vVols replication with VMware Site Recovery Manager and ONTAP tools 9. This is easier to set up with pre-existing FlexVol volumes with existing SnapMirror relationships. Be mindful to not enable QoS on any volumes to be used for vVols as this is intended to be managed by SPBM and ONTAP tools.
 
 . https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/deploy/ontap-tools-deployment.html[Deploy ONTAP tools for VMware vSphere] using the OVA downloaded from the NetApp Support Site.
-. If you use the legacy ONTAP tools 9.x, you will need to deploy an appliance for each vCenter you plan to manage. ONTAP tools 10.0 and later supports multiple vCenter servers per appliance.
+. ONTAP tools 10.0 and later supports multiple vCenter servers per appliance, you are no longer required to deploy one ONTAP tools appliance per vCenter.
 . ONTAP tools 10.3 deploys as a single node small-type appliance suitable for most non-vVols workloads.
 
 [NOTE]
@@ -41,13 +41,13 @@ For production vVols use, you should eliminate any single point of failure. Crea
 ** Provide the specific SVM credentials to the vCenter administrator who will then add the SVM as a storage backend in the ONTAP tools storage backends menu in vCenter.
 
 [NOTE]
-It is a best practice to create RBAC roles for your storage accounts. ONTAP tools 9.13 and later (including 10.X) include a JSON file containing the necessary role permissions neaded by ONTAP tools accounts. You can upload the JSON file to ONTAP System Manager to simplify the creation of RBAC roles and users. You can read more about ONTAP RBAC roles at https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/configure/configure-user-role-and-privileges.html#svm-aggregate-mapping-requirements[Configure ONTAP user roles and privileges].
+It is a best practice to create RBAC roles for your storage accounts. ONTAP tools includes a JSON file containing the necessary role permissions needed by ONTAP tools storage accaccounts. You can upload the JSON file to ONTAP System Manager to simplify the creation of RBAC roles and users. You can read more about ONTAP RBAC roles at https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/configure/configure-user-role-and-privileges.html#svm-aggregate-mapping-requirements[Configure ONTAP user roles and privileges].
 
 [NOTE]
 The reason that the entire cluster must be onboarded in the ONTAP tools manager UI is because many of the APIs used for vVols are only available at the cluster level.
 
-[start=6]
-. Use the _ONTAP tools_ menu in vCenter to start the _Provision datastore_ wizard.
+*Creating vVols Datastores with ONTAP tools*
+Right-click on the host, cluster, or datacenter on which you want to create the vVols datastore, then select _ONTAP tools_ > _Provision Datastore_.
 
 image:vvols-deploy-1.png[role="thumb" "Provision datastore wizard",300]
 
@@ -92,9 +92,6 @@ image:vvols-deploy-9.png[role="thumb" "Provision datastore wizard",300]
 
 * Now you can create VM storage policies from the _Policies and Profiles_ menu in the vCenter UI.
 
-[start=7]
-. Create your VMs, selecting a VM Storage Policy and compatible datastore under Select storage.
-
 == Migrating VMs from traditional datastores to vVols
 Migration of VMs from traditional datastores to a vVols datastore is as simple as moving VMs between traditional datastores. Simply select the VM(s), then select Migrate from the list of Actions, and select a migration type of _change storage only_. When prompted, select a VM storage policy that matches your vVols datastore. Migration copy operations can be offloaded with vSphere 6.0 and later for SAN VMFS to vVols migrations, but not from NAS VMDKs to vVols.
 
@@ -103,9 +100,6 @@ To automate storage provisioning with policy based management, you need to creat
 
 [NOTE]
 ONTAP tools 10.0 and later no longer use Storage Capability Profiles like previous versions. Instead, the storage capabilities are defined directly in the VM storage policy itself.
-
-*Creating vVols Datastores with ONTAP tools 9.X*
-Once the necessary SCPs have been created, they may be used to create the vVols datastore (and optionally, FlexVol volumes for the datastore). Right-click on the host, cluster, or datacenter on which you want to create the vVols datastore, then select _ONTAP tools_ > _Provision Datastore_. Select one or more SCPs to be supported by the datastore, then select from existing FlexVol volumes and/or provision new FlexVol volumes for the datastore. Finally, specify the default SCP for the datastore, which will be used for VMs that do not have an SCP specified by policy, as well as for swap vVols (these do not require high performance storage).
 
 === Creating VM Storage Policies
 VM Storage Policies are used in vSphere to manage optional features such as Storage I/O Control or vSphere Encryption. They are also used with vVols to apply specific storage capabilities to the VM. Use the “NetApp.clustered.Data.ONTAP.VP.vvol” storage type. See link:vmware-vvols-ontap.html#Best Practices[example network configuration using vVols over NFS v3] for an example of this with the ONTAP tools VASA Provider. Rules for “NetApp.clustered.Data.ONTAP.VP.VASA10” storage are to be used with non-vVols based datastores.

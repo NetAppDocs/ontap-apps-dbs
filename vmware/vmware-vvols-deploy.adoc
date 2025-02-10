@@ -11,9 +11,9 @@ summary:
 :imagesdir: ../media/
 
 [.lead]
-Creating vVols storage for your VMs involves several steps. These steps are simpler if you are using an ASA r2 system with ONTAP tools 10.3 or later.
+Creating vVols storage for your virtual machines involves several steps. NetApp's new ASA r2 systems are optimized for VMware workloads and offer a simpler user experience compared to traditional ONTAP systems. When using ASA r2 systems, ONTAP tools version 10.3 or later requires fewer steps to set up.
 
-The first two steps may not be needed for an existing vSphere environment that uses ONTAP for traditional datastores. You may already be using ONTAP tools for managing, automating, and reporting with your VMFS or traditional NFS based storage. These steps are covered in more detail in the following section:
+You can skip the first two steps of the deployment process if you are already using ONTAP tools to manage, automate, and report on your existing VMFS or traditional NFS-based storage. More details about the deployment steps will be covered in the following section.
 
 . Create the Storage Virtual Machine (SVM) and its protocol configuration. Note that this may not be required for ASA r2 systems since they will typically already have a single SVM for data services. You will select NVMe/FC (ONTAP tools 9.13 only), NFSv3, NFSv4.1, iSCSI, FCP, or a mix of those options. NVMe/TCP and NVMe/FC may also be used for traditional VMFS datastores with ONTAP tools 10.3. You may use either ONTAP System Manager wizards, or the cluster shell command line.
 * At least one LIF per node for each switch/fabric connection. As a best practice, create two or more per node for FCP, iSCSI, or NVMe-based protocols. One LIF per node is sufficient for NFS-based vVols, but this LIF should be protected by an LACP ifgroup.
@@ -24,11 +24,11 @@ The first two steps may not be needed for an existing vSphere environment that u
 . ONTAP tools 10.3 deploys as a single node small-type appliance suitable for most non-vVols workloads.
 
 [NOTE]
-For vVols production use, it is recommended to https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/manage/edit-appliance-settings.html[scale-out ONTAP tools] 10.3 to the 3-node high availability (HA) configuration.
+For vVols production use, it is *strongly* recommended to https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/manage/edit-appliance-settings.html[scale-out ONTAP tools] 10.3 to the 3-node high availability (HA) configuration.
 
 [NOTE]
-In order to eliminate a single point of failure, create anti-affinity rules to prevent the ONTAP tools VMs from running together on the same host. After initial deployment, it's also optional, but a good idea, to use storage vMotion to separate them into different datastores. Read more about https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-resource-management-8-0/using-drs-clusters-to-manage-resources/using-affinity-rules-without-vsphere-drs.html[Using Affinity Rules without vSphere DRS] or https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-resource-management-8-0/using-drs-clusters-to-manage-resources/create-a-vm-vm-affinity-rule.html[Create a VM-VM Affinity Rule] Likewise, if you use storage DRS, create a storage DRS rule as per https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/add-a-vm-anti-affinity-rule.html[Add a VM Anti-Affinity Rule
-].
+For production vVols use, you should eliminate any single point of failure. Create anti-affinity rules to prevent the ONTAP tools VMs from running together on the same host. After initial deployment, it's also optional, but a good idea, to use storage vMotion to separate them into different datastores. Read more about https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-resource-management-8-0/using-drs-clusters-to-manage-resources/using-affinity-rules-without-vsphere-drs.html[Using Affinity Rules without vSphere DRS] or https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-resource-management-8-0/using-drs-clusters-to-manage-resources/create-a-vm-vm-affinity-rule.html[Create a VM-VM Affinity Rule] Likewise, if you use storage DRS, create a storage DRS rule as per https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/add-a-vm-anti-affinity-rule.html[Add a VM Anti-Affinity Rule
+]. You should also schedule frequent backups, and/or https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/manage/enable-backup.html#create-backup-and-download-the-backup-file[use the built-in configuration backup utility].
 
 [start=5]
 . Configure ONTAP tools 10.3 for your environment.

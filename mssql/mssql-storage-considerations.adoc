@@ -34,9 +34,9 @@ volumes are created and reside inside aggregates. This term sometimes causes con
 
 Before you create a database volume design, it is important to understand how the SQL Server I/O pattern and characteristics vary depending on the workload and on the backup and recovery requirements. See the following NetApp recommendations for flexible volumes:
 
-* Avoid sharing volumes between hosts. For example, while it would be possible to create 2 LUNs in a single volume and share each LUN to a different host, this should be avoided because it can complicate management.
+* Avoid sharing volumes between hosts. For example, while it would be possible to create 2 LUNs in a single volume and share each LUN to a different host, this should be avoided because it can complicate management. In the case of running multiple SQL Server instances on the same host, unless you are close to the volume limit on a node, avoid volume sharing and instead have a separate volume per instance per host for ease of data management.
 * Use NTFS mount points instead of drive letters to surpass the 26-drive-letter limitation in Windows. When using volume mount points, it is a general recommendation to give the volume label the same name as the mount point.
-* When appropriate, configure a volume autosize policy to help prevent out-of-space conditions. 17 Best practice guide for Microsoft SQL Server with ONTAP © 2022 NetApp, Inc. All rights reserved. 
+* When appropriate, configure a volume autosize policy to help prevent out-of-space conditions.  
 * If you install SQL Server on an SMB share, make sure that Unicode is enabled on the SMB volumes for creating folders.
 * Set the snapshot reserve value in the volume to zero for ease of monitoring from an operational perspective.
 * Disable snapshot schedules and retention policies. Instead, use SnapCenter to coordinate Snapshot copies of the SQL Server data volumes.
@@ -47,6 +47,6 @@ Before you create a database volume design, it is important to understand how th
 == LUNs
 * Make sure that the user database files and the log directory to store log backup are on separate volumes to prevent the retention policy from overwriting snapshots when these are used with SnapVault technology.
 * Do not mix database and non-database files, such as full-text search-related files, on the same LUN.
-* Placing database secondary files (as part of a filegroup) on separate volumes improves the performance of the SQL Server database. This separation is valid only if the database's `.mdf`` file does not share its LUN with any other `.mdf` files.
+* Placing database secondary files (as part of a filegroup) on separate volumes improves the performance of the SQL Server database. This separation is valid only if the database's `.mdf` file does not share its LUN with any other `.mdf` files.
 * If you create LUNs with DiskManager or other tools, make sure that the allocation unit size is set to 64K for partitions when formatting the LUNs.
 * See the link:https://www.netapp.com/media/10680-tr4080.pdf[Microsoft Windows and native MPIO under ONTAP best practices for modern SAN] to apply multipathing support on Windows to iSCSI devices in the MPIO properties.

@@ -11,17 +11,21 @@ summary:
 :imagesdir: ../media/
 
 [.lead]
-Creating vVols storage for your virtual machines involves several steps. NetApp's new ASA r2 systems are optimized for VMware workloads and offer a simpler user experience compared to traditional ONTAP systems. When using ASA r2 systems, ONTAP tools version 10.3 or later requires fewer steps to set up.
+Follow these best practices for creating vVols storage for your virtual machines.
+
+Provisioning vVols datastores involves several steps. NetApp's ASA r2 systems are designed for VMware workloads and provide a user experience different from traditional ONTAP systems. When using ASA r2 systems, ONTAP tools versions 10.3 or later require fewer steps to set up and include UI extensions and REST API support optimized for the updated storage architecture.
 
 You can skip the first two steps of the deployment process if you are already using ONTAP tools to manage, automate, and report on your existing VMFS or traditional NFS-based storage. More details about the deployment steps will be covered in the following section.
+
+== Preparing to create vVols Datastores with ONTAP tools
 
 . Create the Storage Virtual Machine (SVM) and its protocol configuration. Note that this may not be required for ASA r2 systems since they will typically already have a single SVM for data services. You will select NVMe/FC (ONTAP tools 9.13 only), NFSv3, NFSv4.1, iSCSI, FCP, or a mix of those options. NVMe/TCP and NVMe/FC may also be used for traditional VMFS datastores with ONTAP tools 10.3. You may use either ONTAP System Manager wizards, or the cluster shell command line.
 * At least one LIF per node for each switch/fabric connection. As a best practice, create two or more per node for FCP, iSCSI, or NVMe-based protocols. One LIF per node is sufficient for NFS-based vVols, but this LIF should be protected by an LACP ifgroup.
 * Volumes may be created at this time, but it is the best practice to let the _Provision Datastore_ wizard in ONTAP tools create them. The only exception to this rule is if you plan to use vVols replication with VMware Site Recovery Manager and ONTAP tools 9. This is easier to set up with pre-existing FlexVol volumes with existing SnapMirror relationships. Be mindful to not enable QoS on any volumes to be used for vVols as this is intended to be managed by SPBM and ONTAP tools.
 
 . https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/deploy/ontap-tools-deployment.html[Deploy ONTAP tools for VMware vSphere] using the OVA downloaded from the NetApp Support Site.
-. ONTAP tools 10.0 and later supports multiple vCenter servers per appliance, you are no longer required to deploy one ONTAP tools appliance per vCenter.
-. ONTAP tools 10.3 deploys as a single node small-type appliance suitable for most non-vVols workloads.
+* ONTAP tools 10.0 and later supports multiple vCenter servers per appliance, you are no longer required to deploy one ONTAP tools appliance per vCenter.
+* ONTAP tools 10.3 deploys as a single node small-type appliance suitable for most non-vVols workloads.
 
 [NOTE]
 For vVols production use, it is *strongly* recommended to https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/manage/edit-appliance-settings.html[scale-out ONTAP tools] 10.3 to the 3-node high availability (HA) configuration.
@@ -30,7 +34,7 @@ For vVols production use, it is *strongly* recommended to https://docs.netapp.co
 For production vVols use, you should eliminate any single point of failure. Create anti-affinity rules to prevent the ONTAP tools VMs from running together on the same host. After initial deployment, it's also optional, but a good idea, to use storage vMotion to separate them into different datastores. Read more about https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-resource-management-8-0/using-drs-clusters-to-manage-resources/using-affinity-rules-without-vsphere-drs.html[Using Affinity Rules without vSphere DRS] or https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-resource-management-8-0/using-drs-clusters-to-manage-resources/create-a-vm-vm-affinity-rule.html[Create a VM-VM Affinity Rule] Likewise, if you use storage DRS, create a storage DRS rule as per https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/add-a-vm-anti-affinity-rule.html[Add a VM Anti-Affinity Rule
 ]. You should also schedule frequent backups, and/or https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/manage/enable-backup.html#create-backup-and-download-the-backup-file[use the built-in configuration backup utility].
 
-[start=5]
+[start=3]
 . Configure ONTAP tools 10.3 for your environment.
 * https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/configure/add-vcenter.html[Add vCenter Server instances] in the ONTAP tools manager UI.
 * ONTAP tools 10.3 supports secure multitenancy. If you do not need secure multitenancy, you may simply https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/configure/add-storage-backend.html[add your ONTAP clusters] by going to the ONTAP tools menu in vCenter and clicking on _Storage backends_ and clicking the _add_ button.
@@ -46,7 +50,7 @@ It is a best practice to create RBAC roles for your storage accounts. ONTAP tool
 [NOTE]
 The reason that the entire cluster must be onboarded in the ONTAP tools manager UI is because many of the APIs used for vVols are only available at the cluster level.
 
-*Creating vVols Datastores with ONTAP tools*
+== Creating vVols Datastores with ONTAP tools
 Right-click on the host, cluster, or datacenter on which you want to create the vVols datastore, then select _ONTAP tools_ > _Provision Datastore_.
 
 image:vvols-deploy-1.png[role="thumb" "Provision datastore wizard",300]
@@ -118,6 +122,7 @@ image:vmware-vvols-deploy-vmsp-07.png[role="thumb" "VM Storage Policy creation w
 ONTAP tools uses its own balanced placement algorithm to place a new vVol in the best FlexVol volume with unified or classic ASA systems, or Storage Availability Zone (SAZ) with ASA r2 systems, within a vVols datastore. Placement is based on matching the backing storage with the VM storage policy. This makes sure that the datastore and backing storage can meet the specified performance requirements.
 
 Changing Performance capabilities such as Min and Max IOPS requires some attention to the specific configuration.
+
 * *Min and Max IOPS* may be specified in a VM Policy.
 ** Changing the IOPS in the policy will not change QoS on the vVols until the VM Policy is reapplied to the VMs that use it. Or you may create a new policy with the desired IOPS and apply it to the target VMs. Generally it is recommended to simply define separate VM storage policies for different tiers of service and simply change the VM storage policy on the VM.
 ** ASA, ASA r2, AFF and FAS personalities have different IOPs settings. Both Min and Max are available on all flash systems; however, non-AFF systems can only use Max IOPs settings.

@@ -20,12 +20,16 @@ Provisioning vVols datastores involves several steps. NetApp's ASA r2 systems ar
 You can skip the first two steps of the deployment process if you are already using ONTAP tools to manage, automate, and report on your existing VMFS or traditional NFS-based storage.
 
 . Create the Storage Virtual Machine (SVM) and its protocol configuration. Note that this may not be required for ASA r2 systems since they will typically already have a single SVM for data services. You will select NVMe/FC (ONTAP tools 9.13 only), NFSv3, NFSv4.1, iSCSI, FCP, or a mix of those options. NVMe/TCP and NVMe/FC may also be used for traditional VMFS datastores with ONTAP tools 10.3. You may use either ONTAP System Manager wizards, or the cluster shell command line.
-* At least one LIF per node for each switch/fabric connection. As a best practice, create two or more per node for FCP, iSCSI, or NVMe-based protocols. One LIF per node is sufficient for NFS-based vVols, but this LIF should be protected by an LACP ifgroup.
+* https://docs.netapp.com/us-en/ontap/disks-aggregates/assign-aggregates-svms-task.html[Assign local tiers (aggregates) to SVMs] for all non-ASA r2 systems.
+* At least one LIF per node for each switch/fabric connection. As a best practice, create two or more per node for FCP, iSCSI, or NVMe-based protocols. One LIF per node is sufficient for NFS-based vVols, but this LIF should be protected by an LACP ifgroup. Refer to https://docs.netapp.com/us-en/ontap/networking/configure_lifs_cluster_administrators_only_overview.html[Configure LIFs overview] and https://docs.netapp.com/us-en/ontap/networking/combine_physical_ports_to_create_interface_groups.html[Combine physical ports to create interface groups] for details.
+* At least one management LIF per SVM if you intend to use SVM scoped credentials for your tenant vCenters.
+* If you plan to use SnapMirror, make sure your source and target https://docs.netapp.com/us-en/ontap/peering/[ONTAP clusters and SVMs are peered].
 * Volumes may be created at this time, but it is the best practice to let the _Provision Datastore_ wizard in ONTAP tools create them. The only exception to this rule is if you plan to use vVols replication with VMware Site Recovery Manager and ONTAP tools 9. This is easier to set up with pre-existing FlexVol volumes with existing SnapMirror relationships. Be mindful to not enable QoS on any volumes to be used for vVols as this is intended to be managed by SPBM and ONTAP tools.
 
 . https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/deploy/ontap-tools-deployment.html[Deploy ONTAP tools for VMware vSphere] using the OVA downloaded from the NetApp Support Site.
 * ONTAP tools 10.0 and later supports multiple vCenter servers per appliance, you are no longer required to deploy one ONTAP tools appliance per vCenter.
-* ONTAP tools 10.3 deploys as a single node small-type appliance suitable for most non-vVols workloads.
+** If you plan to connect multiple vCenters to a single ONTAP tools instance, you must create and install CA signed certificates. Refer to https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/manage/certificate-manage.html[Manage certificates] for steps.
+* Begining in 10.3, ONTAP tools now deploys as a single node small-type appliance suitable for most non-vVols workloads.
 
 [NOTE]
 For vVols production use, it is *strongly* recommended to https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/manage/edit-appliance-settings.html[scale-out ONTAP tools] 10.3 to the 3-node high availability (HA) configuration.

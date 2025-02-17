@@ -36,19 +36,3 @@ Storage unit in ASA refers to LUN for SCSI/FC hosts or an NVMe namespace for NVM
 * See the link:https://www.netapp.com/media/10680-tr4080.pdf[Microsoft Windows and native MPIO under ONTAP best practices for modern SAN] to apply multipathing support on Windows to iSCSI devices in the MPIO properties.
 * If you are using a Always On failover cluster instance, user databases must be placed on storage unit shared across Windows server failover cluster nodes and the physical disk cluster resources are assigned to the cluster group associated with the SQL Server instance.
 
-=== Log directory
-
-The log directory is specified in SQL Server to store transaction log backup data at the host level. If you are using SnapCenter to backup log files then each SQL Server host used by SnapCenter must have a host log directory configured to perform log backups. 
-
-Place the log directory on a dedicated storage unit. The amount of data in the host log directory depends on the size of the backups and the number of days that backups are retained. SnapCenter allows only one host log directory per SQL Server host. You can configure the host log directories at SnapCenter --> Host --> Configure Plug-in.
-
-[TIP]
-====
-*NetApp recommends* the following for a host log directory:
-
-* Make sure that the host log directory is not shared by any other type of data that can potentially corrupt the backup snapshot data.
-* Create the host log directory on a dedicated storage unit to which SnapCenter copies transaction logs.
-* If you are using a Always On failover cluster instance, storage unit used for host log directory must be a cluster disk resource in the same cluster group as the SQL Server instance being backed up in SnapCenter.
-
-====
-

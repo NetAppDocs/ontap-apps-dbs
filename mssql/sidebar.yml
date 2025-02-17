@@ -14,7 +14,6 @@ entries:
       url: /mssql/mssql-shared-vs-dedicated.html
     - title: Tempdb files
       url: /mssql/mssql-tempdb.html
-    - title: Database instance file initialization
   - title: Storage configuration on AFF/FAS systems
     pdf-filename: Microsoft SQL Server on AFF/FAS systems
     entries:

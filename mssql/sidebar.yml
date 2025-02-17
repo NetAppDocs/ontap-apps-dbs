@@ -21,8 +21,6 @@ entries:
       url: /mssql/mssql-storage-considerations.html
     - title:  Database files and filegroups
       url: /mssql/mssql-files-and-filegroups.html
-    - title: Log directory
-      url: /mssql/mssql-log-directory.html
     - title: Storage efficiency
       url: /mssql/mssql-storage-efficiency.html
     - title: Data protection

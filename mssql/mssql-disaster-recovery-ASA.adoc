@@ -1,0 +1,30 @@
+---
+sidebar: sidebar
+permalink: mssql/mssql-disaster-recovery-ASA.html
+keywords: MSSQL,SQL Server, disaster recovery, snapmirror
+summary: Microsoft SQL Server disaster recovery with ONTAP
+searchtitle: Microsoft SQL Server disaster recovery with ONTAP
+---
+= Disaster recovery
+:imagesdir: ../media/
+
+[.lead]
+Enterprise databases and application infrastructures often require replication to protect from natural disaster or unexpected business disruption with minimal downtime. 
+
+The SQL Server Always-On availability group replication feature can be an excellent option, and NetApp offers options to integrate data protection with Always-On. In some cases, however, you might want to consider ONTAP replication technology. There are three basic options. 
+
+== SnapMirror 
+
+SnapMirror technology offers a fast and flexible enterprise solution for replicating data over LANs and WANs. SnapMirror technology transfers only changed  data blocks to the destination after the initial mirror is created, significantly reducing network bandwidth requirements. It can be configured in either synchronous or asynchronous mode.
+
+== NetApp MetroCluster and SnapMirror active sync
+
+For many customers, DR requires more than just possessing a remote copy of data, it requires the ability to rapidly make use of that data. NetApp offers two technologies that address this need - MetroCluster and SnapMirror active sync
+
+MetroCluster refers to ONTAP in a hardware configuration that includes low-level synchronously mirrored storage and numerous additional features. Integrated solutions such as MetroCluster simplify today's complicated, scale-out database, application, and virtualization infrastructures. It replaces multiple, external data protection products and strategies with one simple, central storage array. It also provides integrated backup, recovery, disaster recovery, and high availability (HA) within a single clustered storage system.
+
+SnapMirror active sync is based on SnapMirror Synchronous. With MetroCluster, each ONTAP controller is responsible for replicating its drive data to a remote location. With SnapMirror active sync, you essentially have two different ONTAP systems maintaining independent copies of your LUN data, but cooperating to present a single instance of that LUN. From a host point of view, it's a single LUN entity.
+
+== SM-as and MCC comparison
+
+include::../_include/dr-mcc-smas-compared.adoc[]

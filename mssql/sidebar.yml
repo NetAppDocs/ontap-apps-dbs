@@ -7,7 +7,7 @@ entries:
     pdf-filename: Database configuration for Microsoft SQL Server
     entries:
     - title: CPU configuration
-      url: /mssql/mssql-cpu-configuration.html
+      url: /mssql/mssql-disaster-recovery.html
     - title: Memory configuration
       url: /mssql/mssql-memory-configuration.html
     - title: Shared instance versus dedicated instance

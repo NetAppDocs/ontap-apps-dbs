@@ -10,7 +10,7 @@ searchtitle: Microsoft SQL Server database files and filegroups
 
 include::../mssql/mssql-databasefiles.adoc[]
 
-= Log directory
+=== Log directory
 The log directory is specified in SQL Server to store transaction log backup data at the host level. If you are using SnapCenter to backup log files then each SQL Server host used by SnapCenter must have a host log directory configured to perform log backups. SnapCenter has a database repository, so metadata related to backup, restore, or cloning operations is stored in a central database repository.
 
 The sizes of the host log directory is calculated as follows:

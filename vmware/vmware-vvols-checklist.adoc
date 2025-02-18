@@ -14,16 +14,16 @@ summary: ONTAP tools 10 installation checklist
 Use this installation checklist to ensure a successful deployment (updated for 10.3 and later).
 
 == IP Addresses
-The first three are required, node two and node three are used for scale-out high availability deployments.
+The first three IP addresses are required; node two and node three are used for scale-out high availability deployments.
 |===
 | Use | IP Address
 | ONTAP tools application | \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____ 
 | Internal Services | \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____ 
-| First node | \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____ 
+| Node one's local interface | \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____ 
 | Subnet mask | \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____ 
 | Default gateway | \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____ 
-| Second node (optional) | \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____ 
-| Third node (optional) | \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____ 
+| Node two's local interface (optional) | \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____ 
+| Node three's local interface (optional) | \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____ 
 |===
 
 == Certificates
@@ -39,13 +39,14 @@ Per VMware, CA signed certs are required if using vVols with multiple vCenters.
 | Use | Resource
 | Content library (only required for HA) | \_____\_____\_____\_____\_____\_____\_____\_____\_____\_____
 | Node one datastore | \_____\_____\_____\_____\_____\_____\_____\_____\_____\_____
-| Node two datastore (optional, storage vMotion after deployment)| \_____\_____\_____\_____\_____\_____\_____\_____\_____\_____
-| Node three datastore (optional, storage vMotion after deployment) | \_____\_____\_____\_____\_____\_____\_____\_____\_____\_____
+| Node two datastore (optional, but recommended)| \_____\_____\_____\_____\_____\_____\_____\_____\_____\_____
+| Node three datastore (optional, but recommended) | \_____\_____\_____\_____\_____\_____\_____\_____\_____\_____
 |===
 
 == Post deployment tasks
 
 * [ ] Create anti-affinity rules for VMs
+* [ ] If using HA, storage vMotion nodes two and three to separate datastores (optional, but recommended)
 * [ ] Create RBAC roles in ONTAP (use the optional JSON file)
 * [ ] Onboard vCenters in ONTAP tools manager
 * [ ] If using multi-tenant SVMs then onboard clusters in ONTAP tools manager and associate them with vCenters

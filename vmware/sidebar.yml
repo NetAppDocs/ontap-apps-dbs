@@ -53,6 +53,8 @@ entries:
         url: /vmware/vmware-vvols-protect.html
       - title: "Troubleshooting"
         url: /vmware/vmware-vvols-resources.html
+      - title: "Installation checklist"
+        url: /vmware/vmware-vvols-checklist.html  
   - title: "VMware Site Recovery Manager with ONTAP"
     entries:
       - title: SRM with ONTAP Overview

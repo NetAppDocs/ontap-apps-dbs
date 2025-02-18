@@ -1,0 +1,23 @@
+---
+sidebar: sidebar
+permalink: vmware/vmware-vvols-checklist.html
+keywords: tr-4400, vvols, ontap, virtual volumes, protect
+summary: ONTAP tools 10 installation checklist
+---
+= Checklist 
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+Use this installation checklist to ensure a successful deployment (updated for 10.3 and later).
+
+== IP Addresses
+
+
+== Certificates
+
+
+=== Storage
+

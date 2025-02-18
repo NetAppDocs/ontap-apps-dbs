@@ -36,7 +36,7 @@ Per VMware, CA signed certs are required if using vVols with multiple vCenters.
 
 == Storage
 |===
-| Use | Storage resource
+| Use | Resource
 | Content library (only required for HA) | \_____\_____\_____\_____\_____\_____\_____\_____\_____\_____
 | Node one datastore | \_____\_____\_____\_____\_____\_____\_____\_____\_____\_____
 | Node two datastore (optional, storage vMotion after deployment)| \_____\_____\_____\_____\_____\_____\_____\_____\_____\_____

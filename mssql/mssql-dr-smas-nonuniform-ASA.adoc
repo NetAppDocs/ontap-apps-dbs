@@ -1,0 +1,14 @@
+---
+sidebar: sidebar
+permalink: mssql/mssql-dr-smas-nonuniform-ASA.html
+keywords: MSSQL,SQL Server, SnapMirror active sync, SMBC, overview
+summary: Microsoft SQL Server and SM-as nonuniform access
+searchtitle: Microsoft SQL Server and SM-as nonuniform access
+---
+= Nonuniform access
+:imagesdir: ../media/
+
+[.lead]
+Nonuniform access networking means each host only has access to ports on the local storage system. The SAN is not extended across sites (or failure domains within the same site). 
+
+include::../_include/smas-topology-nonuniform.adoc[]

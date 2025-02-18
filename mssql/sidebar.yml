@@ -72,9 +72,9 @@ entries:
         url: /mssql/mssql-dr-snapmirror-ASA.html
       - title: SnapMirror active sync
         entries:
-        - title: Overview
+        - title: Overview1
           url: /mssql/mssql-dr-smas-overview.html
-        - title: ONTAP Mediator
+        - title: ONTAP Mediator1
           url: /mssql/mssql-dr-smas-mediator.html
         - title: Preferred site
           url: /mssql/mssql-dr-smas-preferred-site.html

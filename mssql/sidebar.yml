@@ -72,22 +72,22 @@ entries:
         url: /mssql/mssql-dr-snapmirror-ASA.html
       - title: SnapMirror active sync
         entries:
-        - title: Overview1
-          url: /mssql/mssql-dr-smas-overview.html
-        - title: ONTAP Mediator1
-          url: /mssql/mssql-dr-smas-mediator.html
+        - title: Overview
+          url: /mssql/mssql-dr-smas-overview-ASA.html
+        - title: ONTAP Mediator
+          url: /mssql/mssql-dr-smas-mediator-ASA.html
         - title: Preferred site
-          url: /mssql/mssql-dr-smas-preferred-site.html
+          url: /mssql/mssql-dr-smas-preferred-site-ASA.html
         - title: Network topology
           entries:
           - title: Uniform access
-            url: /mssql/mssql-dr-smas-uniform.html  
+            url: /mssql/mssql-dr-smas-uniform-ASA.html  
           - title: Nonuniform access
-            url: /mssql/mssql-dr-smas-nonuniform.html  
+            url: /mssql/mssql-dr-smas-nonuniform-ASA.html  
           - title: SQL Server with SM-as
-            url: /mssql/mssql-dr-smas-sql.html
+            url: /mssql/mssql-dr-smas-sql-ASA.html
           - title: Failure scenarios
-            url: /mssql/mssql-dr-smas-failure-scenarios.html
+            url: /mssql/mssql-dr-smas-failure-scenarios-ASA.html
   - title: Data security
     url: /mssql/mssql-data-security.html
   

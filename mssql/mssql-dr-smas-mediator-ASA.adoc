@@ -1,0 +1,14 @@
+---
+sidebar: sidebar
+permalink: mssql/mssql-dr-smas-mediator-ASA.html
+keywords: MSSQL,SQL Server, SnapMirror active sync, SMBC, overview
+summary: Microsoft SQL Server and the ONTAP mediator
+searchtitle: Microsoft SQL Server and the ONTAP mediator
+---
+= ONTAP mediator
+:imagesdir: ../media/
+
+[.lead]
+The mediator is required for safely automating failover. Ideally, it would be placed on an independent 3rd site, but it can still function for most needs if colocated with one of the clusters participating in replication.
+
+include::../_include/smas-mediator.adoc[]

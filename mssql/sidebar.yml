@@ -85,9 +85,9 @@ entries:
           - title: Nonuniform access
             url: /mssql/mssql-dr-smas-nonuniform-ASA.html  
         - title: SQL Server with SM-as
-            url: /mssql/mssql-dr-smas-sql-ASA.html
+          url: /mssql/mssql-dr-smas-sql-ASA.html
         - title: Failure scenarios
-            url: /mssql/mssql-dr-smas-failure-scenarios-ASA.html
+          url: /mssql/mssql-dr-smas-failure-scenarios-ASA.html
   - title: Data security
     url: /mssql/mssql-data-security.html
   

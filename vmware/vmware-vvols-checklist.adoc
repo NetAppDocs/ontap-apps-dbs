@@ -51,4 +51,3 @@ Per VMware, CA signed certs are required if using vVols with multiple vCenters.
 * [ ] If using multi-tenant SVMs then onboard clusters in ONTAP tools manager and associate them with vCenters
 * [ ] If using multi-tenant SVMs then onboard SVMs in ONTAP tools vCenter UI
 * [ ] If *not* using multi-tenant SVMs then onboard clusters directly in ONTAP tools vCenter UI
-

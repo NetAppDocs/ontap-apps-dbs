@@ -14,10 +14,42 @@ summary: ONTAP tools 10 installation checklist
 Use this installation checklist to ensure a successful deployment (updated for 10.3 and later).
 
 == IP Addresses
-
+The first three are required, node two and node three are used for scale-out high availability deployments.
+|===
+| Use | IP Address
+| ONTAP tools application | [ \___ . \___ . \___ . \___ ]
+| Internal Services | [ \___ . \___ . \___ . \___ ]
+| First node | [ \___ . \___ . \___ . \___ ]
+| Subnet mask | [ \___ . \___ . \___ . \___ ]
+| Default gateway | [ \___ . \___ . \___ . \___ ]
+| Second node (optional) | [ \___ . \___ . \___ . \___ ]
+| Third node (optional) | [ \___ . \___ . \___ . \___ ]
+|===
 
 == Certificates
+Per VMware, CA signed certs are required if using vVols with multiple vCenters.
+|===
+| Use | Certificate
+| VASA services | [ \____________ ]
+| Administrative services | [ \____________ ]
+|===
 
+== Storage
+|===
+| Use | Storage resource
+| Content library (only required for HA) | [ \____________ ]
+| Node one datastore | [ \____________ ]
+| Node two datastore (optional, storage vMotion after deployment)| [ \____________ ]
+| Node three datastore (optional, storage vMotion after deployment) | [ \____________ ]
+|===
 
-=== Storage
-
+== Post deployment tasks
+|===
+| Task | Completion
+| Create anti-affinity rules for VMs | * [ ]
+| Create RBAC roles in ONTAP (use the optional JSON file) | * [ ]
+| Onboard vCenters in ONTAP tools manager | * [ ]
+| If using multi-tenant SVMs then onboard clusters in ONTAP tools manager and associate them with vCenters | * [ ]
+| If using multi-tenant SVMs then onboard SVMs in ONTAP tools vCenter UI | * [ ]
+| If *not* using multi-tenant SVMs then onboard clusters directly in ONTAP tools vCenter UI  | * [ ]
+|===

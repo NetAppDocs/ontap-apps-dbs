@@ -17,40 +17,38 @@ Use this installation checklist to ensure a successful deployment (updated for 1
 The first three are required, node two and node three are used for scale-out high availability deployments.
 |===
 | Use | IP Address
-| ONTAP tools application | [ \___ . \___ . \___ . \___ ]
-| Internal Services | [ \___ . \___ . \___ . \___ ]
-| First node | [ \___ . \___ . \___ . \___ ]
-| Subnet mask | [ \___ . \___ . \___ . \___ ]
-| Default gateway | [ \___ . \___ . \___ . \___ ]
-| Second node (optional) | [ \___ . \___ . \___ . \___ ]
-| Third node (optional) | [ \___ . \___ . \___ . \___ ]
+| ONTAP tools application | \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____ 
+| Internal Services | \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____ 
+| First node | \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____ 
+| Subnet mask | \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____ 
+| Default gateway | \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____ 
+| Second node (optional) | \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____ 
+| Third node (optional) | \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____ 
 |===
 
 == Certificates
 Per VMware, CA signed certs are required if using vVols with multiple vCenters.
 |===
 | Use | Certificate
-| VASA services | [ \________________________________________________ ]
-| Administrative services | [ \________________________________________________ ]
+| VASA services | \_____\_____\_____\_____\_____\_____\_____\_____\_____\_____
+| Administrative services | \_____\_____\_____\_____\_____\_____\_____\_____\_____\_____
 |===
 
 == Storage
 |===
 | Use | Storage resource
-| Content library (only required for HA) | [ \________________________________________________ ]
-| Node one datastore | [ \________________________________________________ ]
-| Node two datastore (optional, storage vMotion after deployment)| [ \________________________________________________ ]
-| Node three datastore (optional, storage vMotion after deployment) | [ \________________________________________________ ]
+| Content library (only required for HA) | \_____\_____\_____\_____\_____\_____\_____\_____\_____\_____
+| Node one datastore | \_____\_____\_____\_____\_____\_____\_____\_____\_____\_____
+| Node two datastore (optional, storage vMotion after deployment)| \_____\_____\_____\_____\_____\_____\_____\_____\_____\_____
+| Node three datastore (optional, storage vMotion after deployment) | \_____\_____\_____\_____\_____\_____\_____\_____\_____\_____
 |===
 
 == Post deployment tasks
 
-|===
-| Task | Completion
-| Create anti-affinity rules for VMs | [ \___ ]
-| Create RBAC roles in ONTAP (use the optional JSON file) | [ \___ ]
-| Onboard vCenters in ONTAP tools manager | [ \___ ]
-| If using multi-tenant SVMs then onboard clusters in ONTAP tools manager and associate them with vCenters | [ \___ ]
-| If using multi-tenant SVMs then onboard SVMs in ONTAP tools vCenter UI | [ \___ ]
-| If *not* using multi-tenant SVMs then onboard clusters directly in ONTAP tools vCenter UI  | [ \___ ]
-|===
+* [ ] Create anti-affinity rules for VMs
+* [ ] Create RBAC roles in ONTAP (use the optional JSON file)
+* [ ] Onboard vCenters in ONTAP tools manager
+* [ ] If using multi-tenant SVMs then onboard clusters in ONTAP tools manager and associate them with vCenters
+* [ ] If using multi-tenant SVMs then onboard SVMs in ONTAP tools vCenter UI
+* [ ] If *not* using multi-tenant SVMs then onboard clusters directly in ONTAP tools vCenter UI
+

@@ -11,4 +11,29 @@ searchtitle: Microsoft SQL Server and SM-as uniform access
 [.lead]
 Uniform access networking means hosts are able to access paths on both sites (or failure domains within the same site). 
 
-include::../_include/smas-topology-uniform.adoc[]
+An important feature of SM-as is the ability to configure the storage systems to know where the hosts are located. When you map the LUNs to a given host, you can indicate whether or not they are proximal to a given storage system.
+
+NetApp ASA systems offer active-active multipathing across all paths on a cluster. This also applies to SM-as configurations.
+
+image:smas-uniform-SQL-ASA.png[SnapMirror active sync ASA uniform networking]
+
+With uniform access, IO would be crossing the WAN. It is a full mesh networked cluster and this may or may not be desirable for all the use cases. 
+
+If the two sites were 100 meters apart with fiber connectivity there should be no detectable additional latency crossing the WAN, but if the sites were a long distance apart then read performance would suffer on both sites. ASA with nonuniform access network would be an option to gain the cost and feature benefits of ASA without incurring a cross-site latency access penalty or use host proximity feature  to allow site-local read/write access for both sites.
+
+ASA with SM-as in a low-latency configuration offers two interesting benefits. First, it essentially *doubles* the performance for any single host because IO can be serviced by twice as many controllers using twice as many paths. Second, in a single-site environment it offers extreme availability because an entire storage system could be lost without interrupting host access.
+
+== Proximity settings
+
+Proximity refers to a per-cluster configuration that indicates a particular host WWN or iSCSI initiator ID belongs to a local host. It is a second, optional step for configuring LUN access.
+
+The first step is the usual igroup configuration. Each LUN must be mapped to an igroup that contains the WWN/iSCSi IDs of the hosts that need access to that LUN. This controls which host has _access_ to a LUN. 
+
+The second, optional step is to configure host proximity. This does not control access, it controls _priority_. 
+
+For example, a host at site A might be configured to access a LUN that is protected by SnapMirror active sync, and since the SAN is extended across sites, paths are available to that LUN using storage on site A or storage on site B.
+
+Without proximity settings, that host will use both storage systems equally because both storage systems will advertise active/optimized paths. If the SAN latency and/or bandwidth between sites is limited, this may not be desireable, and you may wish to ensure that during normal operation each host preferentially uses paths to the local storage system. This is configured by adding the host WWN/iSCSI ID to the local cluster as a proximal host. This can be done at the CLI or SystemManager.
+
+
+

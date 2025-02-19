@@ -17,7 +17,7 @@ The best practices for file layout and server configuration are the same as reco
 
 With a standalone setup, SQL Server could be running only at one site. Presumably link:mssql-dr-smas-uniform.html[uniform] access would be used. 
 
-image:smas-onehost.png[Single host with uniform access]
+image:smas-onehost-ASA.png[Single host with uniform access]
 
 With uniform access, a storage failure at either site would not interrupt database operations. A complete site failure on the site that included the database server would, of course, result in an outage. 
 

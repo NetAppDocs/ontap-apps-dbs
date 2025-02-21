@@ -41,10 +41,12 @@ entries:
         url: /vmware/vmware-vsphere-sdrs.html
       - title: Recommended settings
         url: /vmware/vmware-vsphere-settings.html
-  - title: "Virtual Volumes (vVols) with ONTAP"
+  - title: "Virtual Volumes (vVols) with ONTAP tools 10"
     entries:
-      - title: Overview
+      - title: "Overview"
         url: /vmware/vmware-vvols-overview.html
+      - title: "ONTAP tools installation checklist"
+        url: /vmware/vmware-vvols-checklist.html  
       - title: "Using vVols with ONTAP"
         url: /vmware/vmware-vvols-ontap.html
       - title: "Deploying vVols storage"
@@ -53,8 +55,7 @@ entries:
         url: /vmware/vmware-vvols-protect.html
       - title: "Troubleshooting"
         url: /vmware/vmware-vvols-resources.html
-      - title: "Installation checklist"
-        url: /vmware/vmware-vvols-checklist.html  
+
   - title: "VMware Site Recovery Manager with ONTAP"
     entries:
       - title: SRM with ONTAP Overview

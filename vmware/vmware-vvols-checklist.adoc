@@ -28,7 +28,7 @@ The first three IP addresses are required; node two and node three are used for 
 
 == Network firewall configuration
 Open the required ports in your network firewall.
-include::https://raw.githubusercontent.com/NetAppDocs/ontap-tools-vmware-vsphere-10/deploy/prerequisites.adoc[tags=port-requirements]
+include::https://raw.githubusercontent.com/NetAppDocs/ontap-tools-vmware-vsphere-10/deploy/prerequisites.adoc[tags=Port requirements]
 
 == Certificates
 Per VMware, CA signed certs are required if using vVols with multiple vCenters.

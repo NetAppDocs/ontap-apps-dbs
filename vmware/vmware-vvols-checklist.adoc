@@ -26,6 +26,10 @@ The first three IP addresses are required; node two and node three are used for 
 | Node three's local interface (optional) | \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____ 
 |===
 
+== Network firewall configuration
+Open the required ports in your network firewall.
+include::https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/deploy/prerequisites.html[tags=port-requirements]
+
 == Certificates
 Per VMware, CA signed certs are required if using vVols with multiple vCenters.
 |===
@@ -46,9 +50,9 @@ Per VMware, CA signed certs are required if using vVols with multiple vCenters.
 == Post deployment tasks
 
 * [ ] Create anti-affinity rules for VMs
-* [ ] If using HA, storage vMotion nodes two and three to separate datastores (optional, but recommended)
-* [ ] Create RBAC roles in ONTAP (use the optional JSON file)
-* [ ] Onboard vCenters in ONTAP tools manager
-* [ ] If using multi-tenant SVMs then onboard clusters in ONTAP tools manager and associate them with vCenters
-* [ ] If using multi-tenant SVMs then onboard SVMs in ONTAP tools vCenter UI
-* [ ] If *not* using multi-tenant SVMs then onboard clusters directly in ONTAP tools vCenter UI
+* [ ] If using HA, storage vMotion nodes two and three to separate datastores (optional, but recommended).
+* [ ] Create RBAC roles in ONTAP (use the optional JSON file).
+* [ ] Onboard vCenters in ONTAP tools manager.
+* [ ] If using multi-tenant SVMs then onboard clusters in ONTAP tools manager and associate them with vCenters.
+* [ ] If using multi-tenant SVMs then onboard SVMs in ONTAP tools vCenter UI.
+* [ ] If *not* using multi-tenant SVMs then onboard clusters directly in ONTAP tools vCenter UI. Alternatively, in this scenario, it is possible to add SVMs directly when not utilizing vVols..

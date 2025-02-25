@@ -15,8 +15,8 @@ Use this installation checklist to ensure a successful deployment (updated for 1
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png[One] Check the Interoperability Matrix Tool
 
-[role="quick-margin-para"]
-Before beginning your installation, you should check the https://imt.netapp.com/matrix/#search[Interoperability Matrix Tool] to ensure your deployment has been certified.
+[role="quick-margin-list"]
+* Before beginning your installation, you should check the https://imt.netapp.com/matrix/#search[Interoperability Matrix Tool] to ensure your deployment has been certified.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png[Two] IP Addresses
 
@@ -32,30 +32,24 @@ Before beginning your installation, you should check the https://imt.netapp.com/
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png[Three] Network firewall configuration
 
-[role="quick-margin-para"]
-Open the required ports in your network firewall. Refer to https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/deploy/prerequisites.html#port-requirements[Port requirements] for the latest update.
+[role="quick-margin-list"]
+* [ ] Open the required ports in your network firewall. Refer to https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/deploy/prerequisites.html#port-requirements[Port requirements] for the latest update.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png[Four] Certificates
 
-[role="quick-margin-para"]
-Per VMware, CA signed certs are required if using vVols with multiple vCenters.
-|===
-| Use | Certificate
-| VASA services | \_____\_____\_____\_____\_____\_____\_____\_____\_____\_____
-| Administrative services | \_____\_____\_____\_____\_____\_____\_____\_____\_____\_____
-|===
+[role="quick-margin-list"]
+* Per VMware, CA signed certs are required if using vVols with multiple vCenters.
+* [ ] VASA services \_____\_____\_____\_____\_____\_____\_____\_____\_____\_____
+* [ ] Administrative services \_____\_____\_____\_____\_____\_____\_____\_____\_____\_____
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png[Five] Storage
 
-[role="quick-margin-para"]
-A datastore on a shared storage device is required. Optionally, you may use a content library on the same datastore as node one to facilitate quick cloning of the template with VAAI.
-|===
-| Use | Resource
-| Content library (only required for HA) | \_____\_____\_____\_____\_____\_____\_____\_____\_____\_____
-| Node one datastore | \_____\_____\_____\_____\_____\_____\_____\_____\_____\_____
-| Node two datastore (optional, but recommended)| \_____\_____\_____\_____\_____\_____\_____\_____\_____\_____
-| Node three datastore (optional, but recommended) | \_____\_____\_____\_____\_____\_____\_____\_____\_____\_____
-|===
+[role="quick-margin-list"]
+* A datastore on a shared storage device is required. Optionally, you may use a content library on the same datastore as node one to facilitate quick cloning of the template with VAAI.
+* [ ] Content library (only required for HA) \_____\_____\_____\_____\_____\_____\_____\_____\_____\_____
+* [ ] Node one datastore \_____\_____\_____\_____\_____\_____\_____\_____\_____\_____
+* [ ] Node two datastore (optional, but recommended) \_____\_____\_____\_____\_____\_____\_____\_____\_____\_____
+* [ ] Node three datastore (optional, but recommended) \_____\_____\_____\_____\_____\_____\_____\_____\_____\_____
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png[Six] Post deployment tasks
 

@@ -62,11 +62,11 @@ Use this installation checklist to ensure a successful deployment (updated for 1
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png[Seven] Post deployment tasks
 
 [role="quick-margin-list"]
-* [ ] Create anti-affinity rules for VMs
+* [ ] Create anti-affinity rules for VMs in an HA deployment.
 * [ ] If using HA, storage vMotion nodes two and three to separate datastores (optional, but recommended).
-* [ ] Create RBAC roles in ONTAP (use the optional JSON file).
-* [ ] Onboard vCenters in ONTAP tools manager.
-* [ ] If using multi-tenant SVMs then onboard clusters in ONTAP tools manager and associate them with vCenters.
-* [ ] If using multi-tenant SVMs then onboard SVMs in ONTAP tools vCenter UI.
-* [ ] If *not* using multi-tenant SVMs then onboard clusters directly in ONTAP tools vCenter UI. Alternatively, in this scenario, it is possible to add SVMs directly when not utilizing vVols.
+* [ ] https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/configure/configure-user-role-and-privileges.html[Configure ONTAP user roles and privileges] using the included JSON file.
+* [ ] https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/configure/add-vcenter.html[Add vCenter Server instances] in ONTAP tools manager.
+* [ ] If using multi-tenant SVMs then https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/configure/add-storage-backend.html[onboard clusters] in ONTAP tools manager and associate them with vCenters.
+* [ ] If using multi-tenant SVMs then https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/configure/add-storage-backend.html[onboard SVMs] in ONTAP tools vCenter UI.
+* [ ] If *not* using multi-tenant SVMs then https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/configure/add-storage-backend.html[onboard clusters] directly in ONTAP tools vCenter UI. Alternatively, in this scenario, it is possible to add SVMs directly when not utilizing vVols.
 * [ ] If you enabled SRA for SRM/VLSR to protect traditional datastores, https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/protect/configure-on-srm-appliance.html[configure SRA on VMware Live Site Recovery appliance].

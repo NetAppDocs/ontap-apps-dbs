@@ -17,7 +17,7 @@ Use this installation checklist to ensure a successful deployment (updated for 1
 
 [role="tabbed-block"]
 ====
-Before beginging your installation, you should check the https://imt.netapp.com/matrix/#search[Interoperability Matrix Tool] to ensure your deployment has been certified.
+Before beginning your installation, you should check the https://imt.netapp.com/matrix/#search[Interoperability Matrix Tool] to ensure your deployment has been certified.
 
 * [ ] Solution components are certified.
 ====

@@ -13,10 +13,11 @@ summary: ONTAP tools 10 installation checklist
 [.lead]
 Use this installation checklist to ensure a successful deployment (updated for 10.3 and later).
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png[One] Check the Interoperability Matrix Tool
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png[One] Initial planning
 
 [role="quick-margin-list"]
 * [ ] Before beginning your installation, you should check the https://imt.netapp.com/matrix/#search[Interoperability Matrix Tool] to ensure your deployment has been certified.
+* [ ] Determine what size and type of ONTAP tools configuration your environment requires. Refer to the https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/deploy/prerequisites.html[Configuration limits to deploy ONTAP tools for VMware vSphere] for more information.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png[Two] IP Addresses
 
@@ -35,14 +36,20 @@ Use this installation checklist to ensure a successful deployment (updated for 1
 [role="quick-margin-list"]
 * [ ] Open the required ports in your network firewall. Refer to https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/deploy/prerequisites.html#port-requirements[Port requirements] for the latest update.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png[Four] Certificates
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png[Four] Prepare the appliance for vVols (optional)
+
+[role="quick-margin-list"]
+* [ ] To use vVols, you must first https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/manage/enable-services.html[edit the appliance settings and enable the VASA service]. At the same time, complete the following step.
+* [ ] If you plan on using vVols in production, https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/manage/edit-appliance-settings.html[enable high availability] with the two optional IP addresses above. 
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png[Five] Certificates
 
 [role="quick-margin-list"]
 * Per VMware, CA signed certs are required if using vVols with multiple vCenters.
 * [ ] VASA services \_____\_____\_____\_____\_____\_____\_____\_____\_____\_____
 * [ ] Administrative services \_____\_____\_____\_____\_____\_____\_____\_____\_____\_____
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png[Five] Storage
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png[Six] Storage
 
 [role="quick-margin-list"]
 * A datastore on a shared storage device is required. Optionally, you may use a content library on the same datastore as node one to facilitate quick cloning of the template with VAAI.
@@ -51,7 +58,7 @@ Use this installation checklist to ensure a successful deployment (updated for 1
 * [ ] Node two datastore (optional, but recommended) \_____\_____\_____\_____\_____\_____\_____\_____\_____\_____
 * [ ] Node three datastore (optional, but recommended) \_____\_____\_____\_____\_____\_____\_____\_____\_____\_____
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png[Six] Post deployment tasks
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png[Seven] Post deployment tasks
 
 [role="quick-margin-list"]
 * [ ] Create anti-affinity rules for VMs

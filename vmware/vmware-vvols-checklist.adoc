@@ -13,12 +13,17 @@ summary: ONTAP tools 10 installation checklist
 [.lead]
 Use this installation checklist to ensure a successful deployment (updated for 10.3 and later).
 
-== Check the Interoperability Matrix Tool
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png[One] Check the Interoperability Matrix Tool
+
+[role="quick-margin-para"]
 Before beginging your installation, you should check the https://imt.netapp.com/matrix/#search[Interoperability Matrix Tool] to ensure your deployment has been certified.
 
+[role="quick-margin-para"]
 * [ ] Solution components are certified.
 
-== IP Addresses
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png[Two] IP Addresses
+
+[role="quick-margin-para"]
 The first three IP addresses are required; node two and node three are used for scale-out high availability deployments.
 |===
 | Use | IP Address
@@ -31,7 +36,9 @@ The first three IP addresses are required; node two and node three are used for 
 | Node three's local interface (optional) | \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____ 
 |===
 
-== Network firewall configuration
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png[Three] Network firewall configuration
+
+[role="quick-margin-para"]
 Open the required ports in your network firewall.
 Refer to https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/deploy/prerequisites.html#port-requirements[Port requirements] for the latest update.
 

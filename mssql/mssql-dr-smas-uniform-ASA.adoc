@@ -35,5 +35,10 @@ For example, a host at site A might be configured to access a LUN that is protec
 
 Without proximity settings, that host will use both storage systems equally because both storage systems will advertise active/optimized paths. If the SAN latency and/or bandwidth between sites is limited, this may not be desireable, and you may wish to ensure that during normal operation each host preferentially uses paths to the local storage system. This is configured by adding the host WWN/iSCSI ID to the local cluster as a proximal host. This can be done at the CLI or SystemManager.
 
+The paths would appear as shown below when host proximity has been configured.
+
+image:smas-uniform-SQL-ASA-Proximity.png[SnapMirror active sync ASA uniform networking with proximity]
+
+
 
 

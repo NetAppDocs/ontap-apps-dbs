@@ -19,22 +19,26 @@ Use this installation checklist to ensure a successful deployment (updated for 1
 * [ ] Before beginning your installation, you should check the https://imt.netapp.com/matrix/#search[Interoperability Matrix Tool] to ensure your deployment has been certified.
 * [ ] Determine what size and type of ONTAP tools configuration your environment requires. Refer to the https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/deploy/prerequisites.html[Configuration limits to deploy ONTAP tools for VMware vSphere] for more information.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png[Two] IP Addresses
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png[Two] Provision IP Addresses and DNS records
 
 [role="quick-margin-list"]
-* The first three IP addresses are required; node two and node three are used for scale-out high availability (HA) deployments.
-* [ ] ONTAP tools application \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____ 
-* [ ] Internal Services \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____ 
-* [ ] Node one's local interface \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____ 
+* Request the following IP information from your network team. The first three IP addresses are required; node two and node three are used for scale-out high availability (HA) deployments. DNS host records are required and all addresses should be on the same VLAN.
+* [ ] ONTAP tools application address \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____ 
+* [ ] Internal Services address \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____ 
+* [ ] Node one's local interface address \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____ 
 * [ ] Subnet mask \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____ 
 * [ ] Default gateway \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____ 
-* [ ] Node two's local interface (optional) \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____ 
-* [ ] Node three's local interface (optional) \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____ 
+* [ ] DNS server 1 \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____
+* [ ] DNS server 2 \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____
+* [ ] DNS search domain \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____
+* [ ] Node two's local interface address(optional) \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____ 
+* [ ] Node three's local interface address(optional) \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____ 
+* [ ] Create DNS records
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png[Three] Network firewall configuration
 
 [role="quick-margin-list"]
-* [ ] Open the required ports in your network firewall. Refer to https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/deploy/prerequisites.html#port-requirements[Port requirements] for the latest update.
+* [ ] Open the required ports for the above IP addresses in your network firewall. Refer to https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/deploy/prerequisites.html#port-requirements[Port requirements] for the latest update.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png[Four] Configure appliance services (optional)
 
@@ -59,7 +63,12 @@ Use this installation checklist to ensure a successful deployment (updated for 1
 * [ ] Node two datastore (optional, but recommended for HA) \_____\_____\_____\_____\_____\_____\_____\_____\_____\_____
 * [ ] Node three datastore (optional, but recommended for HA) \_____\_____\_____\_____\_____\_____\_____\_____\_____\_____
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png[Seven] Post deployment tasks
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png[Seven] Deployment the OVA
+
+[role="quick-margin-list"]
+* [ ] https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/deploy/ontap-tools-deployment.html[Deploy the OVA] using the vSphere client.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-8.png[Eight] Post deployment tasks
 
 [role="quick-margin-list"]
 * [ ] Create anti-affinity rules for VMs in an HA deployment.

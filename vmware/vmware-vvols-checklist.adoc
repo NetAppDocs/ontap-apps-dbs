@@ -82,3 +82,5 @@ Use this installation checklist to ensure a successful deployment (updated for 1
 * [ ] If using multi-tenant SVMs then https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/configure/add-storage-backend.html[onboard SVMs] in ONTAP tools vCenter UI.
 * [ ] If *not* using multi-tenant SVMs then https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/configure/add-storage-backend.html[onboard clusters] directly in ONTAP tools vCenter UI. Alternatively, in this scenario, it is possible to add SVMs directly when not utilizing vVols.
 * [ ] If you enabled SRA for SRM/VLSR to protect traditional datastores, https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/protect/configure-on-srm-appliance.html[configure SRA on VMware Live Site Recovery appliance].
+* [ ] Configure native backups for https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/manage/enable-backup.html[Near zero-RPO].
+* [ ] Configure regular backups to other storage media.

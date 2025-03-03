@@ -20,6 +20,7 @@ Use this installation checklist to ensure a successful deployment (updated for 1
 * [ ] Determine what size and type of ONTAP tools configuration your environment requires. Refer to the https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/deploy/prerequisites.html[Configuration limits to deploy ONTAP tools for VMware vSphere] for more information.
 * [ ] Determine if you will be using multi-tenant SVMs or allow full cluster access. If using multi-tenant SVMs, you will need to have an SVM management LIF on each SVM to be used. This LIF must be reachable over port 443 by ONTAP tools.
 * [ ] Determine if you will be using the ONTAP tools Storage Replication Adapter (SRA) for VMware Site Recovery Manager (SRM) or Live Site Recovery (VLSR). If so, you will need to access to the SRM/VLSR server management interface to install the SRA.
+* [ ] If you will be using SnapMirror replication managed by ONTAP tools (including, but not limited to, SnapMirror active sync) then your ONTAP administrator must https://docs.netapp.com/us-en/ontap/peering/create-cluster-relationship-93-later-task.html[create a cluster peer relationship in ONTAP] and https://docs.netapp.com/us-en/ontap/peering/create-intercluster-svm-peer-relationship-93-later-task.html[create an intercluster SVM peer relationship in ONTAP] before you can use ONTAP tools with SnapMirror.
 * [ ] https://mysupport.netapp.com/site/products/all/details/otv10/downloads-tab[Download] the ONTAP tools OVA, and if required, the SRA tar.gz file.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png[Two] Provision IP Addresses and DNS records
@@ -28,14 +29,17 @@ Use this installation checklist to ensure a successful deployment (updated for 1
 * Request the following IP information from your network team. The first three IP addresses are required; node two and node three are used for scale-out high availability (HA) deployments. DNS host records are required and all addresses should be on the same VLAN.
 * [ ] ONTAP tools application address \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____ 
 * [ ] Internal Services address \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____ 
-* [ ] Node one's local interface address \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____ 
+* [ ] Node one's DNS hostname \_____\_____\_____\_____\_____\_____\_____\_____\_____\_____ 
+* [ ] Node one's IP address \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____ 
 * [ ] Subnet mask \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____ 
 * [ ] Default gateway \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____ 
 * [ ] DNS server 1 \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____
 * [ ] DNS server 2 \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____
 * [ ] DNS search domain \_____\_____\_____\_____\_____\_____\_____\_____\_____\_____
-* [ ] Node two's local interface address(optional) \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____ 
-* [ ] Node three's local interface address(optional) \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____ 
+* [ ] Node two's DNS hostname(optional)  \_____\_____\_____\_____\_____\_____\_____\_____\_____\_____ 
+* [ ] Node two's IP address(optional) \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____ 
+* [ ] Node three's DNS hostname(optional)  \_____\_____\_____\_____\_____\_____\_____\_____\_____\_____ 
+* [ ] Node three's IP address(optional) \_____\_____ . \_____\_____ . \_____\_____ . \_____\_____ 
 * [ ] Create DNS records for all IP addresses above.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png[Three] Network firewall configuration
@@ -53,7 +57,7 @@ Use this installation checklist to ensure a successful deployment (updated for 1
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png[Five] Certificates (optional)
 
 [role="quick-margin-list"]
-* Per VMware, CA signed certs are required if using vVols with multiple vCenters.
+* Per VMware, CA signed certificates are required if using vVols with multiple vCenters.
 * [ ] VASA services \_____\_____\_____\_____\_____\_____\_____\_____\_____\_____
 * [ ] Administrative services \_____\_____\_____\_____\_____\_____\_____\_____\_____\_____
 
@@ -77,6 +81,7 @@ Use this installation checklist to ensure a successful deployment (updated for 1
 * [ ] Create anti-affinity rules for VMs in an HA deployment.
 * [ ] If using HA, storage vMotion nodes two and three to separate datastores (optional, but recommended).
 * [ ] https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/configure/configure-user-role-and-privileges.html[Configure ONTAP user roles and privileges] using the included JSON file.
+* [ ] https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/manage/certificate-manage.html[use manage certificates] in the ONTAP tools manager to install any required CA signed certificates.
 * [ ] https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/configure/add-vcenter.html[Add vCenter Server instances] in ONTAP tools manager.
 * [ ] If using multi-tenant SVMs then https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/configure/add-storage-backend.html[onboard clusters] in ONTAP tools manager and associate them with vCenters.
 * [ ] If using multi-tenant SVMs then https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/configure/add-storage-backend.html[onboard SVMs] in ONTAP tools vCenter UI.

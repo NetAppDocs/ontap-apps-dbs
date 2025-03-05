@@ -16,7 +16,7 @@ NetApp has developed a set of optimal ESXi host settings for both NFS and block 
 
 These values are easily set using ONTAP tools for VMware vSphere: From the Summary dashboard, click Edit Settings in the Host Systems portlet or right-click the host in vCenter, then navigate to ONTAP tools > Set Recommended Values.
 
-Here are the currently recommended host settings for all versions of ONTAP.
+Here are the recommended host settings for all currently supported versions of ONTAP.
 
 [%autowidth.stretch]
 |===

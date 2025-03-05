@@ -31,11 +31,11 @@ You can skip the first two steps of the deployment process if you are already us
 ** If you plan to connect multiple vCenters to a single ONTAP tools instance, you must create and install CA signed certificates. Refer to https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/manage/certificate-manage.html[Manage certificates] for steps.
 * Begining in 10.3, ONTAP tools now deploys as a single node small-type appliance suitable for most non-vVols workloads.
 
-[NOTE]
-The recommended best practice is to https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/manage/edit-appliance-settings.html[scale-out ONTAP tools] 10.3 to the 3-node high availability (HA) configuration for all production workloads. For labs or testing purposes, it is possible to use a single node deployment.
-
-[NOTE]
-The recommended best practice for production vVols use is to eliminate any single point of failure. Create anti-affinity rules to prevent the ONTAP tools VMs from running together on the same host. After initial deployment, it is also recommended to use storage vMotion to place the ONTAP tools VMs into different datastores. Read more about https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-resource-management-8-0/using-drs-clusters-to-manage-resources/using-affinity-rules-without-vsphere-drs.html[Using Affinity Rules without vSphere DRS] or https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-resource-management-8-0/using-drs-clusters-to-manage-resources/create-a-vm-vm-affinity-rule.html[Create a VM-VM Affinity Rule]. You should also schedule frequent backups, and/or https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/manage/enable-backup.html#create-backup-and-download-the-backup-file[use the built-in configuration backup utility].
+[TIP]
+====
+* The recommended best practice is to https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/manage/edit-appliance-settings.html[scale-out ONTAP tools] 10.3 to the 3-node high availability (HA) configuration for all production workloads. For labs or testing purposes, it is possible to use a single node deployment.
+* The recommended best practice for production vVols use is to eliminate any single point of failure. Create anti-affinity rules to prevent the ONTAP tools VMs from running together on the same host. After initial deployment, it is also recommended to use storage vMotion to place the ONTAP tools VMs into different datastores. Read more about https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-resource-management-8-0/using-drs-clusters-to-manage-resources/using-affinity-rules-without-vsphere-drs.html[Using Affinity Rules without vSphere DRS] or https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-resource-management-8-0/using-drs-clusters-to-manage-resources/create-a-vm-vm-affinity-rule.html[Create a VM-VM Affinity Rule]. You should also schedule frequent backups, and/or https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/manage/enable-backup.html#create-backup-and-download-the-backup-file[use the built-in configuration backup utility].
+====
 
 [start=3]
 . Configure ONTAP tools 10.3 for your environment.
@@ -47,8 +47,12 @@ The recommended best practice for production vVols use is to eliminate any singl
 ** https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/configure/associate-storage-backend.html[Associate a storage backend with a vCenter Server instance]
 ** Provide the specific SVM credentials to the vCenter administrator who will then add the SVM as a storage backend in the ONTAP tools storage backends menu in vCenter.
 
-[NOTE]
-It is a best practice to create RBAC roles for your storage accounts. ONTAP tools includes a JSON file containing the necessary role permissions needed by ONTAP tools storage accaccounts. You can upload the JSON file to ONTAP System Manager to simplify the creation of RBAC roles and users. You can read more about ONTAP RBAC roles at https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/configure/configure-user-role-and-privileges.html#svm-aggregate-mapping-requirements[Configure ONTAP user roles and privileges].
+[TIP]
+====
+* It is a best practice to create RBAC roles for your storage accounts.
+* ONTAP tools includes a JSON file containing the necessary role permissions needed by ONTAP tools storage accaccounts. You can upload the JSON file to ONTAP System Manager to simplify the creation of RBAC roles and users.
+* You can read more about ONTAP RBAC roles at https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/configure/configure-user-role-and-privileges.html#svm-aggregate-mapping-requirements[Configure ONTAP user roles and privileges].
+====
 
 [NOTE]
 The reason that the entire cluster must be onboarded in the ONTAP tools manager UI is because many of the APIs used for vVols are only available at the cluster level.

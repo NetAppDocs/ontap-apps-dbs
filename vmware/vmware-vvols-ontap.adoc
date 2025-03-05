@@ -34,8 +34,10 @@ For new installations, deploy the virtual appliance into your vSphere environmen
 
 Refer to link:vmware-vvols-deploy.html[Deploying vVols Storage^] in this document, or https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/index.html[ONTAP tools for VMware vSphere documentation^]. 
 
-[NOTE]
+[TIP]
+====
 The best practice is to store your ONTAP tools and vCenter appliances on traditional NFS or VMFS datastores to avoid any interdependency conflict. Because both vCenter and ONTAP tools are must communicate with each other during vVols operations, do not install or move the ONTAP tools appliances or vCenter Server appliances (VCSA) to vVols storage that they are managing. If this happens, rebooting the vCenter or ONTAP tools appliances can result in an interruption of control plane access and an inability of the appliance to boot.
+====
 
 In-place upgrades of ONTAP tools are supported by using the upgrade ISO file available for download at https://mysupport.netapp.com/site/products/all/details/otv10/downloads-tab[ONTAP tools for VMware vSphere 10 - Downloads] on the NetApp Support Site (NSS - login required). Follow the https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/upgrade/upgrade-ontap-tools.html[Upgrade from ONTAP tools for VMware vSphere 10.x to 10.3] guide instructions to upgrade the appliance. It is also possible to do a side-by-side upgrade from ONTAP tools 9.13 to 10.3. Refer to https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/migrate/migrate-to-latest-ontaptools.html[Migrate from ONTAP tools for VMware vSphere 9.x to 10.3] for a deeper dive on that subject.
 
@@ -71,7 +73,7 @@ https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/index.html[ONTAP too
 
 The VASA Provider includes a dashboard with performance and capacity information for individual vVols VMs. This information comes directly from ONTAP for the vVol files and LUNs, including latency, IOPS, throughput, and more. It is enabled by default when using all currently supported versions of ONTAP 9. Note that after initial configuration it can take up to 30 minutes for data to populate the dashboard.
 
-== Best Practices
+== Other Best Practices
 
 Using ONTAP vVols with vSphere is simple and follows published vSphere methods (see Working with Virtual Volumes under vSphere Storage in VMware documentation for your version of ESXi). Here are a few additional practices to consider in conjunction with ONTAP.
 

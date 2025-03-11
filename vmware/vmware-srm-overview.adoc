@@ -47,6 +47,9 @@ SRM can test your DR plan nondisruptively using NetApp's proprietary FlexClone t
 
 In the event of a true disaster or even a planned migration, SRM allows you to send any last-minute changes to the dataset via a final SnapMirror update (if you choose to do so). It then breaks the mirror and mounts the datastore to your DR hosts. At that point, your VMs can be automatically powered up in any order according to your pre-planned strategy.
 
+[NOTE]
+While ONTAP systems will allow you to pair SVMs in the same cluster for SnapMirror replication, that scenario is not tested and certified with SRM. Therefore, it is recommended to only use SVMs from different clusters when using SRM.
+
 == SRM with ONTAP and other use cases: hybrid cloud and migration
 Integrating your SRM deployment with ONTAP advanced data management capabilities allows for vastly improved scale and performance when compared with local storage options. But more than that, it brings the flexibility of the hybrid cloud. The hybrid cloud enables you to save money by tiering unused data blocks from your high-performance array to your preferred hyperscaler using FabricPool, which could be an on-premises S3 store such as NetApp StorageGRID. You can also use SnapMirror for edge-based systems with software- defined ONTAP Select or cloud-based DR using Cloud Volumes ONTAP (CVO) or https://www.equinix.com/partners/netapp[NetApp Private Storage in Equinix^] for Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP) to create a fully integrated storage, networking, and compute- services stack in the cloud.
 

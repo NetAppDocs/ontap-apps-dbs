@@ -16,17 +16,17 @@ This document outlines the design and implementation guidlines for vMSC with ONT
 
 == NetApp Storage Configuration
 
-Setup instructions for NetApp MetroCluster (referred to as an MCC configuration) are available at https://docs.netapp.com/us-en/ontap-metrocluster/[MetroCluster Documentation]. Instructions for SnapMirror active sync are also available at https://docs.netapp.com/us-en/ontap/smbc/index.html[SnapMirror Business Continuity overview].
+Setup instructions for NetApp MetroCluster (referred to as an MCC configuration) are available at https://docs.netapp.com/us-en/ontap-metrocluster/[MetroCluster Documentation]. Instructions for SnapMirror active sync (SMas) are also available at https://docs.netapp.com/us-en/ontap/smbc/index.html[SnapMirror Business Continuity overview].
 
 Once you have configured MetroCluster, administering it is like managing a traditional ONTAP environment. You can set up Storage Virtual Machines (SVMs) using various tools like the Command Line Interface (CLI), System Manager, or Ansible. Once the SVMs are configured, create Logical Interfaces (LIFs), volumes, and Logical Unit Numbers (LUNs) on the cluster that will be used for normal operations. These objects will automatically be replicated to the other cluster using the cluster peering network.
 
-If not using MetroCluster, you can use SnapMirror active sync which provides datastore-granular protection and active-active access across multiple ONTAP clusters in different failure domains. SnapMirror active sync uses consistency groups to ensure write-order consistency among one or more datastores and you can create multiple consistency groups depending on your application and datastore requirements. Consistency groups are especially useful for applications that require data synchronization between multiple datastores. SnapMirror active sync also supports Raw Device Mappings (RDMs) and guest-connected storage with in-guest iSCSI initiators. You can learn more about consistency groups at https://docs.netapp.com/us-en/ontap/consistency-groups/index.html[Consistency groups overview].
+If not using MetroCluster, you can use SnapMirror active sync which provides datastore-granular protection and active-active access across multiple ONTAP clusters in different failure domains. SMas uses consistency groups (CGs) to ensure write-order consistency among one or more datastores and you can create multiple CGs depending on your application and datastore requirements. Consistency groups are especially useful for applications that require data synchronization between multiple datastores. SMas also supports Raw Device Mappings (RDMs) and guest-connected storage with in-guest iSCSI initiators. You can learn more about consistency groups at https://docs.netapp.com/us-en/ontap/consistency-groups/index.html[Consistency groups overview].
 
-There is some difference in managing a vMSC configuration with SnapMirror active sync when compared to a MetroCluster. First, this is a SAN-only configuration, no NFS datastores can be protected with SnapMirror active sync. Second, you must map both copies of the LUNs to your ESXi hosts for them to access the replicated datastores in both failure domains.
+ONTAP tools now provides a simple way to configure SnapMirror active sync for vMSC. You can use the ONTAP tools vCenter plugin to create and manage SnapMirror active sync relationships between two ONTAP clusters. The plugin provides a simple and intuitive interface to create and manage SnapMirror active sync relationships between two ONTAP clusters. You can learn more about the ONTAP tools vCenter plugin at https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/index.html[ONTAP tools for VMware vSphere], or jump right into https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/configure/protect-cluster.html[Protect using host cluster protection].   
 
-ONTAP 
+There is some difference in managing a vMSC configuration with SnapMirror active sync when compared to a MetroCluster. First, SMas is a SAN-only configuration, no NFS datastores can be protected with SnapMirror active sync. Second, you must map both copies of the LUNs to your ESXi hosts for them to access the replicated datastores in both failure domains.
 
-== VMware vSphere HA
+== VMware vSphere Configuration
 
 === Create a vSphere HA Cluster
 
@@ -34,7 +34,7 @@ Creating a vSphere HA cluster is a multi-step process that is fully documented a
 
 [NOTE]
 
-Nothing in this document supersedes https://core.vmware.com/resource/vmware-vsphere-metro-storage-cluster-recommended-practices[VMware vSphere Metro Storage Cluster Recommended Practices]
+Nothing in this document supersedes https://www.vmware.com/docs/vmw-vmware-vsphere-metro-storage-cluster-recommended-practices[VMware vSphere Metro Storage Cluster Recommended Practices]. This content is provided for easy reference and is not a substitute for the official VMware documentation.
 
 To configure an HA cluster, complete the following steps:
 
@@ -97,8 +97,6 @@ image::../media/vmsc_3_6.png[A screenshot of a computer Description automaticall
 
 === Configure Advanced Options
 
-*Host Failure Detection*
-
 Isolation events occur when hosts within an HA cluster lose connectivity to either the network or other hosts in the cluster. By default, vSphere HA will use the default gateway for its management network as the default isolation address. However, you can specify additional isolation addresses for the host to ping to determine whether an isolation response should be triggered. Add two isolation IPs that can ping, one per site. Do not use the gateway IP. The vSphere HA advanced setting used is das.isolationaddress. You can use ONTAP or Mediator IP addresses for this purpose.
 
 Refer to https://core.vmware.com/resource/vmware-vsphere-metro-storage-cluster-recommended-practices#sec2-sub5[core.vmware.com] for more information__.__
@@ -114,13 +112,11 @@ VMware DRS Affinity for NetApp MetroCluster
 In this section, we create DRS groups for VMs and hosts for each site\cluster in the MetroCluster environment. Then we configure VM\Host rules to align VM host affinity with local storage resources. For example, site A VMs belong to VM group sitea_vms and site A hosts belong to host group sitea_hosts. Next, in VM\Host Rules, we state that sitea_vms should run on hosts in sitea_hosts.
 
 
-=== _Best Practice_
+[TIP]
+====
 * NetApp highly recommends the specification *Should Run on Hosts in Group* rather than the specification *Must Run on Hosts in Group*. In the event of a site A host failure, the VMs of site A need to be restarted on hosts at site B through vSphere HA, but the latter specification does not allow HA to restart VMs on site B because it’s a hard rule. The former specification is a soft rule and will be violated in the event of HA, thus enabling availability rather than performance.
-
-*[NOTE]
-
 * You can create an event-based alarm that is triggered when a virtual machine violates a VM-Host affinity rule. In the vSphere Client, add a new alarm for the virtual machine and select “VM is violating VM-Host Affinity Rule” as the event trigger. For more information about creating and editing alarms, refer to link:https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-monitoring-and-performance-8-0.html[vSphere Monitoring and Performance^] documentation.
-
+====
 
 === Create DRS Host Groups
 
@@ -172,41 +168,36 @@ To create DRS affinity rules specific to site A and site B, complete the followi
 
 image::../media/vmsc_3_8.png[A screenshot of a computer Description automatically generated,width=474,height=364]
 
-== VMWare vSphere Storage DRS for NetApp MetroCluster
-
-=== Create Datastore Clusters
+== Create datastore clusters if needed
 
 To configure a datastore cluster for each site, complete the following steps:
 
 [arabic]
 . Using the vSphere web client, browse to the data center where the HA cluster resides under Storage.
 . Right-click the data center object and select Storage > New Datastore Cluster.
-. Select the Turn ON Storage DRS option and click Next.
-. Set all options to No Automation (Manual Mode) and click Next.
 
+[TIP]
+====
+*When using ONTAP storage, it is recommended to disable Storage DRS.
 
-==== _Best Practice_
-* NetApp recommends that Storage DRS be configured in manual mode, so that the administrator gets to decide and control when migrations need to happen.
-
+* Storage DRS is generally not needed or recommended for use with ONTAP storage systems.
+* ONTAP provides its own storage efficiency features, such as deduplication, compression, and compaction, which can be impacted by Storage DRS.
+* If you are using ONTAP snapshots, then storage vMotion would leave behind the copy of the VM in the snapshot, potentially increasing storage utilization and may impact backup applications like NetApp SnapCenter which track VMs and their ONTAP snapshots.
+====
 
 image::../media/vmsc_3_9.png[Storage DRS,width=528,height=94]
 
-[arabic, start=5]
-. Verify that the Enable I/O Metric for SDRS Recommendations checkbox is checked; metric settings can be left with default values.
-
-image::../media/vmsc_3_10.png[SDRS Recommendations,width=624,height=241]
-
-[arabic, start=6]
+[arabic, start=3]
 . Select the HA cluster and click Next.
 
 image::../media/vmsc_3_11.png[HA cluster,width=624,height=149]
 
-[arabic, start=7]
+[arabic, start=4]
 . Select the datastores belonging to site A and click Next.
 
 image::../media/vmsc_3_12.png[datastores,width=624,height=134]
 
-[arabic, start=8]
+[arabic, start=5]
 . Review options and click Finish.
 . Repeat these steps to create the site B datastore cluster and verify that only datastores of site B are selected.
 

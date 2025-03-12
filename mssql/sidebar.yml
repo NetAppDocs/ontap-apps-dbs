@@ -55,7 +55,7 @@ entries:
           url: /mssql/mssql-dr-smas-sql.html
         - title: Failure scenarios
           url: /mssql/mssql-dr-smas-failure-scenarios.html
-  - title: Storage configuration on ASA systems
+  - title: Storage configuration on ASA r2 systems
     pdf-filename: Microsoft SQL Server on ASA systems
     entries:
     - title: Overview

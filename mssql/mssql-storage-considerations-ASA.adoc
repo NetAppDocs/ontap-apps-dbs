@@ -9,7 +9,18 @@ searchtitle: Microsoft SQL Server storage considerations
 :imagesdir: ../media/
 
 [.lead]
-The combination of ONTAP storage solutions and Microsoft SQL Server enables enterprise-level database storage designs that can meet today's most demanding application requirements. 
+The NetApp ASA r2 is simplified and powerful solution for SAN-only customers running mission-critical workloads. The combination of ASA r2 platform running ONTAP storage solutions and Microsoft SQL Server enables enterprise-level database storage designs that can meet today's most demanding application requirements. 
+
+The following ASA platforms are classified as ASA r2 systems that support all SAN protocols (iSCSI, FC, NVMe/FC, NVMe/TCP). The iSCSI, FC, NVMe/FC and NVMe/TCP protocols support symmetric active-active architecture for multipathing so that all paths between the hosts and storage are active/optimized:
+
+* ASA A1K
+* ASA A90
+* ASA A70
+* ASA A50
+* ASA A30
+* ASA A20
+
+For more information . see NetApp ASA 
 
 Optimizing a SQL Server on ONTAP solution requires understanding the SQL Server I/O pattern and characteristics. A well-designed storage layout for a SQL Server database must support the performance requirements of SQL Server while also delivering maximum managability of the infrastructure as a whole. A good storage layout also allows the initial deployment to be successful and the environment to grow smoothly over time as the business grows.
 

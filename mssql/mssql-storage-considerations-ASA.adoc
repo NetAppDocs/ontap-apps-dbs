@@ -20,7 +20,7 @@ The following ASA platforms are classified as ASA r2 systems that support all SA
 * ASA A30
 * ASA A20
 
-For more information . see NetApp ASA 
+For more information . see link:https://docs.netapp.com/us-en/asa-r2/index.html[NetApp ASA] 
 
 Optimizing a SQL Server on ONTAP solution requires understanding the SQL Server I/O pattern and characteristics. A well-designed storage layout for a SQL Server database must support the performance requirements of SQL Server while also delivering maximum managability of the infrastructure as a whole. A good storage layout also allows the initial deployment to be successful and the environment to grow smoothly over time as the business grows.
 

@@ -31,7 +31,7 @@ For more information, see link:https://techdocs.broadcom.com/us/en/vmware-cis/vs
 |No
 |VMFS3.EnableVMFS6Unmap
 |Keep default (1)
-For more information, see link:https://core.vmware.com/resource/vmware-vsphere-apis-array-integration-vaai#sec9426-sub4[VMware vSphere APIs: Array Integration (VAAI)]
+For more information, see link:https://www.vmware.com/docs/vmw-vmware-vsphere-apis-array-integration-vaai[VMware vSphere APIs: Array Integration (VAAI)]
 |No
 
 3+e|*NFS Settings*

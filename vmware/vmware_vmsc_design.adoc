@@ -99,13 +99,13 @@ image::../media/vmsc_3_6.png[A screenshot of a computer Description automaticall
 
 Isolation events occur when hosts within an HA cluster lose connectivity to either the network or other hosts in the cluster. By default, vSphere HA will use the default gateway for its management network as the default isolation address. However, you can specify additional isolation addresses for the host to ping to determine whether an isolation response should be triggered. Add two isolation IPs that can ping, one per site. Do not use the gateway IP. The vSphere HA advanced setting used is das.isolationaddress. You can use ONTAP or Mediator IP addresses for this purpose.
 
-Refer to https://core.vmware.com/resource/vmware-vsphere-metro-storage-cluster-recommended-practices#sec2-sub5[core.vmware.com] for more information__.__
+Refer to https://www.vmware.com/docs/vmw-vmware-vsphere-metro-storage-cluster-recommended-practices[VMware vSphere Metro Storage Cluster Recommended Practices] for more information__.__
 
 image::../media/vmsc_3_7.png[A screenshot of a computer Description automatically generated,width=624,height=545]
 
 Adding an advanced setting called das.heartbeatDsPerHost can increase the number of heartbeat datastores. Use four heartbeat datastores (HB DSs)—two per site. Use the “Select from List but Compliment” option. This is needed because if one site fails, you still need two HB DSs. However, those don’t have to be protected with MCC or SnapMirror active sync.
 
-Refer to https://core.vmware.com/resource/vmware-vsphere-metro-storage-cluster-recommended-practices#sec2-sub5[core.vmware.com] for more information__.__
+Refer to https://www.vmware.com/docs/vmw-vmware-vsphere-metro-storage-cluster-recommended-practices[VMware vSphere Metro Storage Cluster Recommended Practices] for more information__.__
 
 VMware DRS Affinity for NetApp MetroCluster
 

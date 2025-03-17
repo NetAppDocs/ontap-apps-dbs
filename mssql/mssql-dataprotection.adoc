@@ -24,4 +24,4 @@ The following is a sample backup workflow:
 To learn more, see link:https://learn.microsoft.com/en-us/sql/relational-databases/databases/create-a-database-snapshot-transact-sql?view=sql-server-ver16[Microsoft documentation to know about the T-SQL snapshots^].
 
 [TIP]
-*NetApp recommends* using SnapCenter to create Snapshot copies. The T-SQL method described below also works, but SnapCenter offers complete automation over the backup, restore, and cloning process. It also performs discovery to ensure the correct snapshots are being created. No pre-configuration is required.
+*NetApp recommends* using SnapCenter to create Snapshot copies. The T-SQL method described above also works, but SnapCenter offers complete automation over the backup, restore, and cloning process. It also performs discovery to ensure the correct snapshots are being created.

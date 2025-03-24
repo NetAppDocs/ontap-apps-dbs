@@ -60,7 +60,12 @@ Use this installation checklist to ensure a successful deployment (updated for 1
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png[Five] Deploy the OVA
 
 [role="quick-margin-list"]
+* Note that this step may take up to 45 minutes to complete
 * [ ] https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/deploy/ontap-tools-deployment.html[Deploy the OVA] using the vSphere client.
+* On step 3 of OVA deployment, select the option to "customize this virtual machine's hardware" and set the following on step 10:
+* [ ] "Enable CPU Hot Add"
+* [ ] "Memory Hot Plug"
+
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png[Six] Add vCenters to ONTAP tools
 
@@ -70,6 +75,7 @@ Use this installation checklist to ensure a successful deployment (updated for 1
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png[Seven] Add storage backends to ONTAP tools
 
 [role="quick-margin-list"]
+* [ ] https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/configure/configure-user-role-and-privileges.html[Configure ONTAP user roles and privileges] using the included JSON file if not using admin.
 * If using If using storage multi-tenancy with SVMs
 * [ ] https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/configure/add-storage-backend.html[onboard clusters] in ONTAP tools manager and associate them with vCenters.
 * [ ] https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/configure/add-storage-backend.html[onboard SVMs] in ONTAP tools vCenter UI.
@@ -90,16 +96,11 @@ Use this installation checklist to ensure a successful deployment (updated for 1
 * [ ] VASA services \_____\_____\_____\_____\_____\_____\_____\_____\_____\_____
 * [ ] Administrative services \_____\_____\_____\_____\_____\_____\_____\_____\_____\_____
 
-
-
-
-
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-10.png[Ten] Other post deployment tasks
 
 [role="quick-margin-list"]
 * [ ] Create anti-affinity rules for VMs in an HA deployment.
 * [ ] If using HA, storage vMotion nodes two and three to separate datastores (optional, but recommended).
-* [ ] https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/configure/configure-user-role-and-privileges.html[Configure ONTAP user roles and privileges] using the included JSON file.
 * [ ] https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/manage/certificate-manage.html[use manage certificates] in the ONTAP tools manager to install any required CA signed certificates.
 * [ ] If you enabled SRA for SRM/VLSR to protect traditional datastores, https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/protect/configure-on-srm-appliance.html[configure SRA on VMware Live Site Recovery appliance].
 * [ ] Configure native backups for https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/manage/enable-backup.html[Near zero-RPO].

@@ -1,0 +1,27 @@
+---
+sidebar: sidebar
+permalink: mssql/mssql-files-and-filegroups-ASA.html
+keywords: MSSQL,SQL Server, backup, recovery, database file management ,ASA
+summary: Microsoft SQL Server database file placement on ASA
+searchtitle: Microsoft SQL Server database files and filegroups
+---
+= Database files and filegroups
+:imagesdir: ../media/
+
+include::../mssql/mssql-databasefile.adoc[]
+
+=== Log directory
+
+The log directory is specified in SQL Server to store transaction log backup data at the host level. If you are using SnapCenter to backup log files then each SQL Server host used by SnapCenter must have a host log directory configured to perform log backups. 
+
+Place the log directory on a dedicated storage unit. The amount of data in the host log directory depends on the size of the backups and the number of days that backups are retained. SnapCenter allows only one host log directory per SQL Server host. You can configure the host log directories at SnapCenter --> Host --> Configure Plug-in.
+
+[TIP]
+====
+*NetApp recommends* the following for a host log directory:
+
+* Make sure that the host log directory is not shared by any other type of data that can potentially corrupt the backup snapshot data.
+* Create the host log directory on a dedicated storage unit to which SnapCenter copies transaction logs.
+* If you are using a Always On failover cluster instance, storage unit used for host log directory must be a cluster disk resource in the same cluster group as the SQL Server instance being backed up in SnapCenter.
+
+====

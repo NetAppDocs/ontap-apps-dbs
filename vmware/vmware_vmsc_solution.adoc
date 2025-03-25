@@ -38,9 +38,10 @@ In a vSphere HA cluster, three types of host failure are detected:
 
 The master host monitors the slave hosts in the cluster. This communication is done through the exchange of network heartbeats every second. When the master host stops receiving these heartbeats from a slave host, it checks for host liveness before declaring the host to have failed. The liveness check that the master host performs is to determine whether the slave host is exchanging heartbeats with one of the datastores. Also, the master host checks whether the host responds to ICMP pings sent to its management IP addresses to detect whether it is merely isolated from its master node or completely isolated from the network. It does this by pinging the default gateway. One or more isolation addresses can be specified manually to enhance the reliability of isolation validation.
 
-=== _Best Practice_
+[TIP]
+====
 NetApp recommends specifying a minimum of two additional isolation addresses, and that each of these addresses be site-local. This will enhance the reliability of isolation validation.
-
+====
 
 == Host Isolation Response
 
@@ -50,9 +51,10 @@ Isolation Response is a setting in vSphere HA that determines the action trigger
 
 Before HA initiates the isolation response, it first checks to see if the vSphere HA master agent owns the datastore that contains the VM config files. If not, then the host will not trigger the isolation response, because there is no master to restart the VMs. The host will periodically check the datastore state to determine if it is claimed by a vSphere HA agent that holds the master role.
 
-=== _Best Practice_
+[TIP]
+====
 NetApp recommends setting the “Host Isolation Response” to Disabled.
-
+====
 
 A split-brain condition can occur if a host becomes isolated or partitioned from the vSphere HA master host and the master is unable to communicate via heartbeat datastores or by ping. The master declares the isolated host dead and restarts the VMs on other hosts in the cluster. A split-brain condition now exists because there are two instances of the virtual machine running, only one of which can read or write the virtual disks. Split-brain conditions can now be avoided by configuring VM Component Protection (VMCP).
 
@@ -64,8 +66,10 @@ One of the feature enhancements in vSphere 6, relevant to HA, is VMCP. VMCP prov
 
 PDL is a condition that occurs when a storage device permanently fails or is administratively removed and is not expected to return. The NetApp storage array issues a SCSI Sense code to ESXi declaring that the device is permanently lost. In the Failure Conditions and VM Response section of vSphere HA, you can configure what the response should be after a PDL condition is detected.
 
-==== _Best Practice_
+[TIP]
+====
 NetApp recommends setting the “Response for Datastore with PDL” to “*Power off and restart VMs*”. When this condition is detected a VM will be restarted instantly on a healthy host within the vSphere HA cluster.
+====
 
 === All Paths Down (APD)
 
@@ -73,15 +77,13 @@ APD is a condition that occurs when a storage device becomes inaccessible to the
 
 When an APD condition is detected, a timer is started. After 140 seconds, the APD condition is officially declared, and the device is marked as APD time out. When the 140 seconds have passed, HA will start counting the number of minutes specified in the Delay for VM Failover APD. When the specified time has passed, HA will restart the impacted virtual machines. You can configure VMCP to respond differently if desired (Disabled, Issue Events, or Power Off and Restart VMs).
 
-==== _Best Practice_
-NetApp recommends configuring the “Response for Datastore with APD” to “*Power off and restart VMs (conservative)*”.
-
-Conservative refers to the likelihood of HA being able to restart VMs. When set to Conservative, HA will only restart the VM that is impacted by the APD if it knows another host can restart it. In the case of Aggressive, HA will try to restart the VM even if it doesn’t know the state of the other hosts. This can result in VMs not being restarted if there is no host with access to the datastore it is located on.
-
-If the APD status is resolved and access to the storage is restored before the time-out has passed, HA will not unnecessarily restart the virtual machine unless you explicitly configure it to do so. If a response is desired even when the environment has recovered from the APD condition, then Response for APD Recovery After APD Timeout should be configured to Reset VMs.
-
-==== _Best Practice_
-NetApp recommends configuring Response for APD Recovery After APD Timeout to Disabled.
+[TIP]
+====
+* NetApp recommends configuring the “Response for Datastore with APD” to “*Power off and restart VMs (conservative)*”.
+* Conservative refers to the likelihood of HA being able to restart VMs. When set to Conservative, HA will only restart the VM that is impacted by the APD if it knows another host can restart it. In the case of Aggressive, HA will try to restart the VM even if it doesn’t know the state of the other hosts. This can result in VMs not being restarted if there is no host with access to the datastore it is located on.
+* If the APD status is resolved and access to the storage is restored before the time-out has passed, HA will not unnecessarily restart the virtual machine unless you explicitly configure it to do so. If a response is desired even when the environment has recovered from the APD condition, then Response for APD Recovery After APD Timeout should be configured to Reset VMs.
+* NetApp recommends configuring Response for APD Recovery After APD Timeout to Disabled.
+====
 
 == VMware DRS Implementation for NetApp MetroCluster
 
@@ -107,13 +109,17 @@ Availability of services should always prevail over performance. In the scenario
 
 == VMware Storage DRS Implementation with NetApp MetroCluster
 
-The VMware Storage DRS feature enables the aggregation of datastores into a single unit and balances virtual machine disks when storage I/O control thresholds are exceeded.
+The VMware Storage DRS feature enables the aggregation of datastores into a single unit and balances virtual machine disks when storage I/O control (SIOC) thresholds are exceeded.
 
 Storage I/O control is enabled by default on Storage DRS–enabled DRS clusters. Storage I/O control allows an administrator to control the amount of storage I/O that is allocated to virtual machines during periods of I/O congestion, which enables more important virtual machines to have preference over less important virtual machines for I/O resource allocation.
 
 Storage DRS uses Storage vMotion to migrate the virtual machines to different datastores within a datastore cluster. In a NetApp MetroCluster environment, a virtual machine migration needs to be controlled within the datastores of that site. For example, virtual machine A, running on a host at site A, should ideally migrate within the datastores of the SVM at site A. If it fails to do so, the virtual machine will continue to operate but with degraded performance, since the virtual disk read/write will be from site B through inter-site links.
 
-=== _Best Practice_
-NetApp recommends creating datastore clusters with respect to storage site affinity; that is, datastores with site affinity for site A should not be mixed with datastore clusters with datastores with site affinity for site B.
+[TIP]
+====
+*When using ONTAP storage, it is recommended to disable Storage DRS.
 
-Whenever a virtual machine is newly provisioned or migrated using Storage vMotion, NetApp recommends that all the VMware DRS rules specific to those virtual machines be manually updated, accordingly. This will ascertain the virtual machine affinity at the site level for both host and datastore and thus reduce the network and storage overhead.
+* Storage DRS is generally not needed or recommended for use with ONTAP storage systems.
+* ONTAP provides its own storage efficiency features, such as deduplication, compression, and compaction, which can be impacted by Storage DRS.
+* If you are using ONTAP snapshots, then storage vMotion would leave behind the copy of the VM in the snapshot, potentially increasing storage utilization and may impact backup applications like NetApp SnapCenter which track VMs and their ONTAP snapshots.
+====

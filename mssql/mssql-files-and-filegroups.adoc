@@ -3,9 +3,12 @@ sidebar: sidebar
 permalink: mssql/mssql-files-and-filegroups.html
 keywords: MSSQL,SQL Server, backup, recovery, database file management 
 summary: Microsoft SQL Server database file placement
-searchtitle: Microsoft SQL Server database files and filegroups
+searchtitle: Microsoft SQL Server database file placement
 ---
 = Database files and filegroups
+:hardbreaks:
+:icons: font
+:linkattrs:
 :imagesdir: ../media/
 
 include::../mssql/mssql-databasefile.adoc[]

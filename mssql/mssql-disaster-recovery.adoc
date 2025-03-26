@@ -6,6 +6,9 @@ summary: Microsoft SQL Server disaster recovery with ONTAP
 searchtitle: Microsoft SQL Server disaster recovery with ONTAP
 ---
 = Disaster recovery
+:hardbreaks:
+:icons: font
+:linkattrs:
 :imagesdir: ../media/
 
 [.lead]

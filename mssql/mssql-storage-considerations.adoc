@@ -6,6 +6,9 @@ summary: Microsoft SQL Server  storage consideration
 searchtitle: Microsoft SQL Server storage considerations
 ---
 = Overview
+:hardbreaks:
+:icons: font
+:linkattrs:
 :imagesdir: ../media/
 
 [.lead]

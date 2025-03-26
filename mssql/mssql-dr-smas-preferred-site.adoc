@@ -6,6 +6,9 @@ summary: Microsoft SQL Server and SM-as preferred site
 searchtitle: Microsoft SQL Server and SM-as preferred site
 ---
 = Preferred site
+:hardbreaks:
+:icons: font
+:linkattrs:
 :imagesdir: ../media/
 
 [.lead]

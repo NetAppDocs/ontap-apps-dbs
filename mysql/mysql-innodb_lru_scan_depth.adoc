@@ -3,9 +3,12 @@ sidebar: sidebar
 permalink: mysql/mysql-innodb_lru_scan_depth.html
 keywords: MySQL,MariaDB,innodb_lru_scan_depth
 summary: MySQL and innodb_lru_scan_depth
+searchtitle: MySQL and innodb_lru_scan_depth
 ---
 = innodb_lru_scan_depth
+:hardbreaks:
 :icons: font
+:linkattrs:
 :imagesdir: ../media/
 
 [.lead]

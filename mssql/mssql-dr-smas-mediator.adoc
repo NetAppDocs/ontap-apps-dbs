@@ -14,4 +14,4 @@ searchtitle: Microsoft SQL Server and the ONTAP Mediator
 [.lead]
 The Mediator is required for safely automating failover. Ideally, it would be placed on an independent 3rd site, but it can still function for most needs if colocated with one of the clusters participating in replication.
 
-in
+include::../_include/smas-mediator.adoc[]

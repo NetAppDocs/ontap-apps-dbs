@@ -6,6 +6,9 @@ summary: Microsoft SQL Server on ONTAP
 searchtitle: Microsoft SQL Server on ONTAP
 ---
 = Overview
+:hardbreaks:
+:icons: font
+:linkattrs:
 :imagesdir: ../media/
 
 [.lead]

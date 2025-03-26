@@ -3,9 +3,12 @@ sidebar: sidebar
 permalink: mysql/mysql-open_file_limits.html
 keywords: MySQL,MariaDB,open_file_limits
 summary: MySQL and open_file_limits
+searchtitle: MySQL and open_file_limits
 ---
 = open_file_limits
+:hardbreaks:
 :icons: font
+:linkattrs:
 :imagesdir: ../media/
 
 [.lead]

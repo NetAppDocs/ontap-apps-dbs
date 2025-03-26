@@ -6,7 +6,9 @@ summary: MySQL configuration parameters
 searchtitle: MySQL configuration parameters
 ---
 = Configuration parameters
+:hardbreaks:
 :icons: font
+:linkattrs:
 :imagesdir: ../media/
 
 [.lead]

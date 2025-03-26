@@ -7,24 +7,24 @@ In normal operation a LUN can be accessed from either the local or remote replic
 
 The green line is an active path, but it would incur more latency because IO on that path would need to be passed across the SnapMirror active sync path. The additional latency would depend on the speed of the interconnect between sites that is used for SnapMirror active sync.
 
-image:smas-failover-1.png[Error: Missing Graphic Image]
+image:../media/smas-failover-1.png[SnapMirror active sync normal operations]
 
 == Failure
 If the active mirror copy becomes unavailable, either because of planned or unplanned failover, it obviously will no longer be usable. However, the remote system possesses a synchronous replica and SAN paths to the remote site already exist. The remote system is able to service IO for that LUN.
 
-image:smas-failover-2.png[Error: Missing Graphic Image]
+image:../media/smas-failover-2.png[SnapMirror active sync failure]
 
 == Failover
 Failover results in the remote copy becoming the active copy. The paths are changed from Active to Active/Optimized and IO continues to be serviced without data loss.
 
-image:smas-failover-3.png[Error: Missing Graphic Image]
+image:../media/smas-failover-3.png[SnapMirror active sync failover]
 
 == Repair
 Once the source system is returned to service, SnapMirror active sync can resync replication but running the other direction. The configuration now is essentially the same as the starting point, except the active-mirror sites have been flipped.
 
-image:smas-failover-4.png[Error: Missing Graphic Image]
+image:../media/smas-failover-4.png[SnapMirror active sync repair]
 
 == Failback
 If desired, an administrator can perform a failback and move the active copy of the LUN(s) back to the original controllers.
 
-image:smas-failover-1.png[Error: Missing Graphic Image]
+image:../media/smas-failover-1.png[SnapMirror active sync failback]

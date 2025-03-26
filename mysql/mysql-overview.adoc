@@ -3,10 +3,12 @@ sidebar: sidebar
 permalink: mysql/mysql-overview.html
 keywords: MySQL,MariaDB,TR-4722
 summary: MySQL on ONTAP
-searchtitle: MySQL databases on ONTAP
+searchtitle: MySQL on ONTAP
 ---
 = Overview
+:hardbreaks:
 :icons: font
+:linkattrs:
 :imagesdir: ../media/
 
 [.lead]

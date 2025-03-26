@@ -1,10 +1,10 @@
 == Default
 All FabricPool volumes are initially set at `default`, which means the behavior is controlled by the `cloud-retrieval-policy. `The exact behavior depends on the tiering policy used.
 
-* `auto`– only retrieve randomly read data
-* `snapshot-only`– retrieve all sequentially or randomly read data
-* `none`– retrieve all sequentially or randomly read data
-* `all`– do not retrieve data from the capacity tier
+* `auto`- only retrieve randomly read data
+* `snapshot-only`- retrieve all sequentially or randomly read data
+* `none`- retrieve all sequentially or randomly read data
+* `all`- do not retrieve data from the capacity tier
 
 == On-read
 Setting `cloud-retrieval-policy` to on-read overrides the default behavior so a read of any tiered data results in that data being returned to the performance tier.

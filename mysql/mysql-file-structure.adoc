@@ -12,14 +12,14 @@ searchtitle: MySQL and InnoDB file structure
 [.lead]
 InnoDB acts as the middle layer between storage and the MySQL server, it stores the data to the drives. 
 
-image:mysql-file-structure1.png[Error: Graphic image not found]
+image:../media/mysql-file-structure1.png[MySQL file structure]
 
 MySQL I/O is categorized into two types:
 
 * Random file I/O
 * Sequential file I/O
 
-image:mysql-file-structure2.png[Error: Graphic image not found]
+image:../media/mysql-file-structure2.png[I/O types]
 
 Data files are randomly read and overwritten, which results in high IOPS. Therefore, SSD storage is recommended. 
 

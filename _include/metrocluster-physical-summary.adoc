@@ -16,12 +16,12 @@ The architecture is also simpler because the only cross-site connections are for
 
 For additional information, refer to the official ONTAP documentation and https://www.netapp.com/pdf.html?item=/media/13481-tr4689.pdf[MetroCluster IP Solution Architecture and Design^].
 
-image:mccip.png[Error: Missing Graphic Image]
+image:../media/mccip.png[Metrocluster IP architecture] 
 
 == HA-Pair FC SAN-attached MetroCluster
 The HA-pair MetroCluster FC configuration uses two or four nodes per site. This configuration option increases the complexity and costs relative to the two-node option, but it delivers an important benefit: intrasite redundancy. A simple controller failure does not require data access across the WAN. Data access remains local through the alternate local controller.
 
-image:mcc-4-node.png[Error: Missing Graphic Image]
+image:../media/mcc-4-node.png[Four node MetroCluster]
 
 Some multisite infrastructures are not designed for active-active operations, but rather are used more as a primary site and disaster recovery site. In this situation, an HA-pair MetroCluster option is generally preferable for the following reasons:
 
@@ -32,7 +32,7 @@ Some multisite infrastructures are not designed for active-active operations, bu
 == Two-node FC SAN-attached MetroCluster
 The two-node MetroCluster configuration uses only one node per site. This design is simpler than the HA-pair option because there are fewer components to configure and maintain. It also has reduced infrastructure demands in terms of cabling and FC switching. Finally, it reduces costs.
 
-image:mcc-2-node.png[Error: Missing Graphic Image]
+image:../media/mcc-2-node.png[Two node MetroCluster]
 
 The obvious impact of this design is that controller failure on a single site means that data is available from the opposite site. This restriction is not necessarily a problem. Many enterprises have multisite data center operations with stretched, high-speed, low-latency networks that function essentially as a single infrastructure. In these cases, the two-node version of MetroCluster is the preferred configuration. Two-node systems are currently used at petabyte scale by several service providers.
 

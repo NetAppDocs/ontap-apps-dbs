@@ -6,6 +6,9 @@ summary: Microsoft SQL Server log directory
 searchtitle: Microsoft SQL Server log directory
 ---
 = Log directory
+:hardbreaks:
+:icons: font
+:linkattrs:
 :imagesdir: ../media/
 
 [.lead]

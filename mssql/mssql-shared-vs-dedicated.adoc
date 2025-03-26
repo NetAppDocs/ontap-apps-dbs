@@ -3,9 +3,12 @@ sidebar: sidebar
 permalink: mssql/mssql-shared-vs-dedicated.html
 keywords: MSSQL,SQL Server, multiple instances, dedicated instance, ONTAP
 summary: Microsoft SQL Server instance deployment
-searchtitle: Microsoft SQL Server shared instance versus dedicated instance
+searchtitle: Microsoft SQL Server instance deployment
 ---
 = Shared instance versus dedicated instance
+:hardbreaks:
+:icons: font
+:linkattrs:
 :imagesdir: ../media/
 
 [.lead]

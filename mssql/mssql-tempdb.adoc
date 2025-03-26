@@ -3,9 +3,12 @@ sidebar: sidebar
 permalink: mssql/mssql-tempdb.html
 keywords: MSSQL,SQL Server, tempdb, ONTAP
 summary: Microsoft SQL Server tempdb placement on ONTAP
-searchtitle: Microsoft SQL Server tempdb files
+searchtitle: Microsoft SQL Server tempdb placement on ONTAP
 ---
 = Tempdb files
+:hardbreaks:
+:icons: font
+:linkattrs:
 :imagesdir: ../media/
 
 [.lead]

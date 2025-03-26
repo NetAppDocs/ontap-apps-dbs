@@ -6,7 +6,9 @@ summary: MySQL file descriptors
 searchtitle: MySQL file descriptors
 ---
 = File descriptors
+:hardbreaks:
 :icons: font
+:linkattrs:
 :imagesdir: ../media/
 
 [.lead]

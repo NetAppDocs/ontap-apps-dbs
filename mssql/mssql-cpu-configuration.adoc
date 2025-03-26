@@ -1,20 +1,23 @@
 ---
 sidebar: sidebar
 permalink: mssql/mssql-cpu-configuration.html
-keywords: MSSQL,SQL Server, CPU, ONTAP
+keywords: MSSQL, SQL Server, CPU, ONTAP
 summary: Microsoft SQL Server CPU configuration
 searchtitle: Microsoft SQL Server CPU configuration
 ---
 = CPU configuration
+:hardbreaks:
+:icons: font
+:linkattrs:
 :imagesdir: ../media/
 
 [.lead]
 SQL Server performance has multiple dependencies on the CPU and core configuration. 
 
-== Hyperthreading
-Hyperthreading is refers to either simultaneous multithreading (SMT) implementation, which improves parallelization of computations performed on x86 processors. SMT is available on both Intel and AMD processors. 
+== Hyper-threading
+Hyper-threading is refers to either simultaneous multithreading (SMT) implementation, which improves parallelization of computations performed on x86 processors. SMT is available on both Intel and AMD processors. 
 
-Hyperthreading results in logical CPUs that appear as physical CPUs to the operating system. SQL Server then sees the those additional CPUs and uses them as if there are more cores than physically present. This can substantially improve performance by increasing parallelization.
+Hyper-threading results in logical CPUs that appear as physical CPUs to the operating system. SQL Server then sees the those additional CPUs and uses them as if there are more cores than physically present. This can substantially improve performance by increasing parallelization.
 
 The caveat here is that each SQL Server version has its own limitations on the compute power it can use. For more information, see Compute Capacity Limits by Edition of SQL Server.
 
@@ -43,7 +46,7 @@ The affinity I/O mask option binds SQL Server disk I/O to a subset of CPUs. In S
 == Max Degree of Parallelism (MAXDOP)
 By default, SQL Server uses all available CPUs during query execution if the per-processor core license chosen.
 
-Although this is helpful for large queries, it can cause performance problems and limit concurrency. A better approach is to limit parallelism to the number of physical cores in a single CPU socket. For example, on a server with two physical CPU sockets with 12 cores per socket, regardless of hyperthreading, `MAXDOP` should be set to 12. `MAXDOP` cannot restrict or dictate which CPU is to be used. Instead, it restricts the number of CPUs that can be used by a single batch query.
+Although this is helpful for large queries, it can cause performance problems and limit concurrency. A better approach is to limit parallelism to the number of physical cores in a single CPU socket. For example, on a server with two physical CPU sockets with 12 cores per socket, regardless of hyper-threading, `MAXDOP` should be set to 12. `MAXDOP` cannot restrict or dictate which CPU is to be used. Instead, it restricts the number of CPUs that can be used by a single batch query.
 
 [TIP]
 *NetApp recommends* for DSS such as data warehouses, start with `MAXDOP` at 50 and explore tuning up or down if required. Make sure you measure the critical queries in your application when making changes.

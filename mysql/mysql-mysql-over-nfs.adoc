@@ -6,7 +6,9 @@ summary: MySQL with NFS
 searchtitle: MySQL with NFS
 ---
 = NFS
+:hardbreaks:
 :icons: font
+:linkattrs:
 :imagesdir: ../media/
 
 [.lead]

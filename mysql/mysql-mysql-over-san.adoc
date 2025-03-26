@@ -6,9 +6,10 @@ summary: MySQL with SAN
 searchtitle: MySQL with SAN
 ---
 = SAN
+:hardbreaks:
 :icons: font
+:linkattrs:
 :imagesdir: ../media/
-
 [.lead]
 There are two options to configure MySQL with SAN using the usual two-volume model. 
 

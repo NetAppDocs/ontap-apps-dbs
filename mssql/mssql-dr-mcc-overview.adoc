@@ -6,6 +6,9 @@ summary: Microsoft SQL Server and NetApp MetroCluster
 searchtitle: Microsoft SQL Server and NetApp MetroCluster
 ---
 = Architecture
+:hardbreaks:
+:icons: font
+:linkattrs:
 :imagesdir: ../media/
 
 [.lead]

@@ -6,6 +6,9 @@ summary: Microsoft SQL Server and SM-as nonuniform access
 searchtitle: Microsoft SQL Server and SM-as nonuniform access
 ---
 = Nonuniform access
+:hardbreaks:
+:icons: font
+:linkattrs:
 :imagesdir: ../media/
 
 [.lead]

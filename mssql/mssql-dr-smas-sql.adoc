@@ -3,9 +3,12 @@ sidebar: sidebar
 permalink: mssql/mssql-dr-smas-sql.html
 keywords: MSSQL,SQL Server, SnapMirror active sync, ONTAP, SMBC, SMas, SnapMirror Business Continuity
 summary: Microsoft SQL Server and SnapMirror active sync
-searchtitle: Microsoft SQL Server with SnapMirror active sync
+searchtitle: Microsoft SQL Server and SnapMirror active sync
 ---
 = Overview
+:hardbreaks:
+:icons: font
+:linkattrs:
 :imagesdir: ../media/
 
 [.lead]
@@ -17,11 +20,11 @@ The best practices for file layout and server configuration are the same as reco
 
 With a standalone setup, SQL Server could be running only at one site. Presumably link:mssql-dr-smas-uniform.html[uniform] access would be used. 
 
-image:smas-onehost.png[Single host with uniform access]
+image:../media/smas-onehost.png[Single host with uniform access]
 
 With uniform access, a storage failure at either site would not interrupt database operations. A complete site failure on the site that included the database server would, of course, result in an outage. 
 
-Some customers could configure an OS running at the remote site with a preconfigured SQL Server setup, updated with an equivalent build version as that of the production instance. Failover would require activating that standalone instance of SQL Server at the alternate site, discovering the LUNS, and and starting the database. The complete process can be automated with the Windows Powershell cmdlet as no operations are required from the storage side. 
+Some customers could configure an OS running at the remote site with a preconfigured SQL Server setup, updated with an equivalent build version as that of the production instance. Failover would require activating that standalone instance of SQL Server at the alternate site, discovering the LUNS, and and starting the database. The complete process can be automated with the Windows Powershell cmdlet as no operations are required from the storage side.
 
 link:mssql-dr-smas-nonuniform.html[Nonuniform] access could also be used, but the result would be a database outage if the storage system where the database server was located had failed because the database would have no available paths to storage. This still may be acceptable in some cases. SnapMirror active sync would still be providing RPO=0 data protection, and, in the event of site failure, the surviving copy would be active and ready to resume operations using the same procedure used with uniform access as described above.
 

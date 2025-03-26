@@ -3,10 +3,12 @@ sidebar: sidebar
 permalink: mysql/mysql-schedulers.html
 keywords: MySQL,MariaDB,schedulers
 summary: MySQL and IO schedulers
-searchtitle: I/O schedulers and MySQL
+searchtitle: MySQL and IO schedulers
 ---
 = I/O schedulers
+:hardbreaks:
 :icons: font
+:linkattrs:
 :imagesdir: ../media/
 
 [.lead]

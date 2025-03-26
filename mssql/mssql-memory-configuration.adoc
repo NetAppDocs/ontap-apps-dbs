@@ -6,6 +6,9 @@ summary: Microsoft SQL Server memory configuration
 searchtitle: Microsoft SQL Server memory configuration
 ---
 = Memory configuration
+:hardbreaks:
+:icons: font
+:linkattrs:
 :imagesdir: ../media/
 
 [.lead]

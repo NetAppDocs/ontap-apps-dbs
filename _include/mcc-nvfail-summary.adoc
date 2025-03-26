@@ -27,7 +27,7 @@ As a general safety measure, set the `dr-force-nvfail` flag on all volumes that 
 
 The result is like using the `-force-nvfail-all` flag for manual switchovers. However, the number of volumes affected can be limited to just those volumes that must be protected from applications or operating systems with stale caches.
 
-[Caution]
+[CAUTION]
 There are two critical requirements for an environment that does not use `dr-force-nvfail` on application volumes:
 
 * A forced switchover must occur no more than 30 seconds after primary site loss.

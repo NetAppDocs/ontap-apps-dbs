@@ -3,9 +3,12 @@ sidebar: sidebar
 permalink: mysql/mysql-innodb_doublewrite.html
 keywords: MySQL,MariaDB,innodb_doublewrite
 summary: MySQL and innodb_doublewrite
+searchtitle: MySQL and innodb_doublewrite
 ---
 = innodb_doublewrite
+:hardbreaks:
 :icons: font
+:linkattrs:
 :imagesdir: ../media/
 
 [.lead]

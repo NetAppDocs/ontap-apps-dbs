@@ -6,6 +6,9 @@ summary: Microsoft SQL Server and SM-as uniform access
 searchtitle: Microsoft SQL Server and SM-as uniform access
 ---
 = Uniform access
+:hardbreaks:
+:icons: font
+:linkattrs:
 :imagesdir: ../media/
 
 [.lead]

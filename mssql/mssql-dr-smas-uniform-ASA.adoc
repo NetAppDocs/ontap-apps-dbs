@@ -1,20 +1,27 @@
 ---
 sidebar: sidebar
-permalink: mssql/mssql-dr-smas-uniform.html
+permalink: mssql/mssql-dr-smas-uniform-ASA.html
 keywords: MSSQL,SQL Server, SnapMirror active sync, SMBC, overview
 summary: Microsoft SQL Server and SM-as uniform access
 searchtitle: Microsoft SQL Server and SM-as uniform access
 ---
 = Uniform access
-:hardbreaks:
-:icons: font
-:linkattrs:
 :imagesdir: ../media/
 
 [.lead]
 Uniform access networking means hosts are able to access paths on both sites (or failure domains within the same site). 
 
 An important feature of SM-as is the ability to configure the storage systems to know where the hosts are located. When you map the LUNs to a given host, you can indicate whether or not they are proximal to a given storage system.
+
+NetApp ASA systems offer active-active multipathing across all paths on a cluster. This also applies to SM-as configurations.
+
+image:smas-uniform-SQL-ASA.png[SnapMirror active sync ASA uniform networking]
+
+With uniform access, IO would be crossing the WAN. It is a full mesh networked cluster and this may or may not be desirable for all the use cases. 
+
+If the two sites were 100 meters apart with fiber connectivity there should be no detectable additional latency crossing the WAN, but if the sites were a long distance apart then read performance would suffer on both sites. ASA with nonuniform access network would be an option to gain the cost and feature benefits of ASA without incurring a cross-site latency access penalty or use host proximity feature  to allow site-local read/write access for both sites.
+
+ASA with SM-as in a low-latency configuration offers two interesting benefits. First, it essentially *doubles* the performance for any single host because IO can be serviced by twice as many controllers using twice as many paths. Second, in a single-site environment it offers extreme availability because an entire storage system could be lost without interrupting host access.
 
 == Proximity settings
 
@@ -28,15 +35,10 @@ For example, a host at site A might be configured to access a LUN that is protec
 
 Without proximity settings, that host will use both storage systems equally because both storage systems will advertise active/optimized paths. If the SAN latency and/or bandwidth between sites is limited, this may not be desireable, and you may wish to ensure that during normal operation each host preferentially uses paths to the local storage system. This is configured by adding the host WWN/iSCSI ID to the local cluster as a proximal host. This can be done at the CLI or SystemManager.
 
-== AFF
+The paths would appear as shown below when host proximity has been configured.
 
-With an AFF system, the paths would appear as shown below when host proximity has been configured.
+image:smas-uniform-SQL-ASA-Proximity.png[SnapMirror active sync ASA uniform networking with proximity]
 
-image:smas-uniform-aff.png[SnapMirror active sync AFF uniform networking]
 
-In normal operation, all IO is local IO. Reads and writes are serviced from the local storage array. Write IO will, of course, also need to be replicated by the local controller to the remote system before being acknowledged, but all read IO will be serviced locally and will not incur extra latency by traversing the SAN link between sites.
 
-The only time the nonoptimized paths will be used is when all active/optimized paths are lost. For example, if the entire array on site A lost power, the hosts at site A would still be able to access paths to the array on site B and therefore remain operational, although they would be experiencing higher latency. 
 
-[Note]
-There are redundant paths through the local cluster that are not shown on these diagrams for the sake of simplicity. ONTAP storage systems are HA themselves, so a controller failure should not result in site failure. It should merely result in a change in which local paths are used on the affected site.

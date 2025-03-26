@@ -21,6 +21,9 @@ Tamperproof snapshots can not be tiered using fabric pool.
 
 For more information on tamperproof snapshots, see the link:https://docs.netapp.com/us-en/ontap/snaplock/snapshot-lock-concept.html[ONTAP documentation.]
 
+[NOTE]
+In new ASA platform, replicate snapshots to remote cluster using _vault_ policy, then lock the destination to make snapshots tamperproof. 
+
 == SnapMirror replication
 
 Snapshots can also be replicated to a remote system. This includes tamperproof snapshots, where the retention period is applied and enforced on the remote system. The result is the same data protection benefits as local snapshots, but the data is located on a second storage array. This ensures that destruction of the original array does not compromise the backups. 

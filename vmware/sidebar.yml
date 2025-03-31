@@ -5,6 +5,8 @@ entries:
     entries:
       - title: Overview
         url: /vmware/vmware-vsphere-overview.html
+      - title: Why ONTAP for VMware
+        url: /vmware/vmware-vsphere-why.html        
       - title: Unified storage
         url: /vmware/vmware-vsphere-unified.html
       - title: Virtualization tools

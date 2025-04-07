@@ -16,6 +16,9 @@ VMware’s industry-leading vSphere hypervisor can be deployed as a stretched cl
 
 vMSC solutions are supported with both NetApp® MetroCluster™ and SnapMirror active sync (formerly known as SnapMirror Business Continuity, or SMBC) and provide advanced business continuity if one or more failure domains suffer a total outage. The resilience to different modes of failure depends on which configuration options you choose.
 
+[NOTE]
+This documentation replaces previously published technical reports _TR-4128: vSphere on NetApp MetroCluster_
+
 == Continuous Availability Solutions for vSphere Environments
 
 ONTAP architecture is a flexible and scalable storage platform that provides SAN (FCP, iSCSI, and NVMe-oF) and NAS (NFS v3 and v4.1) services for datastores. The NetApp AFF, ASA, and FAS storage systems use the ONTAP operating system to offer additional protocols for guest storage access like S3 and SMB/CIFS.

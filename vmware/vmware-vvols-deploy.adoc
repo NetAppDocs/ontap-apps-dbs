@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar
 permalink: vmware/vmware-vvols-deploy.html
-keywords: tr-4400, vvols, ontap, virtual volumes, deploy
+keywords: tr-4400, vvols, ontap, virtual volumes, deploy, ASA r2, ASA, AFF, FAS, vSphere, VMware
 summary: 
 ---
-= Deploying vVols Storage
+= Deploying vVols on AFF, ASA, ASA r2, and FAS Systems
 :nofooter:
 :icons: font
 :linkattrs:
@@ -13,7 +13,7 @@ summary:
 [.lead]
 Follow these best practices for creating vVols storage for your virtual machines.
 
-Provisioning vVols datastores involves several steps. NetApp's ASA r2 systems are designed for VMware workloads and provide a user experience different from traditional ONTAP systems. When using ASA r2 systems, ONTAP tools versions 10.3 or later require fewer steps to set up and include UI extensions and REST API support optimized for the updated storage architecture.
+Provisioning vVols datastores involves several steps. NetApp's ASA r2 systems are designed for VMware workloads and provide a user experience different from traditional ONTAP systems. When using ASA r2 systems, ONTAP tools versions 10.3 or later require fewer steps to set up and include UI extensions and REST API support optimized for the new storage architecture.
 
 == Preparing to create vVols Datastores with ONTAP tools
 

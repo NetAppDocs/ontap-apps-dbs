@@ -30,7 +30,6 @@ Microsoft recommends placing the data and log files on separate drives. For appl
 When you create a new database, Microsoft recommends specifying separate drives for the data and logs. To move files after the database is created, the database must be taken offline. For more Microsoft recommendations, see link:https://docs.microsoft.com/en-us/sql/relational-databases/policy-based-management/place-data-and-log-files-on-separate-drives?view=sql-server-ver15[Place Data and Log Files on Separate Drives^].
 
 === Storage unit considerations
-
 Storage unit in ASA refers to LUN for SCSI/FC hosts or an NVMe namespace for NVMe hosts. Based on supported protocol you will be prompted to create  LUN, NVMe namespace or both. Before you create a storage unit for database deployment, it is important to understand how the SQL Server I/O pattern and characteristics vary depending on the workload and on the backup and recovery requirements. See the following NetApp recommendations for storage unit:
 
 * Avoid sharing same storage unit between multiple SQL Server running on same host to avoid complicated management. In the case of running multiple SQL Server instances on the same host, unless you are close to the storage unit limit on a node, avoid sharing and instead have a separate storage unit per instance per host for ease of data management.
@@ -46,4 +45,3 @@ Storage unit in ASA refers to LUN for SCSI/FC hosts or an NVMe namespace for NVM
 * Do not place user databases or system databases on a storage unit that hosts mount points.
 * See the link:https://www.netapp.com/media/10680-tr4080.pdf[Microsoft Windows and native MPIO under ONTAP best practices for modern SAN] to apply multipathing support on Windows to iSCSI devices in the MPIO properties.
 * If you are using a Always On failover cluster instance, user databases must be placed on storage unit shared across Windows server failover cluster nodes and the physical disk cluster resources are assigned to the cluster group associated with the SQL Server instance.
-

@@ -24,7 +24,6 @@ If the two sites were 100 meters apart with fiber connectivity there should be n
 ASA with SM-as in a low-latency configuration offers two interesting benefits. First, it essentially *doubles* the performance for any single host because IO can be serviced by twice as many controllers using twice as many paths. Second, in a single-site environment it offers extreme availability because an entire storage system could be lost without interrupting host access.
 
 == Proximity settings
-
 Proximity refers to a per-cluster configuration that indicates a particular host WWN or iSCSI initiator ID belongs to a local host. It is a second, optional step for configuring LUN access.
 
 The first step is the usual igroup configuration. Each LUN must be mapped to an igroup that contains the WWN/iSCSi IDs of the hosts that need access to that LUN. This controls which host has _access_ to a LUN. 
@@ -38,7 +37,3 @@ Without proximity settings, that host will use both storage systems equally beca
 The paths would appear as shown below when host proximity has been configured.
 
 image:smas-uniform-SQL-ASA-Proximity.png[SnapMirror active sync ASA uniform networking with proximity]
-
-
-
-

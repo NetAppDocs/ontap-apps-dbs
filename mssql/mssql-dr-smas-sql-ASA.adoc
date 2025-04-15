@@ -12,7 +12,6 @@ searchtitle: Microsoft SQL Server with SnapMirror active sync
 SQL Server can be configured to work with SnapMirror active sync in several ways. The right answer depends on the available network connectivity, RPO requirements, and availability requirements.
 
 == Standalone instance of SQL Server
-
 The best practices for file layout and server configuration are the same as recommended in link:mssql-storage-considerations.html[SQL Server on ONTAP] documentation. 
 
 With a standalone setup, SQL Server could be running only at one site. Presumably link:mssql-dr-smas-uniform.html[uniform] access would be used. 

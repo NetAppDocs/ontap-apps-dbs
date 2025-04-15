@@ -1,0 +1,30 @@
+---
+sidebar: sidebar
+permalink: mssql/mssql-disaster-recovery-ASA.html
+keywords: MSSQL,SQL Server, disaster recovery, snapmirror
+summary: Microsoft SQL Server disaster recovery with ONTAP
+searchtitle: Microsoft SQL Server disaster recovery with ONTAP
+---
+= Disaster recovery
+:imagesdir: ../media/
+
+[.lead]
+Enterprise databases and application infrastructures often require replication to protect from natural disaster or unexpected business disruption with minimal downtime. 
+
+The SQL Server Always-On availability group replication feature can be an excellent option, and NetApp offers options to integrate data protection with Always-On. In some cases, however, you might want to consider ONTAP replication technology using following options. 
+
+== SnapMirror 
+
+SnapMirror technology offers a fast and flexible enterprise solution for replicating data over LANs and WANs. SnapMirror technology transfers only changed  data blocks to the destination after the initial mirror is created, significantly reducing network bandwidth requirements. It can be configured in either synchronous or asynchronous mode. SnapMirror synchronous replication in NetApp ASA is configured using SnapMirror active sync.
+
+== SnapMirror active sync
+
+For many customers, business continuity requires more than just possessing a remote copy of data, it requires the ability to rapidly make use of that data which is possible in NetApp ONTAP using SnapMirror active sync
+
+With SnapMirror active sync, you essentially have two different ONTAP systems maintaining independent copies of your LUN data, but cooperating to present a single instance of that LUN. From a host point of view, it's a single LUN entity. SnapMirror active sync is supported for iSCSI/FC based LUN.
+
+SnapMirror active sync can provide RPO=0 replication and it is easy to implement between two independent clusters.Once the two copies of data are in sync, the two clusters only need to mirror writes. When a write occurs on one cluster, it is replicated to the other cluster. The write is only acknowledged to the host when the write has completed on both sites. Other than this protocol splitting behavior, the two clusters are otherwise normal ONTAP clusters.
+
+One key use case for SM-as is granular replication. Sometimes you don’t want to replicate all data as a single unit, or you need to be able to selectively fail over certain workloads.
+
+Another key use case for SM-as is for active-active operations, where you want fully usable copies of data to be available on two different clusters located in two different locations with identical performance characteristics and, if desired, no requirement to stretch the SAN across sites. You can have your applications already running on both sites provided application is supported, which reduces the overall RTO during failover operations.

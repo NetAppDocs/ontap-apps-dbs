@@ -19,7 +19,7 @@ Hyper-threading is refers to either simultaneous multithreading (SMT) implementa
 
 Hyper-threading results in logical CPUs that appear as physical CPUs to the operating system. SQL Server then sees the those additional CPUs and uses them as if there are more cores than physically present. This can substantially improve performance by increasing parallelization.
 
-The caveat here is that each SQL Server version has its own limitations on the compute power it can use. For more information, see Compute Capacity Limits by Edition of SQL Server.
+The caveat here is that each SQL Server version has its own limitations on the compute power it can use. For more information, see link:https://learn.microsoft.com/en-us/sql/sql-server/compute-capacity-limits-by-edition-of-sql-server?view=sql-server-ver16&redirectedfrom=MSDN[Compute Capacity Limits by Edition of SQL Server].
 
 == Cores and licensing
 

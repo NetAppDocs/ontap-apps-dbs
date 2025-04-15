@@ -1,0 +1,47 @@
+---
+sidebar: sidebar
+permalink: mssql/mssql-storage-considerations-ASA.html
+keywords: MSSQL,SQL Server, volumes, LUN, SnapCenter
+summary: Microsoft SQL Server  storage consideration on ASA systems
+searchtitle: Microsoft SQL Server storage considerations
+---
+= Overview
+:imagesdir: ../media/
+
+[.lead]
+The NetApp ASA r2 is simplified and powerful solution for SAN-only customers running mission-critical workloads. The combination of ASA r2 platform running ONTAP storage solutions and Microsoft SQL Server enables enterprise-level database storage designs that can meet today's most demanding application requirements. 
+
+The following ASA platforms are classified as ASA r2 systems that support all SAN protocols (iSCSI, FC, NVMe/FC, NVMe/TCP). The iSCSI, FC, NVMe/FC and NVMe/TCP protocols support symmetric active-active architecture for multipathing so that all paths between the hosts and storage are active/optimized:
+
+* ASA A1K
+* ASA A90
+* ASA A70
+* ASA A50
+* ASA A30
+* ASA A20
+
+For more information, see link:https://docs.netapp.com/us-en/asa-r2/index.html[NetApp ASA] 
+
+Optimizing a SQL Server on ONTAP solution requires understanding the SQL Server I/O pattern and characteristics. A well-designed storage layout for a SQL Server database must support the performance requirements of SQL Server while also delivering maximum managability of the infrastructure as a whole. A good storage layout also allows the initial deployment to be successful and the environment to grow smoothly over time as the business grows.
+
+== Data storage design
+Microsoft recommends placing the data and log files on separate drives. For applications that simultaneously update and request data, the log file is write intensive, and the data file (depending on your application) is read/write intensive. For data retrieval, the log file is not needed. Therefore, requests for data can be satisfied from the data file placed on its own drive.
+
+When you create a new database, Microsoft recommends specifying separate drives for the data and logs. To move files after the database is created, the database must be taken offline. For more Microsoft recommendations, see link:https://docs.microsoft.com/en-us/sql/relational-databases/policy-based-management/place-data-and-log-files-on-separate-drives?view=sql-server-ver15[Place Data and Log Files on Separate Drives^].
+
+=== Storage unit considerations
+Storage unit in ASA refers to LUN for SCSI/FC hosts or an NVMe namespace for NVMe hosts. Based on supported protocol you will be prompted to create  LUN, NVMe namespace or both. Before you create a storage unit for database deployment, it is important to understand how the SQL Server I/O pattern and characteristics vary depending on the workload and on the backup and recovery requirements. See the following NetApp recommendations for storage unit:
+
+* Avoid sharing same storage unit between multiple SQL Server running on same host to avoid complicated management. In the case of running multiple SQL Server instances on the same host, unless you are close to the storage unit limit on a node, avoid sharing and instead have a separate storage unit per instance per host for ease of data management.
+* Use NTFS mount points instead of drive letters to surpass the 26-drive-letter limitation in Windows. 
+* Disable snapshot schedules and retention policies. Instead, use SnapCenter to coordinate Snapshot copies of the SQL Server data storage unit.
+* Place the SQL Server system databases on a dedicated storage unit.
+* Tempdb is a system database used by SQL Server as a temporary workspace, especially for I/O intensive DBCC CHECKDB operations. Therefore, place this database on a dedicated storage unit. In large environments in which storage unit count is a challenge, you can consolidate tempdb with system databases in same storage unit after careful planning. Data protection for tempdb is not a high priority because this database is recreated every time SQL Server is restarted.
+* Place user data files (`.mdf`) on separate storage unit because they are random read/write workloads. It is common to create transaction log backups more frequently than database backups. For this reason, place transaction log files (`.ldf`) on a separate storage unit or VMDK from the data files so that independent backup schedules can be created for each. This separation also isolates the sequential write I/O of the log files from the random read/write I/O of data files and significantly improves SQL Server performance.
+* Make sure that the user database files and the log directory to store log backup are on separate storage unit to prevent the retention policy from overwriting snapshots when these are used with SnapMirror feature with vault policy.
+* Do not mix database and non-database files, such as full-text search-related files, on the same storage unit.
+* Placing database secondary files (as part of a filegroup) on separate storage unit improves the performance of the SQL Server database. This separation is valid only if the database's `.mdf` file does not share its storage unit with any other `.mdf` files.
+* While formatting disk using disk manager in Windows server, make sure that the allocation unit size is set to 64K for partition.
+* Do not place user databases or system databases on a storage unit that hosts mount points.
+* See the link:https://www.netapp.com/media/10680-tr4080.pdf[Microsoft Windows and native MPIO under ONTAP best practices for modern SAN] to apply multipathing support on Windows to iSCSI devices in the MPIO properties.
+* If you are using a Always On failover cluster instance, user databases must be placed on storage unit shared across Windows server failover cluster nodes and the physical disk cluster resources are assigned to the cluster group associated with the SQL Server instance.

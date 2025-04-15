@@ -1,0 +1,32 @@
+---
+sidebar: sidebar
+permalink: mssql/mssql-dr-smas-overview-ASA.html
+keywords: MSSQL,SQL Server, SnapMirror active sync, SMBC, overview
+summary: Microsoft SQL Server and SnapMirror active sync
+searchtitle: SQL Server and SnapMirror active sync
+---
+= Overview
+:imagesdir: ../media/
+
+[.lead]
+SnapMirror active sync enables individual SQL Server databases and applications to continue operations during storage and network disruptions, with transparent storage failover without any manual intervention.
+
+SnapMirror active sync supports symmetric active/active architecture that provides synchronous bi-directional replication for business continuity and disaster recovery. It helps you protect your data access for critical SAN workloads with simultaneous read and write access to data across multiple failure domains, ensuring uninterrupted operations and minimizing downtime during disasters or system failures. 
+
+SQL Server hosts access storage using either Fiber Channel(FC) or iSCSI LUNs. Replication between each cluster hosting a copy of the replicated data. Since this feature is storage level replication, SQL Server instances running on standalone host or failover cluster instances can perform read/write operations either cluster. For planning and configuration steps, refer link:https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/[ONTAP documentation on SnapMirror active sync] .
+
+== Architecture of SnapMirror active with symmetric active/active
+
+image:mssql-smas-architecture.png[Error: Missing Graphic Image]
+
+**Synchronous replication**
+
+In normal operation, each copy is an RPO=0 synchronous replica at all times, with one exception. If data cannot be replicated, ONTAP will release the requirement to replicate data and resume serving IO on one site while the LUNs on the other site are taken offline.
+
+**Storage hardware**
+
+Unlike other storage disaster recovery solutions, SnapMirror active sync offers asymmetric platform flexibility. The hardware at each site does not need to be identical. This capability allows you to right-size the hardware used to support SnapMirror active sync. The remote storage system can be identical to the primary site if it needs to support a full production workload, but if a disaster results in reduced I/O, than a smaller system at the remote site might be more cost-effective. 
+
+**ONTAP mediator**
+
+The ONTAP Mediator is a software application that is downloaded from NetApp support, and is typically deployed on a small virtual machine. The ONTAP Mediator is not a tiebreaker. It is an alternate communication channel for the two clusters that participate in SnapMirror active sync replication. Automated operations are driven by ONTAP based on the responses received from the partner via direct connections and via the mediator. 

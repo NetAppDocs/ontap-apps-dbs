@@ -4,7 +4,7 @@ permalink: vmware/vmware-otv-hardening-timeout.html
 keywords: VMware, Data protection, security, OTV, Hardening, ONTAP Tools
 summary: Security Hardening Guide for ONTAP tools for VMware vSphere.
 ---
-= Inactivity Timeout 
+= Inactivity Timeout for ONTAP tools 9.13
 :hardbreaks:
 :nofooter:
 :icons: font

@@ -4,7 +4,7 @@ permalink: vmware/vmware-otv-hardening-integrity.html
 keywords: VMware, Data protection, security, OTV, Hardening, ONTAP Tools
 summary: Security Hardening Guide for ONTAP tools for VMware vSphere, integrity verification.
 ---
-= Verifying the integrity of the ONTAP tools for VMware vSphere installation packages
+= Verifying the integrity of the ONTAP tools for VMware vSphere 9.13 installation packages
 :hardbreaks:
 :nofooter:
 :icons: font

@@ -22,6 +22,7 @@ The following best practices are recommended when using ONTAP NFS with vSphere:
 ** Use the plug-in mount function to apply existing datastores to new servers.
 ** When not using ONTAP tools for VMware vSphere, use a single export policy for all servers or for each cluster of servers where additional access control is needed.
 * Use a single logical interface (LIF) for each SVM on each node in the ONTAP cluster. Past recommendations of a LIF per datastore are no longer necessary. While direct access (LIF and datastore on the same node) is best, don't worry about indirect access because the performance effect is generally minimal (microseconds).
+* If you use fpolicy, be sure to exclude .lck files as these are used by vSphere for locking whenever a VM is powered on. 
 * All versions of VMware vSphere that are currently supported can use both NFS v3 and v4.1. Official support for nconnect was added to vSphere 8.0 update 2 for NFS v3, and update 3 for NFS v4.1. For NFS v4.1, vSphere continues to support session trunking, Kerberos authentication, and Kerberos authentication with integrity. It's important to note that session trunking requires ONTAP 9.14.1 or a later version. You can learn more about the nconnect feature and how it improves performance at link:https://docs.netapp.com/us-en/netapp-solutions/virtualization/vmware-vsphere8-nfsv3-nconnect.html[NFSv3 nconnect feature with NetApp and VMware].
 
 [TIP]

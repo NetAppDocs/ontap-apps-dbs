@@ -32,7 +32,7 @@ NetApp ONTAP leads the storage industry in vVols scale, supporting hundreds of t
 
 Previously we mentioned that VM administrators can consume capacity as storage pools. This is done through the use of storage containers that are represented in vSphere as logical datastores.
 
-Storage containers are created by storage administrators and are used to group storage resources that can be consumed by VM administrators. Storage containers can be created differently depending on what type of ONTAP system you are using. With traditional ONTAP 9 clusters, containers are assigned one or more backing FlexVols that together form the storage pool. With ASA r2 systems, the entire cluster is the storage pool.
+Storage containers are created by storage administrators and are used to group storage resources that can be consumed by VM administrators. Storage containers can be created differently depending on what type of ONTAP system you are using. With traditional ONTAP 9 clusters, containers are assigned one or more backing FlexVol volumes that together form the storage pool. With ASA r2 systems, the entire cluster is the storage pool.
 
 NOTE: For more information on VMware vSphere Virtual Volumes, SPBM, and ONTAP, see link:vmware-vvols-overview.html[TR-4400: VMware vSphere Virtual Volumes with ONTAP^].
 

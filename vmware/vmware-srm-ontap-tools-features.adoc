@@ -15,7 +15,7 @@ summary: Features, limits, and vVols support with ONTAP tools.
 With the transition from the legacy virtual appliance, ONTAP tools brings a wealth of new features, higher limits, and new vVols support.
 
 == Latest versions of vSphere and Site Recovery Manager
-NetApp has shared a deep partnership with VMware for nearly two decades and strives to provide support for the latest releases as soon as possible. Always check the NetApp https://mysupport.netapp.com/matrix/imt.jsp?components=84943;&solution=1777&isHWU&src=IMT[Interoperability Matrix Tool^] for the latest qualified combinations of software.
+NetApp has shared a deep partnership with VMware for nearly two decades and strives to provide support for the latest releases as soon as possible. Always check the NetApp https://mysupport.netapp.com/matrix/imt.jsp?components=84943;&solution=1777&isHWU&src=IMT[Interoperability Matrix Tool (IMT)^] for the latest qualified combinations of software.
 
 //== vVols support (and why Storage Policy Based Management (SPBM) matters, even with SRM)
 //Starting with the 8.3 release, SRM now supports storage policy based management (SPBM) of replication leveraging vVols and array-based replication for datastores using iSCSI, FCP, and NFS v3. To accomplish this, the SRM server was updated to include a new SRM vVols provider service, which communicates to the vCenter server's SMS service for VASA related tasks.
@@ -38,7 +38,7 @@ NetApp has shared a deep partnership with VMware for nearly two decades and stri
 IPv6 is now supported with the following limitations:
 
 * Not supported with SRM 8.2 (8.1, 8.3, and 8. 4 and later are supported)
-* Check the https://mysupport.netapp.com/matrix/imt.jsp?components=84943;&solution=1777&isHWU&src=IMT[Interoperability Matrix Tool^] for the latest qualified versions.
+* Check the https://mysupport.netapp.com/matrix/imt.jsp?components=84943;&solution=1777&isHWU&src=IMT[Interoperability Matrix Tool (IMT)^] for the latest qualified versions.
 
 //== Improved performance
 //Operational performance is a key requirement for VLSR task execution. To meet the requirements of modern RTOs and RPOs, the SRA with ONTAP tools has added three new improvements.

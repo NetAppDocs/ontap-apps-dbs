@@ -28,10 +28,10 @@ All ONTAP clusters, except single-node clusters (typically software-defined vers
 
 Takeover is an automated process where one node takes over the other's storage to maintain data services. Giveback is the reverse process that restores normal operation. Takeover can be planned, such as when performing hardware maintenance or ONTAP upgrades, or unplanned, resulting from a node panic or hardware failure.
 
-During a takeover, Network Attached Storage Logical Interfaces (NAS LIFs) in MetroCluster configurations automatically failover. However, Storage Area Network LIFs (SAN LIFs) do not fail over; they will continue to use the direct path to the Logical Unit Numbers (LUNs).
+During a takeover, NAS LIFs in MetroCluster configurations automatically failover. However, SAN LIFs do not fail over; they will continue to use the direct path to the Logical Unit Numbers (LUNs).
 
-For more information on HA takeover and giveback, please refer to the https://docs.netapp.com/us-en/ontap/high-availability/index.html[HA pair management overview]. It's worth noting that this functionality is not specific to MetroCluster or SnapMirror active sync.
+For more information on HA takeover and giveback, refer to the https://docs.netapp.com/us-en/ontap/high-availability/index.html[HA pair management overview]. It's worth noting that this functionality is not specific to MetroCluster or SnapMirror active sync.
 
 Site switchover with MetroCluster occurs when one site is offline or as a planned activity for site-wide maintenance. The remaining site assumes ownership of the storage resources (disks and aggregates) of the offline cluster, and the SVMs on the failed site are brought online and restarted on the disaster site, preserving their full identity for client and host access.
 
-With SnapMirror active sync, since both copies are actively used simultaneously, your existing hosts will continue to operate. The NetApp Mediator is required to ensure site failover occurs correctly.
+With SnapMirror active sync, since both copies are actively used simultaneously, your existing hosts will continue to operate. The ONTAP Mediator is required to ensure site failover occurs correctly.

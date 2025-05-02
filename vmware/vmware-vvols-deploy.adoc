@@ -41,7 +41,7 @@ You can skip the first two steps of the deployment process if you are already us
 . Configure ONTAP tools 10.3 for your environment.
 * https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/configure/add-vcenter.html[Add vCenter Server instances] in the ONTAP tools manager UI.
 * ONTAP tools 10.3 supports secure multitenancy. If you do not need secure multitenancy, you may simply https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/configure/add-storage-backend.html[add your ONTAP clusters] by going to the ONTAP tools menu in vCenter and clicking on _Storage backends_ and clicking the _add_ button.
-* In a secure multitenant environment where you wish to delegate specific Storage Virtual Machines (SVMs) to specific vCenters, you must do the following.
+* In a secure multitenant environment where you want to delegate specific Storage Virtual Machines (SVMs) to specific vCenters, you must do the following.
 ** Log into the ONTAP tools manager UI
 ** https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/configure/add-storage-backend.html[Onboard the storage cluster]
 ** https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/configure/associate-storage-backend.html[Associate a storage backend with a vCenter Server instance]
@@ -113,7 +113,7 @@ To automate storage provisioning with policy based management, you need to creat
 ONTAP tools 10.0 and later no longer use Storage Capability Profiles like previous versions. Instead, the storage capabilities are defined directly in the VM storage policy itself.
 
 === Creating VM Storage Policies
-VM Storage Policies are used in vSphere to manage optional features such as Storage I/O Control or vSphere Encryption. They are also used with vVols to apply specific storage capabilities to the VM. Use the “NetApp.clustered.Data.ONTAP.VP.vvol” storage type. See link:vmware-vvols-ontap.html#Best Practices[example network configuration using vVols over NFS v3] for an example of this with the ONTAP tools VASA Provider. Rules for “NetApp.clustered.Data.ONTAP.VP.VASA10” storage are to be used with non-vVols based datastores.
+VM Storage Policies are used in vSphere to manage optional features such as Storage I/O Control or vSphere Encryption. They are also used with vVols to apply specific storage capabilities to the VM. Use the "NetApp.clustered.Data.ONTAP.VP.vvol" storage type. See link:vmware-vvols-ontap.html#Best Practices[example network configuration using vVols over NFS v3] for an example of this with the ONTAP tools VASA Provider. Rules for "NetApp.clustered.Data.ONTAP.VP.VASA10" storage are to be used with non-vVols based datastores.
 
 Once the storage policy has been created, it can be used when provisioning new VMs.
 

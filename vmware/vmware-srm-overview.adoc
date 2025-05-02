@@ -40,7 +40,7 @@ VLSR leverages the advanced data management technologies of ONTAP systems by int
 
 After you have installed and configured the SRA adapters on the VLSR server for protecting non-vVols datastores you can begin the task of configuring your vSphere environment for disaster recovery.
 
-The SRA delivers a command-and-control interface for the VLSR server to manage the ONTAP FlexVols that contain your VMware Virtual Machines (VMs), as well as the SnapMirror replication protecting them.
+The SRA delivers a command-and-control interface for the VLSR server to manage the ONTAP FlexVol volumes that contain your VMware Virtual Machines (VMs), as well as the SnapMirror replication protecting them.
 
 //Starting with SRM 8.3, a new SRM vVols Provider control path was introduced into the SRM server, allowing it to communicate with the vCenter server and, through it, to the VASA Provider without needing an SRA. This enabled the SRM server to leverage much deeper control over the ONTAP cluster than was possible before, because VASA provides a complete API for closely coupled integration.
 

@@ -19,4 +19,4 @@ This documentation replaces previously published technical reports _TR-4597: VMw
 
 Best practices supplement other documents such as guides and compatibility lists. They are developed based on lab testing and extensive field experience by NetApp engineers and customers. They might not be the only supported practices that work in every environment, but they are generally the simplest solutions that meet the needs of most customers.
 
-This document is focused on capabilities in recent releases of ONTAP (9.x) running on vSphere 7.0 or later. See the https://imt.netapp.com/matrix/#search[NetApp Interoperability Matrix Tool^] and https://www.vmware.com/resources/compatibility/search.php?deviceCategory=san[VMware Compatibility Guide^] for details related to specific releases.
+This document is focused on capabilities in recent releases of ONTAP (9.x) running on vSphere 7.0 or later. See the https://imt.netapp.com/matrix/#search[Interoperability Matrix Tool (IMT)^] and https://www.vmware.com/resources/compatibility/search.php?deviceCategory=san[VMware Compatibility Guide^] for details related to specific releases.

@@ -16,7 +16,7 @@ This document outlines the design and implementation guidlines for vMSC with ONT
 
 == NetApp Storage Configuration
 
-Setup instructions for NetApp MetroCluster (referred to as an MCC configuration) are available at https://docs.netapp.com/us-en/ontap-metrocluster/[MetroCluster Documentation]. Instructions for SnapMirror active sync (SMas) are also available at https://docs.netapp.com/us-en/ontap/smbc/index.html[SnapMirror Business Continuity overview].
+Setup instructions for NetApp MetroCluster are available at https://docs.netapp.com/us-en/ontap-metrocluster/[MetroCluster Documentation]. Instructions for SnapMirror active sync (SMas) are also available at https://docs.netapp.com/us-en/ontap/smbc/index.html[SnapMirror Business Continuity overview].
 
 Once you have configured MetroCluster, administering it is like managing a traditional ONTAP environment. You can set up Storage Virtual Machines (SVMs) using various tools like the Command Line Interface (CLI), System Manager, or Ansible. Once the SVMs are configured, create Logical Interfaces (LIFs), volumes, and Logical Unit Numbers (LUNs) on the cluster that will be used for normal operations. These objects will automatically be replicated to the other cluster using the cluster peering network.
 
@@ -67,7 +67,7 @@ image::../media/vmsc_3_4.png[Admission Control,width=624,height=479]
 image::../media/vmsc_3_5.png[width=624,height=336]
 [start=11]
 . Enable VM Component Protection, refer to https://docs.vmware.com/en/VMware-vSphere/8.0/vsphere-availability/GUID-F01F7EB8-FF9D-45E2-A093-5F56A788D027.html[docs.vmware.com].
-. The following additional vSphere HA settings are recommended for vMSC with MCC:
+. The following additional vSphere HA settings are recommended for vMSC with MetroCluster:
 
 [width="100%",cols="50%,50%",options="header",]
 |===
@@ -105,7 +105,7 @@ Refer to https://www.vmware.com/docs/vmw-vmware-vsphere-metro-storage-cluster-re
 
 image::../media/vmsc_3_7.png[A screenshot of a computer Description automatically generated,width=624,height=545]
 
-Adding an advanced setting called das.heartbeatDsPerHost can increase the number of heartbeat datastores. Use four heartbeat datastores (HB DSs)—two per site. Use the “Select from List but Compliment” option. This is needed because if one site fails, you still need two HB DSs. However, those don’t have to be protected with MCC or SnapMirror active sync.
+Adding an advanced setting called das.heartbeatDsPerHost can increase the number of heartbeat datastores. Use four heartbeat datastores (HB DSs)—two per site. Use the "Select from List but Compliment" option. This is needed because if one site fails, you still need two HB DSs. However, those don’t have to be protected with MetroCluster or SnapMirror active sync.
 
 Refer to https://www.vmware.com/docs/vmw-vmware-vsphere-metro-storage-cluster-recommended-practices[VMware vSphere Metro Storage Cluster Recommended Practices] for more information__.__
 
@@ -117,7 +117,7 @@ In this section, we create DRS groups for VMs and hosts for each site\cluster in
 [TIP]
 ====
 * NetApp highly recommends the specification *Should Run on Hosts in Group* rather than the specification *Must Run on Hosts in Group*. In the event of a site A host failure, the VMs of site A need to be restarted on hosts at site B through vSphere HA, but the latter specification does not allow HA to restart VMs on site B because it’s a hard rule. The former specification is a soft rule and will be violated in the event of HA, thus enabling availability rather than performance.
-* You can create an event-based alarm that is triggered when a virtual machine violates a VM-Host affinity rule. In the vSphere Client, add a new alarm for the virtual machine and select “VM is violating VM-Host Affinity Rule” as the event trigger. For more information about creating and editing alarms, refer to link:https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-monitoring-and-performance-8-0.html[vSphere Monitoring and Performance^] documentation.
+* You can create an event-based alarm that is triggered when a virtual machine violates a VM-Host affinity rule. In the vSphere Client, add a new alarm for the virtual machine and select "VM is violating VM-Host Affinity Rule" as the event trigger. For more information about creating and editing alarms, refer to link:https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-monitoring-and-performance-8-0.html[vSphere Monitoring and Performance^] documentation.
 ====
 
 === Create DRS Host Groups

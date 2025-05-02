@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: vmware/vmware-SRM-replication_topologies.html
+permalink: vmware/vmware-srm-replication_topologies.html
 keywords: vmware, site, recovery manager, SRM, VLSR, replication, technologies, snapmirror layouts, array manager, snapvault, qtress, fc, iscsi, supported
 summary: Replication topologies using ONTAP with SnapMirror and VMware VLSR and SRM.
 ---

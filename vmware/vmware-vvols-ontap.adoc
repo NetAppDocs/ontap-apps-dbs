@@ -58,7 +58,7 @@ https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/index.html[ONTAP too
 
 ==== Use ONTAP tools 
 
-* https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/configure/create-vvols-datastore.html[Provision datastores^]
+* https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/configure/create-datastore.html[Provision datastores^]
 * https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/configure/configure-user-role-and-privileges.html[Configure role-based access control^]
 * https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/manage/edit-appliance-settings.html[Configure high availability^]
 * https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/manage/edit-esxi-host-settings.html[Modify ESXi host settings^]

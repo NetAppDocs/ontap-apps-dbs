@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: mssql/mssql-availabilitygroup-snapcenter.html
+permalink: mssql/mssql-ag-snapcenter.html
 keywords: MSSQL,SQL Server, data protection, snapmirror, availability group
 summary: Microsoft SQL Server availability group with SnapCenter
 searchtitle: Microsoft SQL Server availability group with SnapCenter

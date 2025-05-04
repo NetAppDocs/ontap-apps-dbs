@@ -27,7 +27,7 @@ entries:
       url: /mssql/mssql-data-protection.html
       entries:
       - title: SQL Server availability group with SnapCenter
-        url: /mssql/mssql-availabilitygroup-snapcenter.html
+        url: /mssql/mssql-ag-snapcenter.html
     - title: Disaster recovery
       entries:
       - title: Overview

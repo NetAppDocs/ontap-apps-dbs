@@ -5,7 +5,7 @@ keywords: MSSQL,SQL Server, data protection, snapmirror, availability group
 summary: Microsoft SQL Server availability group with SnapCenter
 searchtitle: Microsoft SQL Server availability group with SnapCenter
 ---
-= Disaster recovery
+= SQL Server availability group with SnapCenter
 :imagesdir: ../media/
 
 [.lead]

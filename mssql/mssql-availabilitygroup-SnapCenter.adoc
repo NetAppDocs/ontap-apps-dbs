@@ -21,7 +21,7 @@ Availability group level backup: While configuring the policy, SnapCenter  have 
 
 The availability group setting in SnapCenter policy will apply only if AG level backup is used to protect availability group databases and do not apply for database or instance level backup.
 
-[Tip] 
+[TIP] 
 NetApp recommends to use availability level backup to backup across all the replica running on NetApp ONTAP storage
 
 [NOTE]

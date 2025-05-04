@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: mssql/mssql-availabilitygroup-SnapCenter.html
+permalink: mssql/mssql-availabilitygroup-snapcenter.html
 keywords: MSSQL,SQL Server, data protection, snapmirror, availability group
 summary: Microsoft SQL Server availability group with SnapCenter
 searchtitle: Microsoft SQL Server availability group with SnapCenter
@@ -36,6 +36,5 @@ Restoring database in availability group setup with SnapCenter
 * While recovering subset of data, clone capability from SnapCenter can be used to create clone copy of database.  Database copy is created within few minutes and then import/export the data to primary replica.
 * SnapCenter provide reseed option to automatically recover the database on secondary replica. Which will automatically restore and join the database backup to availability group.
 * For restoring the primary database in availability group, break the availability group, perform the complete the full & log restore. Use SQL Server management studio or T-SQL to add the database back to availability group.
-
 
 For best practice to setup database storage layout to meet the RTO and RPO requirement, please see link:https://www.netapp.com/pdf.html?item=/media/12400-tr4714.pdf[TR-4714 Best practices for Microsoft SQL Server using NetApp SnapCenter].

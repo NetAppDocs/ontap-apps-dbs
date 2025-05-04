@@ -15,9 +15,9 @@ SnapCenter plugin for Microsoft SQL Server must be installed on all nodes of Win
 
 SnapCenter discovers all the databases, instances and availability groups in Windows hosts and enumerated on the resource page. Databases in availability group can be protected in multiple ways. 
 
-Database level backup: Select the availability database for the database resource page, add the policy consisting of full/log backup, schedule the backup. SnapCenter takes the backup irrespective of the database role whether it is a primary replica or a secondary replica.
-Instance level backup: Select the instance and all the databases running on the instance are protected based on the selected policy. All the databases, including the availability database running as primary or secondary replica are backed up using SnapCenter.
-Availability group level backup: While configuring the policy, SnapCenter  have a advance option for availability group level backup. The availability group setting in policy allows users to select the replica preference for backup. You could select primary, secondary replica or all of them. The default option is based on backup replica set in SQL Server availability group configuration.
+* Database level backup: Select the availability database for the database resource page, add the policy consisting of full/log backup, schedule the backup. SnapCenter takes the backup irrespective of the database role whether it is a primary replica or a secondary replica.
+* Instance level backup: Select the instance and all the databases running on the instance are protected based on the selected policy. All the databases, including the availability database running as primary or secondary replica are backed up using SnapCenter.
+* Availability group level backup: While configuring the policy, SnapCenter  have a advance option for availability group level backup. The availability group setting in policy allows users to select the replica preference for backup. You could select primary, secondary replica or all of them. The default option is based on backup replica set in SQL Server availability group configuration.
 
 The availability group setting in SnapCenter policy will apply only if AG level backup is used to protect availability group databases and do not apply for database or instance level backup.
 

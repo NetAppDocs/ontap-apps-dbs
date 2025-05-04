@@ -33,6 +33,7 @@ If availability group is setup on standalone SQL Server setup then a dedicated d
 If availability group is setup on SQL Server failover cluster then then clustered disk should be created on each SQL Server failover cluster instance to host log directory.
 
 Restoring database in availability group setup with SnapCenter
+
 * While recovering subset of data, clone capability from SnapCenter can be used to create clone copy of database.  Database copy is created within few minutes and then import/export the data to primary replica.
 
 * SnapCenter provide reseed option to automatically recover the database on secondary replica. Which will automatically restore and join the database backup to availability group.

@@ -19,25 +19,25 @@ SnapCenter discovers all the databases, instances and availability groups in Win
 * Instance level backup: Select the instance and all the databases running on the instance are protected based on the selected policy. All the databases, including the availability database running as primary or secondary replica are backed up using SnapCenter.
 * Availability group level backup: While configuring the policy, SnapCenter  have a advance option for availability group level backup. The availability group setting in policy allows users to select the replica preference for backup. You could select primary, secondary replica or all of them. The default option is based on backup replica set in SQL Server availability group configuration.
 
-The availability group setting in SnapCenter policy will apply only if AG level backup is used to protect availability group databases and do not apply for database or instance level backup.
+The availability group setting in SnapCenter policy will apply only if availability group level backup is used to protect availability group databases and do not apply for database or instance level backup.
 
 [TIP] 
-NetApp recommends to use availability level backup to backup across all the replica running on NetApp ONTAP storage
+*NetApp recommends* to use availability level backup to backup across all the replica running on NetApp ONTAP storage
 
-[NOTE]
-SnapCenter do not support distributed availability group and contained availability group .
-
-=== Configuring log backup:
+=== Configuring log backup in SnapCenter:
 
 If availability group is setup on standalone SQL Server setup then a dedicated disk must be mounted on each node of a Windows server failover cluster.  Dedicated disk should be used to configure log directory to save transaction log backups. 
 If availability group is setup on SQL Server failover cluster then then clustered disk should be created on each SQL Server failover cluster instance to host log directory.
 
 Restoring database in availability group setup with SnapCenter
 
-* While recovering subset of data, clone capability from SnapCenter can be used to create clone copy of database.  Database copy is created within few minutes and then import/export the data to primary replica.
+* While recovering subset of data, clone capability from SnapCenter can be used to create clone copy of database.  Database copy is created within few minutes and then export the data to primary replica.
 
 * SnapCenter provide reseed option to automatically recover the database on secondary replica. Which will automatically restore and join the database backup to availability group.
 
-* For restoring the primary database in availability group, break the availability group, perform the complete the full & log restore. Use SQL Server management studio or T-SQL to add the database back to availability group.
+* Alternate way to restore replica database in availability group is by breaking the availability group and performing the complete full & log restore. Use SQL Server management studio or T-SQL to join the database back to availability group. 
 
 For best practice to setup database storage layout to meet the RTO and RPO requirement, please see link:https://www.netapp.com/pdf.html?item=/media/12400-tr4714.pdf[TR-4714 Best practices for Microsoft SQL Server using NetApp SnapCenter].
+
+[NOTE]
+SnapCenter do not support distributed availability group and contained availability group.

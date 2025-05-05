@@ -14,7 +14,7 @@ summary: This page describes the best practices for implementing a ONTAP storage
 [.lead]
 First announced in 2012, NetApp was an early design partner with VMware in the development of VMware vSphere APIs for Storage Awareness (VASA), the foundation of Storage Policy Based Management (SPBM) with enterprise storage arrays. This approach brought limited VM granular storage management to VMFS and NFS storage.
 
- As a technology design partner, NetApp provided architectural input and in 2015 announced support for vVols. This new technology now enabled the automation of VM-granular and truly array-native storage provisioning through SPBM.
+As a technology design partner, NetApp provided architectural input and in 2015 announced support for vVols. This new technology now enabled the automation of VM-granular and truly array-native storage provisioning through SPBM.
 
 == Virtual Volumes (vVols)
 vVols are a revolutionary storage architecture that enables VM granular storage management, allowing storage to be managed on not just a per-VM basis (including VM metadata), but even on a per VMDK basis. vVols are a key component of the Software Defined Data Center (SDDC) strategy that forms the basis of VMware Cloud Foundation (VCF), providing a more efficient and scalable storage architecture for virtualized environments.

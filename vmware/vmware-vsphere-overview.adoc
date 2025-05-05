@@ -12,7 +12,9 @@ summary: ONTAP has been a leading storage solution for VMware vSphere environmen
 :imagesdir: ../media/
 
 [.lead]
-ONTAP has been a leading storage solution for VMware vSphere environments for almost two decades and continues to add innovative capabilities to simplify management while reducing costs. This document introduces the ONTAP solution for vSphere, including the latest product information and best practices, to streamline deployment, reduce risk, and simplify management.
+ONTAP has served as a premier storage solution for VMware vSphere and, more recently, Cloud Foundation environments since its introduction into the modern datacenter in 2002. It continues to introduce innovative features that simplify management and lower costs.
+
+This document presents the ONTAP solution for vSphere, highlighting the latest product information and best practices to streamline deployment, mitigate risks, and simplify management.
 
 [NOTE]
 This documentation replaces previously published technical reports _TR-4597: VMware vSphere for ONTAP_

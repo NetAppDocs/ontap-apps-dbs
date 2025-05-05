@@ -12,7 +12,7 @@ summary: The ONTAP solution for VMware Live Site Recovery (VLSR) and Site Recove
 :imagesdir: ../media/
 
 [.lead]
-ONTAP has been a leading storage solution for VMware vSphere environments since its introduction into the modern datacenter in 2002, and it continues to add innovative capabilities to simplify management while reducing costs. 
+ONTAP has served as a premier storage solution for VMware vSphere and, more recently, Cloud Foundation environments since its introduction into the modern datacenter in 2002. It continues to introduce innovative features that simplify management and lower costs.
 
 This document introduces the ONTAP solution for VMware Live Site Recovery (VLSR), formerly known as Site Recovery Manager (SRM), VMware's industry leading disaster recovery (DR) software, including the latest product information and best practices to streamline deployment, reduce risk, and simplify ongoing management.
 

@@ -37,13 +37,13 @@ The following tables present vSphere-supported traditional datastore features wi
 |1024 LUNs per host
 |1024 LUNs per server
 |256 Namespeces per server
-|256 mounts
+|256 NFS connections per host (impacted by nconnect and session trunking)
 Default NFS. MaxVolumes is 8. Use ONTAP tools for VMware vSphere to increase to 256.
 |Maximum datastore size
 |64TB
 |64TB
 |64TB
-|100TB FlexVol volume or greater with FlexGroup volume
+|300TB FlexVol volume or greater with FlexGroup volume
 |Maximum datastore file size
 |62TB
 |62TB
@@ -96,7 +96,7 @@ The following table lists supported VMware storage-related functionalities.
 |Yes
 |Yes
 |Yes
-|Site Recovery Manager
+|Live Site Recovery/Site Recovery Manager
 |Yes
 |Yes
 |No ^2^
@@ -110,7 +110,7 @@ This setting is the default for all VMs on NFS when not using VAAI.
 |VMware native multipathing
 |Yes
 |Yes
-|Yes, using the new High Performance Plugin (HPP)
+|Yes
 |NFS v4.1 session trunking requires ONTAP 9.14.1 and later
 |===
 
@@ -137,17 +137,17 @@ The following table lists supported ONTAP storage management features.
 |SnapCenter plug-ins for Windows, Linux applications (in guest)
 |Yes
 |Yes
-|No
+|Yes
 |Yes
 |Monitoring and host configuration using ONTAP tools for VMware vSphere
 |Yes
 |Yes
-|No
+|Yes
 |Yes
 |Provisioning using ONTAP tools for VMware vSphere
 |Yes
 |Yes
-|No
+|Yes
 |Yes
 |===
 
@@ -172,15 +172,15 @@ The following table lists supported backup features.
 |Yes
 |Yes
 |VMDK image access
-|VADP-enabled backup software
-|VADP-enabled backup software
-|VADP-enabled backup software
-|VADP-enabled backup software, vSphere Client, and vSphere Web Client datastore browser
+|SnapCenter and VADP-enabled backup software
+|SnapCenter and VADP-enabled backup software
+|SnapCenter and VADP-enabled backup software
+|SnapCenter and VADP-enabled backup software, vSphere Client, and vSphere Web Client datastore browser
 |VMDK file-level access
-|VADP-enabled backup software, Windows only
-|VADP-enabled backup software, Windows only
-|VADP-enabled backup software, Windows only
-|VADP-enabled backup software and third-party applications
+|SnapCenter and VADP-enabled backup software, Windows only
+|SnapCenter and VADP-enabled backup software, Windows only
+|SnapCenter and VADP-enabled backup software, Windows only
+|SnapCenter and VADP-enabled backup software and third-party applications
 |NDMP granularity
 |Datastore
 |Datastore
@@ -188,47 +188,49 @@ The following table lists supported backup features.
 |Datastore or VM
 |===
 
-^1^ *NetApp recommends* using in-guest iSCSI for Microsoft clusters rather than multiwriter-enabled VMDKs in a VMFS datastore. This approach is fully supported by Microsoft and VMware, offers great flexibility with ONTAP (SnapMirror to ONTAP systems on-premises or in the cloud), is easy to configure and automate, and can be protected with SnapCenter. vSphere 7 adds a new clustered VMDK option. This is different from multiwriter-enabled VMDKs, which requires a datastore presented via the FC protocol that has clustered VMDK support enabled. Other restrictions apply. See VMware's link:https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/setup-for-windows-server-failover-clustering.html[Setup for Windows Server Failover Clustering^] documentation for configuration guidelines.
+^1^ *NetApp recommends* using in-guest iSCSI for Microsoft clusters rather than multiwriter-enabled VMDKs in a VMFS datastore. This approach is fully supported by Microsoft and VMware, offers great flexibility with ONTAP (SnapMirror to ONTAP systems on-premises or in the cloud), is easy to configure and automate, and can be protected with SnapCenter. vSphere 7 adds a new clustered VMDK option. This is different from multiwriter-enabled VMDKs, which requires a VMFS 6 datastore that has clustered VMDK support enabled. Other restrictions apply. See VMware's link:https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/setup-for-windows-server-failover-clustering.html[Setup for Windows Server Failover Clustering^] documentation for configuration guidelines.
 
 ^2^ Datastores using NVMe-oF and NFS v4.1 require vSphere replication. Array-based replication for NFS v4.1 is not currently supported by SRM. Array-based replication with NVMe-oF is not currently supported by the ONTAP tools for VMware vSphere Storage Replication Adapter (SRA).
 
 == Selecting a storage protocol
-Systems running ONTAP support all major storage protocols, so customers can choose what is best for their environment, depending on existing and planned networking infrastructure and staff skills. NetApp testing has generally shown little difference between protocols running at similar line speeds, so it is best to focus on your network infrastructure and staff capabilities over raw protocol performance.
+Systems running ONTAP support all major storage protocols, so customers can choose what is best for their environment, depending on existing and planned networking infrastructure and staff skills. Historically, NetApp testing has generally shown little difference between protocols running at similar line speeds and number of connections. However, NVMe-oF (NVMe/TCP and NVMe/FC) shows remarkable gains in IOPS, reduction in latency, and up to 50% or more reduction in host CPU consumption by storage IO. On the other end of the spectrum, NFS provides the greatest flexibility and ease of management, especially for large numbers of VMs. All of these protocols can be used and managed with ONTAP tools for VMware vSphere, which provides a simple interface to create and manage datastores.
 
 The following factors might be useful in considering a choice of protocol:
 
-* *Current customer environment.* Although IT teams are generally skilled at managing Ethernet IP infrastructure, not all are skilled at managing an FC SAN fabric. However, using a general-purpose IP network that's not designed for storage traffic might not work well. Consider the networking infrastructure you have in place, any planned improvements, and the skills and availability of staff to manage them.
+* *Current operating environment.* Although IT teams are generally skilled at managing Ethernet IP infrastructure, not all are skilled at managing an FC SAN fabric. However, using a general-purpose IP network that's not designed for storage traffic might not work well. Consider the networking infrastructure you have in place, any planned improvements, and the skills and availability of staff to manage them.
 * *Ease of setup.* Beyond initial configuration of the FC fabric (additional switches and cabling, zoning, and the interoperability verification of HBA and firmware), block protocols also require creation and mapping of LUNs and discovery and formatting by the guest OS. After the NFS volumes are created and exported, they are mounted by the ESXi host and ready to use. NFS has no special hardware qualification or firmware to manage.
-* *Ease of management.* With SAN protocols, if more space is needed, several steps are necessary, including growing a LUN, rescanning to discover the new size, and then growing the file system). Although growing a LUN is possible, reducing the size of a LUN is not, and recovering unused space can require additional effort. NFS allows easy sizing up or down, and this resizing can be automated by the storage system. SAN offers space reclamation through guest OS TRIM/UNMAP commands, allowing space from deleted files to be returned to the array. This type of space reclamation is more difficult with NFS datastores.
+* *Ease of management.* With SAN protocols, if more space is needed, several steps are necessary, including growing a LUN, rescanning to discover the new size, and then growing the file system). Although growing a LUN is possible, reducing the size of a LUN is not. NFS allows easy sizing up or down, and this resizing can be automated by the storage system. SAN offers space reclamation through guest OS DEALLOCATE/TRIM/UNMAP commands, allowing space from deleted files to be returned to the array. This type of space reclamation is not possible difficult with NFS datastores.
 * *Storage space transparency.* Storage utilization is typically easier to see in NFS environments because thin provisioning returns savings immediately. Likewise, deduplication and cloning savings are immediately available for other VMs in the same datastore or for other storage system volumes. VM density is also typically greater in an NFS datastore, which can improve deduplication savings as well as reduce management costs by having fewer datastores to manage.
 
 == Datastore layout
-ONTAP storage systems offer great flexibility in creating datastores for VMs and virtual disks. Although many ONTAP best practices are applied when using the VSC to provision datastores for vSphere (listed in the section link:vmware-vsphere-settings.html[Recommended ESXi host and other ONTAP settings]), here are some additional guidelines to consider:
+ONTAP storage systems offer great flexibility in creating datastores for VMs and virtual disks. Although many ONTAP best practices are applied when using the ONTAP tools to provision datastores for vSphere (listed in the section link:vmware-vsphere-settings.html[Recommended ESXi host and other ONTAP settings]), here are some additional guidelines to consider:
 
-* Deploying vSphere with ONTAP NFS datastores results in a high-performing, easy-to-manage implementation that provides VM-to-datastore ratios that cannot be obtained with block-based storage protocols. This architecture can result in a tenfold increase in datastore density with a correlating reduction in the number of datastores. Although a larger datastore can benefit storage efficiency and provide operational benefits, consider using at least four datastores (FlexVol volumes) to store your VMs on a single ONTAP controller to get maximum performance from the hardware resources. This approach also allows you to establish datastores with different recovery policies. Some can be backed up or replicated more frequently than others based on business needs. Multiple datastores are not required with FlexGroup volumes for performance because they scale by design.
-* *NetApp recommends* the use of FlexVol volumes for most NFS datastores. Starting with ONTAP 9.8 FlexGroup volumes are supported for use as datastores as well, and are generally recommended for certain use cases. Other ONTAP storage containers such as qtrees are not generally recommended because these are not currently supported by either ONTAP tools for VMware vSphere or the NetApp SnapCenter plugin for VMware vSphere. That being said, deploying datastores as multiple qtrees in a single volume might be useful for highly automated environments that can benefit from datastore-level quotas or VM file clones.
-* A good size for a FlexVol volume datastore is around 4TB to 8TB. This size is a good balance point for performance, ease of management, and data protection. Start small (say, 4TB) and grow the datastore as needed (up to the maximum 100TB). Smaller datastores are faster to recover from backup or after a disaster and can be moved quickly across the cluster. Consider the use of ONTAP autosize to automatically grow and shrink the volume as used space changes. The ONTAP tools for VMware vSphere Datastore Provisioning Wizard use autosize by default for new datastores. Additional customization of the grow and shrink thresholds and maximum and minimum size can be done with System Manager or the command line.
-* Alternately, VMFS datastores can be configured with LUNs that are accessed by FC, and iSCSI. VMFS allows LUNs to be accessed simultaneously by every ESX server in a cluster. VMFS datastores can be up to 64TB in size and consist of up to 32 2TB LUNs (VMFS 3) or a single 64TB LUN (VMFS 5). The ONTAP maximum LUN size is 128TB on AFF, ASA, and FAS systems.  NetApp generally recommends using a single, large LUN for each datastore. As with NFS, consider using multiple datastores (volumes) to maximize performance on a single ONTAP controller.
+* Deploying vSphere with ONTAP NFS datastores results in a high-performing, easy-to-manage implementation that provides VM-to-datastore ratios that cannot be obtained with block-based storage protocols. This architecture can result in a tenfold increase in datastore density with a correlating reduction in the number of datastores. Although a larger datastore can benefit storage efficiency and provide operational benefits, consider using at least four datastores (FlexVol volumes) per node to store your VMs on a single ONTAP controller to get maximum performance from the hardware resources. This approach also allows you to establish datastores with different recovery policies. Some can be backed up or replicated more frequently than others based on business needs. Multiple datastores are not required with FlexGroup volumes for performance because they scale by design.
+* *NetApp recommends* the use of FlexVol volumes for most NFS datastores. Starting with ONTAP 9.8 FlexGroup volumes are supported for use as datastores as well, and are generally recommended for certain use cases. Other ONTAP storage containers such as qtrees are not generally recommended because these are not currently supported by either ONTAP tools for VMware vSphere or the NetApp SnapCenter plugin for VMware vSphere.
+* A good size for a FlexVol volume datastore is around 4TB to 8TB. This size is a good balance point for performance, ease of management, and data protection. Start small (say, 4TB) and grow the datastore as needed (up to the maximum 300TB). Smaller datastores are faster to recover from backup or after a disaster and can be moved quickly across the cluster. Consider the use of ONTAP autosize to automatically grow and shrink the volume as used space changes. The ONTAP tools for VMware vSphere Datastore Provisioning Wizard uses autosize by default for new datastores. Additional customization of the grow and shrink thresholds and maximum and minimum size can be done with System Manager or the command line.
+* Alternately, VMFS datastores can be configured with LUNs or NVMe namespaces (referred to as storage units in new ASA systems) that are accessed by FC, iSCSI, NVMe/FC, or NVMe/TCP. VMFS allows datastores to be accessed simultaneously by every ESX server in a cluster. VMFS datastores can be up to 64TB in size and consist of up to 32 2TB LUNs (VMFS 3) or a single 64TB LUN (VMFS 5). The ONTAP maximum LUN size is 128TB on AFF, ASA, and FAS systems.  NetApp always recommends using a single, large LUN for each datastore, rather than trying to use extents. As with NFS, consider using multiple datastores (volumes or storage units) to maximize performance on a single ONTAP controller.
 * Older guest operating systems (OSs) needed alignment with the storage system for best performance and storage efficiency. However, modern vendor-supported OSs from Microsoft and Linux distributors such as Red Hat no longer require adjustments to align the file system partition with the blocks of the underlying storage system in a virtual environment. If you are using an old OS that might require alignment, search the NetApp Support Knowledgebase for articles using "VM alignment" or request a copy of TR-3747 from a NetApp sales or partner contact.
 * Avoid the use of defragmentation utilities within the guest OS, as this offers no performance benefit and affects storage efficiency and snapshot space usage. Also consider turning off search indexing in the guest OS for virtual desktops.
 * ONTAP has led the industry with innovative storage efficiency features, allowing you to get the most out of your usable disk space. AFF systems take this efficiency further with default inline deduplication and compression. Data is deduplicated across all volumes in an aggregate, so you no longer need to group similar operating systems and similar applications within a single datastore to maximize savings.
-* In some cases, you might not even need a datastore. For the best performance and manageability, avoid using a datastore for high-I/O applications such as databases and some applications. Instead, consider guest-owned file systems such as NFS or iSCSI file systems managed by the guest or with RDMs. For specific application guidance, see NetApp technical reports for your application. For example, link:../oracle/oracle-overview.html[Oracle Databases on ONTAP] has a section about virtualization with helpful details.
+* In some cases, you might not even need a datastore. Consider guest-owned file systems such as NFS, SMB, NVMe/TCP or iSCSI file systems managed by the guest. For specific application guidance, see NetApp technical reports for your application. For example, link:../oracle/oracle-overview.html[Oracle Databases on ONTAP] has a section about virtualization with helpful details.
 * First Class Disks (or Improved Virtual Disks) allow for vCenter-managed disks independent of a VM with vSphere 6.5 and later. While primarily managed by API, they can be useful with vVols, especially when managed by OpenStack or Kubernetes tools. They are supported by ONTAP as well as ONTAP tools for VMware vSphere.
 
 == Datastore and VM migration
 When migrating VMs from an existing datastore on another storage system to ONTAP, here are some practices to keep in mind:
 
 * Use Storage vMotion to move the bulk of your virtual machines to ONTAP. Not only is this approach nondisruptive to running VMs, it also allows ONTAP storage efficiency features such as inline deduplication and compression to process the data as it migrates. Consider using vCenter capabilities to select multiple VMs from the inventory list and then schedule the migration (use Ctrl key while clicking Actions) at an appropriate time.
-* While you could carefully plan a migration to appropriate destination datastores, it is often simpler to migrate in bulk and then organize later as needed. You might want to use this approach to guide your migration to different datastores if you have specific data protection needs, such as different Snapshot schedules.
-* Most VMs and their storage may be migrated while running (hot), but migrating attached (not in datastore) storage such as ISOs, LUNs, or NFS volumes from another storage system might require cold migration.
+* While you could carefully plan a migration to appropriate destination datastores, it is often simpler to migrate in bulk and then organize later as needed. You might want to use this approach to guide your migration to different datastores if you have specific data protection needs, such as different Snapshot schedules. Further, once the VMs are on the NetApp cluster, storage vMotion can use VAAI offloads to move VMs between datastores on the cluster without requiring a host-based copy. Note that NFS does not offload storage vMotion of powered on VMs, however VMFS does.
 * Virtual machines that need more careful migration include databases and applications that use attached storage. In general, consider the use of the application's tools to manage migration. For Oracle, consider using Oracle tools such as RMAN or ASM to migrate the database files. See https://docs.netapp.com/us-en/ontap-apps-dbs/oracle/oracle-migration-overview.html[Migration of Oracle databases to ONTAP storage systems^] for more information. Likewise, for SQL Server, consider using either SQL Server Management Studio or NetApp tools such as SnapManager for SQL Server or SnapCenter.
 
 == ONTAP tools for VMware vSphere
-The most important best practice when using vSphere with systems running ONTAP is to install and use the ONTAP tools for VMware vSphere plug-in (formerly known as Virtual Storage Console). This vCenter plug-in simplifies storage management, enhances availability, and reduces storage costs and operational overhead, whether using SAN or NAS. It uses best practices for provisioning datastores and optimizes ESXi host settings for multipath and HBA timeouts (these are described in Appendix B). Because it's a vCenter plug-in, it's available to all vSphere web clients that connect to the vCenter server.
+The most important best practice when using vSphere with systems running ONTAP is to install and use the ONTAP tools for VMware vSphere plug-in (formerly known as Virtual Storage Console). This vCenter plug-in simplifies storage management, enhances availability, and reduces storage costs and operational overhead, whether using SAN or NAS, on ASA, AFF, FAS, or even ONTAP Select (a software defined version ONTAP running in a VMware or KVM VM). It uses best practices for provisioning datastores and optimizes ESXi host settings for multipath and HBA timeouts (these are described in Appendix B). Because it's a vCenter plug-in, it's available to all vSphere web clients that connect to the vCenter server.
 
 The plug-in also helps you use other ONTAP tools in vSphere environments. It allows you to install the NFS Plug-In for VMware VAAI, which enables copy offload to ONTAP for VM cloning operations, space reservation for thick virtual disk files, and ONTAP snapshot offload.
 
-The plug-in is also the management interface for many functions of the VASA Provider for ONTAP, supporting storage policy-based management with vVols. After ONTAP tools for VMware vSphere is registered, use it to create storage capability profiles, map them to storage, and make sure of datastore compliance with the profiles over time. The VASA Provider also provides an interface to create and manage vVol datastores.
+[NOTE]
+On image based vSphere clusters, you will still want to add the NFS Plug-In to your image so they don't go out of compliance when you install it with ONTAP tools.
+
+ONTAP tools is also the management interface for many functions of the VASA Provider for ONTAP, supporting storage policy-based management with vVols.
 
 In general, *NetApp recommends* using the ONTAP tools for VMware vSphere interface within vCenter to provision traditional and vVols datastores to make sure best practices are followed.
 
@@ -245,48 +247,3 @@ Configuring network settings when using vSphere with systems running ONTAP is st
 ** Use LACP to create link aggregates for ONTAP storage systems with dynamic multimode interface groups with port or IP hash. Refer to https://docs.netapp.com/us-en/ontap/networking/combine_physical_ports_to_create_interface_groups.html#dynamic-multimode-interface-group[Network Management^] for further guidance.
 ** Use an IP hash teaming policy on ESXi when using static link aggregation (e.g., EtherChannel) and standard vSwitches, or LACP-based link aggregation with vSphere Distributed Switches. If link aggregation is not used, then use "Route based on the originating virtual port ID" instead.
 
-The following table provides a summary of network configuration items and indicates where the settings are applied.
-
-|===
-|Item |ESXi |Switch |Node |SVM
-
-|IP address
-|VMkernel
-|No ^4^
-|No ^4^
-|Yes
-|Link aggregation
-|Virtual switch
-|Yes
-|Yes
-|No ^3^
-|VLAN
-|VMkernel and VM port groups
-|Yes
-|Yes
-|No ^3^
-|Flow control
-|NIC
-|Yes
-|Yes
-|No ^3^
-|Spanning tree
-|No
-|Yes
-|No
-|No
-|MTU (for jumbo frames)
-|Virtual switch and VMkernel port (9000)
-|Yes (set to max)
-|Yes (9000)
-|No ^3^
-|Failover groups
-|No
-|No
-|Yes (create)
-|Yes (select)
-|===
-
-^3^ SVM LIFs connect to ports, interface groups, or VLAN interfaces that have VLAN, MTU, and other settings. However, the settings are not managed at the SVM level.
-
-^4^ These devices have IP addresses of their own for management, but these addresses are not used in the context of ESXi storage networking.

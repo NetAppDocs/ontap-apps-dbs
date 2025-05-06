@@ -36,4 +36,4 @@ Storage containers are created by storage administrators and are used to group s
 
 NOTE: For more information on VMware vSphere Virtual Volumes, SPBM, and ONTAP, see link:vmware-vvols-overview.html[TR-4400: VMware vSphere Virtual Volumes with ONTAP^].
 
- \* Depending on platform and protocol
+*Depending on platform and protocol

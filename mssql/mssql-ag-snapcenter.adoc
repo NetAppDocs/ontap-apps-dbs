@@ -31,11 +31,11 @@ If availability group is setup on SQL Server failover cluster then then clustere
 
 Restoring database in availability group setup with SnapCenter
 
-* While recovering subset of data, clone capability from SnapCenter can be used to create clone copy of database.  Database copy is created within few minutes and then export the data to primary replica.
+* SnapCenter provide reseed option to automatically recover the database from the latest snapshot available at the secondary replica. Reseed operation will automatically restore and join the database backup to availability group.
 
-* SnapCenter provide reseed option to automatically recover the database on secondary replica. Which will automatically restore and join the database backup to availability group.
+* Alternate way to restore replica database in availability group is by breaking the availability group and performing the complete full and log restore. Use SQL Server management studio or T-SQL to join the database back to availability group. 
 
-* Alternate way to restore replica database in availability group is by breaking the availability group and performing the complete full & log restore. Use SQL Server management studio or T-SQL to join the database back to availability group. 
+* To recover just subset of data, clone capability from SnapCenter can be used to create clone copy of database.  Database copy is created within few minutes using SnapCenter, then export the data to primary replica using SQL Server native tools.
 
 For best practice to setup database storage layout to meet the RTO and RPO requirement, please see link:https://www.netapp.com/pdf.html?item=/media/12400-tr4714.pdf[TR-4714 Best practices for Microsoft SQL Server using NetApp SnapCenter].
 

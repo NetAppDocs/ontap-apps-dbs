@@ -30,8 +30,9 @@ The availability group setting in SnapCenter policy will apply only if availabil
 
 === Configuring log backup in SnapCenter
 
-If availability group is setup on standalone SQL Server setup then a dedicated disk must be mounted on each node of a Windows server failover cluster.  Dedicated disk should be used to configure log directory to save transaction log backups. 
-If availability group is setup on SQL Server failover cluster then then clustered disk should be created on each SQL Server failover cluster instance to host log directory.
+If availability group is setup on standalone SQL Server setup then a dedicated disk must be mounted on each node of a Windows server failover cluster. Dedicated disk should be used to configure log directory to save transaction log backups. 
+
+If availability group is setup on SQL Server failover cluster then clustered disk should be created on SQL Server failover cluster instance to host log directory.
 
 === Restoring database in availability group setup with SnapCenter
 

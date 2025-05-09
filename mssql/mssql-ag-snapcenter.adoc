@@ -1,0 +1,48 @@
+---
+sidebar: sidebar
+permalink: mssql/mssql-ag-snapcenter.html
+keywords: MSSQL,SQL Server, data protection, snapmirror, availability group
+summary: Microsoft SQL Server availability group with SnapCenter
+searchtitle: Microsoft SQL Server availability group with SnapCenter
+---
+= SQL Server availability group with SnapCenter
+:imagesdir: ../media/
+
+[.lead]
+SnapCenter supports backup of SQL Server availability group database configured with Windows failover cluster.
+
+SnapCenter plugin for Microsoft SQL Server must be installed on all nodes of Windows server failover cluster. Refer the link:https://docs.netapp.com/us-en/snapcenter/protect-scsql/concept_prerequisites_for_using_snapcenter_plug_in_for_microsoft_sql_server.html[documentation] on prerequisites and the steps to setup the SnapCenter plugins.
+
+SnapCenter discovers all the databases, instances and availability groups in Windows hosts and resources are enumerated on the SnapCenter resource page. 
+
+=== Protecting databases in always on availability group
+
+Databases in availability group can be protected in multiple ways. 
+
+* Database level backup: Select the availability database for the database resource page, add the policy consisting of full/log backup, schedule the backup. SnapCenter takes the backup irrespective of the database role whether it is a primary replica or a secondary replica. The protection can also be configured by adding databases to resource group.
+* Instance level backup: Select the instance and all the databases running on the instance are protected based on the selected policy. All the databases, including the availability database running as primary or secondary replica are backed up using SnapCenter. The protection can also be configured by adding instance to resource group.
+* Availability group level backup: While configuring the policy, SnapCenter  have a advance option for availability group level backup. The availability group setting in policy allows users to select the replica preference for backup. You could select primary, secondary replica or all of them. The default option is based on backup replica set in SQL Server availability group configuration.
+
+The availability group setting in SnapCenter policy will apply only if availability group level backup is used to protect availability group databases and do not apply for database or instance level backup.
+
+[TIP] 
+*NetApp recommends* to use availability level backup to backup across all the replica running on NetApp ONTAP storage.
+
+=== Configuring log backup in SnapCenter
+
+If availability group is setup on standalone SQL Server setup then a dedicated disk must be mounted on each node of a Windows server failover cluster. Dedicated disk should be used to configure log directory to save transaction log backups. 
+
+If availability group is setup on SQL Server failover cluster then clustered disk should be created on SQL Server failover cluster instance to host log directory.
+
+=== Restoring database in availability group setup with SnapCenter
+
+* SnapCenter provide reseed option to automatically recover the database from the latest snapshot available at the secondary replica. Reseed operation will automatically restore and join the database backup to availability group.
+
+* Alternate way to restore replica database in availability group is by breaking the availability group and performing the complete full and log restore. Use SnapCenter to restore database in norecovery mode and then use SQL Server management studio or T-SQL to join the database back to availability group. 
+
+* To recover just subset of data, clone capability from SnapCenter can be used to create clone copy of database.  Database copy is created within few minutes using SnapCenter, then export the data to primary replica using SQL Server native tools.
+
+For best practice to setup database storage layout to meet the RTO and RPO requirement, please see link:https://www.netapp.com/pdf.html?item=/media/12400-tr4714.pdf[TR-4714 Best practices for Microsoft SQL Server using NetApp SnapCenter].
+
+[NOTE]
+SnapCenter do not support distributed availability group and contained availability group.

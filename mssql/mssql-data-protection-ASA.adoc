@@ -8,8 +8,34 @@ searchtitle: Microsoft SQL Server data protection with NetApp management softwar
 = Data protection
 :imagesdir: ../media/
 
+[.lead]
+Database backup strategies should be based on identified business requirements, not theoretical capabilities. By combining ONTAP's Snapshot technology and leveraging Microsoft SQL Server API's, you can quickly take application consistent backup irrespective of size of user databases. For more advanced or scale-out data management requirements, NetApp offers SnapCenter.
 
-include::../mssql/mssql-dataprotection.adoc[]
+== SnapCenter
+
+SnapCenter is the NetApp data protection software for enterprise applications. SQL Server databases can be quickly and easily protected with the SnapCenter Plug-in for SQL Server and with OS operations managed by the SnapCenter Plug-in for Microsoft Windows.
+
+SQL Server instance can be a standalone setup, failover cluster instance or it can be always on availability group. The result is that from single-pane-of-glass, databases can be protected, cloned and restored from primary or secondary copy. SnapCenter can manage SQL Server databases both on-premises, in the cloud, and hybrid configurations.Database copies can also be created in few minutes on the orignal or alternate host for development or for reporting purpose. 
+
+SQL Server also requires coordination between the OS and the storage to ensure the correct data is present in snapshots at the time of creation. In most cases, the only safe method to do this is with SnapCenter or T-SQL. Snapshots created without this additional coordination may not be reliably recoverable. 
+
+For more details about the SQL Server Plug-in for SnapCenter, see link:https://www.netapp.com/pdf.html?item=/media/12400-tr4714.pdf[TR-4714: Best practice guide for SQL Server using NetApp SnapCenter^].
+
+== Protecting database using T-SQL snapshots
+In SQL Server 2022, Microsoft introduced T-SQL snapshots that offers a path to scripting and automation of backups operations. Rather than performing full-sized copies, you can prepare the database for snapshots. Once the database is ready for backup, you can leveraging ONTAP REST API's to create snapshots.. 
+
+The following is a sample backup workflow:
+
+. Freeze a database with ALTER command. This prepares the database for a consistent snapshot on the underlying storage. After the freeze you can thaw the database and record the snapshot with BACKUP command.
+. Perform snapshots of multiple databases on the storage units simultaneously with the new BACKUP GROUP and BACKUP SERVER commands. 
+. If the database workload is spanned across multiple storage units then create consistency groups to simplify management task. Consistency group is a collection of storage units that are managed as single unit.
+. Perform FULL backups or COPY_ONLY FULL backups. These backups are recorded in msdb as well.
+. Perform point-in-time recovery using log backups taken with the normal streaming approach after the snapshot FULL backup. Streaming differential backups are also supported if desired.
+
+To learn more, see link:https://learn.microsoft.com/en-us/sql/relational-databases/databases/create-a-database-snapshot-transact-sql?view=sql-server-ver16[Microsoft documentation to know about the T-SQL snapshots^].
+
+[TIP]
+*NetApp recommends* using SnapCenter to create Snapshot copies. The T-SQL method described above also works, but SnapCenter offers complete automation over the backup, restore, and cloning process. It also performs discovery to ensure the correct snapshots are being created.
 
 [NOTE]
 Use SnapCenter if SQL Server databases are hosted on virtual disk running in a VMware virtualized environment. In case the databases are hosted on bare metal physical server or on guest-connect SCSI then backup database using T-SQL snapshot command.

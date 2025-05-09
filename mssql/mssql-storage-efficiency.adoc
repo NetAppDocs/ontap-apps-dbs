@@ -40,7 +40,7 @@ Here are the recommendation for managing space for SQL Server data files
 
 * Use thin provisioning in SQL Server environments to improve space utilization and to reduce the overall storage requirements when the space guarantee functionality is used.
 - Use autogrow for most common deployment configurations because the storage admin only needs to monitor space usage in the aggregate.
-* Do not enable deduplication on any volumes containing SQL Server data files unless the volume is known to contain multiple copies of the same data, such as restoring database from backups to a single volume.
+* Do not enable deduplication on any volumes on FAS containing SQL Server data files unless the volume is known to contain multiple copies of the same data, such as restoring database from backups to a single volume.
 
 == Space reclamation
 

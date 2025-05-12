@@ -41,8 +41,8 @@ This appendix describes deploying a Hyper-V cluster.
 .. On any one of the Hyper-V servers in the cluster, complete the following steps:
 ... Take the LUN online, initialize the disk, create a new simple volume, and format it using NTFS or ReFS.
 ... In Failover Cluster Manager, expand the cluster, expand Storage, right-click Disks, and then click Add Disks. Doing so opens the Add Disks to a Cluster wizard showing the LUN as a disk. Click OK to add the LUN as a disk.
-... Now the LUN is named Clustered Disk and is shown as Available Storage under Disks.
-.. Right-click the LUN (Clustered Disk) and click Add to Cluster Shared Volumes. Now the LUN is shown as a CSV.
+... Now the LUN is named 'Clustered Disk' and is shown as Available Storage under Disks.
+.. Right-click the LUN ('Clustered Disk') and click Add to Cluster Shared Volumes. Now the LUN is shown as a CSV.
 .. The CSV is simultaneously visible and accessible from all the Hyper-V servers of the failover cluster at its local location C:\ClusterStorage\.
 . Create a highly available VM:
 .. In Failover Cluster Manager, select and expand the cluster created previously.

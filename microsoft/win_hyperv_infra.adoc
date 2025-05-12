@@ -39,17 +39,17 @@ Each VM in Hyper-V can in turn be provided with the NetApp LUNs and CIFS shares 
 
 === Best practices
 * When a VM and its data are stored on NetApp storage, NetApp recommends running NetApp deduplication at the volume level at regular intervals. This practice results in significant space savings when identical VMs are hosted on a CSV or SMB share. Deduplication runs on the storage controller and it does not affect the host system and VM performance.
-* When using iSCSI LUNs for Hyper-V, make sure to enable `iSCSI Service (TCP-In) for Inbound` and `iSCSI Service (TCP-Out) for Outbound` in the firewall settings on the Hyper-V host. Doing so allows iSCSI traffic to pass to and from the Hyper-V host and the NetApp controller.
+* When using iSCSI LUNs for Hyper-V, make sure to enable 'iSCSI Service (TCP-In) for Inbound' and 'iSCSI Service (TCP-Out) for Outbound' in the firewall settings on the Hyper-V host. Doing so allows iSCSI traffic to pass to and from the Hyper-V host and the NetApp controller.
 * NetApp recommends unchecking the option Allow Management Operating System to Share This Network Adapter for the Hyper-V virtual switch. Doing so creates a dedicated network for the VMs.
 
 ===  Things to remember
-* Provisioning a VM by using virtual Fibre Channel requires an N_Port ID Virtualizationâ€“enabled FC HBA. A maximum of four FC ports is supported.
+* Provisioning a VM by using virtual Fibre Channel requires an N_Port ID Virtualization enabled FC HBA. A maximum of four FC ports is supported.
 * If the host system is configured with multiple FC ports and presented to the VM, then MPIO must be installed in the VM to enable multipathing.
 * Pass-through disks cannot be provisioned to the host if MPIO is being used on that host, because pass-through disks do not support MPIO.
 * Disk used for VHD/VHDx files should use 64K formatting for allocation.
 
 === Further reading
-* For information about FC HBAs, see the http://mysupport.netapp.com/matrix/[NetApp Interoperability Matrix].
+* For information about FC HBAs, see the http://mysupport.netapp.com/matrix/[Interoperability Matrix Tool (IMT)].
 * For more information about virtual Fibre Channel, see the Microsoft https://technet.microsoft.com/en-us/library/hh831413.aspx[Hyper-V Virtual Fibre Channel Overview] page.
 
 == Offloaded data transfer
@@ -92,7 +92,7 @@ For information about ODX, see https://docs.netapp.com/us-en/ontap/smb-admin/imp
 == Hyper-V clustering: High availability and scalability for virtual machines
 Failover clusters provide high availability and scalability to Hyper-V servers. A failover cluster is a group of independent Hyper-V servers that work together to increase availability and scalability for the VMs.
 
-Hyper-V clustered servers (called nodes) are connected by the physical network and by cluster software. These nodes use shared storage to store the VM files, which include configuration, virtual hard disk (VHD) files, and Snapshot copies. The shared storage can be a NetApp SMB/CIFS share or a CSV on top of a NetApp LUN, as shown below. This shared storage provides a consistent and distributed namespace that can be accessed simultaneously by all the nodes in the cluster. Therefore, if one node fails in the cluster, the other node provides service by a process called failover. Failover clusters can be managed by using the Failover Cluster Manager snap-in and the failover clustering Windows PowerShell cmdlets.
+Hyper-V clustered servers (called nodes) are connected by the physical network and by cluster software. These nodes use shared storage to store the VM files, which include configuration, virtual hard disk (VHD) files, and snapshots. The shared storage can be a NetApp SMB/CIFS share or a CSV on top of a NetApp LUN, as shown below. This shared storage provides a consistent and distributed namespace that can be accessed simultaneously by all the nodes in the cluster. Therefore, if one node fails in the cluster, the other node provides service by a process called failover. Failover clusters can be managed by using the Failover Cluster Manager snap-in and the failover clustering Windows PowerShell cmdlets.
 
 === Cluster Shared Volumes
 CSVs enable multiple nodes in a failover cluster to simultaneously have read/write access to the same NetApp LUN that is provisioned as an NTFS or ReFS volume. With CSVs, clustered roles can fail over quickly from one node to another without requiring a change in drive ownership or dismounting and remounting a volume. CSVs also simplify the management of a potentially large number of LUNs in a failover cluster. CSVs provide a general-purpose clustered file system that is layered above NTFS or ReFS.

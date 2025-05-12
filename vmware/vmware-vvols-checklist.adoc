@@ -16,9 +16,9 @@ Use this installation checklist to ensure a successful deployment (updated for 1
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png[One] Initial planning
 
 [role="quick-margin-list"]
-* [ ] Before beginning your installation, you should check the https://imt.netapp.com/matrix/#search[Interoperability Matrix Tool] to ensure your deployment has been certified.
+* [ ] Before beginning your installation, you should check the https://imt.netapp.com/matrix/#search[Interoperability Matrix Tool (IMT)^] to ensure your deployment has been certified.
 * [ ] Determine what size and type of ONTAP tools configuration your environment requires. Refer to the https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/deploy/prerequisites.html[Configuration limits to deploy ONTAP tools for VMware vSphere] for more information.
-* [ ] Determine if you will be using multi-tenant SVMs or allow full cluster access. If using multi-tenant SVMs, you will need to have an SVM management LIF on each SVM to be used. This LIF must be reachable over port 443 by ONTAP tools.
+* [ ] Determine if you will be using multitenant SVMs or allow full cluster access. If using multitenant SVMs, you will need to have an SVM management LIF on each SVM to be used. This LIF must be reachable over port 443 by ONTAP tools.
 * [ ] Determine if you will be using Fibre Channel (FC) for storage connectivity. If so, you must https://docs.netapp.com/us-en/ontap/san-config/fibre-channel-fcoe-zoning-concept.html[configure zoning] on your FC switches to enable connectivity between the ESXi hosts and the SVM's FC LIFs.
 * [ ] Determine if you will be using the ONTAP tools Storage Replication Adapter (SRA) for VMware Site Recovery Manager (SRM) or Live Site Recovery (VLSR). If so, you will need to access to the SRM/VLSR server management interface to install the SRA.
 * [ ] If you will be using SnapMirror replication managed by ONTAP tools (including, but not limited to, SnapMirror active sync) then your ONTAP administrator must https://docs.netapp.com/us-en/ontap/peering/create-cluster-relationship-93-later-task.html[create a cluster peer relationship in ONTAP] and https://docs.netapp.com/us-en/ontap/peering/create-intercluster-svm-peer-relationship-93-later-task.html[create an intercluster SVM peer relationship in ONTAP] before you can use ONTAP tools with SnapMirror.
@@ -76,10 +76,10 @@ Use this installation checklist to ensure a successful deployment (updated for 1
 
 [role="quick-margin-list"]
 * [ ] https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/configure/configure-user-role-and-privileges.html[Configure ONTAP user roles and privileges] using the included JSON file if not using admin.
-* If using If using storage multi-tenancy with SVMs
+* If using If using storage multitenancy with SVMs
 * [ ] https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/configure/add-storage-backend.html[onboard clusters] in ONTAP tools manager and associate them with vCenters.
 * [ ] https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/configure/add-storage-backend.html[onboard SVMs] in ONTAP tools vCenter UI.
-* If *not* using multi-tenant SVMs
+* If *not* using multitenant SVMs
 * [ ] https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/configure/add-storage-backend.html[onboard clusters] directly in ONTAP tools vCenter UI. Alternatively, in this scenario, it is possible to add SVMs directly when not utilizing vVols.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-8.png[Eight] Configure appliance services (optional)

@@ -4,7 +4,7 @@ permalink: vmware/vmware-otv-hardening-ports.html
 keywords: VMware, Data protection, security, OTV, Hardening, ONTAP Tools
 summary: Security Hardening Guide for ONTAP tools for VMware vSphere, TCP ports and protocols
 ---
-= Ports and protocols 
+= Ports and protocols for ONTAP tools 9.13
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -15,7 +15,7 @@ summary: Security Hardening Guide for ONTAP tools for VMware vSphere, TCP ports 
 Listed here are the required ports and protocols that enable communication between ONTAP tools for VMware vSphere server and other entities like managed storage systems, servers, and other components.
 
 == Inbound and outbound ports required for OTV
-Please note the table below which lists the inbound and outbound ports required for the proper functioning of ONTAP tools. It is important to ensure that only the ports mentioned in the table are open for connections from remote machines, while all other ports should be blocked for connections from remote machines. This will help ensure the security and safety of your system.
+Note the table below which lists the inbound and outbound ports required for the proper functioning of ONTAP tools. It is important to ensure that only the ports mentioned in the table are open for connections from remote machines, while all other ports should be blocked for connections from remote machines. This will help ensure the security and safety of your system.
 
 The following table describes the open port details.
 

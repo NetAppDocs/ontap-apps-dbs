@@ -21,7 +21,7 @@ NetApp deduplication works by removing duplicate blocks at the storage volume le
 Thin provisioning is an efficient way to provision storage because the storage is not preallocated up front. In other words, when a volume or LUN is created using thin provisioning, the space on the storage system is unused. The space remains unused until the data is written to the LUN or volume and only the necessary space to store the data is used. NetApp recommends enabling thin provisioning on the volume and disabling LUN reservation.
 
 == Quality of Service
-Storage QoS in clustered ONTAP enables you to group storage objects and set throughput limits on the group. Storage QoS can be used to limit the throughput to workloads and to monitor workload performance. With this ability, a storage administrator can separate workloads by organization, application, business unit, or production or development environments.
+Storage QoS in NetApp ONTAP enables you to group storage objects and set throughput limits on the group. Storage QoS can be used to limit the throughput to workloads and to monitor workload performance. With this ability, a storage administrator can separate workloads by organization, application, business unit, or production or development environments.
 
 In enterprise environments, storage QoS helps to achieve the following:
 

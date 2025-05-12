@@ -16,13 +16,16 @@ VMware’s industry-leading vSphere hypervisor can be deployed as a stretched cl
 
 vMSC solutions are supported with both NetApp® MetroCluster™ and SnapMirror active sync (formerly known as SnapMirror Business Continuity, or SMBC) and provide advanced business continuity if one or more failure domains suffer a total outage. The resilience to different modes of failure depends on which configuration options you choose.
 
+[NOTE]
+This documentation replaces previously published technical reports _TR-4128: vSphere on NetApp MetroCluster_
+
 == Continuous Availability Solutions for vSphere Environments
 
 ONTAP architecture is a flexible and scalable storage platform that provides SAN (FCP, iSCSI, and NVMe-oF) and NAS (NFS v3 and v4.1) services for datastores. The NetApp AFF, ASA, and FAS storage systems use the ONTAP operating system to offer additional protocols for guest storage access like S3 and SMB/CIFS.
 
-NetApp MetroCluster uses NetApp's HA (controller failover or CFO) function to protect against controller failures. It also includes local SyncMirror technology, cluster failover on disaster (controller failover on demand or CFOD), hardware redundancy, and geographical separation to achieve high levels of availability. SyncMirror synchronously mirrors data across the two halves of the MetroCluster configuration by writing data to two plexes: the local plex (on the local shelf) actively serving data and the remote plex (on the remote shelf) normally not serving data. Hardware redundancy is put in place for all MetroCluster components such as controllers, storage, cables, switches (used with fabric MetroCluster), and adapters.
+NetApp MetroCluster uses NetApp's HA (controller failover or CFO) function to protect against controller failures. It also includes local SyncMirror technology, cluster failover on disaster (Cluster Failover On Disaster or CFOD), hardware redundancy, and geographical separation to achieve high levels of availability. SyncMirror synchronously mirrors data across the two halves of the MetroCluster configuration by writing data to two plexes: the local plex (on the local shelf) actively serving data and the remote plex (on the remote shelf) normally not serving data. Hardware redundancy is put in place for all MetroCluster components such as controllers, storage, cables, switches (used with fabric MetroCluster), and adapters.
 
-NetApp SnapMirror active sync provides datastore-granular protection with FCP and iSCSI SAN protocols, allowing you to selectively protect only high-priority workloads. It offers active-active access to both local and remote sites, unlike NetApp MetroCluster which is an active-standby solution. Beginning with ONTAP 9.15.1, SnapMirror active sync supports a symmetric active/active capability, enabling read and write I/O operations from both copies of a protected LUN with bidirectional synchronous replication, enabling both LUN copies to serve I/O operations locally. Prior to ONTAP 9.15.1, SnapMirror active sync only supports asymmetric active/active configurations, in which data on the secondary site is proxied to a LUN.
+NetApp SnapMirror active sync, available on non-MetroCluster systems and ASA r2 systems, offers datastore-granular protection with FCP and iSCSI SAN protocols. It allows you to either protect the entire vMSC or selectively protect high-priority workloads. It offers active-active access to both local and remote sites, unlike NetApp MetroCluster which is an active-standby solution. Beginning with ONTAP 9.15.1, SnapMirror active sync supports a symmetric active/active capability, enabling read and write I/O operations from both copies of a protected LUN with bidirectional synchronous replication, enabling both LUN copies to serve I/O operations locally. Before ONTAP 9.15.1, SnapMirror active sync only supports asymmetric active/active configurations, in which data on the secondary site is proxied to the primary copy of a LUN.
 
 To create a VMware HA/DRS cluster across two sites, ESXi hosts are used and managed by a vCenter Server Appliance (VCSA). The vSphere management, vMotion®, and virtual machine networks are connected through a redundant network between the two sites. The vCenter Server managing the HA/DRS cluster can connect to the ESXi hosts at both sites and should be configured using vCenter HA.
 
@@ -32,7 +35,7 @@ You should also refer to https://www.vmware.com/docs/vmw-vmware-vsphere-metro-st
 
 == What is vSphere Metro Storage Cluster?
 
-vSphere Metro Storage Cluster (vMSC) is a certified configuration that protects virtual machines (VMs) and containers against failures. This is achieved by using stretched storage concepts along with clusters of ESXi hosts, which are distributed across different failure domains such as racks, buildings, campuses, or even cities. The NetApp MetroCluster and SnapMirror active sync storage technologies are used to provide RPO=0 or RPO=0 protection respectively to the host clusters. The vMSC configuration is designed to ensure that data is always available even if a complete physical or logical “site” fails. A storage device that is part of the vMSC configuration must be certified after undergoing a successful vMSC certification process. All the supported storage devices can be found in the https://www.vmware.com/resources/compatibility/search.php[VMware Storage Compatibility Guide]. 
+vSphere Metro Storage Cluster (vMSC) is a certified configuration that protects virtual machines (VMs) and containers against failures. This is achieved by using stretched storage concepts along with clusters of ESXi hosts, which are distributed across different failure domains such as racks, buildings, campuses, or even cities. The NetApp MetroCluster and SnapMirror active sync storage technologies are used to provide a zero recovery point objective (RPO=0) protection to the host clusters. The vMSC configuration is designed to ensure that data is always available even if a complete physical or logical "site" fails. A storage device that is part of the vMSC configuration must be certified after undergoing a successful vMSC certification process. All the supported storage devices can be found in the https://www.vmware.com/resources/compatibility/search.php[VMware Storage Compatibility Guide]. 
 
 If you want more information about the design guidelines for vSphere Metro Storage Cluster, you can refer to the following documentation: 
 
@@ -40,7 +43,7 @@ If you want more information about the design guidelines for vSphere Metro Stora
 
 * https://kb.vmware.com/s/article/83370[VMware vSphere support with NetApp SnapMirror Business Continuity] (now known as SnapMirror active sync)
 
-Depending on the latency considerations, NetApp MetroCluster can be deployed in two different configurations for use with vSphere: 
+NetApp MetroCluster can be deployed in two different configurations for use with vSphere: 
 
 * Stretch MetroCluster
 
@@ -48,7 +51,7 @@ Depending on the latency considerations, NetApp MetroCluster can be deployed in 
 
 The following illustrates a high-level topology diagram of stretch MetroCluster.
 
-image::../media/vmsc_mcc_overview.png[vMSC diagram with MCC,width=624]
+image::../media/vmsc_mcc_overview.png[vMSC diagram with MetroCluster,width=624]
 
 Refer to https://www.netapp.com/support-and-training/documentation/metrocluster/[MetroCluster documentation] for specific design and deployment information for MetroCluster.
 
@@ -57,6 +60,6 @@ SnapMirror active sync can also be deployed in two different ways.
 * Asymmetric
 * Symmetric Active Sync (ONTAP 9.15.1)
 
-image::../media/vmsc_smas_mediator.png[vMSC diagram with MSas and mediator,width=624]
+image::../media/vmsc_smas_mediator.png[vMSC diagram with MSas and ONTAP Mediator,width=624]
 
 Refer to https://docs.netapp.com/us-en/ontap/smbc/index.html[NetApp Docs] for specific design and deployment information for SnapMirror active sync.

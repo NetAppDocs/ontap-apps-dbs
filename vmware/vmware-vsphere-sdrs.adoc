@@ -12,7 +12,7 @@ summary: SnapCenter allows you to create backup policies that can be applied to 
 :imagesdir: ../media/
 
 [.lead]
-VMware Storage Distributed Resource Scheduler (SDRS) is a vSphere feature that places VMs on storage based on the current I/O latency and space usage. 
+VMware Storage Distributed Resource Scheduler (SDRS) is a vSphere feature that automatically places VMs in a datastore cluster based on the current I/O latency and space usage. 
 
 It then moves the VM or VMDKs nondisruptively between the datastores in a datastore cluster (also referred to as a pod), selecting the best datastore in which to place the VM or VMDKs in the datastore cluster. A datastore cluster is a collection of similar datastores that are aggregated into a single unit of consumption from the vSphere administrator's perspective.
 
@@ -20,8 +20,17 @@ When using SDRS with ONTAP tools for VMware vSphere, you must first create a dat
 
 Other ONTAP best practices for SDRS include the following:
 
+* Don't use SDRS unless you have a specific requirement to do so.
+** SDRS is not needed when using ONTAP. SDRS is not aware of ONTAP storage efficiency features such as deduplication and compression, so it might make decisions that are not optimal for your environment.
+** SDRS is not aware of ONTAP QoS policies, so it might make decisions that are not optimal for performance.
+** SDRS is not aware of ONTAP snapshot copies, so it might make decisions that cause snapshots to grow exponentially. For example, moving a VM to another datastore creates new files in the new datastore, which causes the snapshot to grow. This is especially true for VMs with large disks or many snapshots. Then, should the VM be moved back to the original datastore, the snapshot on the original datastore will grow even larger.
+
+If you do use SDRS, consider the following best practices:
+
 * All datastores in the cluster should use the same type of storage (such as SAS, SATA, or SSD), be either all VMFS or NFS datastores, and have the same replication and protection settings.
 * Consider using SDRS in default (manual) mode. This approach allows you to review the recommendations and decide whether to apply them or not. Be aware of these effects of VMDK migrations:
-** When SDRS moves VMDKs between datastores, any space savings from ONTAP cloning or deduplication are lost. You can rerun deduplication to regain these savings.
+** When SDRS moves VMDKs between datastores, any space savings from ONTAP cloning or deduplication may be reduced depending on how well it deduplicates or compresses on the destination.
 ** After SDRS moves VMDKs, NetApp recommends recreating the snapshots at the source datastore because space is otherwise locked by the VM that was moved.
 ** Moving VMDKs between datastores on the same aggregate has little benefit, and SDRS does not have visibility into other workloads that might share the aggregate.
+
+More information about SDRS can be found in the VMware documentation at https://knowledge.broadcom.com/external/article/320864/storage-drs-faq.html[Storage DRS FAQ^].

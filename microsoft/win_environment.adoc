@@ -22,14 +22,14 @@ A NetApp storage controller running ONTAP can support the following workloads in
 * SQL Server databases on NVMe-oF, iSCSI or FC
 * Other application workloads
 
-In addition, NetApp storage efficiency features such as deduplication, NetApp FlexClone(R) copies, NetApp Snapshot technology, thin provisioning, compression, and storage tiering provide significant value for workloads running on Windows Server.
+In addition, NetApp storage efficiency features such as deduplication, NetApp FlexClone(R) copies, NetApp snapshot technology, thin provisioning, compression, and storage tiering provide significant value for workloads running on Windows Server.
 
 == ONTAP data management
 ONTAP is management software that runs on a NetApp storage controller. Referred to as a node, a NetApp storage controller is a hardware device with a processor, RAM, and NVRAM. The node can be connected to SATA, SAS, or SSD disk drives or a combination of those drives.
 
-Multiple nodes are aggregated into a clustered system. The nodes in the cluster communicate with each other continuously to coordinate cluster activities. The nodes can also move data transparently from node to node by using redundant paths to a dedicated cluster network consisting of two 10Gb Ethernet switches. The nodes in the cluster can take over one another to provide high availability during any failover scenarios. Clusters are administered on a whole-cluster rather than a per-node basis, and data is served from one or more storage virtual machines (SVMs). A cluster must have at least one SVM to serve data.
+Multiple nodes are aggregated into a clustered system. The nodes in the cluster communicate with each other continuously to coordinate cluster activities. The nodes can also move data transparently from node to node by using redundant paths to a dedicated cluster interconnect consisting of two 10Gb Ethernet switches. The nodes in the cluster can take over one another to provide high availability during any failover scenarios. Clusters are administered on a whole-cluster rather than a per-node basis, and data is served from one or more storage virtual machines (SVMs). A cluster must have at least one SVM to serve data.
 
-The basic unit of a cluster is the node, and nodes are added to the cluster as part of a high-availability (HA) pair. HA pairs enable high availability by communicating with each other over an HA interconnect (separate from the dedicated cluster network) and by maintaining redundant connections to the HA pair's disks. Disks are not shared between HA pairs, although shelves might contain disks that belong to either member of an HA pair. The following figure depicts a NetApp storage deployment in a Windows Server environment.
+The basic unit of a cluster is the node, and nodes are added to the cluster as part of a high-availability (HA) pair. HA pairs enable high availability by communicating with each other over an HA interconnect (separate from the dedicated cluster interconnect) and by maintaining redundant connections to the HA pair's disks. Disks are not shared between HA pairs, although shelves might contain disks that belong to either member of an HA pair. The following figure depicts a NetApp storage deployment in a Windows Server environment.
 
 image:win_image1.png[NetApp storage deployment in Windows Server environment,width=624,height=479]
 
@@ -57,7 +57,7 @@ To connect, configure, and manage NetApp storage from Windows Server 2016, use o
 * *NetApp PowerShell Toolkit.* This is the NetApp PowerShell Toolkit for automating and implementing custom scripts and workflows.
 
 == NetApp PowerShell Toolkit
-NetApp PowerShell Toolkit (PSTK) is a PowerShell module that provides end-to-end automation and enables storage administration of ONTAP. The ONTAP module contains over 2,000 cmdlets and helps with the administration of FAS, NetApp All Flash FAS (AFF), commodity hardware, and cloud resources.
+NetApp PowerShell Toolkit (PSTK) is a PowerShell module that provides end-to-end automation and enables storage administration of ONTAP. The ONTAP module contains over 2,000 cmdlets and helps with the administration of NetApp AFF, FAS, commodity hardware, and cloud resources.
 
 === Things to remember
 * NetApp does not support Windows Server storage spaces. Storage spaces are used only for JBOD (just a bunch of disks) and does not work with any type of RAID (direct-attached storage [DAS] or SAN).

@@ -31,7 +31,7 @@ The following sections outline the operational best practices for VMware SRM and
 snap autodelete modify -volume -commitment try
 ....
 
-* Volume autosize should be set to `grow` for volumes containing SAN datastores and `grow_shrink` for NFS datastores. Learn more about link:https://docs.netapp.com/us-en/ontap/flexgroup/configure-automatic-grow-shrink-task.html[configuring volumes to automatically grow or shrink^].
+* Volume autosize should be set to `grow` for volumes containing SAN datastores and `grow_shrink` for NFS datastores. Learn more about this topic at link:https://docs.netapp.com/us-en/ontap/volumes/configure-automatic-grow-shrink-size-task.html[Configure volumes to automatically grow and shrink their size^].
 
 * SRM performs best when the number of datastores and thus protection groups is minimized in your recovery plans. Therefore you should consider optimizing for VM density in SRM-protected environments where RTO is of key importance. 
 

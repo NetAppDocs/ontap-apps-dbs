@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: vmware/vmware_vmsc_solution.html
-keywords: VMware, Data protection, MetroCluster, SMBC, SnapMirror active sync, vMSC
+keywords: VMware, Data protection, MetroCluster, SMBC, SMas, SnapMirror active sync, vMSC, metro storage cluster, vSphere, vCenter, business continuity, disaster recovery, ONTAP
 summary: VMware vSphere Solution Overview
 ---
 = VMware vSphere Solution Overview

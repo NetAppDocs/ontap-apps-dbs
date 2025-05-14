@@ -37,7 +37,7 @@ For more information, see link:https://www.vmware.com/docs/vmw-vmware-vsphere-ap
 
 3+e|*NFS Settings*
 |newSyncInterval
-|If you have more than 100 hosts accessing the same NFS datastores and are not using the vSphere CSI for Kubernetes, set per https://knowledge.broadcom.com/external/article/386364/reducing-excessive-vsan-cnssync-warnings.html[VMware KB 386364^] 
+|If you are not using the vSphere CSI for Kubernetes, set per https://knowledge.broadcom.com/external/article/386364/reducing-excessive-vsan-cnssync-warnings.html[VMware KB 386364^] 
 |No
 |Net.TcpipHeapSize
 |vSphere 6.0 or later, set to 32.

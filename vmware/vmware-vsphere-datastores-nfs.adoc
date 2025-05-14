@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: vmware/vmware-vsphere-datastores-nfs.html
-keywords: vSphere, datastore, VMFS, FC, FCoE, NVMe/FC, iSCSI, NFS, vVols, NFSv3, NFSv4.1
+keywords: vSphere, datastore, NFS, vVols, NFSv3, NFSv4.1
 summary: This page describes the best practices for implementing VMware vSphere with ONTAP and NFS-connected datastores.
 ---
 = NFS
@@ -36,6 +36,7 @@ The following best practices are recommended when using ONTAP NFS with vSphere:
 * It's worth noting that NFSv3 and NFSv4.1 use different locking mechanisms. NFSv3 uses client-side locking, while NFSv4.1 uses server-side locking. Although an ONTAP volume can be exported through both protocols, ESXi can only mount a datastore through one protocol. However, this doesn't mean that other ESXi hosts cannot mount the same datastore through a different version. To avoid any issues, it's essential to specify the protocol version to use when mounting, ensuring that all hosts use the same version and, therefore, the same locking style. It's critical to avoid mixing NFS versions across hosts. If possible, use host profiles to check compliance.
 ** Because there is no automatic datastore conversion between NFSv3 and NFSv4.1, create a new NFSv4.1 datastore and use Storage vMotion to migrate VMs to the new datastore.
 ** Refer to the NFS v4.1 Interoperability table notes in the link:https://mysupport.netapp.com/matrix/[NetApp Interoperability Matrix Tool^] for specific ESXi patch levels required for support.
+* As mentioned in link:vmware/vmware-vsphere-settings.html[settings], if you are not using the vSphere CSI for Kubernetes, you should set the newSyncInterval per https://knowledge.broadcom.com/external/article/386364/reducing-excessive-vsan-cnssync-warnings.html[VMware KB 386364^] 
 * NFS export policy rules are used to control access by vSphere hosts. You can use one policy with multiple volumes (datastores). With NFS, ESXi uses the sys (UNIX) security style and requires the root mount option to execute VMs. In ONTAP, this option is referred to as superuser, and when the superuser option is used, it is not necessary to specify the anonymous user ID. Note that export policy rules with different values for `-anon` and `-allow-suid` can cause SVM discovery problems with ONTAP tools. The IP addresses should be a comma-separated list without spaces of the vmkernel port addresses mounting the datastores. Here's a sample policy rule:
 ** Access Protocol: nfs (which includes both nfs3 and nfs4)
 ** List of Client Match Hostnames, IP Addresses, Netgroups, or Domains: 192.168.42.21,192.168.42.22 

@@ -22,7 +22,7 @@ In vSphere, there are four ways to use block storage devices:
 VMFS is a high-performance clustered file system that provides datastores that are shared storage pools. VMFS datastores can be configured with LUNs accessed using FC, iSCSI, FCoE, or with NVMe namespaces accessed using the NVMe/FC or NVMe/TCP protocols. VMFS allows storage to be accessed simultaneously by every ESX server in a cluster. The maximum LUN size is generally 128TB beginning with ONTAP 9.12.1P2 (and earlier with ASA systems); therefore, a maximum-size VMFS 5 or 6 datastore of 64TB can be created by using a single LUN.
 
 [TIP]
-You should never use extents to reach your desired datastore size. A single LUN is the best practice for a VMFS datastore.
+Extents are a vSphere storage concept whereby you can "stitch" multiple LUNs together to create a single larger datastore. You should never use extents to reach your desired datastore size. A single LUN is the best practice for a VMFS datastore.
 
 vSphere includes built-in support for multiple paths to storage devices. vSphere can detect the type of storage device for supported storage systems and automatically configures the multipathing stack to support the capabilities of the storage system in use, regarldess of the protocol used, or if using ASA, AFF, FAS, or software defined ONTAP.
 

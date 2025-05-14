@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: vmware/vmware_vmsc_design.html
-keywords: VMware, Data protection, MetroCluster, SMBC, SnapMirror active sync, vMSC
+keywords: VMware, Data protection, MetroCluster, SMBC, SMas, SnapMirror active sync, vMSC, metro storage cluster, vSphere, vCenter, business continuity, disaster recovery, ONTAP
 summary: vMSC Design and Implementation Guidelines.
 ---
 = vMSC Design and Implementation Guidelines 
@@ -60,7 +60,7 @@ image::../media/vmsc_3_3.png[VM Monitoring,width=624,height=480]
 
 image::../media/vmsc_3_4.png[Admission Control,width=624,height=479]
 [start=8]
-. Click “OK”.
+. Click "OK".
 . Select DRS and click EDIT.
 . Set the automation level to manual unless required by your applications.
 

@@ -20,7 +20,8 @@ This documentation replaces previously published technical reports _TR-4400: VMw
 
 Best practices supplement other documents such as guides and compatibility lists. They are developed based on lab testing and extensive field experience by NetApp engineers and customers. They might not be the only practices that work or are supported but are generally the simplest solutions that meet the needs of most customers.
 
-TIP: This document has been updated to include new vVols features found in vSphere 8.0 update 3 and the ONTAP tools 10.3 release.
+[NOTE]
+This document has been updated to include new vVols features found in vSphere 8.0 update 3, the ONTAP tools 10.4 release, and new NetApp ASA systems.
 
 == Virtual Volumes (vVols) overview
 NetApp began working with VMware to support vSphere APIs for Storage Awareness (VASA) for vSphere 5 in 2012. This early VASA Provider allowed for the definition of storage capabilities in a profile that could be used to filter datastores when provisioning and for checking compliance with the policy afterwards. Over time this evolved to add new capabilities to enable more automation in provisioning, as well as adding Virtual Volumes or vVols, where individual storage objects are used for virtual machine files and virtual disks. These objects could be LUNs, files, and now with vSphere 8 - NVMe namespaces (used with ONTAP tools 9.13P2). NetApp worked closely with VMware as a reference partner for vVols released with vSphere 6 in 2015, and again as a design partner for vVols using NVMe over fabrics in vSphere 8. NetApp continues to enhance vVols to take advantage of the latest capabilities in ONTAP.
@@ -47,7 +48,7 @@ For more information, see https://docs.vmware.com/en/VMware-vSphere/8.0/vsphere-
 vVols are the actual virtual machine files and disks stored in the vVols datastore. Using the term vVol (singular) is referring to a single specific file, LUN, or namespace. ONTAP creates NVMe namespaces, LUNs or files depending on what protocol the datastore uses. There are several distinct types of vVols; most common are Config (the only one with VMFS on it, it contains metadata files like the VM's VMX file), Data (virtual disk or VMDK), and Swap (created when VM is powered on). vVols protected by VMware VM encryption will be of type Other. VMware VM encryption should not be confused with ONTAP volume or aggregate encryption.
 
 == Policy based management
-VMware vSphere APIs for Storage Awareness (VASA) make it easy for a VM administrator to use whatever storage capabilities are needed to provision VMs without having to interact with their storage team. Prior to VASA, VM administrators could define VM storage policies, but had to work with their storage administrators to identify appropriate datastores, often by using documentation or naming conventions. With VASA, vCenter administrators with the appropriate permissions can define a range of storage capabilities which vCenter users can then use to provision VMs. The mapping between VM storage policy and datastore capabilities allows vCenter to display a list of compatible datastores for selection, as well as enabling other technologies like Aria (formerly known as vRealize) Automation or Tanzu Kubernetes Grid to automatically select storage from an assigned policy. This approach is known as storage policy based management. While VASA Provider rules and VM storage policies may also be used with traditional datastores, our focus here is on vVols datastores.
+VMware vSphere APIs for Storage Awareness (VASA) make it easy for a VM administrator to use whatever storage capabilities are needed to provision VMs without having to interact with their storage team. Before VASA, VM administrators could define VM storage policies, but had to work with their storage administrators to identify appropriate datastores, often by using documentation or naming conventions. With VASA, vCenter administrators with the appropriate permissions can define a range of storage capabilities which vCenter users can then use to provision VMs. The mapping between VM storage policy and datastore capabilities allows vCenter to display a list of compatible datastores for selection, as well as enabling other technologies like Aria (formerly known as vRealize) Automation or Tanzu Kubernetes Grid to automatically select storage from an assigned policy. This approach is known as storage policy based management. While VASA Provider rules and VM storage policies may also be used with traditional datastores, our focus here is on vVols datastores.
 
 === VM Storage Policies
 VM Storage Policies are created in vCenter under Policies and Profiles. For vVols, create a ruleset using rules from the NetApp vVols storage type provider. ONTAP tools 10.X now provides a simpler approach than ONTAP tools 9.X by allowing you to directly specify storage attributes in the VM storage policy itself.
@@ -75,7 +76,7 @@ _For more information about ONTAP, see https://docs.netapp.com/us-en/ontap-famil
 _For more information about ONTAP and VMware vSphere best practices, see link:vmware-vsphere-overview.html[TR-4597^]_
 
 == Benefits of using vVols with ONTAP
-When VMware introduced vVols support with VASA 2.0 in 2015 they described it as “an integration and management framework delivering a new operational model for external storage (SAN/NAS).” This operational model offers several benefits together with ONTAP storage.
+When VMware introduced vVols support with VASA 2.0 in 2015 they described it as "an integration and management framework delivering a new operational model for external storage (SAN/NAS)." This operational model offers several benefits together with ONTAP storage.
 
 === Policy based management
 As covered in section 1.2, policy based management allows VMs to be provisioned and subsequently managed using pre-defined policies. This can help IT operations in several ways:
@@ -103,7 +104,7 @@ In addition to these benefits, we also see these common use cases for vVol stora
 
 * *On-Demand provisioning of VMs*
 ** Private cloud or service provider IaaS.
-** Leverage automation and orchestration via the Aria (formerly vRealize) suite, OpenStack, etc.
+** Leverage automation and orchestration via the Aria (formerly vRealize) suite, OpenStack, and so on.
 * *First Class Disks (FCDs)*
 ** VMware Tanzu Kubernetes Grid [TKG] persistent volumes.
 ** Provide Amazon EBS-like services though independent VMDK lifecycle management.

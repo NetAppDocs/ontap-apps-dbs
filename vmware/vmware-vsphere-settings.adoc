@@ -14,13 +14,14 @@ summary: This document categorizes and enumerates recommended storage and networ
 [.lead]
 NetApp has developed a set of optimal ESXi host settings for both NFS and block protocols. Specific guidance is also provided for multipathing and HBA timeout settings for proper behavior with ONTAP based on NetApp and VMware internal testing.
 
-These values are easily set using ONTAP tools for VMware vSphere: From the Summary dashboard, click Edit Settings in the Host Systems portlet or right-click the host in vCenter, then navigate to ONTAP tools > Set Recommended Values.
+These values are easily set using ONTAP tools for VMware vSphere: From the ONTAP tools overview page, scroll down to the bottom and click apply recommended Settings in the ESXi Host compliance portlet.
 
 Here are the recommended host settings for all currently supported versions of ONTAP.
 
 [%autowidth.stretch]
 |===
 |*Host Setting* |*NetApp Recommended Value* |*Reboot Required*
+
 3+e|*ESXi Advanced Configuration*
 |VMFS3.HardwareAcceleratedLocking
 |Keep default (1)
@@ -35,6 +36,9 @@ For more information, see link:https://www.vmware.com/docs/vmw-vmware-vsphere-ap
 |No
 
 3+e|*NFS Settings*
+|newSyncInterval
+|If you are not using the vSphere CSI for Kubernetes, set per https://knowledge.broadcom.com/external/article/386364/reducing-excessive-vsan-cnssync-warnings.html[VMware KB 386364^] 
+|No
 |Net.TcpipHeapSize
 |vSphere 6.0 or later, set to 32.
 All other NFS configurations, set to 30
@@ -102,7 +106,7 @@ Setting this value helps prevent I/O errors.
 |No
 |===
 
-NOTE: 1 - NFS advanced configuration option MaxQueueDepth may not work as intended when using VMware vSphere ESXi 7.0.1 and VMware vSphere ESXi 7.0.2. Please reference link:https://kb.vmware.com/s/article/86331?lang=en_US[VMware KB 86331] for more information.
+NOTE: NFS advanced configuration option MaxQueueDepth may not work as intended when using VMware vSphere ESXi 7.0.1 and VMware vSphere ESXi 7.0.2. Reference link:https://kb.vmware.com/s/article/86331?lang=en_US[VMware KB 86331] for more information.
 
 ONTAP tools also specify certain default settings when creating ONTAP FlexVol volumes and LUNs:
 

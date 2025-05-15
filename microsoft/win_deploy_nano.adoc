@@ -19,9 +19,9 @@ To deploy a Nano Server as a Hyper-V host, complete the following steps:
 
 [arabic]
 . Log in to Windows Server as a member of the administrator group.
-. Copy the NanoServerImageGenerator folder from the \NanoServer folder in the Windows Server ISO to the local hard drive.
+. Copy the NanoServerImageGenerator folder from the \NanoServer folder in the Windows Server ISO to the local hard disk.
 . To create a Nano Server VHD/VHDX, complete the following steps:
-.. Start Windows PowerShell as an administrator, navigate to the copied NanoServerImageGenerator folder on the local hard drive, and run the following cmdlet:
+.. Start Windows PowerShell as an administrator, navigate to the copied NanoServerImageGenerator folder on the local hard disk, and run the following cmdlet:
 
  Set-ExecutionPolicy RemoteSigned
  Import-Module .\NanoServerImageGenerator -Verbose

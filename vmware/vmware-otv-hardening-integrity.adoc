@@ -4,7 +4,7 @@ permalink: vmware/vmware-otv-hardening-integrity.html
 keywords: VMware, Data protection, security, OTV, Hardening, ONTAP Tools
 summary: Security Hardening Guide for ONTAP tools for VMware vSphere, integrity verification.
 ---
-= Verifying the integrity of the ONTAP tools for VMware vSphere installation packages
+= Verifying the integrity of the ONTAP tools for VMware vSphere 9.13 installation packages
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -27,7 +27,7 @@ Customers must also upload the provided root and Intermediate certificate on vCe
 === Uploading the trusted root certificate to vCenter
 . Log in with the VMware vSphere Client to the vCenter Server.
 . Specify the username and password for administrator@vsphere.local or another member of the vCenter Single Sign-On Administrators group. If you specified a different domain during installation, log in as administrator@mydomain.
-. Navigate to the Certificate Management user interface: a. From the Home menu, select Administration. b. Under Certificates, click Certificate Management.
+. Navigate to the Certificate Management UI: a. From the Home menu, select Administration. b. Under Certificates, click Certificate Management.
 . If the system prompts you, enter the credentials of your vCenter Server.
 . Under Trusted Root Certificates, click Add.
 . Click browse and select the location of the certificate .pem file (OTV_OVA_INTER_ROOT_CERT_CHAIN.pem).

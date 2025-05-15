@@ -18,7 +18,7 @@ ONTAP tools also includes vCenter UI extensions, REST API services, Storage Repl
 
 == Products and Documentation
 
-The ONTAP One license includes all necessary licensing to utilize vVols with ONTAP systems. The only additional requirement is the free ONTAP tools OVA, which acts as the VASA Provider. In a vVols environment, the VASA Provider software translates array capabilities into policy-driven attributes that can be leveraged through the VASA APIs without the vSphere administrator needing to know how the capabilities are managed behind the scenes. This allows for dynamic consumption of allocated storage capacity based on policy, eliminating the need to manually create traditional datastores and manage their individual storage consumption rates. In short, vVols take all of the complexity of managing enterprise storage and abstracts it away from the vSphere admin so they can focus on the virtualization layer.
+The ONTAP One license includes all necessary licensing to use vVols with ONTAP systems. The only additional requirement is the free ONTAP tools OVA, which acts as the VASA Provider. In a vVols environment, the VASA Provider software translates array capabilities into policy-driven attributes that can be leveraged through the VASA APIs without the vSphere administrator needing to know how the capabilities are managed behind the scenes. This allows for dynamic consumption of allocated storage capacity based on policy, eliminating the need to manually create traditional datastores and manage their individual storage consumption rates. In short, vVols take all of the complexity of managing enterprise storage and abstracts it away from the vSphere admin so they can focus on the virtualization layer.
 
 For customers using VMware Cloud Foundation with vSAN, vVols can be added to any management or workload domain as supplemental storage. vVols seamlessly integrates with vSAN through a common storage policy-based management framework.
 
@@ -39,7 +39,7 @@ Refer to link:vmware-vvols-deploy.html[Deploying vVols Storage^] in this documen
 The best practice is to store your ONTAP tools and vCenter appliances on traditional NFS or VMFS datastores to avoid any interdependency conflict. Because both vCenter and ONTAP tools are must communicate with each other during vVols operations, do not install or move the ONTAP tools appliances or vCenter Server appliances (VCSA) to vVols storage that they are managing. If this happens, rebooting the vCenter or ONTAP tools appliances can result in an interruption of control plane access and an inability of the appliance to boot.
 ====
 
-In-place upgrades of ONTAP tools are supported by using the upgrade ISO file available for download at https://mysupport.netapp.com/site/products/all/details/otv10/downloads-tab[ONTAP tools for VMware vSphere 10 - Downloads] on the NetApp Support Site (NSS - login required). Follow the https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/upgrade/upgrade-ontap-tools.html[Upgrade from ONTAP tools for VMware vSphere 10.x to 10.3] guide instructions to upgrade the appliance. It is also possible to do a side-by-side upgrade from ONTAP tools 9.13 to 10.3. Refer to https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/migrate/migrate-to-latest-ontaptools.html[Migrate from ONTAP tools for VMware vSphere 9.x to 10.3] for a deeper dive on that subject.
+In-place upgrades of ONTAP tools are supported by using the upgrade ISO file available for download at https://mysupport.netapp.com/site/products/all/details/otv10/downloads-tab[ONTAP tools for VMware vSphere 10 - Downloads] on the NetApp Support Site (login required). Follow the https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/upgrade/upgrade-ontap-tools.html[Upgrade from ONTAP tools for VMware vSphere 10.x to 10.3] guide instructions to upgrade the appliance. It is also possible to do a side-by-side upgrade from ONTAP tools 9.13 to 10.3. Refer to https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/migrate/migrate-to-latest-ontaptools.html[Migrate from ONTAP tools for VMware vSphere 9.x to 10.3] for a deeper dive on that subject.
 
 For sizing your virtual appliance, and understanding the configuration limits, refer to https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/deploy/prerequisites.html#configuration-limits-to-deploy-ontap-tools-for-vmware-vsphere[Configuration limits to deploy ONTAP tools for VMware vSphere^]
 
@@ -58,7 +58,7 @@ https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/index.html[ONTAP too
 
 ==== Use ONTAP tools 
 
-* https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/configure/create-vvols-datastore.html[Provision datastores^]
+* https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/configure/create-datastore.html[Provision datastores^]
 * https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/configure/configure-user-role-and-privileges.html[Configure role-based access control^]
 * https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/manage/edit-appliance-settings.html[Configure high availability^]
 * https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/manage/edit-esxi-host-settings.html[Modify ESXi host settings^]
@@ -83,11 +83,11 @@ In general, ONTAP supports vVols limits as defined by VMware (see published http
 
 *Use ONTAP tools for VMware vSphere's UI extensions or REST APIs to provision vVols datastores* *and Protocol Endpoints.* 
 
-While it's possible to create vVols datastores with the general vSphere interface, using ONTAP tools will automatically create protocol endpoints as needed, and creates FlexVol volumes (not required with ASA r2) using ONTAP best practices. Simply right click on the host/cluster/datacenter, then select _ONTAP tools_ and _Provision datastore_. From there simply choose the desired vVols options in the wizard.
+While it's possible to create vVols datastores with the general vSphere interface, using ONTAP tools will automatically create protocol endpoints as needed, and creates FlexVol volumes (not required with ASA r2) using ONTAP best practices. Simply right-click on the host/cluster/datacenter, then select _ONTAP tools_ and _Provision datastore_. From there simply choose the desired vVols options in the wizard.
 
 *Never store the ONTAP tools appliance or vCenter Server Appliance (VCSA) on a vVols datastore that they are managing.* 
 
-This can result in a “chicken and egg situation” if you need to reboot the appliances because they won't be able to rebind their own vVols while they are rebooting. You may store them on a vVols datastore managed by a different ONTAP tools and vCenter deployment.
+This can result in a "chicken and egg situation" if you need to reboot the appliances because they won't be able to rebind their own vVols while they are rebooting. You may store them on a vVols datastore managed by a different ONTAP tools and vCenter deployment.
 
 *Avoid vVols operations across different ONTAP releases.* 
 
@@ -107,7 +107,7 @@ https://www.netapp.com/media/10680-tr4080.pdf[_TR-4080 Best practices for modern
 
 https://www.netapp.com/pdf.html?item=/media/10681-tr4684.pdf[_TR-4684 Implementing and configuring modern SANs with NVMe-oF_^]
 
-*Plan your backing FlexVols according to your needs.* 
+*Plan your backing FlexVol volumes according to your needs.* 
 
 For non-ASA r2 systems, it can be desirable to add several backing volumes to your vVols datastore to distribute workload across the ONTAP cluster, to support different policy options, or to increase the number of allowed LUNs or files. However, if maximum storage efficiency is required, then place all your backing volumes on a single aggregate. Or if maximum cloning performance is required, then consider using a single FlexVol volume and keeping your templates or content library in the same volume. The VASA Provider offloads many vVols storage operations to ONTAP, including migration, cloning and snapshots. When this is done within a single FlexVol volume, space efficient file clones are used and are almost instantly available. When this is done across FlexVol volumes, the copies are quickly available and use inline deduplication and compression, but maximum storage efficiency may not be recovered until background jobs run on volumes using background deduplication and compression. Depending on the source and destination, some efficiency may be degraded.
 

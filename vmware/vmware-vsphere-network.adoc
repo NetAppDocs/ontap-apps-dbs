@@ -16,9 +16,9 @@ Configuring network settings when using vSphere with systems running ONTAP is st
 
 Here are some things to consider:
 
-* Separate storage network traffic from other networks. A separate network can be achieved by using a dedicated VLAN or separate switches for storage. If the storage network shares physical paths such as uplinks, you might need QoS or additional uplink ports to make sure of sufficient bandwidth. Don't connect hosts directly to storage; use switches to have redundant paths and allow VMware HA to work without intervention. See link:vmware-vsphere-network.html[Direct connect networking] for additional information.
-* Jumbo frames can be used if desired and supported by your network, especially when using iSCSI. If they are used, make sure they are configured identically on all network devices, VLANs, and so on in the path between storage and the ESXi host. Otherwise, you might see performance or connection problems. The MTU must also be set identically on the ESXi virtual switch, the VMkernel port, and also on the physical ports or interface groups of each ONTAP node.
-* NetApp only recommends disabling network flow control on the cluster network ports within an ONTAP cluster. NetApp makes no other recommendations for best practices for the remaining network ports used for data traffic. You should enable or disable it as necessary. See https://www.netapp.com/pdf.html?item=/media/16885-tr-4182pdf.pdf[TR-4182^] for more background on flow control.
+* Separate storage network traffic from other networks. A separate network can be achieved by using a dedicated VLAN or separate switches for storage. If the storage network shares physical paths such as uplinks, you might need QoS or additional uplink ports to make sure of sufficient bandwidth. Don't connect hosts directly to storage unless your solution guide specifically calls for it; use switches to have redundant paths and allow VMware HA to work without intervention. 
+* Jumbo frames should be used if supported by your network. If they are used, make sure they are configured identically on all network devices, VLANs, and so on in the path between storage and the ESXi host. Otherwise, you might see performance or connection problems. The MTU must also be set identically on the ESXi virtual switch, the VMkernel port, and also on the physical ports or interface groups of each ONTAP node.
+* NetApp only recommends disabling network flow control on the cluster-interconnect ports within an ONTAP cluster. NetApp makes no other recommendations for best practices regarding flow control for the remaining network ports used for data traffic. You should enable or disable it as necessary. See https://www.netapp.com/pdf.html?item=/media/16885-tr-4182pdf.pdf[TR-4182^] for more background on flow control.
 * When ESXi and ONTAP storage arrays are connected to Ethernet storage networks, NetApp recommends configuring the Ethernet ports to which these systems connect as Rapid Spanning Tree Protocol (RSTP) edge ports or by using the Cisco PortFast feature. NetApp recommends enabling the Spanning-Tree PortFast trunk feature in environments that use the Cisco PortFast feature and that have 802.1Q VLAN trunking enabled to either the ESXi server or the ONTAP storage arrays.
 * NetApp recommends the following best practices for link aggregation:
 ** Use switches that support link aggregation of ports on two separate switch chassis using a multi-chassis link aggregation group approach such as Cisco's Virtual PortChannel (vPC).
@@ -72,7 +72,7 @@ The following table provides a summary of network configuration items and indica
 
 **These devices have IP addresses of their own for management, but these addresses are not used in the context of ESXi storage networking.
 
-== SAN (FC, FCoE, NVMe/FC, iSCSI), RDM
+== SAN (FC, NVMe/FC, iSCSI, NVMe/TCP), RDM
 
 ONTAP offers enterprise-class block storage for VMware vSphere using traditional iSCSI and Fibre Channel Protocol (FCP) as well as the highly efficient and performant next-generation block protocol, NVMe over Fabrics (NVMe-oF), with support for both NVMe/FC and NVMe/TCP.
 
@@ -85,7 +85,7 @@ For recommended best practices refer to link:vmware-vsphere-datastores-nfs.html[
 
 == Direct connect networking
 
-Storage administrators sometimes prefer to simplify their infrastructures by removing network switches from the configuration. This can be supported in some scenarios.
+Storage administrators sometimes prefer to simplify their infrastructures by removing network switches from the configuration. This can be supported in some scenarios. However, there are some limitations and caveats to be aware of.
 
 === iSCSI and NVMe/TCP
 
@@ -99,7 +99,7 @@ The reason nondisruptive failover is complicated with direct-connected NFS stora
 
 The second OS NIC could be configured as 19     2.168.1.2 and would be capable of communicating with the failed over 192.168.1.50 address, but the local routing tables would have a default of using one *and only one* address to communicate with the 192.168.1.0/24 subnet. A sysadmin could create a scripting framework that would detect a failed network connection and alter the local routing tables or bring interfaces up and down. The exact procedure would depend on the OS in use. 
 
-In practice, NetApp customers do have direct-connected NFS, but normally only for workloads where IO pauses during failovers are acceptable. When hard mounts are used, there should not be any IO errors during such pauses. The IO should hang until services are restored, either by a failback or manual intervention to move IP addresses between NICs on the host.
+In practice, NetApp customers do have direct-connected NFS, but normally only for workloads where IO pauses during failovers are acceptable. When hard mounts are used, there should not be any IO errors during such pauses. The IO should freeze until services are restored, either by a failback or manual intervention to move IP addresses between NICs on the host.
 
 === FC Direct Connect
 

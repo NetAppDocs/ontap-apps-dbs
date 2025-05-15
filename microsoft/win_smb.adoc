@@ -39,7 +39,7 @@ A NetApp storage controller can be joined to and operate within an Active Direct
 For the CIFS setup to work properly, the NetApp storage controllers must be time synchronized with the Windows domain controller. NetApp recommends having a time skew between the Windows domain controller and the NetApp storage controller of not more than five minutes. It is a best practice to configure the Network Time Protocol (NTP) server for the ONTAP cluster to synchronize with an external time source. To configure the Windows domain controller as the NTP server, run the following command on your ONTAP cluster:
 
  $domainControllerIP = "<input IP Address of windows domain controller>"
- cluster::> system services ntp server create â€“server $domainControllerIP
+ cluster::> system services ntp server create -server $domainControllerIP
 
 === Deployment
 [arabic]

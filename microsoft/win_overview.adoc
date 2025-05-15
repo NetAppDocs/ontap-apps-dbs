@@ -28,7 +28,7 @@ Microsoft Windows Server is an enterprise-class operating system (OS) that cover
 ** Azure NetApp Files
 ** Google Cloud NetApp Volumes
 
-ONTAP provides NetApp storage efficiency features such as NetApp Snapshot(R) technology, cloning, deduplication, thin provisioning, thin replication, compression, virtual storage tiering, and much more with enhanced performance and efficiency.
+ONTAP provides NetApp storage efficiency features such as NetApp snapshot technology, cloning, deduplication, thin provisioning, thin replication, compression, virtual storage tiering, and much more with enhanced performance and efficiency.
 
 Together, Windows Server and ONTAP can operate in large environments and bring immense value to data center consolidation and private or hybrid cloud deployments. This combination also provides nondisruptive workloads efficiently and supports seamless scalability.
 
@@ -41,4 +41,4 @@ We make the following assumptions in this document:
 * The reader has general knowledge of block-access protocols, such as iSCSI, FC and the file-access protocol SMB/CIFS. See the https://docs.netapp.com/us-en/ontap/san-management/index.html[Clustered Data ONTAP SAN management] for SAN-related information. See the https://docs.netapp.com/us-en/ontap/nas-management/index.html[NAS management] for CIFS/SMB-related information.
 * The reader has general knowledge of the Windows Server OS and Hyper-V.
 
-For a complete, regularly updated matrix of tested and supported SAN and NAS configurations, see the http://mysupport.netapp.com/matrix/[Interoperability Matrix Tool (IMT)] on the NetApp Support site. With the IMT, you can determine the exact product and feature versions that are supported for your specific environment. The NetApp IMT defines the product components and versions that are compatible with NetApp supported configurations. Specific results depend on each customer's installation in accordance with published specifications.
+For a complete, regularly updated matrix of tested and supported SAN and NAS configurations, see the http://mysupport.netapp.com/matrix/[Interoperability Matrix Tool (IMT)] on the NetApp Support Site. With the IMT, you can determine the exact product and feature versions that are supported for your specific environment. The NetApp IMT defines the product components and versions that are compatible with NetApp supported configurations. Specific results depend on each customer's installation in accordance with published specifications.

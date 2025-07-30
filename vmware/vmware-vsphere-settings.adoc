@@ -67,7 +67,7 @@ All other NFS configurations set to 64.
 |Set to 5 for all NFS configurations.
 |No
 |SunRPC.MaxConnPerIP
-|vSphere 7.0 or later, set to 128.
+|vSphere 7.0 to 8.0, set to 128. This setting is ignored in ESXi releases after 8.0.
 |No
 
 3+e|*FC/FCoE Settings*

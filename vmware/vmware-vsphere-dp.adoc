@@ -14,7 +14,7 @@ summary: SnapCenter allows you to create backup policies that can be applied to 
 [.lead]
 Backing up and quickly recovering your virtual machines (VMs) are key advantages of using ONTAP for vSphere. This functionality can be easily managed within vCenter through the SnapCenter Plug-In for VMware vSphere. Many customers enhance their third-party backup solutions with SnapCenter to leverage ONTAP’s snapshot technology, as it offers the fastest and most straightforward way to recover a VM with ONTAP. SnapCenter is available for free to customers who have the ONTAP One license, and other license bundles may also be available.
 
-Additionally, the SnapCenter Plug-In for VMware can integrate with https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-protect-vm-data.html[BlueXP for backup and recovery of virtual machines^], enabling effective 3-2-1 backup solutions for most ONTAP systems. Note that some fees may apply if using BlueXP backup and recovery for virtual machines with premium services, such as object stores for additional backup storage. This section outlines the various options available for protecting your VMs and datastores.
+Additionally, the SnapCenter Plug-In for VMware can integrate with https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-protect-vm-data.html[NetApp Backup and Recovery for virtual machines^], enabling effective 3-2-1 backup solutions for most ONTAP systems. Note that some fees may apply if using Backup and Recovery for virtual machines with premium services, such as object stores for additional backup storage. This section outlines the various options available for protecting your VMs and datastores.
 
 == NetApp ONTAP volume snapshots 
 
@@ -50,9 +50,9 @@ The ONTAP tools for VMware vSphere (OT4VS) is a free plug-in that provides a sea
 
 For improved disaster recovery capabilities, consider utilizing the NetApp SRA for ONTAP, which is part of ONTAP tools for VMware vSphere, alongside VMware Live Site Recovery (formerly known as Site Recovery Manager). This tool not only supports the replication of datastores to a disaster recovery site using SnapMirror, but it also allows for nondisruptive testing in the DR environment by cloning the replicated datastores. Additionally, recovery from a disaster and reprotecting production after resolving an outage is streamlined thanks to the built-in automation features.
 
-== BlueXP Disaster Recovery
+== NetApp Disaster Recovery
 
-BlueXP Disaster Recovery (DR) is a cloud-based service that provides a comprehensive solution for protecting your data and applications in the event of a disaster. It offers a range of features, including automated failover and failback, multiple point in time recovery points, application consistent disaster recovery, and support for both on-prem and cloud based ONTAP systems. BlueXP DR is designed to work seamlessly with ONTAP and your VMware vSphere environment, providing a unified solution for disaster recovery.
+Disaster Recovery (DR) is a cloud-based service that provides a comprehensive solution for protecting your data and applications in the event of a disaster. It offers a range of features, including automated failover and failback, multiple point-in-time recovery points, application-consistent disaster recovery, and support for both on-prem and cloud-based ONTAP systems. BlueXP DR is designed to work seamlessly with ONTAP and your VMware vSphere environment, providing a unified solution for disaster recovery.
 
 == vSphere Metro Storage Cluster (vMSC) with NetApp MetroCluster and SnapMirror active sync
 

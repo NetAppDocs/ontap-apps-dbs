@@ -39,10 +39,15 @@ image:vsrm-ontap9_image9.png[SnapMirror relationship layout]
 
 image:vsrm-ontap9_image10.png[SnapMirror relationship layout]
 
-== Support with SnapMirror active sync
+== VMFS support with SnapMirror active sync
 
-ONTAP tools 10.3 and later also support protecting your datastores with SnapMirror active sync. This enables transparent failover for business continuity between two datacenters (referred to as failure domains) that are relatively close together. Disaster recovery can then be orchestrated to a long-distance DR site using SnapMirror asynchronous through the ONTAP tools SRA.
+ONTAP tools 10.3 and later also support protecting your VMFS datastores with SnapMirror active sync(SMas). This enables transparent failover for business continuity between two datacenters (referred to as failure domains) that are relatively close together. Long-distance disaster recovery can then be orchestrated using SnapMirror asynchronous through the ONTAP tools SRA with VLSR.
+
 https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/[Learn about ONTAP SnapMirror active sync]
+
+Datastores are collected together in a consistency group(CG), and the VMs across all datastores will all remain write-order consistent as members of the same CG.
+
+Some examples might be to have sites in Berlin and Hamburg protected by SMas, and a third site replica using SnapMirror asynchronous and protected by VLSR. Another example might be to protect sites in New York and New Jersey using SMas, with a third site in Chicago.
 
 image:https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-104/media/fan-out-protection.png[SMas layout]
 

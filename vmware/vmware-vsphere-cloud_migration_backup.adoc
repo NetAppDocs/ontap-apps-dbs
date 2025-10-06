@@ -24,10 +24,10 @@ When designing your VM-based applications, consider future cloud mobility. For e
 
 For a deep dive into more security topics, refer to the following resources.
 
-* link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/index.html[Cloud Volumes ONTAP documentation]
+* link:https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/index.html[Cloud Volumes ONTAP documentation]
 * link:https://docs.netapp.com/us-en/ontap-select/[ONTAP Select documentation]
-* link:https://docs.netapp.com/us-en/bluexp-backup-recovery/index.html[Backup and Recovery documentation]
-* link:https://docs.netapp.com/us-en/bluexp-disaster-recovery/index.html[Disaster Recovery documentation]
+* link:https://docs.netapp.com/us-en/data-services-backup-recovery/index.html[Backup and Recovery documentation]
+* link:https://docs.netapp.com/us-en/data-services-disaster-recovery/index.html[Disaster Recovery documentation]
 * link:https://aws.amazon.com/fsx/netapp-ontap/[Amazon FSx for NetApp ONTAP]
 * link:https://www.vmware.com/products/vmc-on-aws.html[VMware Cloud on AWS]
 * link:https://learn.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-introduction[What is Azure NetApp Files?

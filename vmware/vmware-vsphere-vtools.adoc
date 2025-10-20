@@ -37,5 +37,7 @@ The https://mysupport.netapp.com/site/products/all/details/nfsplugin-vmware-vaai
 
 == Premium software options
 The following premium software products are available from NetApp. They are not included with the ONTAP One license and must be purchased separately.
+
 * https://www.netapp.com/data-services/disaster-recovery/[NetApp Disaster Recovery (DR)] for VMware vSphere. This is a cloud-based service that provides disaster recovery and backup for VMware environments. It can be used with or without SnapCenter and supports on-prem to on-prem DR using SAN or NAS, and on-prem to/from cloud using NFS, where supported.
+
 * https://www.netapp.com/data-infrastructure-insights/[Data Infrastructure Insights (DII)]. This is a cloud-based service that provides monitoring and analytics for VMware environments. It supports other storage vendors in a heterogenous storage environments, as well as multiple switch vendors and other hypervisors. DII provides complete end-to-end insights into the performance, capacity, and health of your VMware environment.

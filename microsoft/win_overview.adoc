@@ -22,7 +22,6 @@ Microsoft Windows Server is an enterprise-class operating system (OS) that cover
 * An All SAN Array (ASA) that focuses only on block protocols and optimizes I/O resume times (IORT) by adding symmetric active-active multipathing for connect hosts
 * A software defined unified architecture
 ** ONTAP Select running on VMware vSphere or KVM
-** Cloud Volumes ONTAP running as a cloud native instance
 * First party offerings from hyperscale cloud providers
 ** Amazon FSx for NetApp ONTAP
 ** Azure NetApp Files

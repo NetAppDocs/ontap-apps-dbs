@@ -52,7 +52,7 @@ For improved disaster recovery capabilities, consider utilizing the NetApp SRA f
 
 == NetApp Disaster Recovery
 
-Disaster Recovery (DR) is a cloud-based service that provides a comprehensive solution for protecting your data and applications in the event of a disaster. It offers a range of features, including automated failover and failback, multiple point-in-time recovery points, application-consistent disaster recovery, and support for both on-prem and cloud-based ONTAP systems. BlueXP DR is designed to work seamlessly with ONTAP and your VMware vSphere environment, providing a unified solution for disaster recovery.
+Disaster Recovery (DR) is a cloud-based service that provides a comprehensive solution for protecting your data and applications in the event of a disaster. It offers a range of features, including automated failover and failback, multiple point-in-time recovery points, application-consistent disaster recovery, and support for both on-prem and cloud-based ONTAP systems. NetApp Disaster Recovery is designed to work seamlessly with ONTAP and your VMware vSphere environment, providing a unified solution for disaster recovery.
 
 == vSphere Metro Storage Cluster (vMSC) with NetApp MetroCluster and SnapMirror active sync
 

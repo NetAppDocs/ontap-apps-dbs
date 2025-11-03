@@ -34,8 +34,8 @@ The following tables present vSphere-supported traditional datastore features wi
 |VMFS
 |n/a
 |Maximum number of datastores or LUNs
-|1024 LUNs per host
-|1024 LUNs per server
+|1024 LUNs per ESXi host, up to 32 paths per LUN, up to 4096 total paths per host, up to 128 hosts per datastore
+|1024 LUNs per ESXi host, up to 32 paths per LUN, up to 4096 total paths per host, up to 128 hosts per datastore
 |256 Namespaces per ESXi host, up to 32 paths per namespace per host, 2048 total paths per host, up to 16 hosts per datastore
 |256 NFS connections per host (impacted by nconnect and session trunking)
 Default NFS. MaxVolumes is 8. Use ONTAP tools for VMware vSphere to increase to 256.

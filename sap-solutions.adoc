@@ -15,4 +15,3 @@ summary: Solutions for SAP HANA and AnyDB
 Best practices for configuring, managing and automating SAP solutions can be found on the NetApp SAP Solutions page.
 
 Please click link:https://docs.netapp.com/us-en/netapp-solutions-sap/[here] for more.
-This is a test line.

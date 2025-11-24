@@ -18,17 +18,17 @@ This section describes the Epic software environment and the key components that
 
 Epic, headquartered in Verona, Wisconsin, makes software for medium to large medical groups, hospitals, and integrated healthcare organizations. Customers also include community hospitals, academic facilities, childrens' organizations, safety-net providers, and multi-hospital systems. Epic-integrated software spans clinical, access, and revenue functions and extends into the home.
 
-It is beyond the scope of this document to cover the wide span of functions supported by Epic software. From the storage system point of view, however, all Epic software shares a single patient-centric database for each deployment. Epic is transitioning from the InterSystems Caché database to the new InterSystems Iris database. Because the storage requirements are the same for Caché and Iris, we will refer to the database as Iris throughout the rest of this document. Iris is available for the AIX and Linux operating systems.
+It is beyond the scope of this document to cover the wide span of functions supported by Epic software. From the storage system point of view, however, all Epic software shares a single patient-centric database for each deployment. Epic is transitioning from the InterSystems Caché database to the new InterSystems IRIS database. Because the storage requirements are the same for Caché and IRIS, we will refer to the database as IRIS throughout the rest of this document. IRIS is available for the AIX and Linux operating systems.
 
-== InterSystems Iris
+== InterSystems IRIS
 
-InterSystems Iris is the database used by the Epic application. In this database, the data server is the access point for persistently stored data. The application server manages database queries and makes data requests to the data server. For most Epic software environments, the use of the symmetric multiprocessor (SMP) architecture in a single database server suffices to service Epic applications' database requests. In large deployments, a distributed model can be supported by using InterSystems' Enterprise Caché Protocol (ECP).
+InterSystems IRIS is the database used by the Epic application. In this database, the data server is the access point for persistently stored data. The application server manages database queries and makes data requests to the data server. For most Epic software environments, the use of the symmetric multiprocessor (SMP) architecture in a single database server suffices to service Epic applications' database requests. In large deployments, a distributed model can be supported by using InterSystems' Enterprise Cache Protocol (ECP).
 
 The use of failover-enabled clustered hardware enables a standby data server to access the same storage as the primary data server. It also enables the standby data server to take over processing responsibilities during a hardware failure.
 
-InterSystems also provides technologies to satisfy data replication, disaster recovery, and high-availability (HA) requirements. InterSystems' replication technology is used to replicate an Iris database synchronously or asynchronously from a primary data server to one or more secondary data servers. NetApp SnapMirror is used to replicate WebBLOB storage or for backup and disaster recovery.
+InterSystems also provides technologies to satisfy data replication, disaster recovery, and high-availability (HA) requirements. InterSystems' replication technology is used to replicate an IRIS database synchronously or asynchronously from a primary data server to one or more secondary data servers. NetApp SnapMirror is used to replicate WebBLOB storage or for backup and disaster recovery.
 
-The updated Iris database has many advantages:
+The updated IRIS database has many advantages:
 
 * Increased scale and enables larger organizations with multiple Epic instances to consolidate into one larger instance.
 
@@ -36,24 +36,24 @@ The updated Iris database has many advantages:
 
 == Caché database servers and storage usage
 
-* *Production* In Epic software environments, a single patient-centric database is deployed. In Epic's hardware requirements, the physical server hosting the primary read/write Iris data server is called the production database server. This server requires high performance all-flash storage for files belonging to the primary database instance. For high availability, Epic supports the use of a failover database server that has access to the same files. Iris uses Epic Mirror to replicate to read-only Report, disaster recovery and support read-only copies. Each type of database server can be switched to read/write mode for business continuity reasons.
+* *Production* In Epic software environments, a single patient-centric database is deployed. In Epic's hardware requirements, the physical server hosting the primary read/write IRIS data server is called the production database server. This server requires high performance all-flash storage for files belonging to the primary database instance. For high availability, Epic supports the use of a failover database server that has access to the same files. IRIS uses Mirroring to replicate to read-only Report, disaster recovery and support read-only copies. Each type of database server can be switched to read/write mode for business continuity reasons.
 
-* *Report* A reporting mirror database server provides read-only access to production data. It hosts an Iris data server configured as a backup mirror of the production Iris data server. The reporting database server has the same storage capacity requirements as the production database server. Reporting write performance is the same as production but read workload characteristics are different and sized differently.
+* *Report* A reporting mirror database server provides read-only access to production data. It hosts an IRIS data server configured as a backup mirror of the production IRIS data server. The reporting database server has the same storage capacity requirements as the production database server. Reporting write performance is the same as production but read workload characteristics are different and sized differently.
 
 * *Supports read-only* This database server is optional and not shown the figure below. A mirror database server can also be deployed to support Epic supports read-only functionality, in which access is provided to a copy of production in read-only mode. This type of database server can be switched to read/write mode for business continuity reasons.
 
-* *Disaster recovery* To meet business continuity and disaster recovery objectives, a disaster recovery mirror database server is commonly deployed at a site geographically separate from the production and/or reporting mirror database servers. A disaster recovery mirror database server also hosts an Iris data server configured as a backup mirror of the production Iris data server. If the production site becomes unavailable for an extended time, this backup mirror database server can be configured to act as a mirror read/write instance (SRW). The backup mirror database server has the same file storage requirements as the production database server. In contrast, the backup mirror database storage is sized the same as the production storage from a performance perspective for business continuity. 
+* *Disaster recovery* To meet business continuity and disaster recovery objectives, a disaster recovery mirror database server is commonly deployed at a site geographically separate from the production and/or reporting mirror database servers. A disaster recovery mirror database server also hosts an IRIS data server configured as a backup mirror of the production IRIS data server. If the production site becomes unavailable for an extended time, this backup mirror database server can be configured to act as a mirror read/write instance (SRW). The backup mirror database server has the same file storage requirements as the production database server. In contrast, the backup mirror database storage is sized the same as the production storage from a performance perspective for business continuity. 
 
 image:epic-iris-odb.png[Epic IRIS ODB]
 
-* *Test* Healthcare organizations often deploy development, testing, and staging environments. Additional Iris data servers for these environments also require storage, which can be accommodated by the same storage system. Epic has specific requirements and constraints for providing additional storage from a shared storage system. These specific requirements are addressed generically by the best practices in this document.
+* *Test* Healthcare organizations often deploy development, testing, and staging environments. Additional IRIS data servers for these environments also require storage, which can be accommodated by the same storage system. Epic has specific requirements and constraints for providing additional storage from a shared storage system. These specific requirements are addressed generically by the best practices in this document.
 
-In addition to Iris ODB data servers, Epic software environments commonly include other components such as the following and as shown in the figure below:
+In addition to IRIS ODB data servers, Epic software environments commonly include other components such as the following and as shown in the figure below:
 
 * An Oracle or Microsoft SQL Server database server as a back end to Epic's Clarity business-reporting tools
 
 [NOTE]
-Clarity is used to report on data extracted daily from the reporting Iris database.
+Clarity is used to report on data extracted daily from the reporting IRIS database.
 
 * WebBLOB server (SMB)
 

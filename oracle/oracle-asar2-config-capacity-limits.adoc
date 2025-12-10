@@ -1,0 +1,29 @@
+---
+sidebar: sidebar
+permalink: oracle/oracle-asar2-config-capacity-limits.html
+keywords: capacity
+summary: Databases and ASA r2 ONTAP storage capacity and free space
+searchtitle: Oracle databases and storage capacity management on ASA r2
+---
+= Capacity management
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+Managing a database or other enterprise application with predictable, manageable, high performance enterprise storage requires some free space on the drives for data and metadata management. The amount of free space required depends on the type of drive used, and business processes.
+
+ASA r2 uses Storage Availability Zones (SAZ) instead of aggregates, but the principle remains the same: free space includes any physical capacity not consumed by actual data, snapshots, or system overhead. Thin provisioning must also be considered—logical allocations do not reflect true physical usage.
+
+NetApp recommendations for ASA r2 storage systems used for enterprise applications are as follows:
+
+== SSD pools in ASA r2 systems
+
+[TIP]
+*NetApp recommends* maintaining a minimum of 10% free physical space in ASA r2 environments. This guideline applies to SSD-only pools used by ASA r2 systems and includes all unused space within the SAZ and storage units. Logical space is unimportant; the focus is on the actual free physical space available for data storage.
+
+While ASA r2 can sustain high utilization without performance degradation, operating near full capacity increases the risk of space exhaustion and administrative overhead when expanding storage. Running at 99% utilization may not impact performance but can complicate management and delay provisioning of additional drives.
+
+ASA r2 systems support storage units up to 128TB and SAZ sizes up to 2PB per HA pair, with ONTAP automatically balancing capacity across nodes. Monitoring utilization at the cluster, SAZ, and storage unit levels is essential to ensure adequate free space for snapshots, thin-provisioned workloads, and future growth. If capacity approaches critical thresholds, additional SSDs should be added in groups (minimum six drives) to maintain performance and resiliency.

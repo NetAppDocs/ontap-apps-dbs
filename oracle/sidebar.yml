@@ -3,7 +3,7 @@ title: Oracle Database
 entries:
   - title: Overview
     url: /oracle/oracle-overview.html
-  - title: ONTAP configuration
+  - title: ONTAP configuration on AFF/FAS systems
     entries:
     - title: RAID
       url: /oracle/oracle-ontap-config-raid.html
@@ -19,7 +19,7 @@ entries:
       url: /oracle/oracle-ontap-config-thin-provisioning.html
     - title: Failover and switchover
       url: /oracle/oracle-ontap-config-failover.html
-  - title: Database configuration
+  - title: Database configuration with AFF/FAS systems
     pdf-filename: Database configuration for Oracle Database
     entries:
     - title: Datafile and redo block sizes
@@ -30,7 +30,7 @@ entries:
       url: /oracle/oracle-app-config-filesystemio_options.html
     - title: Oracle RAC
       url: /oracle/oracle-app-config-rac.html
-  - title: Host configuration
+  - title: Host configuration with AFF/FAS systems
     pdf-filename: Host configuration for Oracle Database
     entries:
     - title: AIX
@@ -45,7 +45,7 @@ entries:
       url: /oracle/oracle-host-config-windows.html
     - title: Solaris
       url: /oracle/oracle-host-config-solaris.html
-  - title: Network configuration
+  - title: Network configuration on AFF/FAS systems
     pdf-filename: Network configuration for Oracle Database
     entries:
     - title: Logical interfaces
@@ -56,7 +56,7 @@ entries:
       url: /oracle/oracle-network-config-fc.html
     - title: Direct-connect networking
       url: /oracle/oracle-network-config-direct-connect.html
-  - title: Storage configuration
+  - title: Storage configuration on AFF/FAS systems
     pdf-filename: Storage configuration for Oracle Database
     entries:
     - title: FC SAN

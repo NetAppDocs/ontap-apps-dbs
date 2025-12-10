@@ -19,6 +19,22 @@ entries:
       url: /oracle/oracle-ontap-config-thin-provisioning.html
     - title: Failover and switchover
       url: /oracle/oracle-ontap-config-failover.html
+  - title: ONTAP configuration on ASA r2 systems
+    entries:
+    - title: RAID
+      url: /oracle/oracle-asar2-config-raid.html
+    - title: Capacity limits
+      url: /oracle/oracle-asar2-config-capacity-limits.html
+    - title: Storage Virtual Machines
+      url: /oracle/oracle-asar2-config-svm.html
+    - title: Quality of service (QoS)
+      url: /oracle/oracle-asar2-config-qos.html
+    - title: Efficiency
+      url: /oracle/oracle-asar2-config-efficiency.html
+    - title: Thin provisioning
+      url: /oracle/oracle-asar2-config-thin-provisioning.html
+    - title: Failover
+      url: /oracle/oracle-asar2-config-failover.html
   - title: Database configuration with AFF/FAS systems
     pdf-filename: Database configuration for Oracle Database
     entries:

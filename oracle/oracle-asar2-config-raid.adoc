@@ -5,7 +5,7 @@ keywords: oracle, asar2, raid, mirroring
 summary: RAID and Oracle Databases with ASA r2
 searchtitle: RAID and Oracle databases with ASA r2
 ---
-= RAID
+= RAID test
 :hardbreaks:
 :nofooter:
 :icons: font

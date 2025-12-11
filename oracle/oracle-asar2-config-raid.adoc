@@ -17,7 +17,7 @@ searchtitle: RAID and Oracle databases with ASA r2
 [.lead]
 RAID refers to the use of parity-based redundancy to protect data against drive failure. ASA r2 uses the same ONTAP RAID technologies as AFF and FAS systems, ensuring robust protection against multiple disk failures.
 
-ASA r2 introduces Storage Availability Zones (SAZ) instead of aggregates. A SAZ is a shared,     RAID-protected pool of SSDs accessible by both nodes in an HA pair, simplifying management and improving resource utilization. ONTAP automatically handles volume placement within the SAZ, delivering balanced performance and high availability.
+ASA r2 introduces Storage Availability Zones (SAZ) instead of aggregates. A SAZ is a shared, RAID-protected pool of SSDs accessible by both nodes in an HA pair, simplifying management and improving resource utilization. ONTAP automatically handles volume placement within the SAZ, delivering balanced performance and high availability.
 
 Questions occasionally arise concerning RAID levels in the configuration of NetApp ASA r2 storage used for Oracle databases and other enterprise applications. Many legacy Oracle best practices regarding storage array configuration contain warnings about using RAID mirroring and/or avoiding certain types of RAID. Although they raise valid points, these sources do not apply to RAID 4 and the NetApp RAID DP and RAID-TEC technologies used in ONTAP.
 

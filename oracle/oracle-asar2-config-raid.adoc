@@ -8,7 +8,6 @@ searchtitle: RAID and Oracle databases with ASA r2
 
 = RAID
 
-:hardbreaks:
 :nofooter:
 :icons: font
 :linkattrs:

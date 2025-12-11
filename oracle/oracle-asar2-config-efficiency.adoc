@@ -1,0 +1,32 @@
+---
+sidebar: sidebar
+permalink: oracle/oracle-asar2-config-efficiency.html
+keywords: oracle, efficiency, compression, compaction, deduplication, asar2
+summary: Oracle databases and storage efficiency with ASA r2
+searchtitle: Oracle databases and ONTAP efficiency features with ASA r2
+---
+= Efficiency
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+ONTAP space efficiency features are fully supported and optimized for ASA r2 systems. In almost all cases, the best approach is to leave the defaults in place with all efficiency features enabled.
+
+ASA r2 systems are all-flash SAN platforms, so efficiency technologies such as compression, compaction, and deduplication are critical for maximizing usable capacity and reducing costs.
+
+include::../_include/efficiency.adoc[]
+
+include::../_include/compression.adoc[]
+
+include::../_include/compaction.adoc[]
+
+include::../_include/tsse.adoc[]
+
+include::../_include/deduplication.adoc[]
+
+include::../_include/efficiency-and-thin-provisioning.adoc[]
+
+include::../_include/efficiency-bp.adoc[]

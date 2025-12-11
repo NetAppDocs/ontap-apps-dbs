@@ -24,7 +24,7 @@ Similarly, cloning is another form of thin provisioning. A development environme
 == Space management
 Some care must be taken with thin provisioning in an application environment because data change rates can increase unexpectedly. For example, space consumption due to snapshots can grow rapidly if database tables are reindexed, or wide-scale patching is applied to VMware guests. A misplaced backup can write a large amount of data in a very short time. Finally, it can be difficult to recover some applications if a LUN runs out of free space unexpectedly.
 
-In ASA r2, these risks are mitigated through *thin provisioning*, *proactive monitoring*, and *LUN resize policies*, rather than ONTAP features like volume-autogrow or snapshot-autodelete. Administrators should:
+In ASA r2, these risks are mitigated through *thin provisioning*, *proactive monitoring*, and *LUN resize policies*, rather than ONTAP features like volume-autogrow or snapshot-autodelete. Administrators should:                                            
 * Enable thin provisioning on LUNs (`space-reserve disabled`)
 * Monitor capacity using System Manager alerts or API-based automation
 * Use scheduled or scripted LUN resize to accommodate growth

@@ -1,11 +1,16 @@
 ---
 sidebar: sidebar
 permalink: oracle/oracle-asar2-config-svm.html
-keywords: svm
+keywords: svm, asar2, oracle
 summary: SVM provisioning for Oracle databases with ASA r2
 searchtitle: Oracle databases and Storage Virtual Machines with ASA r2
 ---
 = Storage Virtual Machines
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
 
 [.lead]
 Oracle database storage management on ASA r2 systems is also centralized on a Storage Virtual Machine (SVM), known as a vserver at the ONTAP CLI.

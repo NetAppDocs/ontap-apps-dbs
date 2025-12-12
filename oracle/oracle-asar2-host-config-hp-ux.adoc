@@ -1,1 +1,47 @@
+---
+sidebar: sidebar
+permalink: oracle/oracle-asar2-host-config-hp-ux.html
+keywords: oracle, database, asar2, ontap, hp-ux
+summary: Oracle databases with HP-UX on ASA r2
+searchtitle: Oracle databases with HP-UX on ASA r2
+---
+= HP-UX
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
 
+[.lead]
+Configuration topics for Oracle database on HP-UX with ASA r2 ONTAP.
+
+[NOTE]
+====
+HP-UX is supported with NetApp ASA r2 for hosting Oracle databases, provided:
+
+* ONTAP version is 9.16.x or later.
+* Use SAN protocols (FC/iSCSI/NVMe). NAS is not supported on ASA r2.
+* Apply HP-UX-specific mount and I/O tuning best practices.
+====
+
+== HP-UX VxFS mount options
+Use the following mount options for file systems hosting Oracle binaries:
+
+....
+delaylog,nodatainlog
+....
+
+Use the following mount options for file systems containing datafiles, redo logs, archive logs, and control files in which the version of HP-UX does not support concurrent I/O:
+
+....
+nodatainlog,mincache=direct,convosync=direct
+....
+
+When concurrent I/O is supported (VxFS 5.0.1 and later, or with the ServiceGuard Storage Management Suite), use these mount options for file systems containing datafiles, redo logs, archive logs, and control files:
+
+....
+delaylog,cio
+....
+
+[NOTE]
+The parameter `db_file_multiblock_read_count` is especially critical in VxFS environments. Oracle recommends that this parameter remain unset in Oracle 10g R1 and later unless specifically directed otherwise. The default with an Oracle 8KB block size is 128. If the value of this parameter is forced to 16 or less, remove the `convosync=direct` mount option because it can damage sequential I/O performance. This step damages other aspects of performance and should only be taken if the value of `db_file_multiblock_read_count` must be changed from the default value.

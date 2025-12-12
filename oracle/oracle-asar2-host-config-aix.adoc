@@ -18,6 +18,7 @@ Configuration topics for Oracle database on IBM AIX with ASA r2 ONTAP.
 [NOTE]
 ====
 AIX is supported with NetApp ASA r2 for hosting Oracle databases, provided:
+
 * You configure Oracle for concurrent I/O properly.
 * You use supported SAN protocols (FC/iSCSI/NVMe).
 * You run ONTAP 9.16.x or later on ASA r2.
@@ -59,4 +60,4 @@ Redo logs
 .^|Defaults
 |===
 
-Before using AIX `hdisk` devices in any environment, including databases, check the parameter `queue_depth`. This parameter is not the HBA queue depth; rather it relates to the SCSI queue depth of the individual `hdisk device. Depending on how the ASA r2 LUNs are configured, the value for `queue_depth` might be too low for good performance. Testing has shown the optimum value to be 64.
+Before using AIX `hdisk` devices in any environment, including databases, check the parameter `queue_depth`. This parameter is not the HBA queue depth; rather it relates to the SCSI queue depth of the individual `hdisk device`. Depending on how the ASA r2 LUNs are configured, the value for `queue_depth` might be too low for good performance. Testing has shown the optimum value to be 64.

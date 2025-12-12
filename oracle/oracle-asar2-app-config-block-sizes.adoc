@@ -13,9 +13,9 @@ searchtitle: Oracle database block sizes with ASA r2
 :imagesdir: ../media/
 
 [.lead]
-ASA r2 does not introduce any changes to Oracle block size recommendations compared to AFF/FAS systems. ONTAP behavior remains consistent across all platforms.
-
 ONTAP internally uses a variable block size, which means Oracle databases can be configured with any block size desired. However, filesystem block sizes can affect performance, and in some cases, a larger redo block size can improve performance.
+
+ASA r2 does not introduce any changes to Oracle block size recommendations compared to AFF/FAS systems. ONTAP behavior remains consistent across all platforms.
 
 == Datafile block sizes
 

@@ -13,9 +13,9 @@ searchtitle: Oracle database parameters - db_file_multiblock_read_count with ASA
 :imagesdir: ../media/
 
 [.lead]
-There are no changes in recommendations compared to AFF/FAS systems. ONTAP behavior and Oracle best practices remain identical across ASA r2, AFF, and FAS platforms.
-
 The `db_file_multiblock_read_count` parameter controls the maximum number of Oracle database blocks that Oracle reads as a single operation during sequential I/O.
+
+There are no changes in recommendations compared to AFF/FAS systems. ONTAP behavior and Oracle best practices remain identical across ASA r2, AFF, and FAS platforms.
 
 This parameter does not, however, affect the number of blocks that Oracle reads during any and all read operations, nor does it affect random I/O. Only the block size of sequential I/O is affected.
 

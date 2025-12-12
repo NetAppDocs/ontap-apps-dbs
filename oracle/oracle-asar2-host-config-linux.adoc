@@ -1,1 +1,71 @@
+---
+sidebar: sidebar
+permalink: oracle/oracle-asar2-host-config-linux.html
+keywords: oracle, database, asar2, ontap, linux, nfs, xfs, ext4, slot tables
+summary: Oracle databases with Linux on ASA r2
+searchtitle: Oracle databases with Linux on ASA r2
+---
+= Linux
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
 
+[.lead]
+Configuration topics specific to the Linux OS with ASA r2 ONTAP.
+
+[NOTE]
+====
+Linux (Oracle Linux, RHEL, SUSE) is supported with ASA r2 for Oracle databases. Use SAN protocols, configure multipathing correctly, and apply Oracle best practices for ASM and I/O tuning.
+====
+
+== I/O scheduler
+The Linux kernel allows low-level control over the way that I/O to block devices is scheduled. The defaults on various distribution of Linux vary considerably. Testing shows that Deadline usually offers the best results, but on occasion NOOP has been slightly better. The difference in performance is minimal, but test both options if it is necessary to extract the maximum possible performance from a database configuration. CFQ is the default in many configurations, and it has demonstrated significant performance problems with database workloads.
+
+See the relevant Linux vendor documentation for instructions on configuring the I/O scheduler.
+
+== Multipathing
+Some customers have encountered crashes during network disruption because the multipath daemon was not running on their system. On recent versions of Linux, the installation process of the OS and the multipathing daemon might leave these OSs vulnerable to this problem. The packages are installed correctly, but they are not configured for automatic startup after a reboot.
+
+For example, the default for the multipath daemon on RHEL 9.7 might appear as follows:
+
+....
+[root@host1 ~]# systemctl list-unit-files --type=service | grep multipathd
+multipathd.service                      disabled
+....
+
+This can be corrected with the following commands:
+
+....
+[root@host1 ~]# systemctl enable multipathd.service
+[root@host1 ~]# systemctl list-unit-files --type=service | grep multipathd
+multipathd.service                      enabled
+....
+
+== Queue depth
+Set appropriate queue depth for SAN devices to avoid I/O bottlenecks. The default queue depth on Linux is often set to 128, which can lead to performance problems with Oracle databases. Setting the queue depth too high can cause excessive I/O queuing, leading to increased latency and reduced throughput. Setting it too low can limit the number of outstanding I/O requests, reducing overall performance. A queue depth of 64 is often a good starting point for Oracle database workloads on ASA r2, but it may need to be adjusted based on specific workload characteristics and performance testing.
+
+== ASM mirroring
+ASM mirroring might require changes to the Linux multipath settings to allow ASM to recognize a problem and switch over to an alternate fail group. Most ASM configurations on ONTAP use external redundancy, which means that data protection is provided by the external array and ASM does not mirror data. Some sites use ASM with normal redundancy to provide two-way mirroring, normally across different sites.
+
+For ASA r2 systems that support active-active multipathing, these multipath settings should be adjusted. Since all paths are active and load-balanced, indefinite queuing is not required. Instead, multipath parameters should prioritize performance and quick failback. This behavior is important for ASM mirroring because ASM must receive an I/O failure for it to retry I/O on an alternate LUN. If I/O is queued indefinitely, ASM cannot trigger a failover.
+
+Set the following parameters in the Linux `multipath.conf` file for ASM LUNs used with ASM mirroring:
+
+....
+polling_interval 5
+no_path_retry 24
+failback immediate
+path_grouping_policy multibus
+path_selector "service-time 0"
+....
+
+These settings create a 120-second timeout for ASM devices. The timeout is calculated as the `polling_interval` * `no_path_retry` as seconds. The exact value might need to be adjusted in some circumstances, but a 120 second timeout should be sufficient for most uses. Specifically, 120 seconds should allow a controller takeover or giveback to occur without producing an I/O error that would result in the fail group being taken offline.
+
+A lower `no_path_retry` value can shorten the time required for ASM to switch to an alternate fail group, but this also increases the risk of an unwanted failover during maintenance activities such as a controller takeover. The risk can be mitigated by careful monitoring of the ASM mirroring state. If an unwanted failover occurs, the mirrors can be rapidly resynced if the resync is performed relatively quickly. For additional information, see the Oracle documentation on ASM Fast Mirror Resync for the version of Oracle software in use.
+
+== Linux xfs, ext3, and ext4 mount options
+
+[TIP]
+*NetApp recommends* using the default mount options. Ensure proper alignment when creating file systems on LUNs.

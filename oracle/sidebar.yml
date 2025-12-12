@@ -4,6 +4,7 @@ entries:
   - title: Overview
     url: /oracle/oracle-overview.html
   - title: ONTAP configuration on AFF/FAS systems
+    pdf-filename: ONTAP configuration for Oracle Database
     entries:
     - title: RAID
       url: /oracle/oracle-ontap-config-raid.html
@@ -20,6 +21,7 @@ entries:
     - title: Failover and switchover
       url: /oracle/oracle-ontap-config-failover.html
   - title: ONTAP configuration on ASA r2 systems
+    pdf-filename: ONTAP configuration for Oracle Database with ASA r2 systems
     entries:
     - title: RAID
       url: /oracle/oracle-asar2-config-raid.html
@@ -72,6 +74,21 @@ entries:
       url: /oracle/oracle-host-config-windows.html
     - title: Solaris
       url: /oracle/oracle-host-config-solaris.html
+  - title: Host configuration with ASA r2 systems
+    pdf-filename: Host configuration for Oracle Database with ASA r2 systems
+    entries:
+    - title: AIX
+      url: /oracle/oracle-asar2-host-config-aix.html
+    - title: HP-UX
+      url: /oracle/oracle-asar2-host-config-hp-ux.html
+    - title: Linux
+      url: /oracle/oracle-asar2-host-config-linux.html
+    - title: Linux with ASMlib and AFD
+      url: /oracle/oracle-asar2-host-config-asmlib-afd.html
+    - title: Microsoft Windows
+      url: /oracle/oracle-asar2-host-config-windows.html
+    - title: Solaris
+      url: /oracle/oracle-asar2-host-config-solaris.html
   - title: Network configuration on AFF/FAS systems
     pdf-filename: Network configuration for Oracle Database
     entries:

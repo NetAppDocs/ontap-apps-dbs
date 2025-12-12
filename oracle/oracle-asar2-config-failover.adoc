@@ -26,8 +26,10 @@ Care must be taken when issuing a forced failover. Forcing a change to storage c
 A forced failover with a normal HA pair should rarely be required. In almost all failure scenarios, a node shuts down and informs the partner so that an automatic failover takes place. There are some edge cases, such as a rolling failure in which the interconnect between nodes is lost and then one controller fails, in which a forced failover is required. In such a situation, the mirroring between nodes is lost before the controller failure, which means that the surviving controller no longer has a copy of the writes in progress. The failover then needs to be forced, which means that data potentially is lost.
 
 [TIP]
+====
 NetApp recommends taking the following precautions:
 
 * Be very careful to not accidentally force a failover. Normally, forcing should not be required, and forcing the change can cause data loss.
 * If a forced failover is required, make sure that the applications are shut down, all file systems are dismounted, and logical volume manager (LVM) volume groups are varyoffed. ASM diskgroups must be unmounted.
 * In the event of a site-level failure with SM-AS, fence off the failed node from all surviving storage resources. For more information, see the https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/[SnapMirror Active Sync Guide] for the relevant version of ONTAP.
+====

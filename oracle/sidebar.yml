@@ -46,6 +46,17 @@ entries:
       url: /oracle/oracle-app-config-filesystemio_options.html
     - title: Oracle RAC
       url: /oracle/oracle-app-config-rac.html
+  - title: Database configuration with ASA r2 systems
+    pdf-filename: Database configuration for Oracle Database with ASA r2 systems
+    entries:
+    - title: Datafile and redo block sizes
+      url: /oracle/oracle-asar2-app-config-block-sizes.html
+    - title: db_file_multiblock_read_count
+      url: /oracle/oracle-asar2-app-config-mbr.html
+    - title: filesystemio_options
+      url: /oracle/oracle-asar2-app-config-filesystemio_options.html
+    - title: Oracle RAC
+      url: /oracle/oracle-asar2-app-config-rac.html
   - title: Host configuration with AFF/FAS systems
     pdf-filename: Host configuration for Oracle Database
     entries:

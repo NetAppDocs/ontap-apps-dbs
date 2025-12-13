@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: oracle/oracle-asar2-config-efficiency.html
-keywords: oracle, efficiency, compression, compaction, deduplication, asar2
+keywords: oracle, efficiency, compression, compaction, deduplication, ASA r2
 summary: Oracle databases and storage efficiency with ASA r2
 searchtitle: Oracle databases and ONTAP efficiency features with ASA r2
 ---

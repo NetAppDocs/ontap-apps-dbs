@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: oracle/oracle-asar2-config-capacity-limits.html
-keywords: capacity, asar2, oracle
+keywords: capacity, ASA r2, oracle
 summary: Databases and ASA r2 ONTAP storage capacity and free space on ASA r2
 searchtitle: Oracle databases and storage capacity management on ASA r2
 ---

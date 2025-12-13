@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: oracle/oracle-asar2-host-config-windows.html
-keywords: oracle, database, asar2, ontap, windows
+keywords: oracle, database, ASA r2, ontap, windows
 summary: Oracle databases with Microsoft Windows on ASA r2
 searchtitle: Oracle databases with Microsoft Windows on ASA r2
 ---

@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: oracle/oracle-asar2-host-config-solaris.html
-keywords: oracle, database, asar2, ontap, solaris, zfs
+keywords: oracle, database, ASA r2, ontap, solaris, zfs
 summary: Oracle databases with Solaris on ASA r2
 searchtitle: Oracle databases with Solaris on ASA r2
 ---

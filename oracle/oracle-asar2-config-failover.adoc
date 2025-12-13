@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: oracle/oracle-asar2-config-failover.html
-keywords: failover, asar2
+keywords: failover, ASA r2, oracle
 summary: An understanding of storage takeover function is required to ensure that Oracle database operations are not disrupted by these operations. In addition, the arguments used by takeover operation can affect data integrity if used incorrectly.
 searchtitle: Oracle databases and ONTAP controller failover in ASA r2
 ---

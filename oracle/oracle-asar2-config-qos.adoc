@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: oracle/oracle-asar2-config-qos.html
-keywords: qos, bandwidth, minimum, guaranteed, adaptive, asar2, oracle
+keywords: qos, bandwidth, minimum, guaranteed, adaptive, ASA r2, oracle
 summary: Oracle database performance management with ONTAP QoS on ASA r2
 searchtitle: Oracle database performance management with ONTAP QoS on ASA r2
 ---

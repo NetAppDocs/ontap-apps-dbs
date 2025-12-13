@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: oracle/oracle-asar2-host-config-aix.html
-keywords: oracle, database, asar2, ontap, aix, cio
+keywords: oracle, database, ASA r2, ontap, aix, cio
 summary: Oracle databases with AIX on ASA r2
 searchtitle: Oracle databases with IBM AIX on ASA r2
 ---

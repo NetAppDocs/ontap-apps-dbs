@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: /oracle/oracle-asar2-config-raid.html
-keywords: oracle, asar2, raid, mirroring
+keywords: oracle, ASA r2, raid, mirroring
 summary: RAID and Oracle Databases with ASA r2
 searchtitle: RAID and Oracle databases with ASA r2
 ---

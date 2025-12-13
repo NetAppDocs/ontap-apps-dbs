@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: oracle/oracle-asar2-network-config-lifs.html
-keywords: LIF, multipath, multipathing, asar2
+keywords: LIF, multipath, multipathing, ASA r2, oracle
 summary: Logical interface design for Oracle databases with ASA r2
 searchtitle: Logical interface design for Oracle databases with ASA r2
 ---

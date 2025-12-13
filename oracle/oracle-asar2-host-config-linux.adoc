@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: oracle/oracle-asar2-host-config-linux.html
-keywords: oracle, database, asar2, ontap, linux, nfs, xfs, ext4, slot tables
+keywords: oracle, database, ASA r2, ontap, linux, nfs, xfs, ext4, slot tables
 summary: Oracle databases with Linux on ASA r2
 searchtitle: Oracle databases with Linux on ASA r2
 ---

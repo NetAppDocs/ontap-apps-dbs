@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: oracle/oracle-asar2-host-config-hp-ux.html
-keywords: oracle, database, asar2, ontap, hp-ux
+keywords: oracle, database, ASA r2, ontap, hp-ux
 summary: Oracle databases with HP-UX on ASA r2
 searchtitle: Oracle databases with HP-UX on ASA r2
 ---

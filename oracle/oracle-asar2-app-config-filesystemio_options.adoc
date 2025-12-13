@@ -1,7 +1,7 @@
 ---
 permalink: oracle/oracle-asar2-app-config-filesystemio_options.html
 sidebar: sidebar
-keywords: oracle, database, asar2, ontap, filesystemio_options, filesystemio, async, directio
+keywords: oracle, database, ASA r2, ontap, filesystemio_options, filesystemio, async, directio
 summary: Oracle database parameters - filesystemio_options with ASA r2
 searchtitle: Oracle database parameters - filesystemio_options with ASA r2
 ---

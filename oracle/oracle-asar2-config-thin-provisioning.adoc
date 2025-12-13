@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: oracle/oracle-asar2-config-thin-provisioning.html
-keywords: thin provisioning, oracle, asar2
+keywords: thin provisioning, oracle, ASA r2
 summary: Oracle and ONTAP thin provisioning with ASA r2
 searchtitle: Thin provisioning with Oracle databases on ASA r2
 ---

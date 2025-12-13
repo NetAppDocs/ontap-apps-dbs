@@ -1,7 +1,7 @@
 ---
 permalink: oracle/oracle-asar2-app-config-mbr.html
 sidebar: sidebar
-keywords: oracle, database, asar2, ontap, db_file_multiblock_read_count, multiblock
+keywords: oracle, database, ASA r2, ontap, db_file_multiblock_read_count, multiblock
 summary: Oracle database parameters - db_file_multiblock_read_count with ASA r2
 searchtitle: Oracle database parameters - db_file_multiblock_read_count with ASA r2
 ---

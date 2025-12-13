@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: oracle/oracle-asar2-app-config-rac.html
-keywords: oracle, database, asar2, ontap, rac, disktimeout, misscount
+keywords: oracle, database, ASA r2, ontap, rac, disktimeout, misscount
 summary: Oracle RAC timeouts with ASA r2
 searchtitle: Oracle Real Application Clusters timeouts with ASA r2
 ---

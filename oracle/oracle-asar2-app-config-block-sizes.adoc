@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: oracle/oracle-asar2-app-config-block-sizes.html
-keywords: oracle, database, asar2, ontap, SAN, ASM, blocks
+keywords: oracle, database, ASA r2, ontap, SAN, ASM, blocks
 summary: Oracle database block sizes with ASA r2
 searchtitle: Oracle database block sizes with ASA r2
 ---

@@ -1,1 +1,18 @@
+---
+sidebar: sidebar
+permalink: oracle/oracle-asar2-network-config-ethernet.html
+keywords: ethernet, jumbo frames, MTU, TCP/IP, flow control, oracle, ASA r2
+summary: Oracle and TCP/IP and ethernet configuration
+searchtitle: TCP/IP and ethernet configuration for Oracle databases
+---
+= TCP/IP and ethernet configuration
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
 
+[.lead]
+Many Oracle on ONTAP customers use ethernet, the network protocol of NFS, iSCSI, NVMe/TCP, and especially the cloud.
+
+include::../_include/ethernet.adoc[]

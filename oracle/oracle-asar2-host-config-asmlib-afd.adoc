@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: oracle/oracle-asar2-host-config-asmlib-afd.html
-keywords: oracle, database, asar2, ontap, asmlib, block size, oracleasm, multipath, afd
+keywords: oracle, database, ASA r2, ontap, asmlib, block size, oracleasm, multipath, afd
 summary: Oracle databases with Linux and ASMlib/ASM Filter Driver on ASA r2
 searchtitle: Oracle databases with ASMLib/AFD (ASM Filter Driver) on ASA r2
 ---

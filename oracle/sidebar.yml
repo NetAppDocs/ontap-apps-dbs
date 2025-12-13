@@ -100,6 +100,17 @@ entries:
       url: /oracle/oracle-network-config-fc.html
     - title: Direct-connect networking
       url: /oracle/oracle-network-config-direct-connect.html
+  - title: Network configuration on ASA r2 systems
+    pdf-filename: Network configuration for Oracle Database with ASA r2 systems
+    entries:
+    - title: Logical interfaces
+      url: /oracle/oracle-asar2-network-config-lifs.html
+    - title: Ethernet configuration
+      url: /oracle/oracle-asar2-network-config-ethernet.html
+    - title: FC SAN configuration
+      url: /oracle/oracle-asar2-network-config-fc.html
+    - title: Direct-connect networking
+      url: /oracle/oracle-asar2-network-config-direct-connect.html
   - title: Storage configuration on AFF/FAS systems
     pdf-filename: Storage configuration for Oracle Database
     entries:

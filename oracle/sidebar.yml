@@ -142,6 +142,25 @@ entries:
       url: /oracle/oracle-dp-nvfail.html
     - title: ASM Reclamation Utility
       url: /oracle/oracle-storage-san-config-asmru.html
+  - title: Storage configuration on ASA r2 systems
+    pdf-filename: Storage configuration for Oracle Database with ASA r2 systems
+    entries:
+    - title: FC SAN
+      entries:
+      - title: LUN alignment
+        url: /oracle/oracle-asar2-storage-san-config-lun-alignment.html
+      - title: LUN count and LUN size
+        url: /oracle/oracle-asar2-storage-san-config-lun-sizing.html
+      - title: LUN placement
+        url: /oracle/oracle-asar2-storage-san-config-lun-placement.html
+      - title: LUN resizing
+        url: /oracle/oracle-asar2-storage-san-config-lun-resizing.html
+      - title: LVM striping
+        url: /oracle/oracle-asar2-storage-san-config-lvm-striping.html
+    - title: Oracle and NVFAIL
+      url: /oracle/oracle-asar2-dp-nvfail.html
+    - title: ASM Reclamation Utility
+      url: /oracle/oracle-asar2-storage-san-config-asmru.html
   - title: Virtualization
     url: /oracle/oracle-virtualization-introduction.html
   - title: Tiering

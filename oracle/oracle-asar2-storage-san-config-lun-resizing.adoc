@@ -1,1 +1,36 @@
+---
+sidebar: sidebar
+permalink: oracle/oracle-asar2-storage-san-config-lun-resizing.html
+keywords: SAN, ASM, LVM, oracle, LUN, ASA r2
+summary: LUN and LVM resizing with Oracle databases on ASA r2
+searchtitle: Oracle database LUN resizing and LVM resizing with ASA r2
+---
+= LUN resizing and LVM resizing
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
 
+[.lead]
+When a SAN-based file system or Oracle ASM disk group reaches its capacity limit on ASA r2, there are two options for increasing available space:
+
+* Increase the size of the existing LUNs (storage units) 
+* Add a new LUN to an existing ASM disk group or LVM volume group and grow the contained logical volume
+
+Although LUN resizing is supported on ASA r2, it is generally better to use a Logical Volume Manager (LVM) such as Oracle ASM. One of the principal reasons LVMs exist is to avoid the need for frequent LUN resizing. With an LVM, multiple LUNs are combined into a virtual pool of storage. Logical volumes carved from this pool can be easily resized without impacting the underlying storage configuration.
+
+Additional benefits of using LVM or ASM include:
+
+* Performance optimization: Distributes I/O across multiple LUNs, reducing hotspots.
+* Flexibility: Add new LUNs without disrupting existing workloads.
+* Transparent migration: ASM or LVM can relocate extents to new LUNs for balancing or tiering without host downtime.
+
+[NOTE]
+====
+Key ASA r2 considerations:
+
+* LUN resizing is performed at the storage unit level within a Storage VM (SVM) using capacity from the Storage Availability Zone (SAZ).
+* No FlexVol volume layer exists; provisioning and resizing are simplified.
+* For Oracle, best practice is to add LUNs to ASM disk groups rather than resizing existing LUNs, to maintain striping and parallelism.
+====

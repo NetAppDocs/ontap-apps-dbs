@@ -17,6 +17,9 @@ Thin provisioning for an Oracle database on ASA r2 requires careful planning bec
 
 Thin provisioning is integral to ASA r2 and closely related to ONTAP efficiency technologies because both allow more logical data to be stored than the physical capacity on the system. ASA r2 systems are SAN-only, and thin provisioning applies to storage units and LUNs within Storage Availability Zones (SAZ).
 
+[NOTE]
+ASA r2 storage units are thin provisioned by default.
+
 Almost any use of snapshots involves thin provisioning. For example, a typical 10TB database with 30 days of snapshots might appear as 310TB of logical data, but only 12TB to 15TB of physical space is consumed because snapshots store only changed blocks. 
 
 Similarly, cloning is another form of thin provisioning. A development environment with 40 clones of an 80TB database would require 3.2PB if fully written, but in practice consumes far less because only changes are stored.
@@ -26,7 +29,7 @@ Some care must be taken with thin provisioning in an application environment bec
 
 In ASA r2, these risks are mitigated through *thin provisioning*, *proactive monitoring*, and *LUN resize policies*, rather than ONTAP features like volume-autogrow or snapshot-autodelete. Administrators should:  
                                           
-* Enable thin provisioning on LUNs (`space-reserve disabled`)
+* Enable thin provisioning on LUNs (`space-reserve disabled`) - this is the default setting in ASA r2
 * Monitor capacity using System Manager alerts or API-based automation
 * Use scheduled or scripted LUN resize to accommodate growth
 * Configure snapshot reserve and automatic snapshot deletion via System Manager (GUI)

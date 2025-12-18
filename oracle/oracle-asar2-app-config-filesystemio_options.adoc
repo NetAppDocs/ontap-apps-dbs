@@ -33,7 +33,7 @@ The options for `filesystemio_options` are:
 [NOTE]
 In ASM environments, Oracle automatically uses direct I/O and asynchronous I/O for ASM-managed disks, so `filesystemio_options` has no effect on ASM disk groups. For non-ASM deployments (e.g., file systems on SAN LUNs), set: `filesystemio_options = setall`. This enables both asynchronous and direct I/O for optimal performance.
 
-Some customers have encountered asynchronous I/O problems in the past, especially with previous Red Hat Enterprise Linux 4 (RHEL4) releases. Some out-of-date advice on the internet still suggests avoiding asynchronous IO because of out-of-date information. Asynchronous I/O is stable on all current OSs. There is no reason to disable it, absent a known bug with the OS. 
+Some older operating systems had issues with asynchronous I/O, which led to outdated advice suggesting it should be avoided. However, asynchronous I/O is stable and fully supported on all current operating systems. There is no reason to disable it unless a specific OS bug is identified. 
 
 If a database has been using buffered I/O, a switch to direct I/O might also warrant a change in the SGA size. Disabling buffered I/O eliminates the performance benefit that the host OS cache provides for the database. Adding RAM back to the SGA repairs this problem. The net result should be an improvement in I/O performance.
 

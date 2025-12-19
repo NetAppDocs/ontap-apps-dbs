@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: oracle/oracle-asar2-config-failover.html
-keywords: failover, ASA r2, oracle
+keywords: failover, takeover, ASA r2, oracle
 summary: An understanding of storage takeover function is required to ensure that Oracle database operations are not disrupted by these operations. In addition, the arguments used by takeover operation can affect data integrity if used incorrectly.
 searchtitle: Oracle databases and ONTAP controller failover in ASA r2
 ---
@@ -13,23 +13,24 @@ searchtitle: Oracle databases and ONTAP controller failover in ASA r2
 :imagesdir: ../media/
 
 [.lead]
-An understanding of storage failover functions is required to ensure that Oracle database operations are not disrupted during these operations. In addition, the arguments used by failover operations can affect data integrity if used incorrectly.
+An understanding of storage takeover functions is required to ensure that Oracle database operations are not disrupted during these operations. In addition, the arguments used by takeover operations can affect data integrity if used incorrectly.
 
 Under normal conditions, incoming writes to a given controller are synchronously mirrored to its HA partner. In an ASA r2 environment with SnapMirror Active Sync (SM-as), writes are also mirrored to a remote controller at the secondary site. Until a write is stored in non-volatile media in all locations, it is not acknowledged to the host application.
 
 The media storing the write data is called non-volatile memory (NVMEM). It is sometimes referred to as non-volatile random-access memory (NVRAM) and can be thought of as a write journal rather than a cache. During normal operation, data from NVMEM is not read; it is only used to protect data in the event of a software or hardware failure. When data is written to drives, the data is transferred from system RAM, not from NVMEM.
 
-During a failover operation, one node in an HA pair takes over the operations from its partner. In ASA r2, switchover is not applicable because MetroCluster is not supported; instead, SnapMirror Active Sync provides site-level redundancy. Failover operations during routine maintenance should be transparent, other than a brief pause in operations as network paths change. Networking can be complex, and errors are easy to make, so NetApp strongly recommends testing failover operations thoroughly before putting a storage system into production. Doing so is the only way to ensure that all network paths are configured correctly. In a SAN environment, verify path status using the command `sanlun lun show -p` or the operating system’s native multipathing tools to ensure all expected paths are available. ASA r2 systems provide all active and optimized paths for LUNs, and customers using NVMe namespaces should rely on OS-native tools, as NVMe paths are not covered by sanlun.
+During a takeover operation, one node in an HA pair takes over the operations from its partner. In ASA r2, switchover is not applicable because MetroCluster is not supported; instead, SnapMirror Active Sync provides site-level redundancy. Storage takeover operations during routine maintenance should be transparent, other than a brief pause in operations as network paths change. Networking can be complex, and errors are easy to make, so NetApp strongly recommends testing takeover operations thoroughly before putting a storage system into production. Doing so is the only way to ensure that all network paths are configured correctly. 
+In a SAN environment, verify path status using the command `sanlun lun show -p` or the operating system’s native multipathing tools to ensure all expected paths are available. ASA r2 systems provide all active and optimized paths for LUNs, and customers using NVMe namespaces should rely on OS-native tools, as NVMe paths are not covered by sanlun.
 
-Care must be taken when issuing a forced failover. Forcing a change to storage configuration means that the state of the controller that owns the drives is disregarded and the alternative node forcibly takes control of the drives. Incorrect forcing of a failover can result in data loss or corruption because a forced failover can discard the contents of NVMEM. After the failover is complete, the loss of that data means that the data stored on the drives might revert to a slightly older state from the point of view of the database.
+Care must be taken when issuing a forced takeover. Forcing a change to storage configuration means that the state of the controller that owns the drives is disregarded and the alternative node forcibly takes control of the drives. Incorrect forcing of a takeover can result in data loss or corruption because a forced takeover can discard the contents of NVMEM. After the takeover is complete, the loss of that data means that the data stored on the drives might revert to a slightly older state from the point of view of the database.
 
-A forced failover with a normal HA pair should rarely be required. In almost all failure scenarios, a node shuts down and informs the partner so that an automatic failover takes place. There are some edge cases, such as a rolling failure in which the interconnect between nodes is lost and then one controller fails, in which a forced failover is required. In such a situation, the mirroring between nodes is lost before the controller failure, which means that the surviving controller no longer has a copy of the writes in progress. The failover then needs to be forced, which means that data potentially is lost.
+A forced takeover with a normal HA pair should rarely be required. In almost all failure scenarios, a node shuts down and informs the partner so that an automatic failover takes place. There are some edge cases, such as a rolling failure in which the interconnect between nodes is lost and then one controller fails, in which a forced takeover is required. In such a situation, the mirroring between nodes is lost before the controller failure, which means that the surviving controller no longer has a copy of the writes in progress. The takeover then needs to be forced, which means that data potentially is lost.
 
 [TIP]
 ====
 NetApp recommends taking the following precautions:
 
-* Be very careful to not accidentally force a failover. Normally, forcing should not be required, and forcing the change can cause data loss.
-* If a forced failover is required, make sure that the applications are shut down, all file systems are dismounted, and logical volume manager (LVM) volume groups are varyoffed. ASM diskgroups must be unmounted.
+* Be very careful to not accidentally force a takeover. Normally, forcing should not be required, and forcing the change can cause data loss.
+* If a forced takeover is required, make sure that the applications are shut down, all file systems are dismounted, and logical volume manager (LVM) volume groups are varyoffed. ASM diskgroups must be unmounted.
 * In the event of a site-level failure when using SM-as, the ONTAP Mediator assisted automatic unplanned failover will be initiated on the surviving cluster, resulting in a brief I/O pause and then database transitions will continue from the surviving cluster. For more information, see the https://docs.netapp.com/us-en/asa-r2/data-protection/configure-snapmirror-active-sync.html[SnapMirror active sync on ASA r2 systems] for detailed configuration steps.
 ====

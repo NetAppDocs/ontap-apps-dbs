@@ -31,6 +31,5 @@ Additional benefits of using LVM or ASM include:
 Key ASA r2 considerations:
 
 * LUN resizing is performed at the storage unit level within a Storage VM (SVM) using capacity from the Storage Availability Zone (SAZ).
-* No FlexVol volume layer exists; provisioning and resizing are simplified.
 * For Oracle, best practice is to add LUNs to ASM disk groups rather than resizing existing LUNs, to maintain striping and parallelism.
 ====

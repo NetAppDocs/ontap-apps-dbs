@@ -17,23 +17,21 @@ Optimal placement of database LUNs within ASA r2 systems primarily depends on ho
 
 In ASA r2 systems, storage units (LUNs or NVMe namespaces) are created from a simplified storage layer called Storage Availability Zones (SAZs), which act as common pools of storage for an HA pair.
 
-== Storage Availability Zones (SAZs)
+[NOTE]
+There is typically only one storage availability zone (SAZ) per HA pair.
 
-One common point of confusion with customers new to ASA r2 is the absence of FlexVols, commonly referred to as "volumes" in traditional ONTAP systems.
+== Storage Availability Zones (SAZ)
 
-ASA r2 does not use volumes as management containers. Instead, storage units (LUNs or NVMe namespaces) are provisioned directly within Storage Availability Zones (SAZs) through Storage VMs (SVMs). SAZs are simplified pools of storage for an HA pair, and ONTAP automatically creates the necessary internal structures when you provision a storage unit.
-
-A storage unit is not a SAZ. These terms are often conflated because other vendor products use similar terminology. In ASA r2, storage units are the actual data-serving entities for hosts, while SAZs exist to simplify SAN management and abstract away aggregates. This design eliminates the need for manual volume management and makes provisioning more direct and streamlined for block workloads like Oracle databases.
+In ASA r2 systems, volumes are still there, but they are automatically created when storage units are created. Storage units (LUNs or NVMe namespaces) are provisioned directly within the automatically created volumes in Storage Availability Zones (SAZs). This design eliminates the need for manual volume management and makes provisioning more direct and streamlined for block workloads like Oracle databases.
 
 == SAZs and Storage units
 
 Related storage units (LUNs or NVMe namespaces) are normally co-located within a single Storage Availability Zone (SAZ). For example, a database that requires 10 storage units (LUNs) would typically have all 10 units placed in the same SAZ for simplicity and performance.
 
-[CAUTION]
+[NOTE]
 ====
-* Using a 1:1 ratio of storage units to SAZs, meaning one storage unit (LUN) per SAZ, is not a formal best practice. 
-* Instead, SAZs should be viewed as containers for workloads or datasets. There may be a single storage unit per SAZ, or there could be many. The right answer depends on manageability requirements.
-* Scattering storage units across an unnecessary number of SAZs can lead to additional overhead and scheduling problems for operations such as snapshot operations, excessive numbers of objects displayed in the UI, and result in reaching platform SAZ limits before the storage unit limit is reached.
+* Using a 1:1 ratio of storage units to volumes, meaning one storage unit (LUN) per volume, is the ASA r2 default behavior.
+* In case of more than one HA pair in the ASA r2 system, storage units (LUNs) for a given database can be distributed across multiple SAZs to optimize controller utilization and performance.
 ====
 
 [NOTE]

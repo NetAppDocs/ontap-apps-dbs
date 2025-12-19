@@ -15,7 +15,7 @@ searchtitle: Oracle databases and ONTAP controller failover in ASA r2
 [.lead]
 An understanding of storage failover functions is required to ensure that Oracle database operations are not disrupted during these operations. In addition, the arguments used by failover operations can affect data integrity if used incorrectly.
 
-Under normal conditions, incoming writes to a given controller are synchronously mirrored to its HA partner. In an ASA r2 environment with SnapMirror Active Sync (SM-AS), writes are also mirrored to a remote controller at the secondary site. Until a write is stored in non-volatile media in all locations, it is not acknowledged to the host application.
+Under normal conditions, incoming writes to a given controller are synchronously mirrored to its HA partner. In an ASA r2 environment with SnapMirror Active Sync (SM-as), writes are also mirrored to a remote controller at the secondary site. Until a write is stored in non-volatile media in all locations, it is not acknowledged to the host application.
 
 The media storing the write data is called non-volatile memory (NVMEM). It is sometimes referred to as non-volatile random-access memory (NVRAM) and can be thought of as a write journal rather than a cache. During normal operation, data from NVMEM is not read; it is only used to protect data in the event of a software or hardware failure. When data is written to drives, the data is transferred from system RAM, not from NVMEM.
 
@@ -31,5 +31,5 @@ NetApp recommends taking the following precautions:
 
 * Be very careful to not accidentally force a failover. Normally, forcing should not be required, and forcing the change can cause data loss.
 * If a forced failover is required, make sure that the applications are shut down, all file systems are dismounted, and logical volume manager (LVM) volume groups are varyoffed. ASM diskgroups must be unmounted.
-* In the event of a site-level failure with SM-AS, fence off the failed node from all surviving storage resources. For more information, see the https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/[SnapMirror Active Sync Guide] for the relevant version of ONTAP.
+* In the event of a site-level failure when using SM-as, the ONTAP Mediator assisted automatic unplanned failover will be initiated on the surviving cluster, resulting in a brief I/O pause and then database transitions will continue from the surviving cluster. For more information, see the https://docs.netapp.com/us-en/asa-r2/data-protection/configure-snapmirror-active-sync.html[SnapMirror active sync on ASA r2 systems] for detailed configuration steps.
 ====

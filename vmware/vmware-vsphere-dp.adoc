@@ -30,7 +30,7 @@ For VMFS datastores, you can create a FlexClone of the datastore based on the de
 
 For more information on snapshots, refer to the ONTAP documentation. The following links provide additional details:
 https://docs.netapp.com/us-en/ontap/data-protection/manage-local-snapshot-copies-concept.html[ONTAP local snapshot copies^]
-https://docs.netapp.com/us-en/ontap/data-protection/manage-snapmirror-replication.html[ONTAP SnapMirror replication^]
+https://docs.netapp.com/us-en/ontap/data-protection/snapmirror-replication-workflow-concept.html[ONTAP SnapMirror replication workflow^]
 
 == SnapCenter Plug-In for VMware vSphere
 

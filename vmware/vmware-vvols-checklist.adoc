@@ -103,5 +103,5 @@ Use this installation checklist to ensure a successful deployment (updated for 1
 * [ ] If using HA, storage vMotion nodes two and three to separate datastores (optional, but recommended).
 * [ ] https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/manage/certificate-manage.html[use manage certificates] in the ONTAP tools manager to install any required CA signed certificates.
 * [ ] If you enabled SRA for SRM/VLSR to protect traditional datastores, https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/protect/configure-on-srm-appliance.html[configure SRA on VMware Live Site Recovery appliance].
-* [ ] Configure native backups for https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/manage/enable-backup.html[Near zero-RPO].
+* [ ] Configure native backups for https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/manage/backup-settings.html[Near zero-RPO].
 * [ ] Configure regular backups to other storage media.

@@ -1,0 +1,63 @@
+---
+sidebar: sidebar
+permalink: oracle/oracle-asar2-host-config-aix.html
+keywords: oracle, database, ASA r2, ontap, aix, cio
+summary: Oracle databases with AIX on ASA r2
+searchtitle: Oracle databases with IBM AIX on ASA r2
+---
+= AIX
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+Configuration topics for Oracle database on IBM AIX with ASA r2 ONTAP.
+
+[NOTE]
+====
+AIX is supported with NetApp ASA r2 for hosting Oracle databases, provided:
+
+* You configure Oracle for concurrent I/O properly.
+* You use supported SAN protocols (FC/iSCSI/NVMe).
+* You run ONTAP 9.16.x or later on ASA r2.
+====
+
+== Concurrent I/O
+Achieving optimum performance on IBM AIX with ASA r2 requires the use of concurrent I/O. Without concurrent I/O, performance limitations are likely because AIX performs serialized, atomic I/O, which incurs significant overhead.
+
+Originally, NetApp recommended using the `cio` mount option to force concurrent I/O on the file system, but this process had drawbacks and is no longer required. Since the introduction of AIX 5.2 and Oracle 10gR1, Oracle on AIX can open individual files for concurrent I/O, as opposed to forcing concurrent I/O on the entire file system.
+
+The best method for enabling concurrent I/O is to set the `init.ora` parameter `filesystemio_options` to `setall`. Doing so allows Oracle to open specific files for use with concurrent I/O.
+
+Using cio as a mount option forces the use of concurrent I/O, which can have negative consequences. For example, forcing concurrent I/O disables readahead on file systems, which can damage performance for I/O occurring outside the Oracle database software, such as copying files and performing tape backups. Furthermore, products such as Oracle GoldenGate and SAP BR*Tools are not compatible with using the cio mount option with certain versions of Oracle.
+
+[TIP]
+====
+*NetApp recommends* the following:
+
+* Do not use the `cio` mount option at the file system level. Rather, enable concurrent I/O through the use of `filesystemio_options=setall`.
+* Only use the `cio` mount option if it is not possible to set `filesystemio_options=setall`.
+====
+
+[NOTE]
+Since ASA r2 does not support NAS, all Oracle deployments on AIX must use block protocols.
+
+== AIX jfs/jfs2 Mount Options
+The following table lists the AIX jfs/jfs2 mount options.
+
+|===
+|File type |Mount options
+
+.^|ADR Home
+.^|Defaults
+.^|Controlfiles
+Datafiles
+Redo logs
+.^|Defaults
+.^|ORACLE_HOME
+.^|Defaults
+|===
+
+Before using AIX `hdisk` devices in any environment, including databases, check the parameter `queue_depth`. This parameter is not the HBA queue depth; rather it relates to the SCSI queue depth of the individual `hdisk device`. Depending on how the ASA r2 LUNs are configured, the value for `queue_depth` might be too low for good performance. Testing has shown the optimum value to be 64.

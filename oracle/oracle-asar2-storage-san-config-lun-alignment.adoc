@@ -38,11 +38,10 @@ Verify alignment by using utilities such as `sio` or `dd` that can generate I/O 
 
 Alignment in Solaris environments is more complicated. Refer to http://support.netapp.com/documentation/productlibrary/index.html?productID=61343[ONTAP SAN Host Configuration^] for more information.
 
-|===
-|Caution
-
-|In Solaris x86 environments, take additional care about proper alignment because most configurations have several layers of partitions. Solaris x86 partition slices usually exist on top of a standard master boot record partition table.
-|===
+[CAUTION]
+====
+In Solaris x86 environments, take additional care about proper alignment because most configurations have several layers of partitions. Solaris x86 partition slices usually exist on top of a standard master boot record partition table.
+====
 
 Additional best practices:
 

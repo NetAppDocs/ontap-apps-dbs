@@ -126,11 +126,10 @@ As an additional example, assume vdsk instances 1 through 6 need to be configure
 block-size-list="1:8192","2:8192","3:8192","4:8192","5:8192","6:8192";
 ....
 +
-|===
-.^|Caution
-
-.^|The LDOM must be rebooted after vdc.conf is configured and the vdsk is created. This step cannot be avoided. The block size change only takes effect after a reboot. Proceed with zpool configuration and ensure that ashift is properly set to 12 as described previously.
-|===
+[CAUTION]
+====
+The LDOM must be rebooted after vdc.conf is configured and the vdsk is created. This step cannot be avoided. The block size change only takes effect after a reboot. Proceed with zpool configuration and ensure that ashift is properly set to 12 as described previously.
+====
 
 === ZFS Intent Log (ZIL)
 Generally, there is no reason to locate the ZFS Intent Log (ZIL) on a different device. The log can share space with the main pool. The primary use of a separate ZIL is when using physical drives that lack the write caching features in modern storage arrays.

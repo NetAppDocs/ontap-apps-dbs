@@ -48,7 +48,24 @@ ASA r2 systems use thin provisioning by default. Efficiency features complement 
 Storage units are always thinly provisioned on ASA r2 storage systems. Thick provisioning is not supported.
 
 == QuickAssist Technology (QAT)
-In NetApp ASA r2 platforms, systems leveraging Intel QuickAssist Technology (QAT) achieve superior efficiency compared to those using software-based Temperature-Sensitive Storage Efficiency (TSSE) without QAT. QAT provides hardware acceleration to offload compression and encryption tasks from CPU cores, enabling immediate, inline efficiency for both hot and cold data while significantly reducing CPU overhead. This results in higher throughput, lower latency, and improved scalability for performance-sensitive operations like TLS and VPN encryption. In contrast, TSSE without QAT relies on CPU-driven processes that apply efficiency only to cold data after a delay, consuming more CPU resources and limiting overall performance. Modern ASA r2 systems therefore deliver faster, hardware-accelerated efficiency and better system utilization than older TSSE-only platforms.
+In NetApp ASA r2 platforms, Intel QuickAssist Technology (QAT) provides hardware-accelerated efficiency that differs significantly from software-based Temperature-Sensitive Storage Efficiency (TSSE) without QAT.
+
+*QAT with hardware acceleration:*
+
+* Offloads compression and encryption tasks from CPU cores.
+* Enables immediate, inline efficiency for both hot (frequently accessed) and cold (infrequently accessed) data.
+* Significantly reduces CPU overhead.
+* Delivers higher throughput and lower latency.
+* Improves scalability for performance-sensitive operations such as TLS and VPN encryption.
+
+*TSSE without QAT:*
+
+* Relies on CPU-driven processes for efficiency operations.
+* Applies efficiency only to cold data after a delay.
+* Consumes more CPU resources.
+* Limits overall performance compared to QAT-accelerated systems.
+
+Modern ASA r2 systems therefore deliver faster, hardware-accelerated efficiency and better system utilization than older TSSE-only platforms.
 
 == Efficiency best practices for ASA r2
 *NetApp recommends* the following:

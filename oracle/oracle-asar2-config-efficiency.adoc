@@ -20,6 +20,9 @@ ASA r2 systems are all-flash SAN platforms, so efficiency technologies such as c
 == Compression
 Compression reduces space requirements by encoding patterns in data. With SSD-based ASA r2 systems, compression delivers significant savings because flash eliminates the need for overprovisioning for performance. ONTAP adaptive compression is enabled by default and has been thoroughly tested with enterprise workloads, including Oracle databases, with no measurable performance impact—even in environments where latency is measured in microseconds. In some cases, performance improves because compressed data occupies less cache space.
 
+[NOTE]
+Temperature-sensitive storage efficiency (TSSE) is not applied on ASA r2 systems. On ASA r2 systems, compression is not based on hot (frequently accessed) data or cold (infrequently accessed) data. Compression begins without waiting for data to become cold.
+
 == Adaptive compression
 Adaptive compression uses an 8KB block size by default, matching the block size commonly used by relational databases. Larger block sizes (16KB or 32KB) can improve efficiency for sequential data such as transaction logs or backups but should be used cautiously for active databases to avoid overhead during overwrites.
 
@@ -38,11 +41,14 @@ Compaction complements compression by allowing multiple compressed blocks to sha
 == Deduplication
 Deduplication removes duplicate blocks across datasets. While Oracle databases typically yield minimal deduplication savings due to unique block headers and trailers, ONTAP deduplication can still reclaim space from zeroed blocks and repeated patterns.
 
-== Temperature-Sensitive Storage Efficiency (TSSE)
-TSSE identifies cold data and applies more aggressive compression. This is useful for backups or archive data stored on ASA r2 systems.
-
 == Efficiency and thin provisioning
-ASA r2 systems use thin provisioning by default. Efficiency features complement thin provisioning to maximize usable capacity. Thick provisioning should only be used when required by policy, and if used, all efficiency features must be disabled to avoid unexpected space behavior.
+ASA r2 systems use thin provisioning by default. Efficiency features complement thin provisioning to maximize usable capacity. 
+
+[NOTE]
+Storage units are always thinly provisioned on ASA r2 storage systems. Thick provisioning is not supported.
+
+== QuickAssist Technology (QAT)
+In NetApp ASA r2 platforms, systems leveraging Intel QuickAssist Technology (QAT) achieve superior efficiency compared to those using software-based Temperature-Sensitive Storage Efficiency (TSSE) without QAT. QAT provides hardware acceleration to offload compression and encryption tasks from CPU cores, enabling immediate, inline efficiency for both hot and cold data while significantly reducing CPU overhead. This results in higher throughput, lower latency, and improved scalability for performance-sensitive operations like TLS and VPN encryption. In contrast, TSSE without QAT relies on CPU-driven processes that apply efficiency only to cold data after a delay, consuming more CPU resources and limiting overall performance. Modern ASA r2 systems therefore deliver faster, hardware-accelerated efficiency and better system utilization than older TSSE-only platforms.
 
 == Efficiency best practices for ASA r2
 *NetApp recommends* the following:
@@ -51,8 +57,6 @@ ASA r2 systems use thin provisioning by default. Efficiency features complement 
 Storage units created on ONTAP running on ASA r2 systems are thin provisioned with all inline efficiency features enabled by default, including compression, compaction, and deduplication. Although Oracle databases generally do not benefit significantly from deduplication and may include uncompressible data, these defaults are appropriate for almost all workloads. ONTAP is designed to efficiently process all types of data and I/O patterns, whether or not they result in savings. Defaults should only be changed if the reasons are fully understood and there is a clear benefit to deviating.
 
 === General recommendations
-* Disable Efficiency for Thick Provisioning: If a storage unit is thick provisioned, disable all efficiency settings. Using these features with thick provisioning provides no savings and can cause unexpected behavior, including out-of-space errors.
-* Enable TSSE for Cold Data: For data that is not subject to overwrites, such as backups or transaction logs, enable Temperature-Sensitive Storage Efficiency (TSSE) with a low cooling period to achieve greater savings.
 * Disable Compression for Encrypted or App-Compressed Data: If files are already compressed at the application level or encrypted, disable compression to optimize performance and allow more efficient operation on other storage units.
 * Avoid Combining Large Compression Blocks with Deduplication: Do not use both 32KB compression and deduplication for database backups. For streaming backups, use 8KB compression to maintain deduplication efficiency.
 * Monitor Efficiency Savings: Use ONTAP tools (System Manager, Active IQ) to track actual space savings and adjust policies if needed.

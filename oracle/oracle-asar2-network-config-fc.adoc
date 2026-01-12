@@ -1,0 +1,30 @@
+---
+sidebar: sidebar
+permalink: oracle/oracle-asar2-network-config-fc.html
+keywords: SAN, zoning, ASA r2
+summary: FC Network configuration for Oracle databases with ASA r2
+searchtitle: FC SAN configuration for Oracle databases with ASA r2
+---
+= FC SAN configuration
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+Configuring FC SAN for Oracle databases on ASA r2 systems is primarily about following standard SAN best practices.
+
+ASA r2 is optimized for SAN-only workloads, so the principles remain the same as AFF/FAS, with a focus on performance, resiliency, and simplicity. This includes typical planning measures such as ensuring sufficient bandwidth exists on the SAN in between the host and storage system, checking that all SAN paths exist between all required devices, using the FC port settings required by your FC switch vendor, avoiding ISL contention, and using proper SAN fabric monitoring.
+
+== Zoning
+
+An FC zone should never contain more than one initiator. Such an arrangement might appear to work initially, but crosstalk between initiators eventually interferes with performance and stability.
+
+Multitarget zones are generally regarded as safe, although in rare circumstances the behavior of FC target ports from different vendors has caused problems. For example, avoid including the target ports from both a NetApp and an non-NetApp storage array in the same zone. In addition, placing a NetApp storage system and a tape device in the same zone is even more likely to cause problems.
+
+[NOTE]
+====
+* ASA r2 uses Storage Availability Zones instead of aggregates, but this does not change FC zoning principles.
+* Multipathing (MPIO) remains the primary resiliency mechanism; however, for ASA r2 systems that support symmetric active-active multipathing, all paths to a LUN are active and used for I/O simultaneously.
+====

@@ -1,0 +1,36 @@
+---
+sidebar: sidebar
+permalink: oracle/oracle-asar2-dp-nvfail.html
+keywords: oracle, nvfail, ASA r2
+summary: Configuring NVFAIL to protect Oracle databases on ASA r2
+searchtitle: Oracle databases and NVFAIL on ASA r2
+---
+= NVFAIL
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+NVFAIL is an ONTAP feature that ensures data integrity during catastrophic failover scenarios.
+
+This functionality is still applicable on ASA r2 systems, even though ASA r2 uses a simplified SAN architecture (SAZs and storage units instead of volumes).
+
+Databases are vulnerable to corruption during storage failover events because they maintain large internal caches. If a catastrophic event requires forcing an ONTAP failover, irrespective of the health of the overall configuration, the result is previously acknowledged changes may be effectively discarded. The contents of the storage array jump backward in time, and the state of the database cache no longer reflects the state of the data on disk. This inconsistency results in data corruption.
+
+Caching can occur at the application or server layer. For example, an Oracle Real Application Cluster (RAC) configuration with servers active on both a primary and a remote site caches data within the Oracle SGA. A forced failover operation that resulted in lost data would put the database at risk of corruption because the blocks stored in the SGA might not match the blocks on disk.
+
+A less obvious use of caching is at the OS file system layer. A clustered file system based on LUNs located on the primary site could be mounted on servers at the remote site, and once again data could be cached. A failure of NVRAM or a forced takeover in these situations could result in file system corruption.
+
+ONTAP protects databases and operating systems against this scenario using NVFAIL and its associated settings, which signal the host to invalidate cached data and remount the affected file systems after failover. This mechanism applies to ASA r2 LUNs and namespaces just as it does on AFF/FAS.
+
+[NOTE]
+====
+Key ASA r2 considerations:
+
+* NVFAIL operates at the LUN level (storage unit), not at the SAZ level. 
+* For Oracle databases, NVFAIL should be enabled on all LUNs hosting critical components (datafiles, redo logs, control files). 
+* MetroCluster is not supported on ASA r2, so NVFAIL primarily applies to local HA failover scenarios. 
+* NFS is not supported on ASA r2, so NVFAIL considerations apply only to SAN-based workloads (FC/iSCSI/NVMe).
+====

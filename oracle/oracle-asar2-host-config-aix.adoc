@@ -53,8 +53,10 @@ The following table lists the AIX jfs/jfs2 mount options.
 .^|ADR Home
 .^|Defaults
 .^|Controlfiles
-Datafiles
-Redo logs
+.^|Defaults
+.^|Datafiles
+.^|Defaults
+.^|Redo logs
 .^|Defaults
 .^|ORACLE_HOME
 .^|Defaults

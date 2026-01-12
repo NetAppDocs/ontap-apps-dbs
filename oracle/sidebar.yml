@@ -160,7 +160,7 @@ entries:
     - title: Oracle and NVFAIL
       url: /oracle/oracle-asar2-dp-nvfail.html
     - title: ASM Reclamation Utility
-      url: /oracle/oracle-asar2-storage-san-config-asmru.html
+      url: /oracle/oracle-asar2-storage-san-config-asru.html
   - title: Virtualization
     url: /oracle/oracle-virtualization-introduction.html
   - title: Tiering

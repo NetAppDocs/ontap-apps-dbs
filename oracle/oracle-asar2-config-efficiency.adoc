@@ -1,0 +1,79 @@
+---
+sidebar: sidebar
+permalink: oracle/oracle-asar2-config-efficiency.html
+keywords: oracle, efficiency, compression, compaction, deduplication, ASA r2
+summary: Oracle databases and storage efficiency with ASA r2
+searchtitle: Oracle databases and ONTAP efficiency features with ASA r2
+---
+= Efficiency
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+ONTAP space efficiency features are fully supported and optimized for ASA r2 systems. In almost all cases, the best approach is to leave the defaults in place with all efficiency features enabled.
+
+ASA r2 systems are all-flash SAN platforms, so efficiency technologies such as compression, compaction, and deduplication are critical for maximizing usable capacity and reducing costs.
+
+== Compression
+Compression reduces space requirements by encoding patterns in data. With SSD-based ASA r2 systems, compression delivers significant savings because flash eliminates the need for overprovisioning for performance. ONTAP adaptive compression is enabled by default and has been thoroughly tested with enterprise workloads, including Oracle databases, with no measurable performance impact—even in environments where latency is measured in microseconds. In some cases, performance improves because compressed data occupies less cache space.
+
+[NOTE]
+Temperature-sensitive storage efficiency (TSSE) is not applied on ASA r2 systems. On ASA r2 systems, compression is not based on hot (frequently accessed) data or cold (infrequently accessed) data. Compression begins without waiting for data to become cold.
+
+== Adaptive compression
+Adaptive compression uses an 8KB block size by default, matching the block size commonly used by relational databases. Larger block sizes (16KB or 32KB) can improve efficiency for sequential data such as transaction logs or backups but should be used cautiously for active databases to avoid overhead during overwrites.
+
+[NOTE]
+Block size can be increased up to 32KB for quiescent files such as logs or backups. Consult NetApp guidance before changing defaults.
+
+[CAUTION]
+Do not use 32KB compression with deduplication for streaming backups. Use 8KB compression to maintain deduplication efficiency.
+
+== Compression alignment
+Compression alignment matters for random overwrites. Ensure correct LUN type, partition offset (multiple of 8KB), and filesystem block size aligned to database block size. Sequential data such as backups or logs does not require alignment considerations.
+
+== Data compaction
+Compaction complements compression by allowing multiple compressed blocks to share the same physical block. For example, if an 8KB block compresses to 1KB, compaction ensures that the remaining space is not wasted. This feature is inline and does not introduce performance penalties.
+
+== Deduplication
+Deduplication removes duplicate blocks across datasets. While Oracle databases typically yield minimal deduplication savings due to unique block headers and trailers, ONTAP deduplication can still reclaim space from zeroed blocks and repeated patterns.
+
+== Efficiency and thin provisioning
+ASA r2 systems use thin provisioning by default. Efficiency features complement thin provisioning to maximize usable capacity. 
+
+[NOTE]
+Storage units are always thinly provisioned on ASA r2 storage systems. Thick provisioning is not supported.
+
+== QuickAssist Technology (QAT)
+In NetApp ASA r2 platforms, Intel QuickAssist Technology (QAT) provides hardware-accelerated efficiency that differs significantly from software-based Temperature-Sensitive Storage Efficiency (TSSE) without QAT.
+
+*QAT with hardware acceleration:*
+
+* Offloads compression and encryption tasks from CPU cores.
+* Enables immediate, inline efficiency for both hot (frequently accessed) and cold (infrequently accessed) data.
+* Significantly reduces CPU overhead.
+* Delivers higher throughput and lower latency.
+* Improves scalability for performance-sensitive operations such as TLS and VPN encryption.
+
+*TSSE without QAT:*
+
+* Relies on CPU-driven processes for efficiency operations.
+* Applies efficiency only to cold data after a delay.
+* Consumes more CPU resources.
+* Limits overall performance compared to QAT-accelerated systems.
+
+Modern ASA r2 systems therefore deliver faster, hardware-accelerated efficiency and better system utilization than older TSSE-only platforms.
+
+== Efficiency best practices for ASA r2
+*NetApp recommends* the following:
+
+=== ASA r2 defaults
+Storage units created on ONTAP running on ASA r2 systems are thin provisioned with all inline efficiency features enabled by default, including compression, compaction, and deduplication. Although Oracle databases generally do not benefit significantly from deduplication and may include uncompressible data, these defaults are appropriate for almost all workloads. ONTAP is designed to efficiently process all types of data and I/O patterns, whether or not they result in savings. Defaults should only be changed if the reasons are fully understood and there is a clear benefit to deviating.
+
+=== General recommendations
+* Disable Compression for Encrypted or App-Compressed Data: If files are already compressed at the application level or encrypted, disable compression to optimize performance and allow more efficient operation on other storage units.
+* Avoid Combining Large Compression Blocks with Deduplication: Do not use both 32KB compression and deduplication for database backups. For streaming backups, use 8KB compression to maintain deduplication efficiency.
+* Monitor Efficiency Savings: Use ONTAP tools (System Manager, Active IQ) to track actual space savings and adjust policies if needed.

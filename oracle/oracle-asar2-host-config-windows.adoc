@@ -1,0 +1,19 @@
+---
+sidebar: sidebar
+permalink: oracle/oracle-asar2-host-config-windows.html
+keywords: oracle, database, ASA r2, ontap, windows
+summary: Oracle databases with Microsoft Windows on ASA r2
+searchtitle: Oracle databases with Microsoft Windows on ASA r2
+---
+= Microsoft Windows
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+Configuration topics for Oracle database on Microsoft Windows with ASA r2 ONTAP.
+
+== SAN
+For optimal compression efficiency, ensure the NTFS file system uses an 8K or larger allocation unit. Use of a 4K allocation unit, which is generally the default, negatively impacts compression efficiency.

@@ -5,7 +5,7 @@ keywords: PostgreSQL,database,postgres
 summary: PostgreSQL data protection
 searchtitle: PostgreSQL native data protection
 ---
-= Native Data protection
+= Native data protection
 :hardbreaks:
 :nofooter:
 :icons: font

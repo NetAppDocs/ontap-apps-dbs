@@ -1,7 +1,7 @@
 section: vmware
 title: VMware
 entries:
-  - title: VMware vSphere with ONTAP
+  - title: VMware vSphere with ONTAP Best Practices Guide
     entries:
       - title: Overview
         url: /vmware/vmware-vsphere-overview.html

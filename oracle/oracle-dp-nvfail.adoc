@@ -23,3 +23,10 @@ Caching can occur at the application or server layer. For example, an Oracle Rea
 A less obvious use of caching is at the OS file system layer. Blocks from a mounted NFS file system might be cached in the OS. Alternatively, a clustered file system based on LUNs located on the primary site could be mounted on servers at the remote site, and once again data could be cached. A failure of NVRAM or a forced takeover or forced switchover in these situations could result in file system corruption.
 
 ONTAP protects databases and operating systems from this scenario with NVFAIL and its associated settings.
+
+[NOTE]
+====
+* Oracle databases, NVFAIL should be enabled on all LUNs hosting critical components (datafiles, redo logs, control files). 
+* On AFF systems, NVFAIL operates at volume layer and applies to all contained data.
+* On ASAr2, NVFAIL operates at the LUN or storage unit layer.
+====

@@ -2,7 +2,7 @@ Free space is defined as any space that is not used for actual data and includes
 
 NetApp recommendations for storage systems used for enterprise applications are as follows:
 
-== SSD aggregates, including AFF systems
+== SSD aggregates and ASA Storage Availability Zones
 
 [TIP]
 *NetApp recommends* a minimum of 10% free space. This includes all unused space, including free space within the aggregate or a volume and any free space that is allocated due to the use of full provisioning but is not used by actual data. Logical space is unimportant, the question is how much actual free physical space is available for data storage.

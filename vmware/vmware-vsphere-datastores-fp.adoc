@@ -18,15 +18,36 @@ From the ONTAP 9.6 release onward, FabricPool has supported virtualized workload
 
 That said, there are some nuances you need to be aware of.
 
+image:vmware-vsphere-datastores-fp-1.png
+
 == Compute and Virtual Disk Layers
 The guest operating system runs on virtual disk formats like VMDK, QCOW2, or VHDX, which create the compute and block device layers accessible to applications and users.
 It is important to note that the guest operating system views virtual disks as block devices; therefore, block device timeouts must be considered.
 
-==Hypervisor Role
-The hypervisor mediates between its running virtual machines and physical resources like CPU, memory, and storage.
+== Hypervisor Role
+The hypervisor mediates between its running virtual machines and physical resources like CPU, memory, and storage. In the NAS use case, the hypervisor mounts the NAS share and presents the virtual disk files to the virtual machines as block devices.
 
-==FabricPool Tiering Integration
+* Hypervisor File System Path
+** Hypervisor FS path involves VM storage via SAN LUNs or NVMe namespaces formatted by hypervisor-specific filesystems like VMFS, NTFS, EXT4, etc.
+* NAS File System Mount Path
+** NAS FS path provides direct file-level access using NFS or SMB protocols to ONTAP volumes for virtual machines.
+* Unified Data Management
+** Both paths converge at ONTAP’s WAFL layer, enabling consistent data services like snapshots and metadata management.
+
+== FabricPool Tiering Integration
 FabricPool intelligently manages data placement between high-performance local storage and lower-cost cloud object tiers.
 
-==Storage Efficiency and Management
+* FabricPool Tiering Structure
+FabricPool tiers data automatically between local high-performance storage and scalable cloud object storage.
+* Dynamic Hybrid Cloud Management
+Integration enables efficient data placement across hybrid cloud environments without sacrificing performance.
+
+== Storage Efficiency and Management
 Understanding this technology stack is important. It helps you improve performance, reduce risk, and optimize TCO.
+
+* WAFL Filesystem Core
+**WAFL ensures metadata consistency, supports snapshots, cloning, and optimizes writes for SSD and HDD storage media.
+* Unified Data Access Paths
+**Both SAN/NVMe and NAS file protocol paths converge into WAFL, showcasing a unified data management approach.
+
+Both SAN/NVMe and NAS file protocol paths converge into WAFL, showcasing a unified data management approach.

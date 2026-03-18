@@ -1,0 +1,32 @@
+---
+sidebar: sidebar
+permalink: vmware/vmware-vsphere-datastores-fp.html
+keywords: vSphere, datastore, FabricPool
+summary: This page describes the best practices for implementing FabricPool for VMware datastores.
+---
+= FabricPool for VMware datastores
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+Virtual machine storage flows from guest OS and hypervisor layers down into ONTAP, where FabricPool tiering and WAFL deliver performance, efficiency, and cost optimization.
+
+From the ONTAP 9.6 release onward, FabricPool has supported virtualized workloads, including VMware datastores. You can now tier cold blocks from FlexVol volumes backing VMware datastores (VM templates, powered‑off VMs, snapshots, backups, etc.) to object storage while keeping hot data local.
+
+That said, there are some nuances you need to be aware of.
+
+== Compute and Virtual Disk Layers
+The guest operating system runs on virtual disk formats like VMDK, QCOW2, or VHDX, which create the compute and block device layers accessible to applications and users.
+It is important to note that the guest operating system views virtual disks as block devices; therefore, block device timeouts must be considered.
+
+==Hypervisor Role
+The hypervisor mediates between its running virtual machines and physical resources like CPU, memory, and storage.
+
+==FabricPool Tiering Integration
+FabricPool intelligently manages data placement between high-performance local storage and lower-cost cloud object tiers.
+
+==Storage Efficiency and Management
+Understanding this technology stack is important. It helps you improve performance, reduce risk, and optimize TCO.

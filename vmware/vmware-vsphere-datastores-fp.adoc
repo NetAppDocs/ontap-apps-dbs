@@ -20,34 +20,32 @@ That said, there are some nuances you need to be aware of.
 
 image:vmware-vsphere-datastores-fp-1.png
 
-== Compute and Virtual Disk Layers
+== Compute and virtual disk layers
 The guest operating system runs on virtual disk formats like VMDK, QCOW2, or VHDX, which create the compute and block device layers accessible to applications and users.
-It is important to note that the guest operating system views virtual disks as block devices; therefore, block device timeouts must be considered.
+It is important to note that the guest operating system views virtual disks as block devices; therefore, in-guest block device timeouts must be considered when planning for fault tolerance during nondisruptive upgrades, hardware failures, or other unplanned events.
 
-== Hypervisor Role
+[TIP]
+Following the link:https://www.netapp.com/pdf.html?item=/media/17239-tr-4598.pdf[FabricPool best practices], you should treat FlexVol volumes hosting virtual machine datastores as SAN storage, even when using NAS protocols, due to the block nature of the virtual disk files as they relate to guest OSes. Therefore, NetApp recommends using the snapshot-only tiering policy. The auto policy can be used for non-critical data, but be warned that a disconnection from the cloud tier can result in machines crashing or going into a read-only state.
+
+== Hypervisor role
 The hypervisor mediates between its running virtual machines and physical resources like CPU, memory, and storage. In the NAS use case, the hypervisor mounts the NAS share and presents the virtual disk files to the virtual machines as block devices.
 
-* Hypervisor File System Path
-** Hypervisor FS path involves VM storage via SAN LUNs or NVMe namespaces formatted by hypervisor-specific filesystems like VMFS, NTFS, EXT4, etc.
-* NAS File System Mount Path
-** NAS FS path provides direct file-level access using NFS or SMB protocols to ONTAP volumes for virtual machines.
-* Unified Data Management
-** Both paths converge at ONTAP’s WAFL layer, enabling consistent data services like snapshots and metadata management.
+The hypervisor file system path involves VM storage via iSCSI/FCP-connected LUNs or NVMe namespaces formatted by hypervisor-specific filesystems like VMFS, NTFS, EXT4, etc.
+
+The NAS file system path provides direct file-level access using NFS or SMB protocols to ONTAP volumes for virtual machine storage.
+
+Both paths converge at ONTAP’s WAFL layer, enabling consistent data services like snapshots and metadata management.
 
 == FabricPool Tiering Integration
 FabricPool intelligently manages data placement between high-performance local storage and lower-cost cloud object tiers.
 
-* FabricPool Tiering Structure
-FabricPool tiers data automatically between local high-performance storage and scalable cloud object storage.
-* Dynamic Hybrid Cloud Management
-Integration enables efficient data placement across hybrid cloud environments without sacrificing performance.
+FabricPool tiers data automatically between local high-performance storage and scalable cloud object storage based on the FabricPool tiering policy applied to the dataset.
 
-== Storage Efficiency and Management
-Understanding this technology stack is important. It helps you improve performance, reduce risk, and optimize TCO.
+ONTAP's FabricPool integration enables efficient data placement across hybrid cloud environments without sacrificing performance for local reads.
 
-* WAFL Filesystem Core
-**WAFL ensures metadata consistency, supports snapshots, cloning, and optimizes writes for SSD and HDD storage media.
-* Unified Data Access Paths
-**Both SAN/NVMe and NAS file protocol paths converge into WAFL, showcasing a unified data management approach.
+== Storage efficiency and management
+It is important to understand the way FabricPool works before enabling it. Proper configuration helps you improve performance, reduce risk, and optimize TCO by storing the right data in the right tier.
 
-Both SAN/NVMe and NAS file protocol paths converge into WAFL, showcasing a unified data management approach.
+Both SAN/NVMe and NAS file protocol paths converge at the WAFL layer. The WAFL file system ensures metadata consistency, supports snapshots, cloning, and optimizes writes for SSD, HDD, and object storage media.
+
+

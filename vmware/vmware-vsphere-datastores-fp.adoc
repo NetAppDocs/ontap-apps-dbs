@@ -18,7 +18,7 @@ From the ONTAP 9.6 release onward, FabricPool has supported virtualized workload
 
 That said, there are some nuances you need to be aware of.
 
-image:vmware-vsphere-datastores-fp-1.png[Hypervisor storage stack with FabricPool]
+image:vmware-vsphere-datastores-fp-1.png[alt=Hypervisor storage stack with FabricPool,width=525,height=500]
 
 == Compute and virtual disk layers
 The guest operating system runs on virtual disk formats like VMDK, QCOW2, or VHDX, which create the compute and block device layers accessible to applications and users.

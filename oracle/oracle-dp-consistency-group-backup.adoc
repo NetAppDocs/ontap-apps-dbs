@@ -14,9 +14,9 @@ searchtitle: Oracle database consistency group backups
 :imagesdir: ../media/
 
 [.lead]
-For the simplest possible backup, just place the entire Oracle database in a single ONTAP volume
+For the simplest possible backup, just place the entire Oracle database in a single ONTAP volume, LUN, or NVMe namespace.
 
-Protecting the datafiles, archive logs, redo logs, and controlfiles with a single snapshot is a valid backup, restore, and replication method.  However, the RPO is limited to the point of the backup itself. It is suitable for an RPO of one hour or greater. If a database spans volumes, cg-snapshots are required using one of the tools discussed previously.
+Protecting the datafiles, archive logs, redo logs, and controlfiles with a single snapshot is a valid backup, restore, and replication method.  However, the RPO is limited to the point of the backup itself. It is suitable for an RPO of one hour or greater. If a database spans volumes or ASAr2 storage units, consistency groups required using one of the tools discussed previously.
 
 As an example, the entire database can be in a single volume with the following snapshot schedule:
 

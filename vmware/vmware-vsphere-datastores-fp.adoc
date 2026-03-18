@@ -22,6 +22,7 @@ image:vmware-vsphere-datastores-fp-1.png
 
 == Compute and virtual disk layers
 The guest operating system runs on virtual disk formats like VMDK, QCOW2, or VHDX, which create the compute and block device layers accessible to applications and users.
+
 It is important to note that the guest operating system views virtual disks as block devices; therefore, in-guest block device timeouts must be considered when planning for fault tolerance during nondisruptive upgrades, hardware failures, or other unplanned events.
 
 [TIP]

@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: vmware/vmware-vsphere-datastores-san.html
 keywords: vSphere, datastore, VMFS, FC, FCoE, NVMe/FC, iSCSI, NFS, vVols
-summary: This page describes the best practices for implementing a ONTAP storage solution in a VMware vSphere environment.
+summary: This page describes the best practices for implementing an ONTAP storage solution in a VMware vSphere environment.
 ---
 = SAN (FC, FCoE, NVMe/FC, iSCSI), RDM
 :hardbreaks:
@@ -36,7 +36,7 @@ Refer to link:vmware-vsphere-settings.html[Recommended ESXi host and other ONTAP
 ESXi does not see any LUNs, namespaces, or paths beyond its limits. In a larger ONTAP cluster, it is possible to reach the path limit before the LUN limit. To address this limitation, ONTAP supports selective LUN map (SLM) in release 8.3 and later.
 
 [NOTE]
-Refer to the link:https://configmax.broadcom.com/guest?vmwareproduct=vSphere&release=vSphere%208.0&categories=2-0[VMware Configuration Maximums tool^] for the most up to date supported limits in ESXi.
+Refer to the link:https://configmax.broadcom.com/guest?vmwareproduct=vSphere&release=vSphere%208.0&categories=2-0[VMware Configuration Maximums tool^] for the most up-to-date supported limits in ESXi.
 
 SLM limits the nodes that advertise paths to a given LUN. It is a NetApp best practice to have at least two LIFs per node per SVM and to use SLM to limit the paths advertised to the node hosting the LUN and its HA partner. Although other paths exist, they aren't advertised by default. It is possible to modify the paths advertised with the add and remove reporting node arguments within SLM. Note that LUNs created in releases before 8.3 advertise all paths and need to be modified to only advertise the paths to the hosting HA pair. For more information about SLM, review section 5.9 of https://www.netapp.com/pdf.html?item=/media/10680-tr4080pdf.pdf[TR-4080^]. The previous method of portsets can also be used to further reduce the available paths for a LUN. Portsets help by reducing the number of visible paths through which initiators in an igroup can see LUNs.
 

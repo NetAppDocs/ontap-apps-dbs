@@ -23,6 +23,8 @@ entries:
             url: /vmware/vmware-vsphere-datastores-nfs.html        
           - title: FlexGroup volumes
             url: /vmware/vmware-vsphere-datastores-fg.html        
+          - title: FabricPool for VMware datastores
+            url: /vmware/vmware-vsphere-datastores-fp.html        
       - title: Network configuration
         url: /vmware/vmware-vsphere-network.html
       - title: Cloning

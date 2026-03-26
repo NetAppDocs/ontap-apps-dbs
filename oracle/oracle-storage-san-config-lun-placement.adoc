@@ -18,7 +18,7 @@ Optimal placement of database LUNs within ONTAP volumes on AFF and FAS systems p
 [NOTE]]
 ====
 * This section applies to AFF, FAS, and ASAr1 systems. 
-* ASAr2 is a streamlined SAN platform and does not expose a volume abstraction layer, 
+* ASA is a streamlined SAN platform and does not expose a volume abstraction layer, 
 ====
 
 include::../_include/lun-placement.adoc[]

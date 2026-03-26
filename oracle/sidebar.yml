@@ -128,7 +128,7 @@ entries:
       entries:
       - title: Snapshots
         url: /oracle/oracle-dp-snapshots.html
-      - title: SnapRestore
+      - title: Snapshot restoration
         url: /oracle/oracle-dp-snaprestore.html
       - title: Snapshot-based online backups
         url: /oracle/oracle-dp-online-backup.html

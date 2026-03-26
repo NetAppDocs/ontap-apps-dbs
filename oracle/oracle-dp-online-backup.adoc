@@ -32,11 +32,9 @@ The simplest layout is to isolate datafiles in dedicated volumes, LUNs, or NVMe 
 
 SAN has similar requirements for datafile isolation within dedicated resources. With an operating system such as Microsoft Windows using AFF storage, a single volume might contain multiple datafile LUNs, each with an NTFS file system. With other operating systems, there is generally a logical volume manager. For example, with Oracle ASM, the simplest option would be to confine the LUNs of an ASM disk group to a single volume that can be backed up and restored as a unit. If additional volumes are required for performance or capacity management reasons, creating an additional disk group on the new volume results in simpler management. 
 
-ASAr2 does not have the volume-level abstraction. Instead it uses consistency groups. In many cases, a single LUN or NVMe namespace might meet the management and performance requirements for a database. If multiple LUNs or namespaces is required, additional resources can be added and bound together as a consistency group. 
+ASA does not have the volume-level abstraction. Instead ASA uses consistency groups. In many cases, a single LUN or NVMe namespace might meet the management and performance requirements for a database. If multiple LUNs or namespaces is required, additional resources can be added and bound together as a consistency group that becomes the datafile container.
 
-If these guidelines are followed, snapshots can be scheduled directly on the storage system with no requirement for performing a consistency group snapshot. The reason is that Oracle backups do not require datafiles to be backed up at the same time. The online backup procedure was designed to allow datafiles to continue to be updated as they are slowly streamed to tape over the course of hours.
-
-A complication arises in situations such as the use of an ASM disk group that is distributed across AFF volumes or ASAr2 LUNs/namespaces. In these cases, a consistency group must be defined to make sure that the ASM metadata is consistent across all constituent resources.
+If these guidelines are followed, snapshots can be scheduled directly on the storage system. 
 
 *Caution:* Verify that the ASM `spfile` and `passwd` files are not in the disk group hosting the datafiles. This interferes with the ability to selectively restore datafiles and only datafiles.
 

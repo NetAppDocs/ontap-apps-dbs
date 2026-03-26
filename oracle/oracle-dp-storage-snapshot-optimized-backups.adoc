@@ -35,21 +35,21 @@ During recovery, the database reads metadata from the datafiles to identify the 
 For complete details, see Oracle's documentation on the topic, "Recovery Using Storage Snapshot Optimization" available in various releases of the Oracle 12c documentation. Also, see Oracle Document ID Doc ID 604683.1 regarding Oracle third-party snapshot support.
 
 == Data layout
-The simplest layout is to isolate the datafiles into one or more dedicated volumes. They must be uncontaminated by any other file type. This is to make sure that the datafile volumes can be rapidly restored with a SnapRestore operation without destroying an important redo log, controlfile, or archive log.
+The simplest layout is to isolate datafiles in dedicated volumes, LUNs, or NVMe namespaces. The storage resources must be uncontaminated by any other file type. This is to make sure that the datafiles can be rapidly restored through a SnapRestore operation without destroying an important redo log, controlfile, or archive log.
 
-SAN has similar requirements for datafile isolation within dedicated volumes. With an operating system such as Microsoft Windows, a single volume might contain multiple datafile LUNs, each with an NTFS file system. With other operating systems, there is generally a logical volume manager as well. For example, with Oracle ASM, the simplest option would be to confine disk groups to a single volume that can be backed up and restored as a unit. If additional volumes are required for performance or capacity management reasons, creating an additional disk group on the new volume results in easier management.
+SAN has similar requirements for datafile isolation within dedicated resources. With an operating system such as Microsoft Windows using AFF storage, a single volume might contain multiple datafile LUNs, each with an NTFS file system. With other operating systems, there is generally a logical volume manager. For example, with Oracle ASM, the simplest option would be to confine the LUNs of an ASM disk group to a single volume that can be backed up and restored as a unit. If additional volumes are required for performance or capacity management reasons, creating an additional disk group on the new volume results in simpler management. 
 
-If these guidelines are followed, snapshots can be scheduled directly on ONTAP with no requirement for performing a consistency group snapshot. The reason is that snapshot-optimized backups do not require that datafiles be backed up at the same time.
+ASA does not have the volume-level abstraction. Instead it uses consistency groups. In many cases, a single LUN or NVMe namespace might meet the management and performance requirements for a database. If multiple LUNs or namespaces is required, additional resources can be added and bound together as a consistency group that becomes the datafile container.
 
-A complication arises in situations such as an ASM disk group that is distributed across volumes. In these cases, a cg-snapshot must be performed to make sure that the ASM metadata is consistent across all constituent volumes.
+If these guidelines are followed, snapshots can be scheduled directly on the storage system. 
 
-[Note]Verify that the ASM spfile and passwd files are not in the disk group hosting the datafiles. This interferes with the ability to selectively restore datafiles and only datafiles.
+*Caution:* Verify that the ASM `spfile` and `passwd` files are not in the disk group hosting the datafiles. This interferes with the ability to selectively restore datafiles and only datafiles.
 
 == Local recovery procedure—NFS
 This procedure can be driven manually or through an application such as SnapCenter. The basic procedure is as follows:
 
 . Shut down the database.
-. Recover the datafile volume(s) to the snapshot immediately prior to the desired restore point.
+. Recover the datafile volumes, LUNs, or namespaces to the snapshot immediately prior to the desired restore point.
 . Replay archive logs to the desired point.
 
 This procedure assumes that the desired archive logs are still present in the active file system. If they are not, the archive logs must be restored, or `rman` or `sqlplus` can be directed to the data in the `.snapshot` directory.
@@ -65,7 +65,7 @@ This procedure can be driven manually or through an application such as SnapCent
 . Reactivate the newly restored disk groups.
 . Replay archive logs to the desired point.
 
-This procedure assumes that the desired archive logs are still present in the active file system. If they are not, the archive logs must be restored by taking the archive log LUNs offline and performing a restore. This is also an example in which dividing up archive logs into dedicated volumes is useful. If the archive logs share a volume group with redo logs, the redo logs must be copied elsewhere before restoration of the overall set of LUNs to avoid losing the final recorded transactions.
+This procedure assumes that the desired archive logs are still present in the active file system. If they are not, the archive logs must be restored by taking the archive log LUNs offline and performing a restore. This is also an example in which separating the archive logs into dedicated volumes, LUNs, or namespaces is useful. If the archive logs share a volume group with redo logs, the redo logs must be copied elsewhere before restoration of the overall set of LUNs to avoid losing the final recorded transactions.
 
 == Full recovery example
 Assume the datafiles have been corrupted or destroyed and full recovery is required. The procedure to do so is as follows:

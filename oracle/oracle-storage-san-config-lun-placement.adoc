@@ -13,6 +13,12 @@ searchtitle: Oracle database LUN placement
 :imagesdir: ../media/
 
 [.lead]
-Optimal placement of database LUNs within ONTAP volumes primarily depends on how various ONTAP features will be used.
+Optimal placement of database LUNs within ONTAP volumes on AFF and FAS systems primarily depends on how various ONTAP features will be used.
+
+[NOTE]]
+====
+* This section applies to AFF, FAS, and ASAr1 systems. 
+* ASA is a streamlined SAN platform and does not expose a volume abstraction layer, 
+====
 
 include::../_include/lun-placement.adoc[]

@@ -37,7 +37,7 @@ Essentially, any application that can withstand a power failure or server crash 
 
 The RPO for this approach is usually limited to the point of the backup. As a general rule, the minimum RPO for crash-consistent backup is one hour. For example, 48 hourly snapshots plus another 30 days of nightly snapshots is reasonable and would not require the retention of an excessive number of snapshots. An RPO lower than one hour becomes more difficult to achieve and it is not recommended without first consulting NetApp Professional Services to understand the environment, scale, and data protection requirements.
 
-The RTO can usually be measured in seconds. A an application is shut down, the volume/LUN/namespaces are restored, and the application is restarted. 
+The RTO can usually be measured in seconds. A an application is shut down, the NFS volumes, LUNs, or NVMe namespaces are restored, and the application is restarted. 
 
 The simplest approach is to place all the files or LUNs in a single AFF volume or ASA LUN/namespace. Where a dataset must span multiple storage resources, a consistency group is required. This can be configured using System Manager or RESTful API calls, plus SnapCenter is capable of creating a simple consistency group snapshot.
 
@@ -60,6 +60,11 @@ The retention time is controlled in part by the snapshot limit. For example, AFF
 
 === Single-volume consistency group (AFF)
 The simplest approach is to place all the files or LUNs in a single volume. A volume is a consistency group by itself, which means SnapMirror and SnapVault updates can be scheduled directly on the storage system. No external software is required.
+
+=== Single-LUN/namespace consistency group (ASA)
+While it may seem strange to place an entire database on a single LUN/namespace, it is becoming increasingly common. The reason volume managers were originally created was to overcome the performance and capacity limits of physical drives. With modern arrays, a single block device presented to a host is already abstracted across multiple drives. The size can be adjusted dynamically, and performance is far greated than an individual drive.
+
+The result is workloads ranging from an ESX datastore to an Oracle database can often be hosted on just a single block device. This not only vastly simplifies data management, but has helpful side effects, such as faster host reboot times due to the reduced number of devices that need to be discovered.
 
 === Multi-volume consistency group
 When a database must span AFF volumes or ASA LUNs/namespaces, a consistency group snapshot is required. As mentioned above, this can be configured using System Manager or RESTful API calls, plus SnapCenter is capable of creating a simple consistency group snapshot.

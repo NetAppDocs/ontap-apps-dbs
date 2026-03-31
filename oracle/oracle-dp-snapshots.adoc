@@ -68,7 +68,9 @@ Consistency group (CG) snapshots are an extension of the basic ONTAP Snapshot te
 
 CG snapshots scale extremely well. The largest known use of a CG snapshot is for a database environment of approximately 1PB in size spanning 12 controllers. The CG snapshots created on this system have been used for backup, recovery and cloning.
 
-Most of the time, when a data set spans AFF volumes or ASA LUNs/namespaces, and write order must be preserved, a CG snapshot is automatically used by the chosen management software or  There is no need to understand the technical details of CG snapshot in such cases. However, there are situations in which complicated data protection requirements require detailed control over the data protection and replication process. Automation workflows or the use of custom scripts to call the CG snapshot APIs are some of options. Understanding the best option and the role of CG snapshots requires a more detailed explanation of the technology.
+Most of the time, when a data set spans AFF volumes or ASA LUNs/namespaces, and write order must be preserved, an ONTAP consistency group can simply be defined and the group of volumes, LUNs, or namespaces can be managed natively to create snapshots. If management software is used, it should detect the need for a CG snapshots and call the required APIs.
+
+There is no need to understand the technical details of CG snapshot in such cases. However, there are situations in which complicated data protection requirements require detailed control over the data protection and replication process. Automation workflows or the use of custom scripts to call the CG snapshot APIs are some of options. Understanding the best option and the role of CG snapshots requires a more detailed explanation of the technology.
 
 Creation of a set of consistency group snapshots is a two-step process:
 

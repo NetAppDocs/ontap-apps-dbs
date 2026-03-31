@@ -20,17 +20,17 @@ When a critical dataset is unavailable, critical business operations are down. T
 While the basic technology is the same on AFF and ASA platforms, the they are used slightly differently.
 
 == AFF Overview
-There are two forms of SnapRestore on an AFF system - file-based and volume-based.
+There are two forms of SnapRestore on an AFF system - file-based and volume-based:
 
-* Individual objects on AFF systems and AFF/ASA LUNs can be restored in seconds, whether it is a 2TB LUN or a 4KB file.
-* An AFF volume or consistency group can be restored in seconds, whether it is 10GB or 100TB of data.
+* Individual AFF files, LUNs, and namespaces and individual ASA LUNs and namespaces can be restored in seconds, whether it is a 2TB LUN or a 4KB file.
+* The complete contents of an AFF volume can be restored in seconds, whether it is 10GB or 100TB of data.
 
 The reason SnapRestore works so quickly and efficiently is due to the nature of a snapshot, which is essentially a parallel read-only view of the contents of a volume, LUN, or namespace at a specific point in time. The active blocks are the real blocks that can be changed, while the snapshot is a read-only view into the state of the blocks that constitute the files and LUNs at the time the snapshot was created.
 
 ONTAP only permits read-only access to snapshot data, but the data can be reactivated with SnapRestore. The snapshot is reenabled as a read-write view of the data, returning the data to its prior state. SnapRestore can operate at the volume, file, LUN or namespace level. The technology is essentially the same with a few minor differences in behavior.
 
 === AFF Volume SnapRestore
-Volume-based SnapRestore returns the entire volume of data to an earlier state. This operation does not require data movement, meaning that the restore process is essentially instantaneous, although the API or CLI operation might take a few seconds to be processed. Restoring 1GB of data is no more complicated or time-consuming than restoring 1PB of data. This capability is the primary reason many enterprise customers migrate to ONTAP storage systems. It delivers an RTO measured in seconds for even the largest datasets.
+Volume-based SnapRestore returns the contents of an entire volume to an earlier state. This operation does not require data movement, meaning that the restore process is essentially instantaneous, although the API or CLI operation might take a few seconds to be processed. Restoring 1GB of data is no more complicated or time-consuming than restoring 1PB of data. This capability is the primary reason many enterprise customers migrate to ONTAP storage systems. It delivers an RTO measured in seconds for even the largest datasets.
 
 One drawback to volume-based SnapRestore is caused by the fact that changes within a volume are cumulative over time. Therefore, each snapshot and the active file data are dependent on the changes leading up to that point. Reverting a volume to an earlier state means discarding all the subsequent changes that had been made to the data. What is less obvious, however, is that this includes subsequently created snapshots. This is not always desirable.
 
@@ -43,10 +43,10 @@ There are a number of options available to address this limitation:
 . Use of file-based SnapRestore.
 
 === AFF File SnapRestore
-File-based SnapRestore is a more granular snapshot-based restoration process used with AFF volumes. Rather than reverting the state of an entire volume, the state of an individual file or LUN is reverted. No snapshots need to be deleted, nor does this operation create any dependency on a prior snapshot. The file or LUN becomes immediately available in the active volume.
+File-based SnapRestore is a more granular snapshot-based restoration process used with AFF volumes. Rather than reverting the state of an entire volume, the state of an individual file, LUN, or namespace is reverted. No snapshots need to be deleted, nor does this operation create any dependency on a prior snapshot. The file or LUN becomes immediately available in the active volume.
 
-No data movement is required during a SnapRestore restore of a file or LUN. However, some internal metadata updates are required to reflect the fact that the underlying blocks in a file or LUN now exist in both a snapshot and the active volume. There should be no effect on performance, but this process blocks the creation of snapshots until it is complete. The processing rate is approximately 5GBps (18TB/hour) based on the total size of the files restored.
+No data movement is required during a SnapRestore restore of a file or LUN. However, some internal metadata updates are required to reflect the fact that the underlying blocks in restored data now exist in both a snapshot and the active volume. There should be no effect on performance, but this process blocks the creation of snapshots until it is complete. The processing rate is approximately 5GBps (18TB/hour) based on the total size of the files restored.
 
 == ASA LUN/namespace restoration
-Restoring data on ASA is similar to AFF SnapRestore. Data is simply restored to an earlier state. The process is nearly instantaneous and does not require data movement. It also has the same limitations, including the requirement that restoration of a snapshot results in deletion of subsequently deleted snapshots. If this is problematic, there are two options. First, a LUN/namespace can be cloned from an earlier snapshot while leaving the source volume unchanged. This is an instantaneous and space-efficienc process. It essentially makes a read-write copy of the read-only pointer to the blocks in a snapshot. A second option is via the REST API, which can use the same single-file SnapRestore logic used in the AFF system. The result is an instant restoration of a LUN/namespace using the data from a snapshot.
+Restoring data on ASA is similar to AFF SnapRestore. Data is simply restored to an earlier state. The process is nearly instantaneous and does not require data movement. It also has the same limitations, including the requirement that restoration of a snapshot results in deletion of subsequently deleted snapshots. If this is problematic, there are two options. First, a LUN/namespace can be cloned from an earlier snapshot while leaving the source volume unchanged. This is an instantaneous and space-efficienc process. It essentially makes a read-write copy of the read-only pointer to the blocks in a snapshot. A second option is via the REST API, which can use the same single-file SnapRestore logic used in AFF systems. The result is an instant restoration of a LUN/namespace using the data from a snapshot and all snapshots are preserved. 
 

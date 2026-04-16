@@ -14,7 +14,7 @@ searchtitle: Oracle database management and automation tools
 :imagesdir: ../media/
 
 [.lead]
-The primary value of ONTAP in an Oracle database environment comes from the core ONTAP technologies such as instant Snapshot copies, simple SnapMirror replication, and efficient creation of FlexClone volumes. 
+The primary value of ONTAP in an Oracle database environment comes from the core ONTAP technologies such as instant Snapshot copies, simple SnapMirror replication, and efficient creation of cloned volumes, LUNs, and namespaces.
 
 In some cases, simple configuration of these core features directly on ONTAP meets requirements, but more complicated needs require an orchestration layer.
 

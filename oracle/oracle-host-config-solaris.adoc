@@ -106,7 +106,7 @@ To configure a LUN, complete the following steps:
 .. Run the `host_config` utility to update the `sd.conf/sdd.conf` file. Doing so allows the SCSI drives to correctly discover ONTAP LUNs.
 .. Follow the instructions given by the `host_config` utility to enable multipath input/output (MPIO).
 .. Reboot. This step is required so that any changes are recognized across the system.
-. Partition the LUNs and verify that they are properly aligned. See "Appendix B: WAFL Alignment Verification” for instructions on how to directly test and confirm alignment.
+. Partition the LUNs and verify that they are properly aligned. See link:oracle-notes-wafl-alignment-verification.html[WAFL Alignment] for instructions on how to directly test and confirm alignment.
 
 === zpools
 A zpool should only be created after the steps in the link:oracle-host-config-solaris.html#lun-configuration[LUN Configuration] are performed. If the procedure is not done correctly, it can result in serious performance degradation due to the I/O alignment. Optimum performance on ONTAP requires I/O to be aligned to a 4K boundary on a drive. The file systems created on a zpool use an effective block size that is controlled through a parameter called `ashift`, which can be viewed by running the command `zdb -C`.

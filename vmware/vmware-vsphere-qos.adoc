@@ -71,7 +71,7 @@ When creating the storage capability profile for the vVol container, specify a m
 
 [NOTE]
 
-vVols requires the use ONTAP tools for VMware vSphere which functions as the VASA Provider for ONTAP. Refer to link:/vmware/vmware-vvols-overview.html[VMware vSphere Virtual Volumes (vVols) with ONTAP] for vVols best practices.
+vVols requires the use ONTAP tools for VMware vSphere which functions as the VASA Provider for ONTAP. Refer to link:vmware-vvols-overview.html[VMware vSphere Virtual Volumes (vVols) with ONTAP] for vVols best practices.
 
 == ONTAP QoS and VMware SIOC
 

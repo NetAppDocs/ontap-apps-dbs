@@ -14,8 +14,8 @@ entries:
       url: /mssql/mssql-shared-vs-dedicated.html
     - title: Tempdb files
       url: /mssql/mssql-tempdb.html
-  - title: Storage configuration on ONTAP
-    pdf-filename: Microsoft SQL Server on ONTAP
+  - title: Storage configuration
+    pdf-filename: Storage configuration for Microsoft SQL Server
     entries:
     - title: Overview
       url: /mssql/mssql-storage-considerations.html

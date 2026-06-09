@@ -15,7 +15,7 @@ SnapCenter plugin for Microsoft SQL Server must be installed on all nodes of Win
 
 SnapCenter discovers all the databases, instances and availability groups in Windows hosts and resources are enumerated on the SnapCenter resource page. 
 
-=== Protecting databases in always on availability group
+== Protecting databases in always on availability group
 
 Databases in availability group can be protected in multiple ways. 
 
@@ -28,13 +28,13 @@ The availability group setting in SnapCenter policy will apply only if availabil
 [TIP] 
 *NetApp recommends* to use availability level backup to backup across all the replica running on NetApp ONTAP storage.
 
-=== Configuring log backup in SnapCenter
+== Configuring log backup in SnapCenter
 
 If availability group is setup on standalone SQL Server setup then a dedicated disk must be mounted on each node of a Windows server failover cluster. Dedicated disk should be used to configure log directory to save transaction log backups. 
 
 If availability group is setup on SQL Server failover cluster then clustered disk should be created on SQL Server failover cluster instance to host log directory.
 
-=== Restoring database in availability group setup with SnapCenter
+== Restoring database in availability group setup with SnapCenter
 
 * SnapCenter provide reseed option to automatically recover the database from the latest snapshot available at the secondary replica. Reseed operation will automatically restore and join the database backup to availability group.
 

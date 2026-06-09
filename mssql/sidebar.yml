@@ -57,39 +57,6 @@ entries:
           url: /mssql/mssql-dr-smas-sql.html
         - title: Failure scenarios
           url: /mssql/mssql-dr-smas-failure-scenarios.html
-  - title: Storage configuration on ASA r2 systems
-    pdf-filename: Microsoft SQL Server on ASA systems
-    entries:
-    - title: Overview
-      url: /mssql/mssql-storage-considerations-ASA.html
-    - title:  Database files and filegroups
-      url: /mssql/mssql-files-and-filegroups-ASA.html
-    - title: Data protection
-      url: /mssql/mssql-data-protection-ASA.html
-    - title: Disaster recovery
-      entries:
-      - title: Overview
-        url: /mssql/mssql-disaster-recovery-ASA.html
-      - title: SnapMirror
-        url: /mssql/mssql-dr-snapmirror-ASA.html
-      - title: SnapMirror active sync
-        entries:
-        - title: Overview
-          url: /mssql/mssql-dr-smas-overview-ASA.html
-        - title: ONTAP Mediator
-          url: /mssql/mssql-dr-smas-mediator-ASA.html
-        - title: Preferred site
-          url: /mssql/mssql-dr-smas-preferred-site-ASA.html
-        - title: Network topology
-          entries:
-          - title: Uniform access
-            url: /mssql/mssql-dr-smas-uniform-ASA.html  
-          - title: Nonuniform access
-            url: /mssql/mssql-dr-smas-nonuniform-ASA.html  
-        - title: SQL Server with SM-as
-          url: /mssql/mssql-dr-smas-sql-ASA.html
-        - title: Failure scenarios
-          url: /mssql/mssql-dr-smas-failure-scenarios-ASA.html
   - title: Data security
     url: /mssql/mssql-data-security.html
   

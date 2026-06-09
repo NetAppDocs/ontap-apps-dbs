@@ -14,8 +14,8 @@ entries:
       url: /mssql/mssql-shared-vs-dedicated.html
     - title: Tempdb files
       url: /mssql/mssql-tempdb.html
-  - title: Storage configuration on AFF/FAS systems
-    pdf-filename: Microsoft SQL Server on AFF/FAS systems
+  - title: Storage configuration on ONTAP
+    pdf-filename: Microsoft SQL Server on ONTAP
     entries:
     - title: Overview
       url: /mssql/mssql-storage-considerations.html

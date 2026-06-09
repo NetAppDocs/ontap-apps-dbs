@@ -24,8 +24,9 @@ entries:
     - title: Storage efficiency
       url: /mssql/mssql-storage-efficiency.html
     - title: Data protection
-      url: /mssql/mssql-data-protection.html
       entries:
+      - title: Overview
+        url: /mssql/mssql-data-protection.html
       - title: SQL Server availability group with SnapCenter
         url: /mssql/mssql-ag-snapcenter.html
     - title: Disaster recovery
@@ -48,12 +49,10 @@ entries:
           url: /mssql/mssql-dr-smas-mediator.html
         - title: Preferred site
           url: /mssql/mssql-dr-smas-preferred-site.html
-        - title: Network topology
-          entries:
-          - title: Uniform access
-            url: /mssql/mssql-dr-smas-uniform.html  
-          - title: Nonuniform access
-            url: /mssql/mssql-dr-smas-nonuniform.html  
+        - title: Uniform network access
+          url: /mssql/mssql-dr-smas-uniform.html  
+        - title: Nonuniform network access
+          url: /mssql/mssql-dr-smas-nonuniform.html  
         - title: SQL Server with SM-as
           url: /mssql/mssql-dr-smas-sql.html
         - title: Failure scenarios

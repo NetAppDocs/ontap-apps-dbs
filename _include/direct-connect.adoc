@@ -1,14 +1,13 @@
-== SAN
+
+=== Fiber Channel
+Starting with ONTAP 9.19.1, direct-connect FC is supported with both traditional FC-SAN (SCSI) and NVMe/FC with select storage system FC adapters. The HBAs will establish a standard point-to-point FC connection.
+
+Prior to ONTAP 9.19.1, ONTAP storage systems require NPIV, which means the storage system must be connected to an FC switch that also supports NPIV.
 
 === iSCSI and NVMe/TCP
 A host using iSCSI or NVMe/TCP can be directly connected to a storage system and operate normally. The reason is pathing. Direct connections to two different storage controllers results in two independent paths for data flow. The loss of path, port, or controller does not prevent the other path from being used. 
 
-=== Fiber Channel
-Starting with ONTAP 9.19.1, direct-coonnect FC is supported with both traditional FC-SAN (SCSI) and NVMe/FC with select storage system FC adapters. The HBAs will establish a standard point-to-point FC connection.
-
-Prior to ONTAP 9.19.1, ONTAP storage systems require NPIV, which means the storage system must be connected to an FC switch that also supports NPIV.
-
-== NFS
+=== NFS
 Direct-connected NFS storage can be used, but with a significant limitation - failover will not work without a significant scripting effort, which would be the responsibility of the customer. 
 
 The reason nondisruptive failover is complicated with direct-connected NFS storage is the routing that occurs on the local OS. For example, assume a host has an IP address of 192.168.1.1/24 and is directly connected to an ONTAP controller with an IP address of 192.168.1.50/24. During failover, that 192.168.1.50 address can fail over to the other controller, and it will be available to the host, but how does the host detect its presence? The original 192.168.1.1 address still exists on the host NIC that no longer connects to an operational system. Traffic destined for 192.168.1.50 would continue to be sent to an inoperable network port.

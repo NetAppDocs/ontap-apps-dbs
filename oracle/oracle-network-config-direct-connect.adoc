@@ -13,6 +13,6 @@ searchtitle: Oracle database and direct-connect ONTAP connectivity
 :imagesdir: ../media/
 
 [.lead]
-Storage administrators sometimes prefer to simplify their infrastructures by removing network switches from the configuration. This can be supported in some scenarios.
+System administrators sometimes prefer to simplify their infrastructures by removing network switches from the configuration. This allows creation of a more self-contained solution with fewer components and less space required in the rack. There are some important restrictions that depend on the protocol in use.
 
 include::../_include/direct-connect.adoc[]

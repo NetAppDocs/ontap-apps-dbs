@@ -42,4 +42,4 @@ Learn how to deploy and configure Hyper-V replica with Windows Server Failover C
 ... In the authorization and storage section, select the servers allowed to replicate VMs to this cluster. Also, specify the default location where the replicated VMs are stored.
 
 == Replication
-Replication is similar to the process described in the section link:win_deploy_hyperv_replica_oce[Replica Outside a Clustered Environment].
+Replication is similar to the process described in the section link:win_deploy_hyperv_replica_oce.html[Replica Outside a Clustered Environment].

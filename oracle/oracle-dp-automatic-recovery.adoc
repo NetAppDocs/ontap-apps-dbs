@@ -28,11 +28,16 @@ During recovery, the database reads metadata from the datafiles to select the re
 Automatic recovery without backup mode requires slightly different datasets to accomplish the same results:
 
 * A snapshot of the datafiles.
-* A synchronized set of archive logs, controlfiles, and redo logs. This can be done by placing those files in a single volume and creating a snapshot or by using CG snapshots across multiple volmes. The logs must contain all records created from the time of the datafile snapshot through the last change recorded in the controlfiles.
+* A synchronized set of archive logs, controlfiles, and redo logs. The archive logs must include all records from the time the datafile snapshot was created, so be careful of aggressive log pruning.
 
 During recovery, the database reads metadata from the datafiles to identify the log records required and replays all logged transactions.
 
-NOTE: This approach can approximate a point-in-time recovery, but with limited granularity. For example, if you start with datafiles in backup mode, you can replay logs to any arbitrary transaction. If you use the automatic recovery approach, without using backup mode, you must recover the database to the point of the log snapshot. In normal circumstances, the RPO would still be zero because the original archive logs, redo logs, and controlfiles would still be available in the active filesystem. If a recovery needed to be performed wholly from snapshots due to loss of all data in the active filesystems, then the RPO would be one hour.
+NOTE:
+====
+This approach can approximate a point-in-time recovery, but with limited granularity. For example, if you start with datafiles in backup mode, you can roll the database forward to any arbitrary transaction. 
+
+If you use the automatic recovery approach, without using backup mode, you must recover the database to the point of the log snapshot. In normal circumstances, the RPO would still be zero because the original archive logs, redo logs, and controlfiles would still be available in the active filesystem. If a recovery needed to be performed wholly from snapshots due to loss of all data in the active filesystems, then the RPO would be one hour.
+====
 
 == Data layout
 The simplest layout is to isolate datafiles in dedicated volumes, LUNs, or NVMe namespaces. The storage resources must be uncontaminated by any other file type. This is to make sure that the datafiles can be rapidly restored through a SnapRestore operation without destroying an important redo log, controlfile, or archive log.
@@ -50,7 +55,7 @@ The basic procedure is as follows:
 
 . Shut down the database.
 . Recover the datafile volumes, LUNs, or namespaces to the snapshot immediately prior to the desired restore point.
-. Replay archive logs to the desired point.
+. Run `alter database automatic;`
 
 This procedure assumes that the desired archive logs are still present in the active file system. If they are not, the archive logs must be restored, or `rman` or `sqlplus` can be directed to the data in the `.snapshot` directory.
 
@@ -63,7 +68,7 @@ The basic procedure is as follows:
 . Quiesce the disk group(s) hosting the datafiles. The procedure varies depending on the logical volume manager chosen. With ASM, the process requires dismounting the disk group. With Linux, the file systems must be dismounted, and the logical volumes and volume groups are deactivated. The objective is to stop all updates on the target volume group to be restored.
 . Restore the datafile disk groups to the snapshot immediately prior to the desired restore point.
 . Reactivate the newly restored disk groups.
-. Replay archive logs to the desired point.
+. Run `alter database automatic;`
 
 This procedure assumes that the desired archive logs are still present in the active file system. If they are not, the archive logs must be restored by taking the archive log LUNs offline and performing a restore. This is also an example in which separating the archive logs into dedicated volumes, LUNs, or namespaces is useful. If the archive logs share a volume group with redo logs, the redo logs must be copied elsewhere before restoration of the overall set of LUNs to avoid losing the final recorded transactions.
 

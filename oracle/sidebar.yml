@@ -132,8 +132,8 @@ entries:
         url: /oracle/oracle-dp-snaprestore.html
       - title: Snapshot-based online backups
         url: /oracle/oracle-dp-online-backup.html
-      - title: Storage Snapshot Optimized backups
-        url: /oracle/oracle-dp-storage-snapshot-optimized-backups.html
+      - title: Automatic Recovery without snapshots
+        url: /oracle/oracle-dp-automatic-recovery.html
       - title: SnapCenter and other tools
         url: /oracle/oracle-dp-backup-tools.html
   - title: Oracle disaster recovery
@@ -200,12 +200,6 @@ entries:
           url: /oracle/oracle-dr-smas-fail-restore.html
         - title: Manual failovers
           url: /oracle/oracle-dr-smas-fail-manual.html 
-#    - title: SnapMirror
-#      entries:
-#      - title: Consistency group disaster recovery
-#      url: /oracle/dr/snapmirror/consistency_group_disaster_recovery.html
-#      - title: Disaster recovery with log replay
-#        url: /oracle/dr/snapmirror/disaster_recovery_with_log_replay.html
   - title: Oracle database migration
     entries:
     - title: Overview

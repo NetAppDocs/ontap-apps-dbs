@@ -1,0 +1,95 @@
+---
+sidebar: sidebar
+permalink: oracle/oracle-dp-automatic-recovery.html
+keywords: oracle, data protection, crash-consistent
+summary: Oracle automatic recovery without backup mode.
+searchtitle: Oracle automatic recovery without backup mode.
+---
+= Oracle automatic recovery without backup mode
+
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+Snapshot-based backup and recovery became even simpler back when Oracle 12c was released because there is no need to place a database in hot backup mode. The result is an ability to schedule snapshot-based backups directly on a storage system. 
+
+Although the hot backup recovery procedure is more familiar to DBAs, it has, for a long time, been possible to use snapshots that were not created while the database was in hot backup mode. Extra manual steps were required with Oracle 10g and 11g during recovery to make the database consistent. With Oracle 12c, `sqlplus` and `rman` contain the extra logic to replay archive logs on datafile backups that were not in hot backup mode.
+
+As discussed previously, recovering a snapshot-based hot backup requires two sets of data:
+
+* A snapshot of the datafiles created while in backup mode
+* The archive logs generated while the datafiles were in hot backup mode
+
+During recovery, the database reads metadata from the datafiles to select the required archive logs for recovery.
+
+Automatic recovery without backup mode requires slightly different datasets to accomplish the same results:
+
+* A snapshot of the datafiles.
+* A synchronized set of archive logs, controlfiles, and redo logs. The archive logs must include all records from the time the datafile snapshot was created, so be careful of aggressive log pruning.
+
+During recovery, the database reads metadata from the datafiles to identify the log records required and replays all logged transactions.
+
+NOTE:
+====
+This approach can approximate a point-in-time recovery, but with limited granularity. For example, if you start with datafiles in backup mode, you can roll the database forward to any arbitrary transaction. 
+
+If you use the automatic recovery approach, without using backup mode, you must recover the database to the point of the log snapshot. In normal circumstances, the RPO would still be zero because the original archive logs, redo logs, and controlfiles would still be available in the active filesystem. If a recovery needed to be performed wholly from snapshots due to loss of all data in the active filesystems, then the RPO would be one hour.
+====
+
+== Data layout
+The simplest layout is to isolate datafiles in dedicated volumes, LUNs, or NVMe namespaces. The storage resources must be uncontaminated by any other file type. This is to make sure that the datafiles can be rapidly restored through a SnapRestore operation without destroying an important redo log, controlfile, or archive log.
+
+SAN has similar requirements for datafile isolation within dedicated resources. With an operating system such as Microsoft Windows using AFF storage, a single volume might contain multiple datafile LUNs, each with an NTFS file system. With other operating systems, there is generally a logical volume manager. For example, with Oracle ASM, the simplest option would be to confine the LUNs of an ASM disk group to a single volume that can be backed up and restored as a unit. If additional volumes are required for performance or capacity management reasons, creating an additional disk group on the new volume results in simpler management. 
+
+ASA does not have the volume-level abstraction. Instead it uses consistency groups. In many cases, a single LUN or NVMe namespace might meet the management and performance requirements for a database. If multiple LUNs or namespaces is required, additional resources can be added and bound together as a consistency group that becomes the datafile container.
+
+If these guidelines are followed, snapshots can be scheduled directly on the storage system. 
+
+*Caution:* Verify that the ASM `spfile` and `passwd` files are not in the disk group hosting the datafiles. This interferes with the ability to selectively restore datafiles and only datafiles.
+
+== Local recovery procedure—NFS
+The basic procedure is as follows:
+
+. Shut down the database.
+. Recover the datafile volumes, LUNs, or namespaces to the snapshot immediately prior to the desired restore point.
+. Run `alter database automatic;`
+
+This procedure assumes that the desired archive logs are still present in the active file system. If they are not, the archive logs must be restored, or `rman` or `sqlplus` can be directed to the data in the `.snapshot` directory.
+
+In addition, for smaller databases, datafiles can be recovered by an end user directly from the `.snapshot` directory without assistance from automation tools or a storage administrator to execute a SnapRestore command.
+
+== Local recovery procedure—SAN
+The basic procedure is as follows:
+
+. Shut down the database.
+. Quiesce the disk group(s) hosting the datafiles. The procedure varies depending on the logical volume manager chosen. With ASM, the process requires dismounting the disk group. With Linux, the file systems must be dismounted, and the logical volumes and volume groups are deactivated. The objective is to stop all updates on the target volume group to be restored.
+. Restore the datafile disk groups to the snapshot immediately prior to the desired restore point.
+. Reactivate the newly restored disk groups.
+. Run `alter database automatic;`
+
+This procedure assumes that the desired archive logs are still present in the active file system. If they are not, the archive logs must be restored by taking the archive log LUNs offline and performing a restore. This is also an example in which separating the archive logs into dedicated volumes, LUNs, or namespaces is useful. If the archive logs share a volume group with redo logs, the redo logs must be copied elsewhere before restoration of the overall set of LUNs to avoid losing the final recorded transactions.
+
+== Full recovery example
+Assume the datafiles have been corrupted or destroyed and full recovery is required. The procedure to do so is as follows:
+
+....
+[oracle@host1 ~]$ sqlplus / as sysdba
+Connected to an idle instance.
+SQL> startup mount;
+ORACLE instance started.
+Total System Global Area 1610612736 bytes
+Fixed Size                  2924928 bytes
+Variable Size            1040191104 bytes
+Database Buffers          553648128 bytes
+Redo Buffers               13848576 bytes
+Database mounted.
+SQL> recover automatic;
+Media recovery complete.
+SQL> alter database open;
+Database altered.
+SQL>
+....
+

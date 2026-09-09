@@ -22,7 +22,7 @@ Also see the discussion about compression block alignment in the section link:or
 == Misalignment warnings
 include::../_include/database-misalignment-warnings.adoc[]
 
-Alignment in Solaris environments is more complicated. Refer to http://support.netapp.com/documentation/productlibrary/index.html?productID=61343[ONTAP SAN Host Configuration^] for more information.
+Alignment in Solaris environments is more complicated. Refer to https://kb.netapp.com/on-prem/ontap/da/SAN/SAN-KBs/How_to_identify_unaligned_IO_on_LUNs[How to identify unaligned IO on LUNs] for more information.
 
 |===
 |Caution

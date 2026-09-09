@@ -65,10 +65,6 @@ NetApp PowerShell Toolkit (PSTK) is a PowerShell module that provides end-to-end
 * NetApp supports the shared virtual hard disk format (VHDX) for guest clustering in Windows SAN environments.
 * Windows Server does not support creating storage pools using iSCSI or FC LUNs.
 
-=== Further reading
-* For more information about the NetApp PowerShell Toolkit, visit the https://mysupport.netapp.com/site/tools/tool-eula/ontap-powershell-toolkit[NetApp Support Site].
-* For information about NetApp PowerShell Toolkit best practices, see https://www.netapp.com/media/16861-tr-4475.pdf?v=93202073432AM[TR-4475: NetApp PowerShell Toolkit Best Practices Guide].
-
 == Networking best practices
 Ethernet networks can be broadly segregated into the following groups:
 

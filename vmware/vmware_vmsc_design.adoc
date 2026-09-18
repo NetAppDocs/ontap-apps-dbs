@@ -26,7 +26,7 @@ There is some difference in managing a vMSC configuration with SnapMirror active
 
 == Using the ONTAP Tools vCenter Plugin for SnapMirror Active Sync
 
-The ONTAP tools vCenter plugin provides a simple and intuitive way to configure SnapMirror active sync for vMSC. You can use the ONTAP tools vCenter plugin to create and manage SnapMirror active sync relationships between two ONTAP clusters. This plugin provides an easy-to-use interface for establishing and managing these relationships efficiently. You can learn more about the ONTAP tools vCenter plugin at https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/index.html[ONTAP tools for VMware vSphere], or jump right into https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/configure/protect-cluster.html[Protect using host cluster protection].
+The ONTAP tools vCenter plugin provides a simple and intuitive way to configure SnapMirror active sync for vMSC. You can use the ONTAP tools vCenter plugin to create and manage SnapMirror active sync relationships between two ONTAP clusters. This plugin provides an easy-to-use interface for establishing and managing these relationships efficiently. You can learn more about the ONTAP tools vCenter plugin at https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/index.html[ONTAP tools for VMware vSphere], or jump right into https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/protect/granular-datastore-protection-concept.html[Granular datastore protection eligibility criteria in ONTAP tools].
 
 == VMware vSphere Configuration
 

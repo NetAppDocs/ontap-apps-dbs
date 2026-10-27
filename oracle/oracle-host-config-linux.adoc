@@ -19,6 +19,10 @@ Configuration topics specific to the Linux OS.
 == Linux NFSv3 TCP slot tables 
 include::../_include/nfs-slot-tables.adoc[]
 
+== Linux NFSv4 Session slots
+
+include::../_include_nfs_session-slots.adoc[]
+
 == Linux NFS mount options
 The following table lists the Linux NFS mount options for a single instance.
 
@@ -33,7 +37,7 @@ Datafiles
 Redo logs
 .^|`rw,bg,hard,[vers=3,vers=4.1],proto=tcp,
 timeo=600,rsize=262144,wsize=262144,
-nointr`
+nointr,[nconnect=]`
 .^|ORACLE_HOME
 .^|`rw,bg,hard,[vers=3,vers=4.1],proto=tcp,
 timeo=600,rsize=262144,wsize=262144,
@@ -54,7 +58,7 @@ Data files
 Redo logs
 .^|`rw,bg,hard,[vers=3,vers=4.1],proto=tcp,
 timeo=600,rsize=262144,wsize=262144,
-nointr,actimeo=0`
+nointr,actimeo=0,[nconnect=]`
 .^|CRS/voting
 .^|`rw,bg,hard,[vers=3,vers=4.1],proto=tcp,
 timeo=600,rsize=262144,wsize=262144,
@@ -76,6 +80,12 @@ Generally, nondatabase files should be mounted with the same options used for si
 
 === ACCESS and GETATTR
 Some customers have noted that an extremely high level of other IOPS such as ACCESS and GETATTR can dominate their workloads. In extreme cases, operations such as reads and writes can be as low as 10% of the total. This is normal behavior with any database that includes using `actimeo=0` and/or `noac` on Linux because these options cause the Linux OS to constantly reload file metadata from the storage system. Operations such as ACCESS and GETATTR are low-impact operations that are serviced from the ONTAP cache in a database environment. They should not be considered genuine IOPS, such as reads and writes, that create true demand on storage systems. These other IOPS do create some load, however, especially in RAC environments. To address this situation, enable DNFS, which bypasses the OS buffer cache and avoids these unnecessary metadata operations.
+
+=== nconnect
+
+nconnect is a relatively new mount option. It allows the NFS client to open multiple, independent TCP/IP connections for a given mountpoint and then multiplex traffic. The result is more in-flight IO, which improves performance. The maximum supported value on linux is 16, but NetApp recommends a value of 4-8. The result is single-instance performance that is comparable to the dNFS client when it is configured for a single path. Unlike dNFS, nconnect cannot be configuired to multplex across multiple IP addresses and TCP/IP links.
+
+With RAC, nconnect has more performance overhead than dNFS. See link:#Linux%20Direct%20NFS%20and Oracle %20AC[Linux Direct NFS and Oracle RAC] for more information.
 
 === Linux Direct NFS
 One additional mount option, called `nosharecache`, is required when (a) DNFS is enabled and (b) a source NFS share is mounted more than once on a single server (c) with a nested NFS mount. This configuration is seen primarily in environments supporting SAP applications. For example, a single NFS share on a NetApp system could have a directory located at `/vol/oracle/base` and a second at `/vol/oracle/home`. If `/vol/oracle/base` is mounted at `/oracle` and `/vol/oracle/home` is mounted at `/oracle/home`, the result is nested NFS mounts that originate on the same source.

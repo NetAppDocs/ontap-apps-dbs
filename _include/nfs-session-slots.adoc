@@ -1,0 +1,13 @@
+NFS session slots the NFSv3 equivalent of NFSv3 slot tables. The default value is usually 64, which is far too low for optimum performance. A value of 180 is optimum because it matches the session limit in ONTAP.
+
+Example of setting the max_session_slots parameter:
+
+....
+# cat /etc/modprobe.d/nfsclient.conf 
+ options nfs max_session_slots=180
+....
+
+A reboot is required for this to change effect. This parameter is used by a kernel module that loads on startup. Unlike the NFSv3 slot table parameter, it is not dynamic. 
+
+[CAUTION]
+Failure to set these parameters may have significant effects on performance. Performance can be limited because the linux OS is not issuing sufficient I/O.

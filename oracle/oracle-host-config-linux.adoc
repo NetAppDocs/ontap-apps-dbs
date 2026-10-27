@@ -19,7 +19,7 @@ Configuration topics specific to the Linux OS.
 == Linux NFSv3 TCP slot tables 
 include::../_include/nfs-slot-tables.adoc[]
 
-== Linux NFSv4 Session slots
+== Linux NFSv4.X Session slots
 include::../_include/nfs-session-slots.adoc[]
 
 == Linux NFS mount options

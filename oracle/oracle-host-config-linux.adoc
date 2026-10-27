@@ -20,7 +20,6 @@ Configuration topics specific to the Linux OS.
 include::../_include/nfs-slot-tables.adoc[]
 
 == Linux NFSv4 Session slots
-
 include::../_include/nfs_session-slots.adoc[]
 
 == Linux NFS mount options

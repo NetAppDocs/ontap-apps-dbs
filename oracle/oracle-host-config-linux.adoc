@@ -21,7 +21,7 @@ include::../_include/nfs-slot-tables.adoc[]
 
 == Linux NFSv4 Session slots
 
-include::../_include_nfs_session-slots.adoc[]
+include::../_include/nfs_session-slots.adoc[]
 
 == Linux NFS mount options
 The following table lists the Linux NFS mount options for a single instance.

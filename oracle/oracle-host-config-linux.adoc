@@ -82,7 +82,7 @@ Some customers have noted that an extremely high level of other IOPS such as ACC
 
 === nconnect
 
-nconnect is a relatively new mount option. It allows the NFS client to open multiple, independent TCP/IP connections for a given mountpoint and then multiplex IO. The result is more in-flight operations, which improves performance, especially on high-bandwidth networks. The maximum supported value on linux is 16, but NetApp recommends a value of 4-8. The result is single-instance performance that is comparable to the dNFS client when it is configured for a single path. Unlike dNFS, nconnect cannot be configuired to multplex across multiple IP addresses and TCP/IP links.
+nconnect is a relatively new mount option. It allows the NFS client to open multiple, independent TCP/IP connections for a given mountpoint and then multiplex IO. The result is more in-flight operations, which improves performance, especially on high-bandwidth networks. The maximum supported value on linux is 16, but NetApp recommends a value of 4-8. The result is single-instance performance that is comparable to the dNFS client when it is configured for a single path. Unlike dNFS, nconnect cannot be configured to multiplex across multiple IP addresses and TCP/IP links.
 
 With RAC, nconnect has more performance overhead than dNFS due to the additional metadata traffic. See link:#Linux%20Direct%20NFS%20and Oracle %20AC[Linux Direct NFS and Oracle RAC] for more information.
 

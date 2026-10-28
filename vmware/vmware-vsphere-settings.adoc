@@ -134,7 +134,7 @@ ONTAP tools also specifies certain default settings when creating ONTAP FlexVol 
 |LUN space allocation
 |Enabled*
 |===
-Note that due to defect COTV-9223 ONTAP tools up to version 10.6P1 fails to properly set LUN space allocation. You can read more at link:https://kb.netapp.com/data-mgmt/OTV/VSC_Kbs/OTV_10.x_creates_iSCSI_LUNs_with_space-allocation_disabled[ONTAP tools creates LUNs with space-allocation disabled] 
+*Note that due to defect COTV-9223 ONTAP tools up versions 10.0-10.6P1 fail to properly set LUN space allocation. You can read more at link:https://kb.netapp.com/data-mgmt/OTV/VSC_Kbs/OTV_10.x_creates_iSCSI_LUNs_with_space-allocation_disabled[ONTAP tools creates LUNs with space-allocation disabled] 
 
 == Multipath settings for performance
 

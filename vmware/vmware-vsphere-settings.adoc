@@ -134,7 +134,8 @@ ONTAP tools also specifies certain default settings when creating ONTAP FlexVol 
 |LUN space allocation
 |Enabled*
 |===
-*Note that due to defect COTV-9223 ONTAP tools up versions 10.0-10.6P1 fail to properly set LUN space allocation. You can read more at link:https://kb.netapp.com/data-mgmt/OTV/VSC_Kbs/OTV_10.x_creates_iSCSI_LUNs_with_space-allocation_disabled[ONTAP tools creates LUNs with space-allocation disabled] 
+*Note that due to defect COTV-9223 ONTAP tools up versions 10.0-10.6P1 fail to properly set LUN space allocation. You can read more at link:https://kb.netapp.com/data-mgmt/OTV/VSC_Kbs/OTV_10.x_creates_iSCSI_LUNs_with_space-allocation_disabled[ONTAP tools creates LUNs with space-allocation disabled]
+ You will need to enable space-allocation using System Manager, CLI, or your automation platform of choice using ONTAP's REST APIs. You may also choose to use the NetApp ONTAP MCP Server with your AI harness of choice. link:https://community.netapp.com/community/discussion/465968/new-ontap-mcp-ai-that-modernizes-your-storage-operations[New ONTAP MCP: AI that Modernizes Your Storage Operations] 
 
 == Multipath settings for performance
 

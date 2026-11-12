@@ -55,6 +55,6 @@ image:vsphere_ontap_image2.png[multipath connectivity]
 * If the Challenge-Handshake Authentication Protocol (CHAP) is used in ESXi for target authentication, it must also be configured in ONTAP using the CLI (`vserver iscsi security create`) or with System Manager (edit Initiator Security under Storage > SVMs > SVM Settings > Protocols > iSCSI).
 * Use ONTAP tools for VMware vSphere to create and manage LUNs and igroups. The plug-in automatically determines the WWPNs of servers and creates appropriate igroups. It also configures LUNs according to best practices and maps them to the correct igroups.
 * Use RDMs with care because they can be more difficult to manage,  and they also use paths, which are limited as described earlier. ONTAP LUNs support both https://kb.vmware.com/s/article/2009226[physical and virtual compatibility mode^] RDMs.
-* For more on using NVMe/FC with vSphere 7.0, see this https://docs.netapp.com/us-en/ontap-sanhost/nvme_esxi_7.html[ONTAP NVMe/FC Host Configuration guide^] and http://www.netapp.com/us/media/tr-4684.pdf[TR-4684^].The following figure depicts multipath connectivity from a vSphere host to an ONTAP LUN.
+* For more on using NVMe/FC with vSphere 7.0, see this https://docs.netapp.com/us-en/ontap-sanhost/nvme_esxi_7.html[ONTAP NVMe/FC Host Configuration guide^] and https://www.netapp.com/pdf.html?item=/media/10681-tr4684.pdf[TR-4684^].The following figure depicts multipath connectivity from a vSphere host to an ONTAP LUN.
 
 

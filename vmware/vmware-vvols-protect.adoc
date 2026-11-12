@@ -55,7 +55,9 @@ https://www.netapp.com/media/13481-tr4689.pdf[_TR-4689 MetroCluster IP Solution 
 
 https://www.netapp.com/pdf.html?item=/media/13480-tr4705.pdf[_TR-4705 NetApp MetroCluster Solution architecture and design_]
 
-https://kb.vmware.com/s/article/2031038[_VMware KB 2031038 VMware vSphere Support with NetApp MetroCluster_]
+https://docs.netapp.com/us-en/netapp-solutions-virtualization/vmware/vmw-vcf-vmsc-mgmt-mcc.html[Configure a stretch cluster for a VCF management domain using MetroCluster]
+
+https://docs.netapp.com/us-en/netapp-solutions-virtualization/vmware/vmw-vcf-vmsc-viwld-mcc.html[Configure a stretch cluster for a VCF workload domain using MetroCluster]
 
 == vVols Backup Overview
 

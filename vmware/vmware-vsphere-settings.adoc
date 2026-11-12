@@ -37,7 +37,7 @@ For more information, see link:https://www.vmware.com/docs/vmw-vmware-vsphere-ap
 
 3+e|*NFS Settings*
 |newSyncInterval
-|If you are not using the vSphere CSI for Kubernetes, set per https://knowledge.broadcom.com/external/article/386364/reducing-excessive-vsan-cnssync-warnings.html[VMware KB 386364^] 
+|If you are not using the vSphere CSI for Kubernetes, set per https://knowledge.broadcom.com/external/article/415074/reducing-or-disabling-excessive-vsan-cns.html[VMware KB 415074^] 
 |No
 |Net.TcpipHeapSize
 |vSphere 6.0 or later, set to 32.

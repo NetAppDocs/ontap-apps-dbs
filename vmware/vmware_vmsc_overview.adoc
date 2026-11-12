@@ -19,6 +19,8 @@ vMSC solutions are supported with both NetApp® MetroCluster™ and SnapMirror a
 [NOTE]
 This documentation replaces previously published technical reports _TR-4128: vSphere on NetApp MetroCluster_
 
+include::../_include/vmsc-vcf-vvf-note.adoc[]
+
 == Continuous Availability Solutions for vSphere Environments
 
 ONTAP architecture is a flexible and scalable storage platform that provides SAN (FCP, iSCSI, and NVMe-oF) and NAS (NFS v3 and v4.1) services for datastores. The NetApp AFF, ASA, and FAS storage systems use the ONTAP operating system to offer additional protocols for guest storage access, like S3 and SMB/CIFS.

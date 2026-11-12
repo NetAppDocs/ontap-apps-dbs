@@ -5,8 +5,8 @@ keywords: oracle, data protection, crash-consistent
 summary: Oracle automatic recovery without backup mode.
 searchtitle: Oracle automatic recovery without backup mode.
 ---
-= Oracle automatic recovery without backup mode
 
+= Oracle automatic recovery without backup mode
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -35,7 +35,7 @@ During recovery, the database reads metadata from the datafiles to identify the 
 NOTE:
 ====
 This approach can approximate a point-in-time recovery, but with limited granularity. For example, if you start with datafiles in backup mode, you can roll the database forward to any arbitrary transaction. 
-
++
 If you use the automatic recovery approach, without using backup mode, you must recover the database to the point of the log snapshot. In normal circumstances, the RPO would still be zero because the original archive logs, redo logs, and controlfiles would still be available in the active filesystem. If a recovery needed to be performed wholly from snapshots due to loss of all data in the active filesystems, then the RPO would be one hour.
 ====
 

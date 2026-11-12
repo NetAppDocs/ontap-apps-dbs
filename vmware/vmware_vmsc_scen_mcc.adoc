@@ -14,6 +14,8 @@ summary: Failure Scenarios for vMSC with MCC
 [.lead]
 The following sections outline the expected results from various failure scenarios with vMSC and NetApp MetroCluster systems.
 
+include::../_include/vmsc-vcf-vvf-note.adoc[]
+
 == Single Storage Path Failure
 
 In this scenario, if components such as the HBA port, the network port, the front-end data switch port, or an FC or Ethernet cable fails, that particular path to the storage device is marked as dead by the ESXi host. If several paths are configured for the storage device by providing resiliency at the HBA/network/switch port, ESXi ideally performs a path switchover. During this period, virtual machines remain running without getting affected, because availability to the storage is taken care of by providing multiple paths to the storage device.

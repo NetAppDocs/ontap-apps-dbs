@@ -14,8 +14,6 @@ summary: vMSC Design and Implementation Guidelines.
 [.lead]
 This document outlines the design and implementation guidlines for vMSC with ONTAP storage systems.
 
-include::../_include/vmsc-vcf-vvf-note.adoc[]
-
 == NetApp Storage Configuration
 
 Setup instructions for NetApp MetroCluster are available at https://docs.netapp.com/us-en/ontap-metrocluster/[MetroCluster Documentation]. Instructions for SnapMirror active sync (SMas) are also available at https://docs.netapp.com/us-en/ontap/smbc/index.html[SnapMirror Business Continuity overview].

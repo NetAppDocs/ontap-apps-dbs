@@ -1,0 +1,2 @@
+[NOTE]
+The vSphere Metro Storage Cluster (vMSC) guidance in this documentation applies equally to VMware Cloud Foundation (VCF) and VMware vSphere Foundation (VVF). VCF and VVF are different Broadcom licensing models, but the underlying vSphere and ONTAP storage architecture for vMSC is the same.
